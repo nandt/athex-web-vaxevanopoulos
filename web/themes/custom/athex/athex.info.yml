@@ -1,0 +1,13 @@
+name: AthexGroup
+type: theme
+description: 'AthexGroup - Custom Drupal 10 theme'
+core_version_requirement: ^10
+
+base theme: stable9
+
+regions:
+  header: Header
+  highlighted: Highlighted
+  content: Content
+  footer: Footer
+  hidden: Hidden
