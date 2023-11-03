@@ -8,5 +8,4 @@
 2. Build dev image
 	> docker build -f athex-dev.Dockerfile -t athex-dev .
 3. Run a container with the dev image and with a binding to the current path
-	<!-- > docker run -it --rm -p 8088:80 -v $(pwd):/var/www/html athex-dev -->
-	> docker run --rm -p 8088:80 -v $(pwd):/var/www/html athex-dev
+	> docker run -it --rm -p 8088:80 -v $(pwd):/var/www/html athex-dev
