@@ -10,5 +10,7 @@ RUN composer --version && php -v
 RUN sed -ri -e 's!/var/www/html!/var/www/html/web!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!/var/www/html/web!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 
+WORKDIR /var/www/html
+
 EXPOSE 80
-CMD ["tmux", "new-session", "-n", "apache", "apache2ctl -D FOREGROUND"]
+CMD ["./.docker/dev-launch.sh"]
