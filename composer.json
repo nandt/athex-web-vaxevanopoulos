@@ -39,6 +39,9 @@
         "drupal-scaffold": {
             "locations": {
                 "web-root": "web/"
+            },
+            "file-mapping": {
+                "[project-root]/.editorconfig": false
             }
         },
         "installer-paths": {
