@@ -1,0 +1,8 @@
+bootstrap:
+  js:
+    ../../../../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js: {}
+
+global:
+  css:
+    theme:
+      css/_base.scss: {}

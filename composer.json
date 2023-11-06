@@ -26,7 +26,8 @@
         "drupal/scss_compiler": "^1.2",
         "drupal/simple_sitemap": "^4.1",
         "drupal/webform": "^6.2",
-        "drush/drush": "^12.4"
+        "drush/drush": "^12.4",
+        "twbs/bootstrap": "5.3.2"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -49,7 +50,8 @@
                 "web-root": "web/"
             },
             "file-mapping": {
-                "[project-root]/.editorconfig": false
+                "[project-root]/.editorconfig": false,
+                "[web-root]/sites/development.services.yml": false
             }
         },
         "installer-paths": {
