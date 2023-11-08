@@ -1,0 +1,31 @@
+
+# https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-destination-plugins-examples/migrating-files-and-images
+
+id: athex_liferay
+label: ATHEX Liferay Migration
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: 1
+      title: 'Page 1 title'
+      content: '<p>Page 1 content</p>'
+      file: 'https://www.drupal.org/files/issues/2018-06-23/interdiff-2944846-2-5.txt'
+    -
+      id: 2
+      title: 'Page 2 title'
+      content: '<p>Page 2 content</p>'
+      file: 'https://www.drupal.org/files/issues/2018-06-23/interdiff-2944846-2-5.txt'
+  ids:
+    id:
+      type: integer
+process:
+  nid: id
+  title: title
+  body: content
+  field_attachment:
+    plugin: file_import
+    source: file
+destination:
+  plugin: entity:node
+  default_bundle: article
