@@ -1,0 +1,61 @@
+{{ attach_library('athex/nav_bar') }}
+
+{# web/core/themes/stable9/templates/navigation/menu.html.twig #}
+
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link URL, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{% import _self as menus %}
+
+<ul class="main-menu">
+    {% for item in items %}
+        <li{{ item.attributes }}>
+            <a href="{{ item.url }}"{{ item.localized_options }}>
+                {{ item.title }}
+            </a>
+            {% if item.is_expanded %}
+                <div class="mega-menu">
+                    <ul class="mega-menu-column">
+                        {% for subItem in item.below %}
+                            <li{{ subItem.attributes }}>
+                                <a href="{{ subItem.url }}"{{ subItem.localized_options }}>
+                                    {{ subItem.title }}
+                                </a>
+                                {% if subItem.is_expanded %}
+                                    <div class="sub-mega-menu">
+                                        <ul class="sub-mega-menu-column">
+                                            {% for subSubItem in subItem.below %}
+                                                <li{{ subSubItem.attributes }}>
+                                                    <a href="{{ subSubItem.url }}"{{ subSubItem.localized_options }}>
+                                                        {{ subSubItem.title }}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

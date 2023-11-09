@@ -1,0 +1,47 @@
+@import '../base';
+
+body {
+	overflow: hidden;
+}
+
+@media (max-width: 992px) {
+	body:not(.mobile-menu-main-expanded) .menu-block--main nav {
+		display: none;
+	}
+}
+
+.menu-block--main {
+	// &>button {
+
+	// }
+
+	nav {
+		// &>ul {
+
+		// }
+
+		li > div:not(.expanded) {
+			display: none;
+		}
+
+		.expanded ul li{
+			display: block;
+		}
+
+		span.expanded{
+			display: none;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		.main-item {
+
+		}
+
+		.item {
+			display: block;
+		}
+	}
+}
