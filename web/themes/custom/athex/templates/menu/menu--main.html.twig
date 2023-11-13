@@ -10,16 +10,25 @@
 		{% if menu_level == 0 %}
 			<ul{{ attributes }}>
 		{% else %}
+			<button class="back-button">Back</button>
 			<ul>
 		{% endif %}
 		{% for item in items %}
 			<li{{ item.attributes }}>
-				<span>{{item.title}}</span>
 				{% if item.below %}
+					<span>{{item.title}}</span>
 					<div>
-						{{ link(item.title, item.url) }}
+						{% if item.url %}
+							{% if item.below %}
+								<a href="{{item.url}}">Explore {{item.title}}</a>
+							{% else %}
+								<a href="{{item.url}}">{{item.title}}</a>
+							{% endif %}
+						{% endif %}
 						{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
 					</div>
+				{% else %}
+					<a href="{{item.url}}">{{item.title}}</a>
 				{% endif %}
 			</li>
 		{% endfor %}

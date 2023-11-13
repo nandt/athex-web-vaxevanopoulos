@@ -1,9 +1,5 @@
 @import '../base';
 
-body {
-	overflow: hidden;
-}
-
 @media (max-width: 992px) {
 	body:not(.mobile-menu-main-expanded) .menu-block--main nav {
 		display: none;
@@ -15,33 +11,103 @@ body {
 
 	// }
 
-	nav {
-		// &>ul {
+	.navbar-toggler-icon {
+		background-image: url('../../assets/icons/menu-button-mobile.svg');
+	}
 
-		// }
+	nav {
+		&>ul {
+			list-style: none;
+		}
 
 		li > div:not(.expanded) {
 			display: none;
 		}
 
-		.expanded ul li{
+		li.expanded > div {
 			display: block;
 		}
 
-		span.expanded{
+		li.expanded > span {
 			display: none;
 		}
 
-		.hidden {
+		li.hidden {
 			display: none;
 		}
 
-		.main-item {
+		button:not(.back-button){
+			display: none;
+		}
+
+		.expanded-item ~ li {
+			display: none;
+		}
+
+		.expanded-item > div > button {
+			display: none;
+		}
+
+		@media (min-width: 992px) {
+			ul {
+				display: flex;
+				justify-content: space-evenly;
+			}
+
+			.expanded ul {
+				flex-direction: column;
+    			// position: absolute;
+    			// right: 85%;
+			}
+
+			li.expanded > span {
+				display: block;
+			}
+
+			li.expanded > div {
+				padding-top: 15px;
+				position: relative;
+   				left: 9%;
+			}
+
+			.menu-main-expanded {
+				position: relative;
+				right: 42%;
+			}
+
+			.expanded:not(.hidden){
+				position: relative;
+			}
+
+			li.hidden {
+				display: block;
+			}
+
+			.menu-block--main {
+				padding-bottom: 16%;
+			}
+
+			.hidden {
+				display: block;
+			}
+
+			li.expanded > div > ul > li.expanded > div {
+				left: 115%;
+				bottom: 24%;
+				position: relative;
+				margin-bottom: -115px;
+			}
+
+			li.expanded > div > ul > li.expanded > div > ul  > li.expanded {
+				margin-bottom: -99px;
+			}
+
+
+			.back-button.hidden {
+				display: none;
+			}
 
 		}
 
-		.item {
-			display: block;
-		}
 	}
 }
