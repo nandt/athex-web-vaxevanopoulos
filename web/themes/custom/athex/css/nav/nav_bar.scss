@@ -1,19 +1,19 @@
 @import '../base';
 
-@media (max-width: 992px) {
-	body:not(.mobile-menu-main-expanded) .menu-block--main nav {
-		display: none;
-	}
-}
+// @media (max-width: 992px) {
+// 	body:not(.mobile-menu-main-expanded) .menu-block--main nav {
+// 		display: none;
+// 	}
+// }
 
 .menu-block--main {
 	// &>button {
 
 	// }
 
-	.navbar-toggler-icon {
-		background-image: url('../../assets/icons/menu-button-mobile.svg');
-	}
+	// .navbar-toggler-icon {
+	// 	background-image: url('../../assets/icons/menu-button-mobile.svg');
+	// }
 
 	nav {
 		&>ul {
@@ -56,8 +56,6 @@
 
 			.expanded ul {
 				flex-direction: column;
-    			// position: absolute;
-    			// right: 85%;
 			}
 
 			li.expanded > span {
@@ -101,7 +99,6 @@
 			li.expanded > div > ul > li.expanded > div > ul  > li.expanded {
 				margin-bottom: -99px;
 			}
-
 
 			.back-button.hidden {
 				display: none;

@@ -1,11 +1,7 @@
 jQuery(document).ready(function ($) {
 
-	$(document).on('click', '.menu-block--main > button', function (e) {
-		$(document.body).toggleClass('mobile-menu-main-expanded');
-		// e.target....attributes..["aria-expanded"] = String($(document.body).hasClass("mobile-menu-main-expanded"));
-	});
-
-	$(document).on('click', '.menu-block--main > nav > ul > li', function(e) {
+	$(document).on('click', '.burger-mobile.mobile-menu-main-expanded .menu-block--main > nav > ul > li', function(e) {
+		$(this).parents('.main-menu').siblings().toggleClass('hidden')
 		$(this).siblings().removeClass('expanded');
 		$(this).toggleClass('expanded');
 		$(this).parent('button').toggleClass('back-button');

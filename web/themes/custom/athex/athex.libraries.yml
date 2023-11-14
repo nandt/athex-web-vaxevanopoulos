@@ -10,6 +10,13 @@ global:
 nav_bar:
   css:
     theme:
-      css/layout/nav_bar.scss: {}
+      css/nav/nav_bar.scss: {}
   js:
     js/nav_bar.js: {}
+
+main_menu:
+  css:
+    theme:
+      css/layout/main_menu.scss: {}
+  js:
+    js/main_menu.js: {}

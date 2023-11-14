@@ -1,0 +1,8 @@
+@import '../nav/nav_bar.scss';
+
+
+@media (max-width: 992px) {
+	.burger-mobile:not(.mobile-menu-main-expanded) {
+		display: none;
+	}
+}
