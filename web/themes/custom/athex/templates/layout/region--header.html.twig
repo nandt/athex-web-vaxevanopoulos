@@ -1,0 +1,23 @@
+{# web/core/themes/stable9/templates/layout/region.html.twig #}
+
+{% if content %}
+	<div{{ attributes }}>
+
+		{{ elements['athex_site_branding']['#markup'] }}
+
+		{% for key, element in elements %}
+			{% if
+				element['#markup']
+				and key not in [
+					'athex_site_branding'
+					'athex_search_form'
+				]
+			%}
+				{{ element['#markup'] }}
+			{% endif %}
+		{% endfor %}
+
+		{{ elements['athex_search_form']['#markup'] }}
+
+	</div>
+{% endif %}
