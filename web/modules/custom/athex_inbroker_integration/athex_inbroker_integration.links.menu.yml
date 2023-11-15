@@ -1,0 +1,5 @@
+# athex_inbroker.settings:
+#   title: 'InBroker Integration - Settings'
+#   title_context: 'athex_inbroker'
+#   parent: 'system.admin_config_services'
+#   route_name: athex_inbroker.settings
