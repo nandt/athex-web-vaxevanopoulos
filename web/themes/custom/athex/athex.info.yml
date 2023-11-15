@@ -13,4 +13,5 @@ regions:
   highlighted: Highlighted
   content: Content
   footer: Footer
+  subfooter: Sub-Footer
   hidden: Hidden
