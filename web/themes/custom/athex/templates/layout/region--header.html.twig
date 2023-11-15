@@ -5,34 +5,38 @@
 {% if content %}
 	<div class="row "{{ attributes }}>
 
+		<div class="logo-search">
+			<div class="site-branding">
+				{{ elements['athex_sitebranding']['#markup'] }}
+			</div>
 
-		<div class="site-branding col-6">
-			{{ elements['athex_sitebranding']['#markup'] }}
+			<div class="search-form">
+				{{ elements['athex_searchform']['#markup'] }}
+			</div>
 		</div>
-
-		<div class="search-form col-6">
-			{{ elements['athex_searchform']['#markup'] }}
-		</div>
-
 
 		<button class="navbar-toggler" type="button" aria-controls="{{attributes.id}}" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
+
 		<div class="burger-mobile">
 			<div class="main-menu">
 				{{ elements['athex_main_menu']['#markup'] }}
 			</div>
 
-			<div class="investor-relations">
-				{{ elements['athex_investorrelationslink']['#markup'] }}
-			</div>
-
-			<div class="lang">
-				{{ elements['athex_languageswitcher']['#markup'] }}
-			</div>
-
-			<div class="login">
-				{{ elements['athex_userlogin']['#markup'] }}
+			<div class="top-links">
+				{% for key, element in elements %}
+					{% if
+						element['#markup']
+						and key not in [
+							'athex_sitebranding',
+							'athex_searchform',
+							'athex_main_menu'
+						]
+					%}
+						<div class={{key}} >{{ element['#markup'] }}</div>
+					{% endif %}
+				{% endfor %}
 			</div>
 		</div>
 

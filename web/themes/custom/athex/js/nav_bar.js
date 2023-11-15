@@ -1,7 +1,8 @@
 jQuery(document).ready(function ($) {
 
-	$(document).on('click', '.burger-mobile.mobile-menu-main-expanded .menu-block--main > nav > ul > li', function(e) {
-		$(this).parents('.main-menu').siblings().toggleClass('hidden')
+	$(document).on('click', '.burger-mobile .menu-block--main > nav > ul > li', function(e) {
+		$(this).parents('.main-menu').siblings().toggleClass('hidden');
+		$(this).parents('.main-menu').toggleClass('expanded');
 		$(this).siblings().removeClass('expanded');
 		$(this).toggleClass('expanded');
 		$(this).parent('button').toggleClass('back-button');
@@ -14,6 +15,7 @@ jQuery(document).ready(function ($) {
 
 	$(document).on('click', '.expanded > div > ul > li', function(e){
 		$(this).toggleClass('expanded');
+		$(this).parents('.main-menu').toggleClass('expanded');
 		$(this).siblings().toggleClass('hidden');
 		$(this).parent().parent().parent('li').toggleClass('expanded');
 		$(this).parent().parent().parent('li').siblings().toggleClass('hidden');

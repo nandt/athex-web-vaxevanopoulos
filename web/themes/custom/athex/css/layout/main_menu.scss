@@ -6,3 +6,31 @@
 		display: none;
 	}
 }
+
+@media (min-width: 992px) {
+
+	.top-links {
+		display: flex;
+		padding: 2px;
+		justify-content: flex-end;
+		bottom: -28%;
+		left: 74%;
+	}
+
+	.logo-search {
+		display: flex;
+		justify-content: space-between;
+		padding: 150px 0px 390px;
+	}
+
+	.main-menu {
+		position: absolute;
+		right: 37%;
+		margin-top: 153px;
+	}
+
+	.burger-mobile {
+		position: absolute;
+		margin-bottom: -200px;
+	}
+}

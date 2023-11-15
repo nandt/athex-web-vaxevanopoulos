@@ -1,20 +1,6 @@
 @import '../base';
 
-// @media (max-width: 992px) {
-// 	body:not(.mobile-menu-main-expanded) .menu-block--main nav {
-// 		display: none;
-// 	}
-// }
-
 .menu-block--main {
-	// &>button {
-
-	// }
-
-	// .navbar-toggler-icon {
-	// 	background-image: url('../../assets/icons/menu-button-mobile.svg');
-	// }
-
 	nav {
 		&>ul {
 			list-style: none;
