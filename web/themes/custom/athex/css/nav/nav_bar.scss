@@ -37,7 +37,10 @@
 		@media (min-width: 992px) {
 			ul {
 				display: flex;
-				justify-content: space-evenly;
+
+				li {
+					padding: 0px 25px;
+				}
 			}
 
 			.expanded ul {
