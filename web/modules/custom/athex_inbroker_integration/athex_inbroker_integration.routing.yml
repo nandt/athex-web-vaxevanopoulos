@@ -1,0 +1,6 @@
+athex_inbroker.test:
+  path: '/inbroker-test'
+  defaults:
+    _controller: '\Drupal\athex_inbroker_integration\Controller\TestController::test'
+  requirements:
+    _user_is_logged_in: 'FALSE'
