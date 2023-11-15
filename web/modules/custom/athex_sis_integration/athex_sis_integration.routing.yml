@@ -1,0 +1,6 @@
+athex_sis.test:
+  path: '/sis-test'
+  defaults:
+    _controller: '\Drupal\athex_sis_integration\Controller\TestController::test'
+  requirements:
+    _user_is_logged_in: 'FALSE'

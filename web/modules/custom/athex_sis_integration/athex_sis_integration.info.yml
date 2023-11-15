@@ -1,0 +1,6 @@
+name: 'AthexGroup SIS Integration'
+type: module
+core_version_requirement: ^10
+package: Deloitte Digital
+description: ''
+version: '1.0.0'
