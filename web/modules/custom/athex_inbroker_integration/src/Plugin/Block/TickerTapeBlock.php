@@ -17,8 +17,32 @@ use Drupal\Core\Block\BlockPluginInterface;
 class TickerTapeBlock extends BlockBase implements BlockPluginInterface {
 
 	public function build() {
-		return [
-			'#theme' => 'athex_ticker_tape'
+		$result = [
+			'#theme' => 'ticker_tape',
+			'#attached' => [
+				'library' => ['athex_inbroker_integration/ticker_tape']
+			],
+			'#ticker_items' => [
+				'#type' => 'container',
+				'#attributes' => [
+					'class' => [
+						'ticker-item-template'
+					],
+					'style' => 'display: none;'
+				],
+				'template' => [
+					'#theme' => 'ticker_tape_item'
+				]
+			],
 		];
+
+		$item_vars = athex_inbroker_integration_theme()['ticker_tape_item']['variables'];
+
+		foreach ($item_vars as $var => $default)
+			$result['#ticker_items']['template']['#' . $var] = [
+				'#markup' => "<span data-placeholder=\"$var\"></span>"
+			];
+
+		return $result;
 	}
 }
