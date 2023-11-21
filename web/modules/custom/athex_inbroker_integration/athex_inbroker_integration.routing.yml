@@ -7,9 +7,16 @@ athex_inbroker.settings:
   requirements:
     _permission: 'administer inbroker integration'
 
-athex_inbroker.test:
-  path: '/inbroker-test'
+# athex_inbroker.test:
+#   path: '/inbroker-test'
+#   defaults:
+#     _controller: '\Drupal\athex_inbroker_integration\Controller\TestController::test'
+#   requirements:
+#     _permission: 'access content'
+
+athex_inbroker.ticker_tape_data:
+  path: '/tickerTapeData'
   defaults:
-    _controller: '\Drupal\athex_inbroker_integration\Controller\TestController::test'
+    _controller: '\Drupal\athex_inbroker_integration\Controller\TickerTapeController::getData'
   requirements:
-    _user_is_logged_in: 'FALSE'
+    _permission: 'access content'

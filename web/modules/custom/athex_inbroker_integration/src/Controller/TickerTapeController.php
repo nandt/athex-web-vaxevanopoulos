@@ -4,11 +4,11 @@ namespace Drupal\athex_inbroker_integration\Controller;
 
 use Drupal\athex_inbroker_integration\Service\ApiDataService;
 use Drupal\Core\Controller\ControllerBase;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Drupal\Core\Cache\CacheableJsonResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use GuzzleHttp\ClientInterface;
 
-class TestController extends ControllerBase {
+class TickerTapeController extends ControllerBase {
 
 	protected $api;
 
@@ -24,9 +24,13 @@ class TestController extends ControllerBase {
 		);
 	}
 
-	public function test() {
-		return new JsonResponse([
-			'res' => $this->api->callRealtime('Info', ['code' => 'ETE.ATH,ALPHA.ATH,TPEIR.ATH,EXAE.ATH'])
-		]);
+	public function getData() {
+		$result = $this->api->callRealtime('Info', ['code' => 'ETE.ATH,ALPHA.ATH,TPEIR.ATH,EXAE.ATH']);
+
+		//TODO: Transform $result for ticker tape
+
+		$response = new CacheableJsonResponse($result);
+		$response->getCacheableMetadata()->setCacheMaxAge(9);
+		return $response;
 	}
 }
