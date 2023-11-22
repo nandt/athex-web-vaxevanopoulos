@@ -15,8 +15,8 @@ class DbDataService {
 		LoggerChannelFactoryInterface $loggerFactory,
 		ConfigFactoryInterface $configFactory
 	) {
-		$this->logger = $loggerFactory->get('athex_inbroker');
-		$this->config = $configFactory->get('athex_inbroker.settings');
+		$this->logger = $loggerFactory->get('athex_sis');
+		$this->config = $configFactory->get('athex_sis.settings');
   	}
 
 	private function getConnection() {
@@ -28,10 +28,9 @@ class DbDataService {
 	}
 
 	private function exec($sql) {
-		$c = $this->getConnection();
-		$cmd = oci_parse($c, $sql);
-		oci_execute($cmd);
-		return $cmd;
+		$sql = oci_parse($this->getConnection(), $sql);
+		oci_execute($sql);
+		return $sql;
 	}
 
 	public function fetchAll(
@@ -39,7 +38,7 @@ class DbDataService {
 		$offset = 0,
 		$limit = -1,
 		&$rc = null,
-		$flags = OCI_FETCHSTATEMENT_BY_COLUMN | OCI_ASSOC
+		$flags = OCI_FETCHSTATEMENT_BY_ROW | OCI_ASSOC
 	) {
 		$cmd = $this->exec($cmd);
 		$res = [];

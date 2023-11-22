@@ -25,7 +25,7 @@ class TestController extends ControllerBase {
 
 	public function test() {
 		$rc = -1;
-		$res = this->$db->fetchAll('SELECT * FROM HELEX_BLOCKS', 0, 10, $rc);
+		$res = $this->db->fetchAll('SELECT * FROM HELEX_BLOCKS', 0, 10, $rc);
 		return new JsonResponse([
 			'rc' => $rc,
 			'res' => $res
