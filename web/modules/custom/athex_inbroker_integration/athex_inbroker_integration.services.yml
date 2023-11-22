@@ -1,0 +1,4 @@
+services:
+  athex_inbroker.api_data:
+    class: Drupal\athex_inbroker_integration\Service\ApiDataService
+    arguments: ['@logger.factory', '@config.factory', '@http_client']
