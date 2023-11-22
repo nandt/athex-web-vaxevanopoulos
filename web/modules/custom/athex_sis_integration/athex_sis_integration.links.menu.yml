@@ -1,0 +1,5 @@
+# athex_sis.settings:
+#   title: 'SIS Integration - Settings'
+#   title_context: 'athex_sis'
+#   parent: 'system.admin_config_services'
+#   route_name: athex_sis.settings

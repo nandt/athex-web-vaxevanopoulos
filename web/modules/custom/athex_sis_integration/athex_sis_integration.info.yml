@@ -4,3 +4,5 @@ core_version_requirement: ^10
 package: Deloitte Digital
 description: ''
 version: '1.0.0'
+
+configure: athex_sis.settings

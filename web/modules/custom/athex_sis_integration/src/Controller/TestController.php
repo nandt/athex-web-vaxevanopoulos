@@ -2,31 +2,30 @@
 
 namespace Drupal\athex_sis_integration\Controller;
 
+use Drupal\athex_sis_integration\Service\DbDataService;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class TestController extends ControllerBase {
-	public function __construct() {}
+
+	protected $db;
+
+	public function __construct(
+		DbDataService $db
+	) {
+		$this->db = $db;
+	}
 
 	public static function create(ContainerInterface $container) {
-		return new static();
+		return new static(
+			$container->get('athex_sis.db_data')
+		);
 	}
 
 	public function test() {
-		$c = oci_connect(
-			"",	// username
-			"",	// password
-			""	// connection_string
-		);
-
-		$cmd = oci_parse($c, 'SELECT * FROM HELEX_BLOCKS');
-		oci_execute($cmd);
-
-		$res = [];
-
-		$rc = oci_fetch_all($cmd, $res, 0, 10);
-
+		$rc = -1;
+		$res = this->$db->fetchAll('SELECT * FROM HELEX_BLOCKS', 0, 10, $rc);
 		return new JsonResponse([
 			'rc' => $rc,
 			'res' => $res
