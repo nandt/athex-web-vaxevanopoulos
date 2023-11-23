@@ -6,7 +6,7 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use GuzzleHttp\ClientInterface;
 
-class DbDataService {
+class SisDbDataService {
 
 	protected $logger;
 	protected $config;

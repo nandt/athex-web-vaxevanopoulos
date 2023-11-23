@@ -2,7 +2,7 @@
 
 namespace Drupal\athex_sis_integration\Controller;
 
-use Drupal\athex_sis_integration\Service\DbDataService;
+use Drupal\athex_sis_integration\Service\SisDbDataService;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -12,7 +12,7 @@ class TestController extends ControllerBase {
 	protected $db;
 
 	public function __construct(
-		DbDataService $db
+		SisDbDataService $db
 	) {
 		$this->db = $db;
 	}
