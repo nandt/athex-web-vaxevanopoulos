@@ -1,0 +1,10 @@
+name: 'AthexGroup Company Pages'
+version: '1.0.0'
+type: module
+description: 'Provides pages for AthexGroup registered companies.'
+package: 'Deloitte Digital'
+core_version_requirement: ^10
+configure: athex_sis.settings
+dependencies:
+  - athex_inbroker_integration
+  - athex_sis_integration
