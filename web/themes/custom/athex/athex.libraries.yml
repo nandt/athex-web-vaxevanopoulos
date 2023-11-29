@@ -41,3 +41,8 @@ cta_image_banner:
   css:
     theme:
       css/paragraph/cta_image_banner.scss: {}
+
+quick_link:
+  css:
+    theme:
+      css/paragraph/quick_link.scss: {}
