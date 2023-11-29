@@ -4,6 +4,10 @@ global:
   css:
     theme:
       css/_base.scss: {}
+      css/global/app.scss: {}
+      css/global/fonts.scss: {}
+      css/global/typography.scss: {}
+      css/global/colors.scss: {}
   dependencies:
     - core/jquery
 
@@ -27,3 +31,13 @@ main_menu:
       css/layout/main_menu.scss: {}
   js:
     js/main_menu.js: {}
+
+footer:
+  css:
+      theme:
+        css/layout/footer.scss: {}
+
+cta_image_banner:
+  css:
+    theme:
+      css/paragraph/cta_image_banner.scss: {}
