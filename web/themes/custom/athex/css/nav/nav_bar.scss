@@ -2,16 +2,13 @@
 
 .menu-block--main {
 	nav {
-		&>ul {
-			list-style: none;
-		}
-
 		li > div:not(.expanded) {
 			display: none;
 		}
 
 		li.expanded > div {
-			display: block;
+			display: flex;
+			width: 100%;
 		}
 
 		li.expanded > span {
@@ -22,7 +19,7 @@
 			display: none;
 		}
 
-		button:not(.back-button){
+		.back.hidden{
 			display: none;
 		}
 
@@ -32,6 +29,27 @@
 
 		.expanded-item > div > button {
 			display: none;
+		}
+
+		.expanded > div {
+			display: flex;
+			flex-direction: column;
+
+			> a {
+				padding-bottom: 24px;
+				order: 2;
+				font-size: 18px;
+				font-weight: 600;
+			}
+
+			.back {
+				order: 1;
+				padding-bottom: 49px;
+			}
+
+			ul {
+				order: 3;
+			}
 		}
 
 		@media (min-width: 992px) {
@@ -97,3 +115,25 @@
 
 	}
 }
+
+.layout-container.expanded {
+	position: fixed;
+	overflow-y: scroll;
+
+	header {
+		position: fixed;
+		overflow: scroll;
+		z-index: 999;
+		height: 100vh;
+	}
+
+	main {
+		position: absolute;
+	}
+
+	footer {
+		position: absolute;
+	}
+}
+
+

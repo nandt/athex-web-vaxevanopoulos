@@ -5,5 +5,9 @@ jQuery(document).ready(function ($) {
 		// e.target....attributes..["aria-expanded"] = String($(document.body).hasClass("mobile-menu-main-expanded"));
 	});
 
+	$(document).on('click', '.search-icon', function (e) {
+		e.preventDefault();
+		$(this).siblings('div').toggleClass('hidden');
+	})
 })
 

@@ -8,9 +8,14 @@
 	{% import _self as menus %}
 	{% if items %}
 		{% if menu_level == 0 %}
-			<ul{{ attributes }}>
+			<ul class="top-level" {{ attributes }}>
 		{% else %}
-			<button class="back-button">Back</button>
+			{# {% if menu_level == 1%} #}
+				<div class="back">
+					<span class="back-icon"></span>
+					<button class="back-button">Main Menu</button>
+				</div>
+			{# {% endif %} #}
 			<ul>
 		{% endif %}
 		{% for item in items %}
@@ -27,6 +32,7 @@
 						{% endif %}
 						{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
 					</div>
+					<span class="menu-item-arrow"></span>
 				{% else %}
 					<a href="{{item.url}}">{{item.title}}</a>
 				{% endif %}

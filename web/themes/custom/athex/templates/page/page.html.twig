@@ -1,6 +1,7 @@
 {# web/core/themes/stable9/templates/layout/page.html.twig #}
 <div class="layout-container familyManrope">
 
+  <div class="main-page">
   <header role="banner">
     {{ page.header }}
   </header>
@@ -15,11 +16,11 @@
   {{ page.help }}
 
   <main role="main">
-    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+    <a id="main-content" tabindex="-1"></a>
 
     <div class="layout-content">
       {{ page.content }}
-    </div>{# /.layout-content #}
+    </div>
 
     {% if page.sidebar_first %}
       <aside class="layout-sidebar-first" role="complementary">
@@ -44,5 +45,6 @@
 	  {% endif %}
     </footer>
   {% endif %}
+  </div>
 
 </div>{# /.layout-container #}

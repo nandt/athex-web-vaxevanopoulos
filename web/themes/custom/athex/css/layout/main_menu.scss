@@ -7,30 +7,142 @@
 	}
 }
 
+hr {
+	color: #C2D1D9 !important;
+	margin: 0 !important;
+}
+
+.search-icon {
+	background-image: url('assets/icons/Gradient2/search.svg');
+	width: 24px;
+	height: 24px;
+	background-size: 24px;
+	background-repeat: no-repeat;
+	display: block;
+	position: relative;
+	top: 22px;
+	padding-right: 44px;
+	border-right: 1px solid #D8D8D8;
+}
+
+.menu-item-arrow, .back-icon {
+	background-image: url('assets/icons/black/menu-arrow.svg');
+	width: 20px;
+	height: 20px;
+	display: block;
+}
+
+.back {
+	display: flex;
+	align-items: center;
+
+	.back-icon {
+		transform: rotate(180deg);
+	}
+
+	.back-button {
+		background: none;
+		border: none;
+	}
+}
+
+.burger-icon-wrapper {
+	padding: 24px;
+
+	.burger-icon {
+		background-image: url('assets/icons/Gradient/burger-btn.svg');
+		width: 24px;
+		height: 24px;
+		background-size: 24px;
+		background-repeat: no-repeat;
+		display: block;
+		position: relative;
+	}
+}
+
+.logo-search {
+	padding: 0px 24px;
+}
+
+.site-branding  {
+	padding: 24px !important;
+
+	img {
+		width: 126px;
+	}
+}
+
+input[type="submit"]:not(:disabled){
+	display: none;
+}
+
+input[type="search"]:not(:disabled){
+	// position: relative;
+	// right: 160px;
+	// bottom: 5px;
+	display: none;
+}
+
+.menu-block--main {
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+
+	nav {
+		.top-level {
+			padding: 34px 12px 6px;
+		}
+
+		li {
+			display: flex;
+			justify-content: space-between;
+			padding: 12px 0px;
+		}
+	}
+}
+
+.menu-sublink {
+	border-bottom: 1px solid #E6EBEE;
+	display: flex;
+	justify-content: space-between;
+	padding: 32px 12px;
+}
+
+.language-selector, .login {
+	padding: 16px 12px;
+
+	ul, li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.login {
+	display: flex;
+	justify-content: space-between;
+}
+
 @media (min-width: 992px) {
 
 	.top-links {
+		position: relative;
 		display: flex;
-		padding: 2px;
-		justify-content: flex-end;
-		bottom: -28%;
-		left: 74%;
+		align-items: center;
+		top: -23px;
+		right: 31px;
 	}
 
-	.logo-search {
-		display: flex;
-		justify-content: space-between;
-		padding: 150px 0px 390px;
+	.navbar-toggler, .menu-item-arrow {
+		display: none;
 	}
 
-	.main-menu {
-		position: absolute;
-		right: 17%;
-		margin-top: 153px;
+	hr {
+		display: none;
 	}
 
-	.burger-mobile {
-		position: absolute;
-		margin-bottom: -200px;
+	.search-icon, .menu-sublink {
+		border: none;
 	}
 }
