@@ -1,14 +1,18 @@
 .qlWrapper{
     display:flex;
-    flex-wrap:wrap;
-    flex-direction:column;
+    flex-direction:row;
 }
+
 
 .link_item{
     padding: 12px 16px;
     width:100%;
     display:flex;
     justify-content:space-between;
+}
+
+.link_item:hover{
+    cursor:pointer;
 }
 
 .link_item a{

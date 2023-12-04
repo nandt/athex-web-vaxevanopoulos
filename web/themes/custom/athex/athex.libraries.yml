@@ -46,3 +46,5 @@ quick_link:
   css:
     theme:
       css/paragraph/quick_link.scss: {}
+  js:
+    js/quick_link.js: {}
