@@ -15,19 +15,19 @@
 		{% for item in items %}
 			<li class="items_wrapper col-lg-4 col-12"{{ item.attributes }}>
 				{% if item.below %}
-					<span>{{item.title}}</span>
+					<span class="textColorPurple heading5 weightBoldBook">{{item.title}}</span>
 					<div>
 						{% if item.url %}
 							{% if item.below %}
-								<a href="{{item.url}}">Explore {{item.title}}</a>
+								<a class="textColorBlack body2 weightBook" href="{{item.url}}">Explore {{item.title}}</a>
 							{% else %}
-								<a href="{{item.url}}">{{item.title}}</a>
+								<a class="textColorBlack body2 weightBook" href="{{item.url}}">{{item.title}}</a>
 							{% endif %}
 						{% endif %}
 						{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
 					</div>
 				{% else %}
-					<a href="{{item.url}}">{{item.title}}</a>
+					<a class="textColorBlack body2 weightBook" href="{{item.url}}">{{item.title}}</a>
 				{% endif %}
 			</li>
 		{% endfor %}

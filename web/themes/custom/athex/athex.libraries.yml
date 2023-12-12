@@ -53,3 +53,11 @@ text_cta_image:
   css:
     theme:
       css/paragraph/text_cta_image.scss: {}
+
+hero_banner_slider:
+  css:
+    theme:
+      css/paragraph/hero_banner_slider.scss: {}
+  js:
+    js/hero_banner_slider.js: {}
+
