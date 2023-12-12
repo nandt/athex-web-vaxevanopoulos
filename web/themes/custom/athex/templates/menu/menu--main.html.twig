@@ -8,7 +8,7 @@
 	{% import _self as menus %}
 	{% if items %}
 		{% if menu_level == 0 %}
-			<ul class="top-level" {{ attributes }}>
+			<ul class="top-level col-8" {{ attributes }}>
 		{% else %}
 			{# {% if menu_level == 1%} #}
 				<div class="back">
@@ -19,10 +19,10 @@
 			<ul>
 		{% endif %}
 		{% for item in items %}
-			<li{{ item.attributes }}>
+			<li class="col" {{ item.attributes }}>
 				{% if item.below %}
-					<span>{{item.title}}</span>
-					<div>
+					<span class="menu-title">{{item.title}}</span>
+					<div class="sub-menu">
 						{% if item.url %}
 							{% if item.below %}
 								<a href="{{item.url}}">Explore {{item.title}}</a>

@@ -48,3 +48,8 @@ quick_link:
       css/paragraph/quick_link.scss: {}
   js:
     js/quick_link.js: {}
+
+text_cta_image:
+  css:
+    theme:
+      css/paragraph/text_cta_image.scss: {}

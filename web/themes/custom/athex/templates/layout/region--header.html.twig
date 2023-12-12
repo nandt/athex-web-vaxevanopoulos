@@ -6,11 +6,12 @@
 	<div class="container">
 		<div class="row" {{ attributes }}>
 
-			<div class="logo-search col-10">
-				<div class="row">
-					<div class="site-branding col-10">
+			<div class="main-menu col-12">
+				<div class="row menu">
+					<div class="site-branding col-2">
 						{{ elements['athex_sitebranding']['#markup'] }}
 					</div>
+
 
 					<div class="search-form col-2">
 						<span class="search-icon"></span>
@@ -18,24 +19,24 @@
 							{{ elements['athex_searchform']['#markup'] }}
 						</div>
 					</div>
+
+					<div class="col-2 burger-btn">
+						<button class="navbar-toggler" type="button" aria-controls="{{attributes.id}}" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="burger-icon"></span>
+						</button>
+					</div>
+				</div>
+
+				<div class="row burger-mobile">
+					<div class="nav-menu col-8">
+						{{ elements['athex_main_menu']['#markup'] }}
+					</div>
 				</div>
 			</div>
 
-			<button class="navbar-toggler col-2" type="button" aria-controls="{{attributes.id}}" aria-expanded="false" aria-label="Toggle navigation">
-				<div class="burger-icon-wrapper">
-					<span class="burger-icon"></span>
-				</div>
-			</button>
-
 			<hr>
 
-			<div class="burger-mobile col-12">
-				<div class="main-menu">
-					{{ elements['athex_main_menu']['#markup'] }}
-				</div>
-
-				<hr>
-
+			<div class="col-12 top-links-wrapper">
 				<div class="top-links">
 					{% for key, element in elements %}
 						{% if
@@ -51,7 +52,6 @@
 					{% endfor %}
 				</div>
 			</div>
-
 		</div>
 	</div>
 {% endif %}

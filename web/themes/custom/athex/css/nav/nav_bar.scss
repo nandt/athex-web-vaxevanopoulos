@@ -1,5 +1,13 @@
 @import '../base';
 
+li.expaned ~ li:not(.expanded) {
+	display: none;
+}
+
+.hidden {
+	display: none;
+}
+
 .menu-block--main {
 	nav {
 		li > div:not(.expanded) {
@@ -12,14 +20,6 @@
 		}
 
 		li.expanded > span {
-			display: none;
-		}
-
-		li.hidden {
-			display: none;
-		}
-
-		.back.hidden{
 			display: none;
 		}
 
@@ -57,7 +57,8 @@
 				display: flex;
 
 				li {
-					padding: 0px 25px;
+					padding: 0px 12px;
+					font-size: 13px;
 				}
 			}
 
@@ -65,54 +66,52 @@
 				flex-direction: column;
 			}
 
-			li.expanded > span {
+			li.expanded > .menu-title {
 				display: block;
 			}
 
-			li.expanded > div {
-				padding-top: 15px;
-				position: relative;
-   				left: 9%;
-			}
+			// li.expanded > div {
+			// 	padding-top: 15px;
+			// 	position: relative;
+   			// 	left: 9%;
+			// }
 
-			.menu-main-expanded {
-				position: relative;
-				right: 42%;
-			}
+			// .menu-main-expanded {
+			// 	position: relative;
+			// 	right: 42%;
+			// }
 
-			.expanded:not(.hidden){
-				position: relative;
-			}
+			// .menu-block--main {
+			// 	padding-bottom: 16%;
+			// }
 
-			li.hidden {
-				display: block;
-			}
+			// li.expanded > div > ul > li.expanded > div {
+			// 	left: 115%;
+			// 	bottom: 24%;
+			// 	position: relative;
+			// 	margin-bottom: -115px;
+			// }
 
-			.menu-block--main {
-				padding-bottom: 16%;
-			}
-
-			.hidden {
-				display: block;
-			}
-
-			li.expanded > div > ul > li.expanded > div {
-				left: 115%;
-				bottom: 24%;
-				position: relative;
-				margin-bottom: -115px;
-			}
-
-			li.expanded > div > ul > li.expanded > div > ul  > li.expanded {
-				margin-bottom: -99px;
-			}
-
-			.back-button.hidden {
-				display: none;
-			}
-
+			// li.expanded > div > ul > li.expanded > div > ul  > li.expanded {
+			// 	margin-bottom: -99px;
+			// }
 		}
+	}
+}
 
+@media (min-width: 992px) {
+	.hidden {
+		display: block;
+	}
+
+	.back {
+		display: none;
+	}
+
+	.sub-menu {
+		position: absolute;
+		top: 70px;
+		right: 178px
 	}
 }
 
@@ -125,6 +124,7 @@
 		overflow: scroll;
 		z-index: 999;
 		height: 100vh;
+		width: 100vw;
 	}
 
 	main {
@@ -135,5 +135,3 @@
 		position: absolute;
 	}
 }
-
-

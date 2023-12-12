@@ -1,10 +1,13 @@
 @import '../nav/nav_bar.scss';
 
-
 @media (max-width: 992px) {
-	.burger-mobile:not(.mobile-menu-main-expanded) {
+	.burger-mobile:not(.mobile-menu-main-expanded), .top-links:not(.mobile-menu-main-expanded) {
 		display: none;
 	}
+}
+
+.top-links, .nav-menu {
+	min-width: 100%;
 }
 
 hr {
@@ -20,9 +23,9 @@ hr {
 	background-repeat: no-repeat;
 	display: block;
 	position: relative;
-	top: 22px;
-	padding-right: 44px;
-	border-right: 1px solid #D8D8D8;
+	top: 24px;
+	// padding-right: 42px;
+	//border-right: 1px solid #D8D8D8;
 }
 
 .menu-item-arrow, .back-icon {
@@ -46,26 +49,25 @@ hr {
 	}
 }
 
-.burger-icon-wrapper {
-	padding: 24px;
-
-	.burger-icon {
-		background-image: url('assets/icons/Gradient/burger-btn.svg');
-		width: 24px;
-		height: 24px;
-		background-size: 24px;
-		background-repeat: no-repeat;
-		display: block;
-		position: relative;
-	}
+.burger-icon {
+	background-image: url('assets/icons/Gradient/burger-btn.svg');
+	width: 24px;
+	height: 24px;
+	background-size: 24px;
+	background-repeat: no-repeat;
+	display: block;
+	position: relative;
+	top: 28px;
 }
 
-.logo-search {
+
+.main-menu {
 	padding: 0px 24px;
 }
 
 .site-branding  {
 	padding: 24px !important;
+	min-width: 66.6%;
 
 	img {
 		width: 126px;
@@ -92,21 +94,39 @@ input[type="search"]:not(:disabled){
 	nav {
 		.top-level {
 			padding: 34px 12px 6px;
+			width: 100%;
+
+			> li > .menu-title {
+				text-align: center;
+			}
 		}
 
 		li {
 			display: flex;
 			justify-content: space-between;
 			padding: 12px 0px;
+
+			@media(min-width: 992px) {
+				flex-direction: column;
+			}
 		}
 	}
 }
 
-.menu-sublink {
+.menu-sublink, .login {
 	border-bottom: 1px solid #E6EBEE;
 	display: flex;
 	justify-content: space-between;
 	padding: 32px 12px;
+
+	div {
+		width: 100%;
+
+		a {
+			display: block;
+			width: 100%;
+		}
+	}
 }
 
 .language-selector, .login {
@@ -119,19 +139,20 @@ input[type="search"]:not(:disabled){
 	}
 }
 
-.login {
-	display: flex;
-	justify-content: space-between;
-}
-
 @media (min-width: 992px) {
+	.burger-btn {
+		display: none;
+	}
+
+	.menu {
+		justify-content: space-between;
+	}
 
 	.top-links {
-		position: relative;
 		display: flex;
 		align-items: center;
-		top: -23px;
-		right: 31px;
+		justify-content: flex-end;
+		font-size: 13px;
 	}
 
 	.navbar-toggler, .menu-item-arrow {
@@ -142,7 +163,30 @@ input[type="search"]:not(:disabled){
 		display: none;
 	}
 
-	.search-icon, .menu-sublink {
+	.search-icon {
 		border: none;
+		left: 80%;
+	}
+
+	.menu-sublink {
+		border: none;
+	}
+
+	.site-branding {
+		min-width: 16.6%;
+	}
+
+	.nav-menu {
+		text-wrap: nowrap;
+		position: relative;
+		bottom: 85px;
+		left: 200px;
+		min-width: 50%;
+	}
+
+	.main-menu {
+		position: relative;
+		bottom: 35px;
+		order: 2;
 	}
 }
