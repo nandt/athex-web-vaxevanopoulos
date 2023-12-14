@@ -12,5 +12,7 @@ RUN sed -ri -e 's!/var/www/!/var/www/html/web!g' /etc/apache2/apache2.conf /etc/
 
 WORKDIR /var/www/html
 
+COPY .docker/imgs-version /version
+
 EXPOSE 80
 CMD ["./.docker/dev-launch.sh"]
