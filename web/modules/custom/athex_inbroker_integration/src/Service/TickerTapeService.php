@@ -75,6 +75,29 @@ class TickerTapeService {
 		return $this->getItemData($codes);
 	}
 
+	public function getItemsRenderArray($codes) {
+		$result = [];
+
+		foreach ($this->getItemData($codes) as $product) {
+			$item = [
+				'#theme' => 'ticker_tape_item'
+			];
+			foreach ($product as $key => $value)
+				$item['#' . $key] = $value;
+
+			$result[] = $item;
+		}
+
+		return $result;
+	}
+
+	public function getTapeItemRenderArray() {
+		//TODO: get codes based on config
+		$codes = ['ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
+
+		return $this->getItemsRenderArray($codes);
+	}
+
 	public function getMarketStatusData() {
 		//TODO: remove to get actual data
 		return [
@@ -102,21 +125,11 @@ class TickerTapeService {
 
 		$result = [
 			'#theme' => 'ticker_tape_info',
-			'#pinned_items' => []
+			'#pinned_items' => $this->getItemsRenderArray($codes)
 		];
 
 		foreach ($this->getMarketStatusData() as $key => $value)
 			$result['#' . $key] = $value;
-
-		foreach ($this->getItemData($codes) as $product) {
-			$item = [
-				'#theme' => 'ticker_tape_item'
-			];
-			foreach ($product as $key => $value)
-				$item['#' . $key] = $value;
-
-			$result['#pinned_items'][] = $item;
-		}
 
 		return $result;
 	}
