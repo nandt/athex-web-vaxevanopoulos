@@ -17,12 +17,12 @@ class SettingsForm extends ConfigFormBase {
         $config = $this->config('athex_inbroker.settings');
 
 		$form['api_settings'] = [
-			'realtime_host' => [
-				'#type' => 'textfield',
-				'#title' => $this->t('Realtime Data Host'),
-				'#default_value' => $config->get('realtime_host'),
-				'#required' => TRUE,
-			],
+			// 'realtime_host' => [
+			// 	'#type' => 'textfield',
+			// 	'#title' => $this->t('Realtime Data Host'),
+			// 	'#default_value' => $config->get('realtime_host'),
+			// 	'#required' => TRUE,
+			// ],
 			'delayed_host' => [
 				'#type' => 'textfield',
 				'#title' => $this->t('Delayed Data Host'),
