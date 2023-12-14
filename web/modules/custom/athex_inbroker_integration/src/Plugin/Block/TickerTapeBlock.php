@@ -22,12 +22,17 @@ class TickerTapeBlock extends BlockBase implements BlockPluginInterface {
 			'#attached' => [
 				'library' => ['athex_inbroker_integration/ticker_tape']
 			],
-			'#ticker_items' => [
+			'#info' => [
 				'#type' => 'container',
 				'#attributes' => [
-					'class' => [
-						'ticker-item-template'
-					],
+					'class' => ['ticker-info']
+				],
+				\Drupal::service('athex_inbroker.ticker_tape')->getPrimaryInfoRenderArray()
+			],
+			'#items' => [
+				'#type' => 'container',
+				'#attributes' => [
+					'class' => ['ticker-item-template'],
 					'style' => 'display: none;'
 				],
 				'template' => [
@@ -39,7 +44,7 @@ class TickerTapeBlock extends BlockBase implements BlockPluginInterface {
 		$item_vars = athex_inbroker_integration_theme()['ticker_tape_item']['variables'];
 
 		foreach ($item_vars as $var => $default)
-			$result['#ticker_items']['template']['#' . $var] = [
+			$result['#items']['template']['#' . $var] = [
 				'#markup' => "<span data-placeholder=\"$var\"></span>"
 			];
 

@@ -4,7 +4,16 @@ function athex_inbroker_integration_theme($existing = null, $type = null, $theme
 	return [
 		'ticker_tape' => [
 			'variables' => [
-				'ticker_items' => null
+				'info' => null,
+				'items' => null
+			]
+		],
+		'ticker_tape_info' => [
+			'variables' => [
+				'closed' => null,
+				'tradeDate' => null,
+				'time' => null,
+				'pinned_items' => null
 			]
 		],
 		'ticker_tape_item' => [
