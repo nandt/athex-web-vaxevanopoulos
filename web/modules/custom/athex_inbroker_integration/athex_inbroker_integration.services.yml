@@ -5,3 +5,6 @@ services:
   athex_inbroker.ticker_tape:
     class: Drupal\athex_inbroker_integration\Service\TickerTapeService
     arguments: ['@logger.factory', '@config.factory', '@athex_inbroker.api_data', '@renderer']
+  athex_inbroker.indices_overview:
+    class: Drupal\athex_inbroker_integration\Service\IndicesOverviewService
+    arguments: ['@logger.factory', '@config.factory', '@athex_inbroker.api_data']
