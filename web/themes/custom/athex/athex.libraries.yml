@@ -32,6 +32,11 @@ main_menu:
   js:
     js/main_menu.js: {}
 
+prefooter:
+  css:
+    theme:
+      css/layout/prefooter.scss: {}
+
 footer:
   css:
       theme:
@@ -61,3 +66,27 @@ hero_banner_slider:
   js:
     js/hero_banner_slider.js: {}
 
+
+solutionsview_home:
+  css:
+    theme:
+      css/paragraph/solutionsview_home.scss: {}
+  js:
+    js/solutionsview_home.js: {}
+
+sol_teaser:
+  css:
+    theme:
+      css/node/sol_teaser.scss: {}
+
+listingsview_home:
+  css:
+    theme:
+      css/paragraph/listingsview_home.scss: {}
+  js:
+    js/listingsview_home.js: {}
+
+lis_teaser:
+  css:
+    theme:
+      css/node/lis_teaser.scss: {}

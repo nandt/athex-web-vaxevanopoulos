@@ -12,6 +12,7 @@ regions:
   header: Header
   highlighted: Highlighted
   content: Content
+  prefooter: Pre-Footer
   footer: Footer
   subfooter: Sub-Footer
   hidden: Hidden

@@ -1,0 +1,60 @@
+.prefooter {
+	padding: 80px 80px 56px;
+}
+
+.prefooter-links {
+	text-wrap: nowrap;
+
+	> div {
+		padding: 56px 0px;
+	}
+
+	> h1 {
+		background: var(--supportive-gradient-indigo-05, linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.prefooter-link {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+
+		a {
+			background: var(--supportive-gradient-indigo-05, linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%));
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+
+	.prefooter-icon {
+		background-image: url('assets/icons/Gradient/arrow-right.svg');
+		fill: var(--supportive-gradient-indigo-05, linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%));
+		width: 20px;
+		height: 20px;
+		display: block;
+	}
+}
+
+@media (min-width: 992px) {
+	.prefooter-links {
+
+		.prefooter-link {
+			gap: 8px;
+		}
+
+		.solutions, .contact {
+			a {
+				background: #fff;
+				color: #1A0069;
+				-webkit-text-fill-color: #1A0069;
+			}
+
+			.prefooter-icon {
+				display: none;
+			}
+		}
+	}
+}

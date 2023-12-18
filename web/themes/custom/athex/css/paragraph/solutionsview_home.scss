@@ -1,0 +1,102 @@
+.solviewhomeContainer {
+	padding: 80px 24px;
+
+	border-radius: var(--colors-pixels-spacing-null, 0px);
+	background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
+
+	.solvhomeBody {
+		padding: 28px 0px;
+	}
+
+	.solviewhome {
+		padding: 0px 24px;
+	}
+
+	.solvhomeCTA {
+		display: flex;
+		padding: 0px 0px 48px;
+		align-items: center;
+		gap: var(--spacing-16, 16px);
+
+		a {
+			color: #fff;
+		}
+	}
+
+	.views-element-container {
+		> h2 {
+			display: none;
+		}
+	}
+
+	// .controls {
+	// 	display:flex;
+	// 	align-items:center;
+	// 	align-items: flex-start;
+	// 	gap: 16px;
+	// 	padding-top: 28px;
+    // 	justify-content: flex-end;
+
+	// 	.prev, .next {
+	// 		cursor: pointer;
+	// 		width: 73px;
+	// 		height: 73px;
+	// 		border-radius: 100px;
+	// 		border: 1px solid var(--Supportive-White-White, #FFF);
+	// 		display: flex;
+	// 		align-items: center;
+	// 		justify-content: center;
+	// 	}
+
+	// 	.prev::after {
+	// 		background-image: url('assets/icons/white/slider-arrow.svg');
+	// 		background-repeat: no-repeat;
+	// 		content: '';
+	// 		display:block;
+	// 		object-fit: cover;
+	// 		width: 16px;
+	// 		height: 16px;
+	// 	}
+
+	// 	.next::after {
+	// 		background-image: url('assets/icons/white/slider-arrow.svg');
+	// 		background-repeat: no-repeat;
+	// 		content: '';
+	// 		display:block;
+	// 		object-fit: cover;
+	// 		width: 16px;
+	// 		height: 16px;
+	// 		transform: rotate(180deg);
+	// 	}
+	//}
+}
+
+@media (min-width: 992px) {
+	.solviewhomeContainer {
+		padding: 120px 0px;
+
+		.solvhomeBody {
+			padding: 0px 0px 32px;
+		}
+
+		.solviewhome {
+			padding: 0px 80px;
+		}
+	}
+
+	// .prev[aria-disabled="false"], .next[aria-disabled="false"] {
+	// 	border-radius: 125px;
+	// 	border: 1.25px solid var(--Primary-Purple-Teal-05, #A399C3);
+	// }
+
+	// .prev[aria-disabled="false"]::after {
+	// 	background-image: url('../../assets/icons/purple/iconSubtractDisabled.svg');
+	// }
+
+	// .next[aria-disabled="false"]::after {
+	// 	background-image: url('../../assets/icons/purple/iconSubtractDisabled.svg');
+	// 	transform: rotate(180deg);
+	// }
+}
+
+

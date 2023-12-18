@@ -3,6 +3,10 @@
     height:100%;
     max-height: 210px;
     border-radius: 0px 0px 0px 270px;
+    background: linear-gradient(99deg, #831F82 -21.19%, #7ED1B8 328.93%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .cibTitle{
@@ -56,7 +60,7 @@
         position:relative;
         margin-right: unset;
     }
-    
+
     .cibImage img{
         position:absolute;
         right:0;

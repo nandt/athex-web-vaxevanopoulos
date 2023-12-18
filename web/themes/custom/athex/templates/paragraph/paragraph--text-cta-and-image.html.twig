@@ -1,0 +1,24 @@
+{# modules/contrib/paragraphs/templates/paragraph.html.twig' #}
+
+{{ attach_library('athex/text_cta_image') }}
+
+
+<div class="container tciContainer">
+	<div class="row tciWrapper">
+		<div class="col-12 col-lg-6">
+			<div>
+				{{content.field_tci_title}}
+			</div>
+			<div class="tciBody body2 weightLight textColorWhite">
+				{{content.field_tci_body}}
+			</div>
+			<div class="tciCTA cta2 weightBoldBook textColorWhite">
+				{{content.field_tci_cta}}
+				<span class="arrow-right"></span>
+			</div>
+		</div>
+		<div class="tciImage col-12 col-lg-6">
+			{{content.field_tci_image}}
+		</div>
+	</div>
+</div>

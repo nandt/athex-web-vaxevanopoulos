@@ -16,6 +16,12 @@
 
 /* Headings */
 
+.heading1 {
+	font-size: 36px;
+	line-height: 46px; /* 127.778% */
+	letter-spacing: 1.44px;
+}
+
 .heading2{
 	font-size:36px;
 	line-height:46px;
@@ -26,6 +32,12 @@
 	font-size:20px;
 	line-height:28px;
 	letter-spacing:0.8px;
+}
+
+.heading6 {
+	font-size: 20px;
+	line-height: 28px;
+	letter-spacing: 0.6px;
 }
 
 /* body */
@@ -42,6 +54,12 @@
 	letter-spacing: 0.42px;
 }
 
+.cta2 {
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.64px;
+}
+
 .cta3{
 	font-size: 14px;
 	line-height: 22px;
@@ -53,6 +71,12 @@
 		font-size:18px;
 		line-height:35px;
 		letter-spacing:6.48px;
+	}
+
+	.heading1 {
+		font-size: 48px;
+		line-height: 60px;
+		letter-spacing: 1.92px;
 	}
 
 	.heading2{

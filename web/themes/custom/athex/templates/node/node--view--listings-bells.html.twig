@@ -1,0 +1,17 @@
+{# web/core/themes/stable9/templates/content/node.html.twig #}
+
+{{ attach_library('athex/lis_teaser') }}
+
+<article class="listingsview-item">
+	<a href="{{ url }}" rel="bookmark">
+		<div class="listingview-img">{{ content.field_com_image }}</div>
+	</a>
+	<div class="listingsview-info">
+		<div class="listingview-cat body3 weightBold tag">{{ content.field_com_listings_category }}</div>
+		<div class="body3 weightBoldBook textColorBlack listingview-date">{{ node.createdtime|date('d.m.Y') }}</div>
+	</div>
+	<a href="{{ url }}">
+		<h6 class="heading6 weightBold headlineBlack listingsview-title"> {{ label }} </h6>
+		<div class="listingview-body body2 weightBook">{{ content.field_com_body }}</div>
+	</a>
+</article>
