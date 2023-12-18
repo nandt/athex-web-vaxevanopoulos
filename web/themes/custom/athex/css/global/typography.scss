@@ -18,7 +18,7 @@
 
 .heading1 {
 	font-size: 36px;
-	line-height: 46px; /* 127.778% */
+	line-height: 46px;
 	letter-spacing: 1.44px;
 }
 
@@ -54,6 +54,12 @@
 	letter-spacing: 0.42px;
 }
 
+.body4 {
+	font-size: 12px;
+	line-height: normal;
+	letter-spacing: 0.4px;
+}
+
 .cta2 {
 	font-size: 16px;
 	line-height: 24px;
@@ -65,6 +71,7 @@
 	line-height: 22px;
 	letter-spacing: 0.56px;
 }
+
 
 @media(min-width:992px){
 	.subheading{
@@ -88,6 +95,11 @@
 	.heading5{
 		letter-spacing:0.6px;
 	}
+
+	.body4 {
+		line-height: 16px;
+		letter-spacing: 0.36px;
+	}
 }
 
 .weightLight {
@@ -104,10 +116,6 @@
 
 .weightDemi {
 	font-weight: 600 !important;
-}
-
-.weightBold {
-	font-weight:700 !important;
 }
 
 .weightBold {

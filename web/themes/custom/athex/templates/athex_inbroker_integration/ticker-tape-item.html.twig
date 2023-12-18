@@ -1,5 +1,16 @@
-<div>
-	{{symbol}}
-	{{value}}
-	{{change}}
+{{ attach_library('athex/ticker-tape-item') }}
+
+
+<div class="ticker-tape-item col-12 body4">
+	<div class="ticker-tape-symbol col-12 textColorPurpleLight weightDemi ">
+		{{symbol}}
+	</div>
+	<div class="row">
+		<div class="ticker-tape-value col-6 textColorGrey7">
+			{{value}}
+		</div>
+		<div class="ticker-tape-change col-6 weightDemi">
+			{{change}} %
+		</div>
+	</div>
 </div>

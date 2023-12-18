@@ -90,3 +90,18 @@ lis_teaser:
   css:
     theme:
       css/node/lis_teaser.scss: {}
+
+ticker-tape-info:
+  css:
+    theme:
+      css/athex_inbroker_integration/ticker-tape-info.scss: {}
+  js:
+    js/ticker-tape-info.js: {}
+
+ticker-tape-item:
+  css:
+    theme:
+      css/athex_inbroker_integration/ticker-tape-item.scss: {}
+  js:
+    js/ticker-tape-item.js: {}
+
