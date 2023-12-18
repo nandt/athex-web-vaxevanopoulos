@@ -17,36 +17,39 @@ use Drupal\Core\Block\BlockPluginInterface;
 class TickerTapeBlock extends BlockBase implements BlockPluginInterface {
 
 	public function build() {
+		$service = \Drupal::service('athex_inbroker.ticker_tape');
+
 		$result = [
 			'#theme' => 'ticker_tape',
-			'#attached' => [
-				'library' => ['athex_inbroker_integration/ticker_tape']
-			],
+			// '#attached' => [
+			// 	'library' => ['athex_inbroker_integration/ticker_tape']
+			// ],
 			'#info' => [
 				'#type' => 'container',
 				'#attributes' => [
 					'class' => ['ticker-info']
 				],
-				\Drupal::service('athex_inbroker.ticker_tape')->getPrimaryInfoRenderArray()
+				$service->getPrimaryInfoRenderArray()
 			],
 			'#items' => [
 				'#type' => 'container',
-				'#attributes' => [
-					'class' => ['ticker-item-template'],
-					'style' => 'display: none;'
-				],
-				'template' => [
-					'#theme' => 'ticker_tape_item'
-				]
+				// '#attributes' => [
+				// 	'class' => ['ticker-item-template'],
+				// 	'style' => 'display: none;'
+				// ],
+				...$service->getTapeItemRenderArray()
+				// 'template' => [
+				// 	'#theme' => 'ticker_tape_item'
+				// ]
 			],
 		];
 
-		$item_vars = athex_inbroker_integration_theme()['ticker_tape_item']['variables'];
+		// $item_vars = athex_inbroker_integration_theme()['ticker_tape_item']['variables'];
 
-		foreach ($item_vars as $var => $default)
-			$result['#items']['template']['#' . $var] = [
-				'#markup' => "<span data-placeholder=\"$var\"></span>"
-			];
+		// foreach ($item_vars as $var => $default)
+		// 	$result['#items']['template']['#' . $var] = [
+		// 		'#markup' => "<span data-placeholder=\"$var\"></span>"
+		// 	];
 
 		return $result;
 	}
