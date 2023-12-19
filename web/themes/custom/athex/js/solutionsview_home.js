@@ -34,6 +34,6 @@ jQuery(document).ready(function ($) {
 	slides.each(function(index) {
 		solNumber = index + 1;
 
-		$(this).children('.sol-teaser-number').text("test" + solNumber);
+		$(this).children('.sol-teaser-number').prepend("test" + solNumber);
 	})
 })

@@ -23,52 +23,51 @@
 		}
 	}
 
-	.views-element-container {
-		> h2 {
-			display: none;
+	.controls span {
+		border: 1px solid #FFF;
+	}
+
+	.controls span[aria-disabled="true"] {
+		border: 1px solid #A399C3;
+	}
+
+	.controls span[aria-disabled="false"] {
+		border: 1px solid #FFF;
+	}
+
+	.controls .next::after {
+		background-image: url("assets/icons/white/slider-arrow.svg");
+		transform: rotate(180deg);
+		width: 16px;
+		height: 16px;
+	}
+
+	.controls .prev::after {
+		background-image: url('assets/icons/purple/iconSubtractDisabled.svg');
+		transform: rotate(0deg);
+	}
+
+	.controls .next[aria-disabled="true"]::after {
+		background-image: url('assets/icons/purple/iconSubtractDisabled.svg');
+		width: 9px;
+    	height: 12px
+	}
+
+	.controls .prev[aria-disabled="false"]::after {
+		background-image: url('assets/icons/white/slider-arrow.svg');
+		width: 16px;
+    	height: 16px;
+	}
+
+	.solview-hr-wrapper {
+		padding: 28px 0px;
+
+		.solview-hr {
+			opacity: 0.3;
+			background:#D1CCE1;
 		}
 	}
 
-	// .controls {
-	// 	display:flex;
-	// 	align-items:center;
-	// 	align-items: flex-start;
-	// 	gap: 16px;
-	// 	padding-top: 28px;
-    // 	justify-content: flex-end;
-
-	// 	.prev, .next {
-	// 		cursor: pointer;
-	// 		width: 73px;
-	// 		height: 73px;
-	// 		border-radius: 100px;
-	// 		border: 1px solid var(--Supportive-White-White, #FFF);
-	// 		display: flex;
-	// 		align-items: center;
-	// 		justify-content: center;
-	// 	}
-
-	// 	.prev::after {
-	// 		background-image: url('assets/icons/white/slider-arrow.svg');
-	// 		background-repeat: no-repeat;
-	// 		content: '';
-	// 		display:block;
-	// 		object-fit: cover;
-	// 		width: 16px;
-	// 		height: 16px;
-	// 	}
-
-	// 	.next::after {
-	// 		background-image: url('assets/icons/white/slider-arrow.svg');
-	// 		background-repeat: no-repeat;
-	// 		content: '';
-	// 		display:block;
-	// 		object-fit: cover;
-	// 		width: 16px;
-	// 		height: 16px;
-	// 		transform: rotate(180deg);
-	// 	}
-	//}
 }
 
 @media (min-width: 992px) {
@@ -82,21 +81,15 @@
 		.solviewhome {
 			padding: 0px 80px;
 		}
+
+		.solview-hr-wrapper {
+			padding: 56px 0px;
+
+			.solview-hr {
+				display: block;
+			}
+		}
 	}
-
-	// .prev[aria-disabled="false"], .next[aria-disabled="false"] {
-	// 	border-radius: 125px;
-	// 	border: 1.25px solid var(--Primary-Purple-Teal-05, #A399C3);
-	// }
-
-	// .prev[aria-disabled="false"]::after {
-	// 	background-image: url('../../assets/icons/purple/iconSubtractDisabled.svg');
-	// }
-
-	// .next[aria-disabled="false"]::after {
-	// 	background-image: url('../../assets/icons/purple/iconSubtractDisabled.svg');
-	// 	transform: rotate(180deg);
-	// }
 }
 
 

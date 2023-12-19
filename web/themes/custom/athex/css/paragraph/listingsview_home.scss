@@ -11,7 +11,63 @@
 	}
 
 	form {
-		display: none;
+		.fieldset-legend {
+			display: none;
+		}
+
+		.fieldset-wrapper > div{
+			display:flex;
+			border-bottom: 1px solid #D1CCE1;
+		}
+
+		.fieldset-wrapper .js-form-item:not(:first-child) {
+    		margin-left:30px;
+		}
+
+		.fieldset-wrapper .js-form-item label {
+			cursor:pointer;
+			color: #5f4d96;
+			font-weight:500;
+			line-height:20px;
+			letter-spacing:0.42px;
+			padding-bottom:16px;
+		}
+
+		.fieldset-wrapper .js-form-item.active {
+			border-bottom: 1px solid #3C06D9;
+			color: #3C06D9;
+		}
+
+		.fieldset-wrapper .js-form-item input {
+			display: none;
+		}
+
+		.fieldset-wrapper {
+			padding-bottom: 32px;
+		}
+		.fieldset-wrapper .js-form-item {
+			cursor:pointer;
+		}
+
+		label[for^="edit-tid-all"]{
+			display:none;
+		}
+
+		.fieldset-wrapper .js-form-item{
+			cursor:pointer;
+		}
+
+		.viewsColWrapper{
+			padding: 32px 20px;
+			background: #fff;
+			margin-top: 32px;
+		}
+
+		#customize-controls-view {
+			padding: 56px 0px 0px;
+			background: #fff;
+		}
+
 	}
 
 	.listings {
@@ -64,6 +120,11 @@
     background-image: url('assets/icons/purple/iconSubtract.svg');
 }
 
+.active {
+	color: #3C06D9;
+	border-bottom: 1px solid #3C06D9;
+}
+
 @media(min-width: 992px) {
 	.hr-mobile-wrapper {
 		display: none;
@@ -106,6 +167,12 @@
 				display: block;
 				border-radius: var(--Colors-Pixels-Spacing-null, 0px);
 				background: var(--Colors-Border-Light-Purple, #D1CCE1);
+			}
+		}
+
+		form {
+			.fieldset-wrapper {
+				padding-bottom: 44px;
 			}
 		}
 	}

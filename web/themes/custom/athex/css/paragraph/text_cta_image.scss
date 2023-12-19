@@ -27,7 +27,7 @@
 	background: lightgray 50% / cover no-repeat;
     height: 100%;
     width: 100%;
-
+	mask-image: linear-gradient(to right,rgba(0, 0, 0, 1), 200px ,transparent);
 }
 
 .arrow-right {
