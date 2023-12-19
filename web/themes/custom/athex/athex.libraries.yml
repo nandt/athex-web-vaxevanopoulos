@@ -49,6 +49,13 @@ quick_link:
   js:
     js/quick_link.js: {}
 
+collapsible_items:
+  css:
+    theme:
+      css/paragraph/collapsible_items.scss: {}
+  js:
+    js/collapsible_items.js: {}
+
 text_cta_image:
   css:
     theme:
@@ -60,4 +67,30 @@ hero_banner_slider:
       css/paragraph/hero_banner_slider.scss: {}
   js:
     js/hero_banner_slider.js: {}
+
+news_press_teasers:
+  css:
+    theme:
+      css/views/news_press_teasers.scss: {}
+
+news_press_view:
+  css:
+    theme:
+      css/views/news_press_view.scss: {}
+  js:
+    js/news_press_view.js: {}
+
+gradient_hero_title:
+  css:
+    theme:
+      css/blocks/gradient_hero_title.scss: {}
+  js:
+    js/gradient_hero_title.js: {}
+
+indices_overview:
+  css:
+    theme:
+      css/blocks/indices_overview.scss: {}
+  js:
+    js/indices_overview.js: {}
 

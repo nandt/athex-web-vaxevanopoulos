@@ -1,0 +1,18 @@
+{% set image_uri = content.field_colib_item_image['#items'].entity.uri.value %}
+
+<div class="collapsible-item desktop" style="background-image: url('{{ file_url(image_uri) }}');">
+	<div class="collapsible-item-text">
+		<h6 class="colibiTitle textColorWhite weightBold heading6">{{content.field_colib_item_title.0['#text']|striptags|raw}}</h6>
+		<div class="colibiText textColorWhite weightLight body2">{{content.field_colib_item_text.0['#text']|striptags|raw}}</div>
+		<div class="colibiCta textColorWhite weightBoldBook cta3">{{content.field_colib_item_cta}}</div>
+	</div>
+</div>
+<div class="collapsible-item mobile">
+	<span class="actionButton"></span>
+	<div class="colibiImage">{{content.field_colib_item_image}}</div>
+	<div class="collapsible-item-text">
+		<h6 class="colibiTitle textColorWhite weightBold heading6">{{content.field_colib_item_title.0['#text']|striptags|raw}}</h6>
+		<div class="colibiText textColorWhite weightLight body2">{{content.field_colib_item_text.0['#text']|striptags|raw}}</div>
+		<div class="colibiCta textColorWhite weightBoldBook cta3">{{content.field_colib_item_cta}}</div>
+	</div>
+</div>
