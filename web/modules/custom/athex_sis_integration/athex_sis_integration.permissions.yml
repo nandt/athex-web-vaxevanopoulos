@@ -1,0 +1,3 @@
+administer sis integration:
+  title: 'Administer SIS Integration settings'
+  description: 'Access and manage settings used for integration with SIS.'

@@ -1,0 +1,17 @@
+<?php
+
+function athex_company_pages_theme($existing, $type, $theme, $path) {
+	return [
+		'company_hero' => [
+			'variables' => [
+				'company_name' => null,
+				'cover_img_url' => null,
+				'logo_url' => null,
+				'ticker' => null
+			]
+		],
+		'company_ticker' => [
+			'variables' => []
+		]
+	];
+}

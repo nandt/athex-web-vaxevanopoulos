@@ -1,0 +1,7 @@
+services:
+  athex_company_pages.layout:
+    class: Drupal\athex_company_pages\Service\CompanyPageLayoutService
+    arguments: []
+  athex_company_pages.overview_data:
+    class: Drupal\athex_company_pages\Service\CompanyOverviewDataService
+    arguments: ['@athex_sis.db_data']
