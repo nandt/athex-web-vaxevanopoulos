@@ -1,7 +1,6 @@
 jQuery(document).ready(function ($) {
 
 	$(document).on('click', '.top-level > li', function(e) {
-		//e.preventDefault();
 		$(this).parents('.layout-container').addClass('expanded');
 		$(this).toggleClass('expanded');
 		$(this).siblings().toggleClass('hidden');

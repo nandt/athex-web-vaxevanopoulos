@@ -69,32 +69,6 @@ li.expaned ~ li:not(.expanded) {
 			li.expanded > .menu-title {
 				display: block;
 			}
-
-			// li.expanded > div {
-			// 	padding-top: 15px;
-			// 	position: relative;
-   			// 	left: 9%;
-			// }
-
-			// .menu-main-expanded {
-			// 	position: relative;
-			// 	right: 42%;
-			// }
-
-			// .menu-block--main {
-			// 	padding-bottom: 16%;
-			// }
-
-			// li.expanded > div > ul > li.expanded > div {
-			// 	left: 115%;
-			// 	bottom: 24%;
-			// 	position: relative;
-			// 	margin-bottom: -115px;
-			// }
-
-			// li.expanded > div > ul > li.expanded > div > ul  > li.expanded {
-			// 	margin-bottom: -99px;
-			// }
 		}
 	}
 }
