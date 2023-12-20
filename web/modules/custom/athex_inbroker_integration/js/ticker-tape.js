@@ -16,7 +16,8 @@
 
 		item.updateData = function (data) {
 			Object.keys(item.textNodes).forEach(function (key) {
-				item.textNodes[key].textContent = data[key] || "";
+				var val = data[key] === undefined ? "-" : data[key];
+				item.textNodes[key].textContent = val;
 			});
 		};
 
@@ -26,25 +27,25 @@
 	}
 
 	function updateTickerTape(tapeIdx) {
-		var data = Array.from(currentData.items);
 		var tape = tickerTapes[tapeIdx];
+		var items = Array.from(currentData.items);
 		let childNodes = tape[1].childNodes;
 
 		for (var i = 0; i < childNodes.length;) {
 			var item = childNodes[i];
 			var symbol = item.textNodes.symbol.textContent;
-			var itemDataIdx = data.findIndex(function (dataItem) {
+			var itemDataIdx = items.findIndex(function (dataItem) {
 				return dataItem.symbol === symbol;
 			});
 			if (itemDataIdx < 0)
 				return item.remove();
 
-			item.updateData(data[itemDataIdx]);
-			data.splice(itemDataIdx, 1);
+			item.updateData(items[itemDataIdx]);
+			items.splice(itemDataIdx, 1);
 
 			while (--itemDataIdx > -1) {
 				item.parentNode.insertBefore(
-					initTapeItem(tape[0], data.splice(0, 1)[0]),
+					initTapeItem(tape[0], items.splice(0, 1)[0]),
 					item
 				);
 				i++;
@@ -53,7 +54,7 @@
 			i++;
 		}
 
-		data.forEach(function (dataItem) {
+		items.forEach(function (dataItem) {
 			tape[1].appendChild(
 				initTapeItem(tape[0], dataItem)
 			);

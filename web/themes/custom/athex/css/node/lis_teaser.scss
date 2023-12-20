@@ -1,0 +1,33 @@
+.listingsview-item {
+	.listingsview-info {
+		display: flex;
+		padding-bottom: 8px;
+
+		.listingview-cat{
+			padding-right: 16px;
+			border-right: 1px solid #D1CCE1;
+
+			a {
+				color: #3C06D9;
+			}
+		}
+
+		.listingview-date {
+			padding-left: 16px;
+		}
+	}
+
+	.listingsview-title {
+		padding-bottom: 24px;
+	}
+}
+
+@media (min-width: 992px) {
+	.listingsviewhomeWrapper {
+		display: flex;
+
+		> :nth-child(2n) {
+			background-color: #F6F5F8;
+		}
+	}
+}

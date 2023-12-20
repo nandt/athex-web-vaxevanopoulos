@@ -1,0 +1,179 @@
+.listingsviewContainer {
+	padding: 80px 24px;
+	background: var(--Primary-Grey-Grey-03, #F8F8FA);
+
+	.listingsviewhome-item {
+		padding: 24px;
+	}
+
+	.title {
+		padding-bottom: 48px;
+	}
+
+	form {
+		.fieldset-legend {
+			display: none;
+		}
+
+		.fieldset-wrapper > div{
+			display:flex;
+			border-bottom: 1px solid #D1CCE1;
+		}
+
+		.fieldset-wrapper .js-form-item:not(:first-child) {
+    		margin-left:30px;
+		}
+
+		.fieldset-wrapper .js-form-item label {
+			cursor:pointer;
+			color: #5f4d96;
+			font-weight:500;
+			line-height:20px;
+			letter-spacing:0.42px;
+			padding-bottom:16px;
+		}
+
+		.fieldset-wrapper .js-form-item.active {
+			border-bottom: 1px solid #3C06D9;
+			color: #3C06D9;
+		}
+
+		.fieldset-wrapper .js-form-item input {
+			display: none;
+		}
+
+		.fieldset-wrapper {
+			padding-bottom: 32px;
+		}
+		.fieldset-wrapper .js-form-item {
+			cursor:pointer;
+		}
+
+		label[for^="edit-tid-all"]{
+			display:none;
+		}
+
+		.fieldset-wrapper .js-form-item{
+			cursor:pointer;
+		}
+
+		.viewsColWrapper{
+			padding: 32px 20px;
+			background: #fff;
+			margin-top: 32px;
+		}
+
+		#customize-controls-view {
+			padding: 56px 0px 0px;
+			background: #fff;
+		}
+
+	}
+
+	.listings {
+		padding: 28px 20px;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		padding-bottom: 28px;
+	}
+
+	.listingsviewCta {
+		display: flex;
+		gap: 16px;
+		padding: 28px 0px 20px 20px;
+
+		span {
+			background-image: url('assets/icons/black/arrow-right-black.svg');
+			display: block;
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	.hr-mobile-wrapper {
+		padding: 0px 20px;
+
+		.hr-mobile {
+			border-radius: var(--Colors-Pixels-Spacing-null, 0px);
+			background: var(--Colors-Border-Light-Purple, #D1CCE1);
+		}
+	}
+
+	.hr-desktop-wrapper {
+		display: none;
+	}
+}
+
+.controls {
+	padding: 0px 20px 28px 0px;
+    justify-content: end;
+}
+
+.controls span[aria-disabled="false"] {
+    border: 1px solid #3300C6;
+}
+
+.controls .next[aria-disabled="false"]::after {
+    background-image: url('assets/icons/purple/iconSubtract.svg');
+}
+
+.active {
+	color: #3C06D9;
+	border-bottom: 1px solid #3C06D9;
+}
+
+@media(min-width: 992px) {
+	.hr-mobile-wrapper {
+		display: none;
+	}
+
+	.listingsviewContainer{
+
+		.listings {
+			padding: 56px 80px;
+		}
+
+		img{
+			width: 100%;
+			height: 100%;
+    	}
+
+		.cta-btngrp {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.controls {
+			order: 2;
+			padding: 0px 80px 56px 0px;
+		}
+
+		.listingsviewCta {
+			padding-left: 80px;
+		}
+
+		.listingsviewhome {
+			padding: 120px 80px;
+		}
+
+		.hr-desktop-wrapper {
+			padding: 48px 80px;
+			display: block;
+
+			.hr-desktop {
+				display: block;
+				border-radius: var(--Colors-Pixels-Spacing-null, 0px);
+				background: var(--Colors-Border-Light-Purple, #D1CCE1);
+			}
+		}
+
+		form {
+			.fieldset-wrapper {
+				padding-bottom: 44px;
+			}
+		}
+	}
+}

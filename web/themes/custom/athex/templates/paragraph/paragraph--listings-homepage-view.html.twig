@@ -1,0 +1,41 @@
+{# modules/contrib/paragraphs/templates/paragraph.html.twig' #}
+
+{{ attach_library('athex/listingsview_home') }}
+
+
+<div class="container listingsviewContainer">
+	<div class="row listingsviewhome">
+		<div class="col-12">
+			<div class="col-12 heading1 weightBoldBook textColorDarkBlue title">
+				{{ content.field_listingsview_title }}
+			</div>
+
+			<div class="col-12 listings bgColorWhite">
+				{{content.field_listings_view}}
+			</div>
+
+			<div class="hr-desktop-wrapper bgColorWhite">
+					<hr class="hr-desktop">
+				</div>
+
+			<div class="cta-btngrp bgColorWhite">
+				<div class="controls" id="listings-slider" aria-label="Carousel Navigation" tabindex="0">
+					<span class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+					</span>
+					<span class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+					</span>
+				</div>
+
+				<div class="hr-mobile-wrapper">
+					<hr class="hr-mobile">
+				</div>
+
+				<div class="textColorWhite cta2 weightBoldBook listingsviewCta">
+					{{content.field_listingsview_cta}}
+					<span class="arrow-right"></span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

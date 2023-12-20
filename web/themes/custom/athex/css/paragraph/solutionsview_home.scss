@@ -1,0 +1,95 @@
+.solviewhomeContainer {
+	padding: 80px 24px;
+
+	border-radius: var(--colors-pixels-spacing-null, 0px);
+	background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
+
+	.solvhomeBody {
+		padding: 28px 0px;
+	}
+
+	.solviewhome {
+		padding: 0px 24px;
+	}
+
+	.solvhomeCTA {
+		display: flex;
+		padding: 0px 0px 48px;
+		align-items: center;
+		gap: var(--spacing-16, 16px);
+
+		a {
+			color: #fff;
+		}
+	}
+
+	.controls span {
+		border: 1px solid #FFF;
+	}
+
+	.controls span[aria-disabled="true"] {
+		border: 1px solid #A399C3;
+	}
+
+	.controls span[aria-disabled="false"] {
+		border: 1px solid #FFF;
+	}
+
+	.controls .next::after {
+		background-image: url("assets/icons/white/slider-arrow.svg");
+		transform: rotate(180deg);
+		width: 16px;
+		height: 16px;
+	}
+
+	.controls .prev::after {
+		background-image: url('assets/icons/purple/iconSubtractDisabled.svg');
+		transform: rotate(0deg);
+	}
+
+	.controls .next[aria-disabled="true"]::after {
+		background-image: url('assets/icons/purple/iconSubtractDisabled.svg');
+		width: 9px;
+    	height: 12px
+	}
+
+	.controls .prev[aria-disabled="false"]::after {
+		background-image: url('assets/icons/white/slider-arrow.svg');
+		width: 16px;
+    	height: 16px;
+	}
+
+	.solview-hr-wrapper {
+		padding: 28px 0px;
+
+		.solview-hr {
+			opacity: 0.3;
+			background:#D1CCE1;
+		}
+	}
+
+}
+
+@media (min-width: 992px) {
+	.solviewhomeContainer {
+		padding: 120px 0px;
+
+		.solvhomeBody {
+			padding: 0px 0px 32px;
+		}
+
+		.solviewhome {
+			padding: 0px 80px;
+		}
+
+		.solview-hr-wrapper {
+			padding: 56px 0px;
+
+			.solview-hr {
+				display: block;
+			}
+		}
+	}
+}
+
+

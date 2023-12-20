@@ -38,13 +38,16 @@ class ApiDataService {
 		$get = $this->http->get(
 			$dataHost . '/' . $transaction . '?' . $args
 		);
-		return json_decode($get->getBody()->getContents(), true);
-
+		$data = json_decode($get->getBody()->getContents(), true);
+		$data = $data['inbroker-transactions'] ?? [];
+		$data = $data['row'];
+		return $data;
 	}
 
-	public function callRealtime($transaction, $args = []) {
-		return $this->call('realtime', $transaction, $args);
-	}
+	// only delayed will probably be used
+	// public function callRealtime($transaction, $args = []) {
+	// 	return $this->call('realtime', $transaction, $args);
+	// }
 
 	public function callDelayed($transaction, $args = []) {
 		return $this->call('delayed', $transaction, $args);
