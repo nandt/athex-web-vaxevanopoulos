@@ -6,7 +6,6 @@ core_version_requirement: ^10
 base theme: stable9
 
 libraries:
-  - athex/bootstrap
   - athex/global
 
 regions:
@@ -14,4 +13,5 @@ regions:
   highlighted: Highlighted
   content: Content
   footer: Footer
+  subfooter: Sub-Footer
   hidden: Hidden

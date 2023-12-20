@@ -1,0 +1,17 @@
+{# web/core/themes/stable9/templates/layout/region.html.twig #}
+
+{{ attach_library('athex/footer') }}
+
+<div class="subfooter">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="subfooter_wrapper textColorPurpleLight body3 weightBoldBook">
+                    {% if content %}
+                            {{content}}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

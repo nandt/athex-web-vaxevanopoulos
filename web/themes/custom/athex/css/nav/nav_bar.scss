@@ -1,0 +1,111 @@
+@import '../base';
+
+li.expaned ~ li:not(.expanded) {
+	display: none;
+}
+
+.hidden {
+	display: none;
+}
+
+.menu-block--main {
+	nav {
+		li > div:not(.expanded) {
+			display: none;
+		}
+
+		li.expanded > div {
+			display: flex;
+			width: 100%;
+		}
+
+		li.expanded > span {
+			display: none;
+		}
+
+		.expanded-item ~ li {
+			display: none;
+		}
+
+		.expanded-item > div > button {
+			display: none;
+		}
+
+		.expanded > div {
+			display: flex;
+			flex-direction: column;
+
+			> a {
+				padding-bottom: 24px;
+				order: 2;
+				font-size: 18px;
+				font-weight: 600;
+			}
+
+			.back {
+				order: 1;
+				padding-bottom: 49px;
+			}
+
+			ul {
+				order: 3;
+			}
+		}
+
+		@media (min-width: 992px) {
+			ul {
+				display: flex;
+
+				li {
+					padding: 0px 12px;
+					font-size: 13px;
+				}
+			}
+
+			.expanded ul {
+				flex-direction: column;
+			}
+
+			li.expanded > .menu-title {
+				display: block;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.hidden {
+		display: block;
+	}
+
+	.back {
+		display: none;
+	}
+
+	.sub-menu {
+		position: absolute;
+		top: 70px;
+		right: 178px
+	}
+}
+
+.layout-container.expanded {
+	position: fixed;
+	overflow-y: scroll;
+
+	header {
+		position: fixed;
+		overflow: scroll;
+		z-index: 999;
+		height: 100vh;
+		width: 100vw;
+	}
+
+	main {
+		position: absolute;
+	}
+
+	footer {
+		position: absolute;
+	}
+}

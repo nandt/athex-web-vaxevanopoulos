@@ -1,8 +1,64 @@
-bootstrap:
-  js:
-    ../../../../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js: {}
-
 global:
+  js:
+    libraries/bootstrap/js/bootstrap.bundle.min.js: {}
   css:
     theme:
       css/_base.scss: {}
+      css/global/app.scss: {}
+      css/global/fonts.scss: {}
+      css/global/typography.scss: {}
+      css/global/colors.scss: {}
+      css/tiny_slider_controls/tiny_slider_controls.scss: {}
+  dependencies:
+    - core/jquery
+
+tiny-slider:
+  js:
+    libraries/tiny-slider/min/tiny-slider.js: {}
+  css:
+    theme:
+      libraries/tiny-slider/tiny-slider.css: {}
+
+nav_bar:
+  css:
+    theme:
+      css/nav/nav_bar.scss: {}
+  js:
+    js/nav_bar.js: {}
+
+main_menu:
+  css:
+    theme:
+      css/layout/main_menu.scss: {}
+  js:
+    js/main_menu.js: {}
+
+footer:
+  css:
+      theme:
+        css/layout/footer.scss: {}
+
+cta_image_banner:
+  css:
+    theme:
+      css/paragraph/cta_image_banner.scss: {}
+
+quick_link:
+  css:
+    theme:
+      css/paragraph/quick_link.scss: {}
+  js:
+    js/quick_link.js: {}
+
+text_cta_image:
+  css:
+    theme:
+      css/paragraph/text_cta_image.scss: {}
+
+hero_banner_slider:
+  css:
+    theme:
+      css/paragraph/hero_banner_slider.scss: {}
+  js:
+    js/hero_banner_slider.js: {}
+

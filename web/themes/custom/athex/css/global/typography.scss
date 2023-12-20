@@ -1,0 +1,91 @@
+/* Families */
+
+.familyManrope {
+	font-family: 'Manrope';
+	font-style: normal;
+}
+
+/* Subheadings */
+
+
+.subheading{
+	font-size:14px;
+	line-height:26px;
+	letter-spacing:5.04px;
+}
+
+/* Headings */
+
+.heading2{
+	font-size:36px;
+	line-height:46px;
+	letter-spacing:1.44px;
+}
+
+.heading5{
+	font-size:20px;
+	line-height:28px;
+	letter-spacing:0.8px;
+}
+
+/* body */
+
+.body2{
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.48px;
+}
+
+.body3{
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.42px;
+}
+
+.cta3{
+	font-size: 14px;
+	line-height: 22px;
+	letter-spacing: 0.56px;
+}
+
+@media(min-width:992px){
+	.subheading{
+		font-size:18px;
+		line-height:35px;
+		letter-spacing:6.48px;
+	}
+
+	.heading2{
+		font-size:64px;
+		line-height:80px;
+		letter-spacing:0.6px;
+	}
+
+	.heading5{
+		letter-spacing:0.6px;
+	}
+}
+
+.weightLight {
+	font-weight: 300 !important;
+}
+
+.weightBook {
+	font-weight: 400 !important;
+}
+
+.weightBoldBook{
+	font-weight: 500 !important;
+}
+
+.weightDemi {
+	font-weight: 600 !important;
+}
+
+.weightBold {
+	font-weight:700 !important;
+}
+
+.weightBold {
+	font-weight:700 !important;
+}
