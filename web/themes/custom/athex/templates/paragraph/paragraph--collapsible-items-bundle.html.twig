@@ -1,0 +1,23 @@
+{{ attach_library('athex/collapsible_items') }}
+
+<div class="container colib">
+	<div class="row">
+		<div class="col-12">
+			<div class="colibWrapper">
+				<div class="colibTextWrapper">
+					<h1 class="colibTitle textColorWhite weightBook heading1">{{content.field_colib_title}}</h1>
+					<div class="colibTextCta">
+						<div class="colibText textColorWhite weightLight body2">{{content.field_colib_text.0['#text']|striptags|raw}}</div>
+						<div class="colibCta textColorWhite weightBoldBook cta1">{{content.field_colib_cta}}</div>
+					</div>
+				</div>
+				<div class="collapsible-container desktop">
+					{{content.field_colib_items}}
+				</div>
+				<div class="collapsible-container mobile">
+					{{content.field_colib_items}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
