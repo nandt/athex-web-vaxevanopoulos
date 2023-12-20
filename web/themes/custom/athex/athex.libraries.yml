@@ -8,12 +8,13 @@ global:
       css/global/fonts.scss: {}
       css/global/typography.scss: {}
       css/global/colors.scss: {}
+      css/tiny_slider_controls/tiny_slider_controls.scss: {}
   dependencies:
     - core/jquery
 
 tiny-slider:
   js:
-    libraries/tiny-slider/tiny-slider.js: {}
+    libraries/tiny-slider/min/tiny-slider.js: {}
   css:
     theme:
       libraries/tiny-slider/tiny-slider.css: {}
@@ -31,6 +32,11 @@ main_menu:
       css/layout/main_menu.scss: {}
   js:
     js/main_menu.js: {}
+
+prefooter:
+  css:
+    theme:
+      css/layout/prefooter.scss: {}
 
 footer:
   css:
@@ -93,4 +99,42 @@ indices_overview:
       css/blocks/indices_overview.scss: {}
   js:
     js/indices_overview.js: {}
+
+solutionsview_home:
+  css:
+    theme:
+      css/paragraph/solutionsview_home.scss: {}
+  js:
+    js/solutionsview_home.js: {}
+
+sol_teaser:
+  css:
+    theme:
+      css/node/sol_teaser.scss: {}
+
+listingsview_home:
+  css:
+    theme:
+      css/paragraph/listingsview_home.scss: {}
+  js:
+    js/listingsview_home.js: {}
+
+lis_teaser:
+  css:
+    theme:
+      css/node/lis_teaser.scss: {}
+
+ticker-tape-info:
+  css:
+    theme:
+      css/athex_inbroker_integration/ticker-tape-info.scss: {}
+  js:
+    js/ticker-tape-info.js: {}
+
+ticker-tape-item:
+  css:
+    theme:
+      css/athex_inbroker_integration/ticker-tape-item.scss: {}
+  js:
+    js/ticker-tape-item.js: {}
 

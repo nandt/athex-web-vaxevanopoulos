@@ -1,9 +1,22 @@
-<div>
-	{{closed ? 'Closed' : 'Open'}}
-	{{tradeDate}}
-	{{time}}
-</div>
+{{ attach_library('athex/ticker-tape-info') }}
 
-<div>
-	{{pinned_items}}
+<div class="row">
+	<div class="sm-status col-8 bgColorGrey7">
+		<div class="row">
+			<span class="textColorBlack weightDemi body4 col-8">Athens Stock Market</span>
+			<div class="{{closed ? 'closed' : 'open'}} body4 weightBold col-4">{{closed ? 'CLOSED' : 'OPEN'}}</div>
+		</div>
+		<div class="row body4 weightBook textColorGrey08">
+			<div class="location col-4">Athens, GR</div>
+			<div class="tradeDate col-4">{{tradeDate}}</div>
+			<div class="time col-4">{{time}}</div>
+		</div>
+	</div>
+
+	<div class="col-4 pinned-items-wrapper">
+		<div class="pinned-items">
+			{{pinned_items}}
+		</div>
+	</div>
+
 </div>

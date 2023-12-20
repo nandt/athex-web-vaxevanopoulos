@@ -33,6 +33,9 @@ class TickerTapeBlock extends BlockBase implements BlockPluginInterface {
 			],
 			'#items' => [
 				'#type' => 'container',
+				'#attributes' => [
+					'class' => ['tickertapeWrapper']
+				],
 				// '#attributes' => [
 				// 	'class' => ['ticker-item-template'],
 				// 	'style' => 'display: none;'
