@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
 
 	function initSlider() {
 		slider = tns({
-			container: '.qlWrapper',
+			container: '.qlWrapperMobile',
 			loop: false,
 			items: 1,
 			nav: false,
@@ -18,15 +18,18 @@ jQuery(document).ready(function ($) {
 		});
 	}
 
+	$(window).on("resize load orientationchange", function () {
+		if ($(window).width() < 992) {
+			initSlider();
+		} else {
+			destroySlider();
+		}
+	});
+
 	function destroySlider() {
-		if (slider)
+		if (slider) {
 			slider.destroy();
+		}
 	}
 
-	$(window).on("resize load orientationchange", function () {
-		if ($(window).width() < 992)
-			initSlider();
-		else
-			destroySlider();
-	});
 });
