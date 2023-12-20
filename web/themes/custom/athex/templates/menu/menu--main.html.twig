@@ -25,7 +25,7 @@
 					<div class="sub-menu">
 						{% if item.url %}
 							{% if item.below %}
-								<a href="{{item.url}}">Explore {{item.title}}</a>
+								<a href="{{item.url}}"> {{'Explore @title' | t ({'@title': item.title})}} </a>
 							{% else %}
 								<a href="{{item.url}}">{{item.title}}</a>
 							{% endif %}
