@@ -14,7 +14,7 @@ global:
 
 tiny-slider:
   js:
-    libraries/tiny-slider/tiny-slider.js: {}
+    libraries/tiny-slider/min/tiny-slider.js: {}
   css:
     theme:
       libraries/tiny-slider/tiny-slider.css: {}
