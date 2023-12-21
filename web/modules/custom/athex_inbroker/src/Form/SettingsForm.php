@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\athex_inbroker_integration\Form;
+namespace Drupal\athex_inbroker\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;

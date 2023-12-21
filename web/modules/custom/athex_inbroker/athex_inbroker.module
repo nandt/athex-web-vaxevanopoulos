@@ -1,6 +1,6 @@
 <?php
 
-function athex_inbroker_integration_theme($existing = null, $type = null, $theme = null, $path = null) {
+function athex_inbroker_theme($existing = null, $type = null, $theme = null, $path = null) {
 	return [
 		'ticker_tape' => [
 			'variables' => [

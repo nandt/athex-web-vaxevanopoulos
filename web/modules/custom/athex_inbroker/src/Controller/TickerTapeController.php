@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\athex_inbroker_integration\Controller;
+namespace Drupal\athex_inbroker\Controller;
 
-use Drupal\athex_inbroker_integration\Service\TickerTapeService;
+use Drupal\athex_inbroker\Service\TickerTapeService;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Cache\CacheableJsonResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;

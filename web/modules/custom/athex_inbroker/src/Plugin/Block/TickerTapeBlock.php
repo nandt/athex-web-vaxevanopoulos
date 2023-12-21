@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\athex_inbroker_integration\Plugin\Block;
+namespace Drupal\athex_inbroker\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\BlockPluginInterface;
@@ -22,7 +22,7 @@ class TickerTapeBlock extends BlockBase implements BlockPluginInterface {
 		$result = [
 			'#theme' => 'ticker_tape',
 			// '#attached' => [
-			// 	'library' => ['athex_inbroker_integration/ticker_tape']
+			// 	'library' => ['athex_inbroker/ticker_tape']
 			// ],
 			'#info' => [
 				'#type' => 'container',

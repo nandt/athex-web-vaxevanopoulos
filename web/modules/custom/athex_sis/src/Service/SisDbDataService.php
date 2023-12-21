@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\athex_sis_integration\Service;
+namespace Drupal\athex_sis\Service;
 
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
