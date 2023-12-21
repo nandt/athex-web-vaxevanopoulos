@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\athex_sis_integration\Controller;
+namespace Drupal\athex_sis\Controller;
 
-use Drupal\athex_sis_integration\Service\SisDbDataService;
+use Drupal\athex_sis\Service\SisDbDataService;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
