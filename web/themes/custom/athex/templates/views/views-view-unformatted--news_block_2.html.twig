@@ -1,0 +1,9 @@
+{# web/core/themes/stable9/templates/views/views-view-unformatted.html.twig #}
+
+<div class="newsViewWrapper">
+	{% for row in rows %}
+		<div class="news-item">
+			{{- row.content -}}
+		</div>
+	{% endfor %}
+</div>

@@ -1,0 +1,20 @@
+{# web/core/themes/stable9/templates/content/node.html.twig #}
+
+{{ attach_library('athex/news_overview') }}
+
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<article class="news-item-full">
+				<div class="news-item-info">
+					<div class="newsitem-cat body3 weightBold tag">{{ content.field_ni_category }}</div>
+					<div class="body3 weightBoldBook textColorBlack newsitem-date">{{ node.createdtime|date('d.m.Y') }}</div>
+				</div>
+				<h2 class="heading2 newsitem-title textColorDarkBlue"> {{ label }} </h2>
+				<div class="col-12 newsitem-mainimage"> {{ content.field_ni_main_image }} </div>
+				<div class="col-12 body2 textColorBlack weightBook"> {{ content.field_ni_body }} </div>
+				<div class="col-12"> {{ content.field_ni_elements }} </div>
+			</article>
+		</div>
+	</div>
+</div>
