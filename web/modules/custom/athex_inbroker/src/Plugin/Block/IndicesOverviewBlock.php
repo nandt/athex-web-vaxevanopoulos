@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\athex_inbroker_integration\Plugin\Block;
+namespace Drupal\athex_inbroker\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\BlockPluginInterface;
