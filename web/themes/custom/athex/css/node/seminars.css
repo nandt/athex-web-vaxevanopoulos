@@ -1,0 +1,44 @@
+.sticky-button {
+    position: fixed;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sticky-button button {
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    padding: 15px 35px;
+    cursor: pointer;
+  }
+
+  .container-main {
+    margin-bottom: 70px; /* Προσαρμογή margin για να μην καλύπτεται το περιεχόμενο από το sticky button */
+  }
+
+  .table-bordered td, .table-bordered th {
+  border: none;
+}
+
+.table-bordered {
+  background-color: #F6F5F8;
+  border: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: none;
+}
+
+@media(min-width:992px){
+.sticky-button {
+    display: none;
+  }
+}

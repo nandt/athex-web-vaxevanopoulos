@@ -105,3 +105,16 @@ ticker-tape-item:
   js:
     js/ticker-tape-item.js: {}
 
+paragraphs.announcements:
+  css:
+    theme:
+      css/paragraphs/announcements.css: {}
+  js:
+    js/paragraphs/announcements.js: {} 
+
+seminars:
+  css:
+    theme:
+      css/node/seminars.css: {}
+  js:
+    js/node/seminars.js: {}    
