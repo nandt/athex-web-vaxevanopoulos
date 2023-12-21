@@ -1,7 +1,13 @@
 .ctbWrapper{
     background-color: #F8F8FA;
-    padding-bottom: 48px;
+	padding: 80px 0px 48px;
     border-bottom: 1px solid #D1CCE1;
+}
+
+.nav-item {
+	a:hover {
+		border: none;
+	}
 }
 
 .ctbCta {
@@ -34,6 +40,7 @@
 @media(min-width:992px){
     .ctbWrapper{
         border-bottom: none;
+		padding-top: 120px;
     }
 
     .ctbCta {
