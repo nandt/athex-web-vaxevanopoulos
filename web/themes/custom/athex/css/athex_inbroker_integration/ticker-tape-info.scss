@@ -42,6 +42,11 @@
 	}
 }
 
+.tickerWrapper{
+	display:flex;
+	justify-content:space-between;
+}
+
 @media (min-width: 992px) {
 	.ticker-info {
 		padding: 10px;
