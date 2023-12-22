@@ -37,8 +37,51 @@
   border-bottom: none;
 }
 
+
+.btnShare{
+  color:#8466DB;
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding: 12px 15px 12px 48px;
+  background-image: url('assets/icons/white/slider-arrow.svg');
+align-items: flex-start;
+gap: 16px;
+border: 1px solid  #3300C6;
+background-color: transparent;
+}
+.SeminarTitle {
+  padding-bottom: 100px;
+  row-gap: 20px;
+}
+.SeminarDetailsTable {
+  max-width: 320px;
+}
+.SeminarMainContentText{
+  justify-content: space-between;
+}
+
+.register{
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  width: 254px;
+height: 88px;
+padding: 35px 40px;
+justify-content: center;
+align-items: center;
+gap: var(--Colors-Pixels-Spacing-xxxxsm, 8px);
+
+background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+
+}
 @media(min-width:992px){
 .sticky-button {
     display: none;
   }
+  .SeminarDetailsTable {
+    max-width: 320px;
+}
+
+
 }

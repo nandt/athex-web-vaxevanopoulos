@@ -7,22 +7,22 @@
 
  <div class="container">
     <div class="row">
-      <div class="col-md-12 ">
-        <p class="font-weight-bold">{{ node.createdtime|date('d F Y') }}</p>
-        <h1>{{ node.title.value }}</h1>
-        <button class="btn btn-primary">Share</button>
+      <div class="SeminarTitle col-12 col-lg-8 d-flex flex-column align-items-start">
+        <p class="body3 textColorBlack weightBoldBook">{{ node.createdtime|date('d F Y') }}</p>
+        <h1 class="heading2 weightDemi textColorPurple ">{{ node.title.value }}</h1>
+        <button class="btnShare">Share</button>
       </div>
     </div>
   </div>
 
  
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-lg-9 order-lg-2">
+    <div class="row SeminarMainContent">
+      <div class="col-12 col-lg-8 order-lg-2 SeminarMainContentText">
         {{ content.field_semitem_body }}
       </div>
-      <div class="col-12 col-lg-3 order-lg-1">
-        {# <table class="table table-bordered">
+      <div class="col-12 col-lg-4 order-lg-1 SeminarDetailsTable">
+        <table class="table table-bordered">
           <thead>
             <tr>
               <th colspan="2" class="bg-light">Seminar Details<br><hr></th>
@@ -43,19 +43,32 @@
               ATHEXGROUP Premises</td>
               
             </tr> 
+            <tr>
+              <td>Location<br>
+              ATHEXGROUP Premises</td>
+              
+            </tr> 
+            <tr>
+              <td>Location<br>
+              ATHEXGROUP Premises</td>
+              
+            </tr> 
+            <tr>
+              <td>Location<br>
+              ATHEXGROUP Premises</td>
+              
+            </tr> 
+            <tr>
+              <td>Location<br>
+              ATHEXGROUP Premises</td>
+              
+            </tr> 
+            
             
             </tbody>
             
-        </table> #}
-        {% for item in content.field_semitem_elements %}
-  {% set referenced_paragraph = item['#paragraph'] %}
-  {% if referenced_paragraph.type.target_id == 'details_card' %}
-    {{ referenced_paragraph.field_dc_item.value }}
-    {{ referenced_paragraph.field_dc_title.value }}
-    {# Προσθέστε εδώ όλα τα υπόλοιπα πεδία που θέλετε να εμφανίσετε #}
-  {% endif %}
-{% endfor %}
-
+        </table> 
+        <button class="register">REGISTER NOW</button>
         
       </div>
     </div>
@@ -63,9 +76,9 @@
 
    <div class="container ">
     <div class="row">
-      <div class="col-0 col-lg-3">
+      <div class="col-0 col-lg-4">
       </div>
-      <div class="col-12 col-lg-9">
+      <div class="col-12 col-lg-8">
         <h2>Gallery</h2>
         <div class="slider">
           <div><img src="image1.jpg" alt="Image 1"></div>
@@ -77,13 +90,11 @@
     </div>
   </div>
 
- 
-  
   <div class="container ">
     <div class="row">
-      <div class="col-0 col-lg-3">
+      <div class="col-0 col-lg-4">
       </div>
-      <div class="col-12 col-lg-9">
+      <div class="col-12 col-lg-8">
         {{ content.field_semitem_elements	 }}
       </div>
     </div>
@@ -92,9 +103,9 @@
  
   <div class="container ">
     <div class="row">
-      <div class="col-0 col-lg-3">
+      <div class="col-0 col-lg-4">
       </div>
-      <div class="col-12 col-lg-9">
+      <div class="col-12 col-lg-8">
         <h2>Fees</h2>
         <table class="table table-bordered">
           <tbody>
@@ -120,9 +131,9 @@
  
   <div class="container ">
     <div class="row">
-      <div class="col-0 col-lg-3">
-        <div class="col-12 col-lg-9">
-          <button class="btn btn-primary">Share</button>
+      <div class="col-0 col-lg-4">
+        <div class="col-12 col-lg-8">
+          <button class="btnShare">Share</button>
         </div>
       </div>
       
@@ -145,9 +156,10 @@
   </div>
   <div class="container-main">
     <div class="sticky-button">
-      <button>REGISTRATION</button>
+      <button >REGISTRATION</button>
     </div>
   </div>
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
