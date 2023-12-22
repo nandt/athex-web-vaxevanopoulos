@@ -10,7 +10,7 @@
       <div class="SeminarTitle col-12 col-lg-8 d-flex flex-column align-items-start">
         <p class="body3 textColorBlack weightBoldBook">{{ node.createdtime|date('d F Y') }}</p>
         <h1 class="heading2 weightDemi textColorPurple ">{{ node.title.value }}</h1>
-        <button class="btnShare">Share</button>
+        <button class="btnShare">{{content.field_button}}</button>
       </div>
     </div>
   </div>
@@ -22,148 +22,18 @@
         {{ content.field_semitem_body }}
       </div>
       <div class="col-12 col-lg-4 order-lg-1 SeminarDetailsTable">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th colspan="2" class="bg-light">Seminar Details<br><hr></th>
-              
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Type of Course<br>
-             Seminar</td>
-            </tr>
-            <tr>
-              <td>Duration<br>
-              4 weeks</td>
-            </tr>
-            <tr>
-              <td>Location<br>
-              ATHEXGROUP Premises</td>
-              
-            </tr> 
-            <tr>
-              <td>Location<br>
-              ATHEXGROUP Premises</td>
-              
-            </tr> 
-            <tr>
-              <td>Location<br>
-              ATHEXGROUP Premises</td>
-              
-            </tr> 
-            <tr>
-              <td>Location<br>
-              ATHEXGROUP Premises</td>
-              
-            </tr> 
-            <tr>
-              <td>Location<br>
-              ATHEXGROUP Premises</td>
-              
-            </tr> 
-            
-            
-            </tbody>
-            
-        </table> 
-        <button class="register">REGISTER NOW</button>
-        
-      </div>
-    </div>
-  </div>
-
-   <div class="container ">
-    <div class="row">
-      <div class="col-0 col-lg-4">
-      </div>
-      <div class="col-12 col-lg-8">
-        <h2>Gallery</h2>
-        <div class="slider">
-          <div><img src="image1.jpg" alt="Image 1"></div>
-          <div><img src="image2.jpg" alt="Image 2"></div>
-          <div><img src="image3.jpg" alt="Image 3"></div>
-         
-        </div>
+         {{content.field_details_card_ref}}
       </div>
     </div>
   </div>
 
   <div class="container ">
     <div class="row">
-      <div class="col-0 col-lg-4">
+      <div class="col-0 col-lg-4 LeftSideItemElements">
+      <button class="btnShare">{{content.field_button}}</button>
       </div>
-      <div class="col-12 col-lg-8">
-        {{ content.field_semitem_elements	 }}
-      </div>
-    </div>
-  </div>
-
- 
-  <div class="container ">
-    <div class="row">
-      <div class="col-0 col-lg-4">
-      </div>
-      <div class="col-12 col-lg-8">
-        <h2>Fees</h2>
-        <table class="table table-bordered">
-          <tbody>
-            <tr>
-              <td>Seminar Price</td>
-              <td>XXX,XX €</td>
-            </tr>
-            <tr>
-              <td>Seminar Price</td>
-              <td>XXX,XX €</td>
-            </tr>
-            <tr>
-              <td>Seminar Price</td>
-              <td>XXX,XX €</td>
-            </tr>
-          </tbody>
-        </table>
-        <button class="btn btn-primary">Learn more about ESG</button>
+      <div class="col-12 col-lg-8 SeminarItemElements">
+        {{ content.field_semitem_elements}}
       </div>
     </div>
   </div>
-
- 
-  <div class="container ">
-    <div class="row">
-      <div class="col-0 col-lg-4">
-        <div class="col-12 col-lg-8">
-          <button class="btnShare">Share</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  <div class="container ">
-    <div class="row">
-      <div class="col-12 col-lg-6">
-        <h1>Ask a question</h1>
-        <p>We encourage active participation and invite you to submit your questions 
-          through the form. Our esteemed instructors are eager to address your
-           inquiries during the seminar.</p>
-
-      </div>
-       <div class="col-0 col-lg-6">
-          form
-
-      </div>
-    </div>
-  </div>
-  <div class="container-main">
-    <div class="sticky-button">
-      <button >REGISTRATION</button>
-    </div>
-  </div>
-
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
