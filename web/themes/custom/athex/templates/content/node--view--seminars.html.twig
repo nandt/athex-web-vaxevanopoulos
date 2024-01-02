@@ -1,10 +1,98 @@
-   
-<div class="col-12 col-lg-3">
-    {{content.field_semitem_main_image}}
-    <p class="textColorIndigo body3 weightBold">SEMINAR</p>
-    <span class="headlineBlack heading6 weightBold">{{label}}</span>
-    <div class="ViewSeminarDate">
-       <span class="headlineBlack body1"> {{content.field_si_start_date}}</span>
-       <span class="headlineBlack body1"> {{content.field_si_duration}}</span>
-    </div>
+<div class="container ViewSeminars">
+    <div class="row ">
+        <div class="titleText">
+         {{content.field_sn_title}}
+        {{content.field_sn_text}}
+        </div> 
+        <div class="info-card">
+            <div class="ViewSeminarImage">{{content.field_semitem_main_image}}</div>
+            <h5 class="text-left mt-3 pt-3 textColorIndigo body3 weightBold">SEMINAR</h5>
+            <p class="text-left headlineBlack heading6 weightBold">{{label}}</p>
+            <div class="info-box d-flex justify-content-between">
+                <div>
+                    <span class="textColorPurpleLight weightDemi body1">{{ content.field_si_start_date['#title'] }}<span>
+                    <span class="headlineBlack body1"> {{content.field_si_start_date}}</span>
+                </div>
+                <div class="vertical-divider"></div>
+                <div>
+                    <span class="textColorPurpleLight weightDemi body1">{{ content.field_si_duration['#title'] }}<span>
+                    <span class="headlineBlack body1"> {{content.field_si_duration}}</span> 
+                </div>
+            </div>
+        </div>
+   </div> 
 </div>
+
+  <style>
+
+.paragraph.paragraph--type--title-text.paragraph--view-mode--default {
+    height: 264px;
+    display: flex;
+    background: #F8F8FA;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+[class*="contextual-region"][class*="js-view-dom-id"] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+        .info-card {
+            width: 389px;
+            border: none;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card:hover{
+            background-color:#F6F5F8
+
+            }
+
+        .info-card img {
+            width: 100%;
+            height: auto;
+        }
+
+.info-box {
+    background:#ffff;
+    margin-top: 20px;
+    border: 1px solid #D1CCE1;
+    display: flex;
+    padding-top: 0px;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+        .info-box div {
+            text-align: center;
+            padding: 5px 0;
+        }
+
+        .vertical-divider {
+            border-left: 1px solid #ddd;
+            height: 35px;
+        }
+    </style>
+
+<style>
+
+.ViewSeminarDate {
+    padding: 16px 24px;
+    border: 1px solid #D1CCE1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+ .ViewSeminarImage{
+    width:341px;
+    height:208px;
+    margin-bottom:24px;
+ }
+
+</style>

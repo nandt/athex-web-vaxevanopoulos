@@ -14,8 +14,8 @@
 
    controls.forEach(function(control) {
     if (control.getAttribute('data-controls') === 'prev') {
-      control.textContent = '<'; // Σύμβολο για το Prev
+      control.textContent = '<'; 
     } else if (control.getAttribute('data-controls') === 'next') {
-      control.textContent = '>'; // Σύμβολο για το Next
+      control.textContent = '>'; 
     }
   });
