@@ -108,13 +108,13 @@ ticker-tape-item:
 paragraphs.announcements:
   css:
     theme:
-      css/paragraphs/announcements.css: {}
+      css/paragraphs/announcements.scss: {}
   js:
     js/paragraphs/announcements.js: {} 
 
 seminars:
   css:
     theme:
-      css/node/seminars.css: {}
+      css/node/seminars.scss: {}
   js:
     js/node/seminars.js: {}    

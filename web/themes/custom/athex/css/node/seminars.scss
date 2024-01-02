@@ -1,29 +1,29 @@
 .sticky-button {
-    position: fixed;
-    bottom: 2px;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  position: fixed;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .sticky-button button {
-    background: transparent;
-    color: #fff;
-    font-size: 18px;
-    border: none;
-    padding: 15px 35px;
-    cursor: pointer;
-  }
+.sticky-button button {
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  padding: 15px 35px;
+  cursor: pointer;
+}
 
-  .container-main {
-    margin-bottom: 70px; /* Προσαρμογή margin για να μην καλύπτεται το περιεχόμενο από το sticky button */
-  }
+.container-main {
+  margin-bottom: 70px;
+}
 
-  .table-bordered td, .table-bordered th {
+.table-bordered td, .table-bordered th {
   border: none;
 }
 
@@ -37,25 +37,27 @@
   border-bottom: none;
 }
 
-
 .btnShare{
   color:#8466DB;
   background-position: left center;
   background-repeat: no-repeat;
   padding: 12px 15px 12px 48px;
   background-image: url('assets/icons/white/slider-arrow.svg');
-align-items: flex-start;
-gap: 16px;
-border: 1px solid  #5350F8;
-background-color: transparent;
+  align-items: flex-start;
+  gap: 16px;
+  border: 1px solid  #5350F8;
+  background-color: transparent;
 }
+
 .SeminarTitle {
   padding-bottom: 100px;
   row-gap: 20px;
 }
+
 .SeminarDetailsTable {
   max-width: 320px;
 }
+
 .SeminarMainContentText{
   justify-content: space-between;
 }
@@ -66,28 +68,21 @@ background-color: transparent;
   font-weight: bold;
   color: white;
   width: 254px;
-height: 88px;
-padding: 35px 40px;
-justify-content: center;
-align-items: center;
-gap: var(--Colors-Pixels-Spacing-xxxxsm, 8px);
-background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+  height: 88px;
+  padding: 35px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
 
 }
 
 button.btnShare a {
   text-decoration: none;
-  color:  #5350F8;
+  color:#5350F8;
 }
 
 .PhotosBundleItem{
-  padding-top:48px;
-}
-
-.PhotoBundleParagraph {
-  padding-top:40px;
- }
- .PhotosBundleItem{
   padding-top:48px;
 }
 
@@ -97,6 +92,7 @@ button.btnShare a {
   flex-direction: column;
   justify-content: center;
 }
+
 .scheduleItemHr{
 opacity:1;
 display:block;
@@ -108,7 +104,6 @@ width:100%;
 .register{
   display:none;
 }
-
 
 .sticky-button {
   z-index: 1;
@@ -123,27 +118,55 @@ width:100%;
   align-items: center;
 }
 
-  .sticky-button button {
-    background: transparent;
-    color: #fff;
-    font-size: 18px;
-    border: none;
-    padding: 15px 35px;
-    cursor: pointer;
-  }
+.sticky-button button {
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  padding: 15px 35px;
+  cursor: pointer;
+}
 
-  .SeminarDetails {
-    background:#F6F5F8;
-    padding: 24px;
-  }
+.SeminarDetails {
+  background:#F6F5F8;
+  padding: 24px;
+}
 
-  .btnShare{
-    display: none;
-  }
+.btnShare{
+  display: none;
+}
+
+/* Μορφοποίηση Slider Gallery */
+.tns-outer [aria-controls], .tns-outer [data-action] {
+  width: 80px;
+  height: 80px;
+  gap: 10px;
+  color: #A399C3;
+  cursor: pointer;
+  border-radius: 125px;
+  border: 1.25px solid #A399C3;
+  font-size: 25px;
+  background-color: transparent;
+}
+
+.tns-outer {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+}
+
+.tns-controls {
+  padding-top: 20px;
+  column-gap: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
 @media(min-width:992px){
   .btnShare{
     display: block;
   }
+
   .register{
     display:block;
  }
@@ -151,45 +174,48 @@ width:100%;
  .sticky-button{
     display:block;
  }
-.sticky-button {
+
+.sticky-button{
     display: none!important;
   }
-  .SeminarDetailsTable {
+  .SeminarDetailsTable{
     max-width: 320px;
-}
-.ViewSeminarDate{
-  display: flex;
-padding: var(--Colors-Pixels-Spacing-xxsm, 16px) var(--Colors-Pixels-Spacing-xsm, 24px);
-justify-content: center;
-align-items: center;
-gap: 39px;
-align-self: stretch;
-border: 1px solid var(--Primary-Teals-Purple-Teal-04, #D1CCE1);
-background: var(--Supportive-White-White, #FFF);}
+  }
 
+  .ViewSeminarDate{
+    display: flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 39px;
+    align-self: stretch;
+    border: 1px solid  #D1CCE1;
+    background:  #FFF;
+  }
 
-.SeminarDetailsHr{
-  display:block;
-  color: #D1CCE1;
-}
+  .SeminarDetailsHr{
+    display:block;
+    color: #D1CCE1;
+  }
 
-.PhotoBundleParagraph {
-  padding-top:40px;
- }
- .PhotosBundleItem{
-  padding-top:48px;
-}
+  .PhotoBundleParagraph{
+    padding-top:40px;
+  }
 
-.LeftSideItemElements {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-.scheduleItem {
-  flex-direction: row;
+  .PhotosBundleItem{
+    padding-top:48px;
+  }
+
+  .LeftSideItemElements{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .scheduleItem{
+    flex-direction: row;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+  }
 }
