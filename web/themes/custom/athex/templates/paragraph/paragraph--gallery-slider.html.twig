@@ -1,1 +1,11 @@
-{{content}}
+<h2 class="heading2 weightBoldBook textColorDarkBlue">{{content.field_gs_title}}</h2>
+<div class="my-slider">
+  {% for item in paragraph.field_gs_image %}
+    <div>
+      <img src="{{ file_url(item.entity.fileuri) }}" alt="{{ item.alt }}" />
+    </div>
+  {% endfor %}
+</div>
+
+
+
