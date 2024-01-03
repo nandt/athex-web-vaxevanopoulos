@@ -59,6 +59,11 @@ text_cta_image:
     theme:
       css/paragraph/text_cta_image.scss: {}
 
+explore_banner:
+  css:
+    theme:
+      css/paragraph/explore_banner.scss: {}
+
 hero_banner_slider:
   css:
     theme:

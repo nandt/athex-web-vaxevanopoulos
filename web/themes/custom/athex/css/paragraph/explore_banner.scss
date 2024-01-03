@@ -1,0 +1,87 @@
+.eb-image img {
+    max-width: 100%;
+    object-fit: none;
+}
+   
+
+         .exploreBannerRow{
+            padding:0px;
+        }
+
+  .exploreBanner {
+    padding-top: 56px;
+    padding-right: 0px;
+    padding-left: 56px;
+    display: flex;
+    background: #F7F5FD;
+    margin-top: 120px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 56px;
+}
+
+.textSide {
+    padding-bottom:80px;
+    row-gap: 20px;
+    max-width: 572px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.eb-btn{
+    height: 88px;
+padding: 35px 40px;
+justify-content: center;
+align-items: center;
+background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+}
+
+.eb-btn a{
+    font-size:14px;
+    color:white;
+}
+
+
+    @media(min-width:992px){
+
+        .exploreBannerRow{
+            padding:0px;
+        }
+
+         .exploreBanner {
+    display: flex;
+    padding: 56px;
+    background: #F7F5FD;
+    margin-top: 120px;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+ .textSide {
+    padding-bottom:0px;
+    max-width: 572px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.eb-btn{
+    height: 88px;
+padding: 35px 40px;
+justify-content: center;
+align-items: center;
+background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+}
+
+.eb-btn a{
+    font-size:14px;
+    color:white;
+}
+
+
+
+
+
+}
