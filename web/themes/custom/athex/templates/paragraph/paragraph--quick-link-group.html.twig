@@ -1,10 +1,10 @@
 {{ attach_library('athex/quick_link') }}
 
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="qlTitle">{{content.field_ql_title.0['#text']|striptags|raw}}</div>
-            {{content.field_quick_link_item}}
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-12">
+			<h1 class="qlTitle textColorPurple fontWeightBoldBook heading1">{{content.field_ql_title.0['#text']|striptags|raw}}</h1>
+			{{content.field_quick_link_item}}
+		</div>
+	</div>
 </div>

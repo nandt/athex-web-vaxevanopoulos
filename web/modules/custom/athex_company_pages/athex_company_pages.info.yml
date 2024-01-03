@@ -5,5 +5,5 @@ description: 'Provides pages for AthexGroup registered companies.'
 package: 'Deloitte Digital'
 core_version_requirement: ^10
 dependencies:
-  - athex_inbroker_integration
-  - athex_sis_integration
+  - athex_inbroker
+  - athex_sis

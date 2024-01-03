@@ -1,0 +1,281 @@
+.indices_overview_container {
+	margin-bottom: 80px;
+}
+
+.indicesOverviewTitle {
+	color: #1A0069;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 28px;
+	letter-spacing: 0.8px;
+	margin-bottom: 32px;
+}
+
+.col_Wrapper {
+	background: white;
+	padding-top: 16px;
+	padding-right: 0px;
+	padding-bottom: 16px;
+	padding-left: 0px;
+	margin-top: 16px;
+	border-top: 1px solid #E5E5EA;
+}
+
+
+.nav .nav-link {
+	color: #5F4D96;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 20px;
+	letter-spacing: 0.42px;
+}
+
+.nav .nav-link.active {
+	color: #3C06D9 !important;
+	font-weight: 600;
+	background-color: inherit !important;
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	border-bottom: 2px solid;
+	border-color: #3C06D9 !important;
+}
+
+.nav-tabs {
+	border-color: #D1CCE1 !important;
+	margin-bottom: 32px !important;
+	display: flex !important;
+	overflow-x: auto;
+	white-space: nowrap;
+	flex-wrap: nowrap !important;
+}
+
+.is_Wrapper {
+	width: 100%;
+	padding: 12px 16px;
+	position: relative;
+	margin-bottom: 48px;
+}
+
+.is_Value {
+	border-bottom: unset;
+	color: #1C1C1E;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	letter-spacing: 0.48px;
+}
+
+.is_Symbol {
+	color: #3C06D9;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: 0.48px;
+}
+
+.is_Title {
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+	letter-spacing: 0.42px;
+	color: #5F4D96;
+	margin-bottom: 3px;
+}
+
+.is_sValue,
+.is_sPercentage {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 28px;
+	letter-spacing: 0.6px;
+}
+
+.indices_overview_container .col-12>div>div>div:nth-child(2) {
+	overflow-x: scroll;
+	width: 100%;
+
+	table {
+		width: 100%;
+		background: white;
+
+		td {
+			padding: 16px 16px 20px 16px;
+			border-bottom: 1px solid #E5E5EA;
+			padding: 24px 42px 24px 42px;
+			font-size: 16px;
+			line-height: 24px;
+			letter-spacing: 0.48px;
+
+			&:first-of-type {
+				text-decoration: underline;
+				color: #5F4D96;
+				font-weight: 600;
+			}
+
+			&:nth-of-type(2) {
+				color: #030314;
+				font-weight: 400;
+				display: none;
+			}
+
+			&:nth-of-type(3),
+			&:nth-of-type(4),
+			&:nth-of-type(5) {
+				font-weight: 500;
+			}
+		}
+	}
+}
+
+.pos-change {
+	color: #007F47;
+}
+
+.neg-change {
+	color: #E50958;
+}
+
+.nav-pills {
+	margin-bottom: 24px !important;
+}
+
+.col_textWrapper {
+	display: flex;
+	margin-bottom: 0px;
+	justify-content: space-between;
+}
+
+.nav-pills .nav-link {
+	border: 1px solid #E4E1ED;
+	background-color: white;
+	margin-right: 12px;
+}
+
+.nav-pills .nav-link.active {
+	border-left: 1px solid #21C0F2 !important;
+	border-right: 1px solid #21C0F2 !important;
+	border-top: 1px solid #21C0F2 !important;
+	border-bottom: 1px solid #21C0F2 !important;
+	background-color: #F0ECFC !important;
+	border-radius: 2px;
+	margin-right: 12px;
+}
+
+.is_Wrapper {
+	background: white;
+}
+
+@media(min-width:992px) {
+
+	.nav-pills {
+		margin-bottom: 16px !important;
+	}
+
+
+	.indicesOverviewTitle {
+		letter-spacing: 0.6px;
+		margin-bottom: 48px;
+	}
+
+	.nav-tabs {
+		margin-bottom: 44px !important;
+		overflow: hidden;
+		flex-wrap: wrap;
+	}
+
+	.indices_overview_container .col-12>div>div {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.indices_overview_container .col-12>div>div>div:nth-child(2) {
+		width: 71%;
+		overflow-x: hidden;
+
+		table {
+			width: 100%;
+
+			td {
+				padding: 24px 42px 24px 42px;
+
+				&:nth-of-type(2) {
+					display: block;
+				}
+			}
+		}
+	}
+
+
+
+	.is_Wrapper {
+		width: 302px;
+		padding: 12px 12px;
+		background: white;
+		height: 100%;
+		margin-top: 48px;
+		margin-bottom: unset;
+	}
+
+	.col_Wrapper {
+		background: #F8F8FA;
+		padding-top: 32px;
+		padding-right: 12px;
+		padding-bottom: 32px;
+		padding-left: 12px;
+		margin-top: unset;
+		border-top: none;
+	}
+
+	.is_Value {
+		border-bottom: 1px solid #D1CCE1;
+		position: relative;
+		color: #030314;
+		top: unset;
+		right: unset;
+		font-size: 24px;
+		font-weight: 400;
+		line-height: 32px;
+		letter-spacing: 0.72px;
+		padding-bottom: 24px;
+		margin-bottom: 24px;
+	}
+
+	.is_Symbol {
+		font-size: 28px;
+		line-height: 38px;
+		letter-spacing: 1.12px;
+		margin-bottom: 12px;
+	}
+
+	.is_Title {
+		margin-bottom: 8px;
+	}
+
+	.is_sValue {
+		font-size: 16px;
+		font-weight: 700;
+		line-height: 24px;
+		letter-spacing: 0.48px;
+	}
+
+	.is_sPercentage {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 24px;
+		letter-spacing: 0.48px;
+	}
+
+	.col_textWrapper {
+		margin-bottom: 24px;
+	}
+
+	.indices_overview_container {
+		margin-bottom: 120px;
+	}
+
+}

@@ -1,0 +1,71 @@
+.viewNewsPress {
+    margin-bottom: 80px;
+}
+
+#views-exposed-form-news-press-releases-news-press fieldset legend span {
+    display: none;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper>div {
+    display: flex;
+    border-bottom: 1px solid #D1CCE1;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper .js-form-item:not(:first-child) {
+    margin-left: 30px;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper .js-form-item label {
+    cursor: pointer;
+    color: #5f4d96;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.42px;
+    padding-bottom: 16px;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper .js-form-item.active {
+    border-bottom: 1px solid #3C06D9;
+    color: #3C06D9;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper .js-form-item input {
+    display: none;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper .js-form-item {
+    cursor: pointer;
+}
+
+label[for^="edit-tid-all"] {
+    display: none;
+}
+
+.fieldset-wrapper .js-form-item {
+    cursor: pointer;
+}
+
+.viewsColWrapper {
+    padding: 32px 20px;
+    background: white;
+    margin-top: 32px;
+}
+
+#customize-controls-view {
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 56px;
+    background: white;
+}
+
+@media(min-width:992px) {
+
+    .viewsColWrapper {
+        padding: 56px 80px;
+        margin-top: 44px;
+    }
+
+    .viewNewsPress {
+        margin-bottom: 150px;
+    }
+}

@@ -16,10 +16,20 @@
 		display: flex;
 		padding: 0px 0px 48px;
 		align-items: center;
-		gap: var(--spacing-16, 16px);
 
 		a {
 			color: #fff;
+			display: flex;
+			align-items: center;
+			gap: 16px;
+		}
+
+		a::after {
+			background-image: url('assets/icons/white/arrow-right.svg');
+			content: '';
+			width: 20px;
+			height: 20px;
+			display: block;
 		}
 	}
 
@@ -68,9 +78,20 @@
 		}
 	}
 
+	.heading2 strong {
+		background: var(--Supportive-Gradient-Indigo-06, linear-gradient(96deg, #2F15A3 -27.43%, #594DE4 -1.01%, #19C2D0 28.85%, #98F7FF 66.53%));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
 }
 
 @media (min-width: 992px) {
+	.solviewhomeWrapper {
+		padding-top: 132px;
+	}
+
 	.solviewhomeContainer {
 		padding: 120px 0px;
 

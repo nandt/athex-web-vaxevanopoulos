@@ -1,0 +1,28 @@
+{{ attach_library('athex/news_press_teasers') }}
+
+<div class="layout_padding">
+	<div class="updatesItemTeaserWrapper d-flex">
+		<div class="title_tag_wrapper">
+			<div class="updatesItemTeaserTag body3 weightBold textColorDeepPurple">
+				{{ fields.field_ni_tag.content }}
+			</div>
+			<div class="updatesItemTeaserTag body3 weightBold textColorDeepPurple">
+				{{ fields.field_pr_tag.content }}
+			</div>
+			<div class="border-vertical"></div>
+			<div class="updatesItemTeaserDate weightBoldBook body3 textColorBlack d-flex align-items-center">
+				{{ node.createdtime|date('d.m.Y') }}
+			</div>
+		</div>
+		<div class="updatesItemTeaserTitle heading5 weightBold textColorBlack">
+			{{ fields.title.content }}
+		</div>
+		<div class="updatesItemTeaserBody body2 weightBook textColorBlack">
+			{{ fields.field_ni_body.content|striptags|trim|slice(0, 200) }}
+		</div>
+		<div class="updatesItemTeaserBody body2 weightBook textColorBlack">
+			{{ fields.field_pr_body.content }}
+		</div>
+		<a class="updatesItemTeaserLink" href="{{ fields.view_node.content|striptags|trim }}"></a>
+	</div>
+</div>

@@ -2,7 +2,7 @@
 
 namespace Drupal\athex_company_pages\Service;
 
-use Drupal\athex_sis_integration\Service\SisDbDataService;
+use Drupal\athex_sis\Service\SisDbDataService;
 
 
 class CompanyOverviewDataService {

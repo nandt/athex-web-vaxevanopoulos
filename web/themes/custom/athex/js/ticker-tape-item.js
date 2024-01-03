@@ -18,11 +18,13 @@ jQuery(document).ready(function ($) {
 			responsive: {
 				1: {
 					items: 3,
-					slideBy: 1
+					slideBy: 1,
+					fixedWidth: 138
 				},
 				992: {
 					items: 4,
-					slideBy: 1
+					slideBy: 1,
+					fixedWidth:148
 				}
 			}
 		})

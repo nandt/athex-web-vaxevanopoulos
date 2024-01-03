@@ -1,3 +1,7 @@
+.tickertape {
+	background-color: #fff;
+}
+
 .ticker-info {
 	padding: 10px 24px;
 	text-wrap: nowrap;
@@ -38,8 +42,13 @@
 	}
 }
 
+.tickerWrapper{
+	display:flex;
+	justify-content:space-between;
+}
+
 @media (min-width: 992px) {
 	.ticker-info {
-		padding: 0px;
+		padding: 10px;
 	}
 }

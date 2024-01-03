@@ -1,0 +1,4 @@
+services:
+  athex_sis.db_data:
+    class: Drupal\athex_sis\Service\SisDbDataService
+    arguments: ['@logger.factory', '@config.factory']

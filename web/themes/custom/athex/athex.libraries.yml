@@ -8,12 +8,13 @@ global:
       css/global/fonts.scss: {}
       css/global/typography.scss: {}
       css/global/colors.scss: {}
+      css/tiny_slider_controls/tiny_slider_controls.scss: {}
   dependencies:
     - core/jquery
 
 tiny-slider:
   js:
-    libraries/tiny-slider/tiny-slider.js: {}
+    libraries/tiny-slider/min/tiny-slider.js: {}
   css:
     theme:
       libraries/tiny-slider/tiny-slider.css: {}
@@ -47,12 +48,24 @@ cta_image_banner:
     theme:
       css/paragraph/cta_image_banner.scss: {}
 
+cta_text_banner:
+  css:
+    theme:
+      css/paragraph/cta_text_banner.scss: {}
+
 quick_link:
   css:
     theme:
       css/paragraph/quick_link.scss: {}
   js:
     js/quick_link.js: {}
+
+collapsible_items:
+  css:
+    theme:
+      css/paragraph/collapsible_items.scss: {}
+  js:
+    js/collapsible_items.js: {}
 
 text_cta_image:
   css:
@@ -71,6 +84,31 @@ hero_banner_slider:
   js:
     js/hero_banner_slider.js: {}
 
+news_press_teasers:
+  css:
+    theme:
+      css/views/news_press_teasers.scss: {}
+
+news_press_view:
+  css:
+    theme:
+      css/views/news_press_view.scss: {}
+  js:
+    js/news_press_view.js: {}
+
+gradient_hero_title:
+  css:
+    theme:
+      css/blocks/gradient_hero_title.scss: {}
+  js:
+    js/gradient_hero_title.js: {}
+
+indices_overview:
+  css:
+    theme:
+      css/blocks/indices_overview.scss: {}
+  js:
+    js/indices_overview.js: {}
 
 solutionsview_home:
   css:
@@ -122,4 +160,28 @@ seminars:
     theme:
       css/node/seminars.scss: {}
   js:
-    js/node/seminars.js: {}    
+    js/node/seminars.js: {}  
+      
+news_item:
+  css:
+    theme:
+      css/node/news_item.scss: {}
+
+image_slider_item:
+  css:
+    theme:
+      css/field/image_slider_item.scss: {}
+  js:
+    js/image_slider_item.js: {}
+
+testimonial:
+  css:
+    theme:
+      css/paragraph/testimonial.scss: {}
+
+news_overview:
+  css:
+    theme:
+      css/node/news_overview.scss: {}
+  js:
+    js/news_overview.js: {}
