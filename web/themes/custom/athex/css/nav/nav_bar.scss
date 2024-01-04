@@ -109,3 +109,38 @@ li.expaned ~ li:not(.expanded) {
 		position: absolute;
 	}
 }
+
+.sub-menu.submenu-2 {
+    position: absolute;
+	top:2%;
+    left: 110%;
+}
+
+.sub-menu.submenu-1 {
+	padding: 20px 10px 0px 30px;
+	color:#A399C3;
+    right: 88%;
+    position: absolute;
+    max-width: 300px;
+    background: white;
+	height: 100vh;
+}
+
+.sub-menu a {
+	font-family: Manrope;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	padding: 10px;
+    color: #5F4D96;
+}
+
+
+a.titleMenu {
+	margin-bottom: 20px;
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-image: url(/themes/custom/athex/assets/icons/purple/iconArrow.svg);
+	border-bottom: 1px solid #D1CCE1;
+    color: #1A0069;
+}
