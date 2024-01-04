@@ -72,12 +72,14 @@ hr {
 	}
 }
 
-input[type="submit"]:not(:disabled){
-	display: none;
-}
+.main-menu {
+	input[type="submit"]:not(:disabled){
+		display: none;
+	}
 
-input[type="search"]:not(:disabled){
-	display: none;
+	input[type="search"]:not(:disabled){
+		display: none;
+	}
 }
 
 .menu-block--main {
