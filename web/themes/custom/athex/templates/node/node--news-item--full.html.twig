@@ -5,7 +5,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-12">
-			<article class="news-item-full">
+			<article class="news-item-full" style="padding:10px;">
 				<div class="news-item-info">
 					<div class="newsitem-cat body3 weightBold tag">{{ content.field_ni_category }}</div>
 					<div class="body3 weightBoldBook textColorBlack newsitem-date">{{ node.createdtime|date('d F Y') }}</div>
@@ -19,7 +19,13 @@
 				</div>
 				<div class="col-12 newsitem-mainimage"> {{ content.field_ni_main_image }} </div>
 				<div class="col-12 body2 textColorBlack weightBook news-main-body"> {{ content.field_ni_body }} </div>
-				<div class="col-12"> {{ content.field_ni_elements }} </div>
+				<div class="col-12 newsitem-elements"> {{ content.field_ni_elements }} </div>
+				{# <div class="share-btn-wrapper">
+					<button class="share-btn bgColorWhite">
+						<span class="share-btn-icon"></span>
+						<span class="cta3 weightDemi share-btn-text">Share</span>
+					</button>
+				</div> #}
 			</article>
 		</div>
 	</div>

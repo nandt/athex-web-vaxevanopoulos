@@ -59,12 +59,12 @@ text_cta_image:
     theme:
       css/paragraph/text_cta_image.scss: {}
 
-hero_banner_slider:
-  css:
-    theme:
-      css/paragraph/hero_banner_slider.scss: {}
-  js:
-    js/hero_banner_slider.js: {}
+# hero_banner_slider:
+#   css:
+#     theme:
+#       css/paragraph/hero_banner_slider.scss: {}
+#   js:
+#     js/hero_banner_slider.js: {}
 
 
 solutionsview_home:
@@ -105,3 +105,26 @@ ticker-tape-item:
   js:
     js/ticker-tape-item.js: {}
 
+news_item:
+  css:
+    theme:
+      css/node/news_item.scss: {}
+
+news_item_teaser:
+  css:
+    theme:
+      css/node/news_item_teaser.scss: {}
+  js:
+    js/news_overview.js: {}
+
+testimonial:
+  css:
+    theme:
+      css/paragraph/testimonial.scss: {}
+
+image_slider:
+  css:
+    theme:
+      css/field/image_slider_item.scss: {}
+  js:
+    js/image_slider_item.js: {}

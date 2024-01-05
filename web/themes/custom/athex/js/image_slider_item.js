@@ -7,21 +7,20 @@ jQuery(document).ready(function ($) {
 			container: '.imagesliderWrapper',
 			loop: false,
 			nav: false,
-			autoplay: true,
+			autoplay: false,
 			speed: 300,
 			autoplayButtonOutput: false,
 			mouseDrag: true,
 			preventScrollOnTouch: 'auto',
 			lazyload: true,
-			controls: false,
 			rewind: true,
 			controlsPosition: 'bottom',
 			controlsContainer: '#images-slider',
 			responsive: {
 				1: {
-					items: 2,
+					items: 1,
 					slideBy: 1,
-					gutter: 24
+					//gutter: 24
 				},
 				992: {
 					items: 3,
@@ -32,5 +31,11 @@ jQuery(document).ready(function ($) {
 	}
 
 	initSlider();
+
+	// $(document).on('click', '.controls > .next', function() {
+	// 	$(this).sibling().children('.imagesliderWrapper').children('.tns-slide-active').next().toggleClass('active');
+	// })
+
+	//$(document).find('.imagesliderWrapper').children('.tns-slide-active').prev().removeClas('active');
 })
 
