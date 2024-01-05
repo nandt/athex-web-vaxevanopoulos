@@ -38,7 +38,7 @@
 	border-top: none !important;
 	border-left: none !important;
 	border-right: none !important;
-	border-bottom: 2px solid;
+	border-bottom: 2px solid !important;
 	border-color: #3C06D9 !important;
 }
 
@@ -150,7 +150,8 @@
 	justify-content: space-between;
 }
 
-.nav-pills .nav-link {
+.nav-pills .nav-link,
+.nav-pills .nav-link:hover {
 	border: 1px solid #E4E1ED;
 	background-color: white;
 	margin-right: 12px;
@@ -168,6 +169,18 @@
 
 .is_Wrapper {
 	background: white;
+}
+
+.nav .nav-item .nav-link:hover,
+.nav .nav-item .nav-link:focus{
+	color:#5F4D96;
+}
+
+.nav.nav-tabs .nav-item,
+.nav.nav-tabs .nav-item .nav-link{
+	border: none;
+	transition: none !important;
+	outline:none !important;
 }
 
 @media(min-width:992px) {
