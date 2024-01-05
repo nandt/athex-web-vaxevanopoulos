@@ -1,0 +1,37 @@
+{{ attach_library('athex/seminars') }}
+
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+
+ <div class="container">
+    <div class="row">
+      <div class="SeminarTitle col-12 col-lg-8 d-flex flex-column align-items-start">
+        <p class="body3 textColorBlack weightBoldBook">{{ node.createdtime|date('d F Y') }}</p>
+        <h1 class="heading2 weightDemi textColorPurple ">{{ node.title.value }}</h1>
+        <button class="btnShare">{{content.field_button}}</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row SeminarMainContent">
+      <div class="col-12 col-lg-8 order-lg-2 SeminarMainContentText">
+        <span class="titleContent heading3 weightBoldBook textColorDarkBlue">{{ content.field_si_body_title }}</span>
+        {{ content.field_semitem_body }}
+      </div>
+      <div class="col-12 col-lg-4 order-lg-1 SeminarDetailsTable">
+         {{content.field_details_card_ref}}
+      </div>
+    </div>
+  </div>
+  <div class="container ">
+    <div class="row">
+      <div class="col-0 col-lg-4 LeftSideItemElements">
+      <button class="btnShare">{{content.field_button}}</button>
+      </div>
+      <div class="col-12 col-lg-8 SeminarItemElements">
+        {{ content.field_semitem_elements}}
+      </div>
+    </div>
+  </div>
+
