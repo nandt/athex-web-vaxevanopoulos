@@ -148,20 +148,13 @@ ticker-tape-item:
   js:
     js/ticker-tape-item.js: {}
 
-paragraphs.announcements:
-  css:
-    theme:
-      css/paragraphs/announcements.scss: {}
-  js:
-    js/paragraphs/announcements.js: {} 
-
 seminars:
   css:
     theme:
       css/node/seminars.scss: {}
   js:
-    js/node/seminars.js: {}  
-      
+    js/node/seminars.js: {}
+
 news_item:
   css:
     theme:
