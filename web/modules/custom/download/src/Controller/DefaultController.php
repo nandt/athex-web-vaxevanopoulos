@@ -2,6 +2,7 @@
 
 namespace Drupal\download\Controller;
 
+use PclZip;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
@@ -17,8 +18,6 @@ use Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
  * Default controller for the download module.
  */
 class DefaultController extends ControllerBase {
-
-  use PclZip;
 
   /**
    * The entity type manager.
