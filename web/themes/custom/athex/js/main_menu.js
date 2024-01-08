@@ -2,14 +2,20 @@ jQuery(document).ready(function ($) {
 
     $(document).on('click', '.burger-btn', function () {
         var $burgerIcon = $(this).find('.burger-icon');
+        var $xIcon = $(this).find('.x-icon');
         var $searchIcon = $('.search-icon');
+        var $titleMenuMob = $('.titleMenuMob');
 
-        if ($burgerIcon.hasClass('burger-icon')) {
+        if ($burgerIcon.length) {
+
             $burgerIcon.removeClass('burger-icon').addClass('x-icon');
             $searchIcon.hide();
-        } else {
-            $burgerIcon.removeClass('x-icon').addClass('burger-icon');
+            $titleMenuMob.show();
+        } else if ($xIcon.length) {
+
+            $xIcon.removeClass('x-icon').addClass('burger-icon');
             $searchIcon.show();
+            $titleMenuMob.hide();
         }
 
         $(this).parents('.layout-container').toggleClass('expanded');

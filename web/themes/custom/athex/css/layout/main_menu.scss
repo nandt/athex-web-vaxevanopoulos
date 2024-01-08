@@ -27,7 +27,8 @@ hr {
 }
 
 .menu-item-arrow, .back-icon {
-	background-image: url('assets/icons/black/menu-arrow.svg');
+	background-image: url('/assets/icons/purple/iconChevronRight.svg');
+	background-repeat: no-repeat;
 	width: 20px;
 	height: 20px;
 	display: block;
@@ -48,7 +49,7 @@ hr {
 }
 
 .burger-icon {
-	background-image: url('assets/icons/Gradient/burger-btn.svg');
+	background-image: url('assets/icons/Gradient/iconMenu.svg');
 	width: 24px;
 	height: 24px;
 	background-size: 24px;
@@ -68,8 +69,6 @@ hr {
 	position: relative;
 	top: 28px;
 }
-
-
 
 .main-menu {
 	padding: 0px 24px;
@@ -121,6 +120,7 @@ input[type="search"]:not(:disabled){
 }
 
 .menu-sublink, .login {
+
 	border-bottom: 1px solid #E6EBEE;
 	display: flex;
 	justify-content: space-between;
@@ -139,6 +139,15 @@ input[type="search"]:not(:disabled){
 			-webkit-text-fill-color: transparent;
 		}
 	}
+
+}
+
+.menu-block--main nav .top-level {
+	font-size: 13px;
+	font-weight: 600px;
+    color: #1A0069;
+    padding: 34px 12px 6px;
+    width: 100%;
 }
 
 .language-selector ul, .language-selector li, .login ul, .login li {
@@ -146,14 +155,14 @@ input[type="search"]:not(:disabled){
     display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 3%;
     flex-direction: row;
     justify-content: flex-end;
 }
 
 
-
 @media (min-width: 992px) {
+
 	.burger-btn {
 		display: none;
 	}
@@ -223,15 +232,15 @@ input[type="search"]:not(:disabled){
 
 	.athex_investorrelationslink a{
 		font-weight: bold;
-    background: linear-gradient(87deg, #21C0F2 -29.34%, #882BFE 119.81%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+		background: linear-gradient(87deg, #21C0F2 -29.34%, #882BFE 119.81%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
 	.col-12.top-links-wrapper {
 		border-top: 4px solid  #3300C6;
-    background:  #F6F5F8;
+    	background:  #F6F5F8;
 	}
 
 	.language-selector ul, .language-selector li, .login ul, .login li {
@@ -243,5 +252,16 @@ input[type="search"]:not(:disabled){
 		flex-direction: row;
 		justify-content: space-between;
 	}
+
 }
 
+@media(max-width:992px){
+
+	.menu-sublink, .login {
+	border-bottom: 1px solid #E6EBEE;
+	display: flex;
+	justify-content: space-between;
+	padding: 32px 32px 32px 32px;
+	}
+
+}
