@@ -5,6 +5,6 @@
     "license": "GPL-2.0+",
     "require": {
         "pclzip/pclzip": "^2.8",
-        "drupal/core": "^8.8 || ^9"
+        "drupal/core": "^8.8 || ^9 || ^10"
     }
 }
