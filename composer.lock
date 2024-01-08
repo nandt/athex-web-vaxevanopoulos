@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f494db62d76bac0ee48477c7c527829",
+    "content-hash": "9e5efa2374c352423d4963ce1de55bac",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3777,6 +3777,47 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.17.1"
             },
             "time": "2023-08-13T19:53:39+00:00"
+        },
+        {
+            "name": "pclzip/pclzip",
+            "version": "2.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ivanlanin/pclzip.git",
+                "reference": "19dd1de9d3f5fc4d7d70175b4c344dee329f45fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivanlanin/pclzip/zipball/19dd1de9d3f5fc4d7d70175b4c344dee329f45fd",
+                "reference": "19dd1de9d3f5fc4d7d70175b4c344dee329f45fd",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "pclzip.lib.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Blavet"
+                }
+            ],
+            "description": "A PHP library that offers compression and extraction functions for Zip formatted archives",
+            "homepage": "http://www.phpconcept.net/pclzip",
+            "keywords": [
+                "php",
+                "zip"
+            ],
+            "support": {
+                "issues": "https://github.com/ivanlanin/pclzip/issues",
+                "source": "https://github.com/ivanlanin/pclzip/tree/master"
+            },
+            "time": "2014-06-05T11:42:24+00:00"
         },
         {
             "name": "pear/archive_tar",

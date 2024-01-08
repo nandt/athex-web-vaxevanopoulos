@@ -30,6 +30,7 @@
         "drupal/webform": "^6.2",
         "drupal/workflow": "^1.7",
         "drush/drush": "^12.4",
+        "pclzip/pclzip": "^2.8",
         "twbs/bootstrap": "5.3.2"
     },
     "conflict": {
