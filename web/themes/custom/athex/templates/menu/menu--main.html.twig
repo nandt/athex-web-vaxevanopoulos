@@ -10,21 +10,23 @@
         {% if menu_level == 0 %}
             <ul class="top-level col-8" {{ attributes }}>
         {% else %}
-            <div class="back">
-                <span class="back-icon"></span>
-                <button class="back-button">Main Menu</button>
-            </div>
+
             <ul>
         {% endif %}
         {% for item in items %}
             <li class="col" {{ item.attributes }}>
                 {% if item.below %}
                     {% set submenu_counter = submenu_counter + 1 %}
-                    <span class="menu-title">{{ item.title }}</span>
-                    <div class="sub-menu submenu-{{ submenu_counter }}">
+                    <span class="menu-title menu-title-depth-{{ menu_level + 1 }}">{{ item.title }}</span>
+                    <div class="sub-menu submenu-{{ submenu_counter }} depth-{{ menu_level + 1 }}">
                         {% if item.url %}
                             {% if item.below %}
-                                <a class="titleMenu" href="{{ item.url }}"> {{ 'Explore @title' | t ({'@title': item.title}) }} </a>
+							 <div class="back">
+                <span class="back-icon"></span>
+                <button class="back-button">Main Menu</button>
+				<a class="titleMenuMob" href="{{ item.url }}"> {{ 'Explore @title' | t ({'@title': item.title}) }} </a>
+            </div>
+							<a class="titleMenu" href="{{ item.url }}"> {{ 'Explore @title' | t ({'@title': item.title}) }} </a>
                             {% else %}
                                 <a href="{{ item.url }}">{{ item.title }}</a>
                             {% endif %}
@@ -40,5 +42,4 @@
         </ul>
     {% endif %}
 {% endmacro %}
-
 

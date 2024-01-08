@@ -58,6 +58,18 @@ hr {
 	top: 28px;
 }
 
+.x-icon {
+	background-image: url('assets/icons/Gradient/iconClose.svg');
+	width: 24px;
+	height: 24px;
+	background-size: 24px;
+	background-repeat: no-repeat;
+	display: block;
+	position: relative;
+	top: 28px;
+}
+
+
 
 .main-menu {
 	padding: 0px 24px;
@@ -112,27 +124,34 @@ input[type="search"]:not(:disabled){
 	border-bottom: 1px solid #E6EBEE;
 	display: flex;
 	justify-content: space-between;
-	padding: 32px 12px;
+    padding: 12px 32px 12px 32px;
 
 	div {
 		width: 100%;
 
 		a {
+			font-weight: bold;
 			display: block;
 			width: 100%;
+			background: linear-gradient(87deg, #21C0F2 -29.34%, #882BFE 119.81%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
 		}
 	}
 }
 
-.language-selector, .login {
-	padding: 16px 12px;
-
-	ul, li {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
+.language-selector ul, .language-selector li, .login ul, .login li {
+    column-gap: 10px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    justify-content: flex-end;
 }
+
+
 
 @media (min-width: 992px) {
 	.burger-btn {
@@ -144,10 +163,15 @@ input[type="search"]:not(:disabled){
 	}
 
 	.top-links {
+		row-gap: 10px;
+		padding: 0px 2% 0px 2%;
+		height: 5cqh;
+		background-color: #F6F5F8;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
 		font-size: 13px;
+		column-gap: 20px;
 	}
 
 	.navbar-toggler, .menu-item-arrow {
@@ -184,4 +208,40 @@ input[type="search"]:not(:disabled){
 		bottom: 35px;
 		order: 2;
 	}
+
+	.row.menu {
+		margin-right: 2%;
+		margin-left: 2%;
+		border-bottom: 1px solid #E8E5F0;
+		margin-top: 30px;
+		display: flex;
+	}
+
+	.athex_investorrelationslink {
+		background: rgba(232, 229, 240, 0.60);
+	}
+
+	.athex_investorrelationslink a{
+		font-weight: bold;
+    background: linear-gradient(87deg, #21C0F2 -29.34%, #882BFE 119.81%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+	}
+
+	.col-12.top-links-wrapper {
+		border-top: 4px solid  #3300C6;
+    background:  #F6F5F8;
+	}
+
+	.language-selector ul, .language-selector li, .login ul, .login li {
+		column-gap: 10px;
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		flex-direction: row;
+		justify-content: space-between;
+	}
 }
+
