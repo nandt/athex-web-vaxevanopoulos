@@ -20,24 +20,31 @@
 		</header>
 	{% endif %}
 
-	{{ exposed }}
-	{{ attachment_before }}
+	<div class="container">
 
-	{% if rows -%}
-		{{ rows }}
-	{% elseif empty -%}
-		{{ empty }}
-	{% endif %}
-	{{ pager }}
+		{{ exposed }}
 
-	{{ attachment_after }}
-	{{ more }}
+		{{ attachment_before }}
 
-	{% if footer %}
-		<footer>
-			{{ footer }}
-		</footer>
-	{% endif %}
+		<div class="mini-pager"></div>
 
-	{{ feed_icons }}
+		{% if rows -%}
+			{{ rows }}
+		{% elseif empty -%}
+			{{ empty }}
+		{% endif %}
+
+		{{ pager }}
+
+		{{ attachment_after }}
+		{{ more }}
+
+		{% if footer %}
+			<footer>
+				{{ footer }}
+			</footer>
+		{% endif %}
+
+		{{ feed_icons }}
+	</div>
 </div>

@@ -13,6 +13,8 @@ global:
     - core/jquery
 
 views:
+  js:
+    js/views.js: {}
   css:
     theme:
       css/views/views.scss: {}
