@@ -1,0 +1,150 @@
+body.befs-open {
+	overflow: hidden;
+
+	#toolbar-administration {
+		display: none;
+	}
+}
+
+.views-element-container:first-child {
+	header {
+		padding: 112px 0 84px 0;
+		background: linear-gradient(97deg, #0E00AB -18.5%, rgba(73, 43, 195, 0.51) 154.28%);
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 35px;
+		letter-spacing: 6.48px;
+		color: #E8E5F0;
+
+		h1 {
+			font-size: 48px;
+			font-weight: 500;
+			line-height: 60px;
+			letter-spacing: 1.92px;
+			color: white;
+		}
+	}
+}
+
+form.bef-exposed-form {
+	width: 100%;
+	margin: 64px 0;
+
+	// &.has-only-textfield-in-primary {
+		position: relative;
+		max-width: 1060px;
+		margin: 64px auto;
+
+		& > .js-form-type-textfield {
+			input, input:focus, input:active, input:focus-visible {
+				display: block;
+				width: 100%;
+				font-size: 16px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 24px;
+				letter-spacing: 0.48px;
+				padding: 16px 22px 16px 66px;
+				border: 1px solid #D1CCE1CC;
+				border-radius: 4px;
+				background-color: #fff;
+				outline: 0;
+			}
+		}
+
+		// &.is-under-header {
+			margin-top: -28px;
+		// }
+
+		details.bef--secondary {
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			& > summary {
+				color: #3C06D9;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 500;
+				line-height: 24px;
+				letter-spacing: 0.42px;
+				padding: 16px 54px 16px 22px;
+
+				&::marker {
+					content: none;
+				}
+			}
+		}
+
+		.form-actions {
+			display: none;
+		}
+	// }
+}
+
+details.bef--secondary > div {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	max-width: 490px;
+	width: 100%;
+	background-color: #fff;
+	padding: 32px 24px;
+	z-index: 9999;
+
+	@media (max-width: 100vh) {
+		top: 130px;
+		right: 50%;
+		transform: translateX(50%);
+		border-radius: 20px 20px 0 0;
+	}
+}
+
+body.befs-open details.bef--secondary[open] > summary {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	font-size: 0;
+	background-color: #10142C66;
+	backdrop-filter: blur(2px);
+	z-index: 9998;
+	cursor: default;
+}
+
+table {
+	width: 100%;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0.48px;
+
+	th {
+		background-color: #F6F5F8;
+		color: #4C37B0;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 20px;
+		letter-spacing: 0.42px;
+		text-transform: uppercase;
+		padding: 12px 32px;
+	}
+
+	td {
+		padding: 24px 32px;
+		border-bottom: 1.5px solid #E5E5EA;
+	}
+
+	th.views-field.views-field-title,
+	td.views-field.views-field-title,
+	th.views-field.views-field-name,
+	td.views-field.views-field-name {
+		width: 30%;
+	}
+}
+
+.layout-content > div:only-child > div > .views-element-container {
+	margin-bottom: 78px;
+}

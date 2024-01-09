@@ -1,0 +1,50 @@
+{# web/core/themes/stable9/templates/views/views-view.html.twig #}
+
+{{ attach_library('athex/views') }}
+
+{%
+	set classes = [
+		dom_id ? 'js-view-dom-id-' ~ dom_id,
+	]
+%}
+<div{{ attributes.addClass(classes) }}>
+	{{ title_prefix }}
+	{{ title }}
+	{{ title_suffix }}
+
+	{% if header %}
+		<header>
+			<div class="container">
+				{{ header }}
+			</div>
+		</header>
+	{% endif %}
+
+	<div class="container">
+
+		{{ exposed }}
+
+		{{ attachment_before }}
+
+		<div class="mini-pager"></div>
+
+		{% if rows -%}
+			{{ rows }}
+		{% elseif empty -%}
+			{{ empty }}
+		{% endif %}
+
+		{{ pager }}
+
+		{{ attachment_after }}
+		{{ more }}
+
+		{% if footer %}
+			<footer>
+				{{ footer }}
+			</footer>
+		{% endif %}
+
+		{{ feed_icons }}
+	</div>
+</div>

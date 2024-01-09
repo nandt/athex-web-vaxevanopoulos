@@ -12,6 +12,13 @@ global:
   dependencies:
     - core/jquery
 
+views:
+  js:
+    js/views.js: {}
+  css:
+    theme:
+      css/views/views.scss: {}
+
 tiny-slider:
   js:
     libraries/tiny-slider/min/tiny-slider.js: {}

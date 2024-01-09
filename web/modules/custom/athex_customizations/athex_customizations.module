@@ -1,0 +1,34 @@
+<?php
+
+function athex_customizations_views_pre_view(&$view) {
+	$MAP = [
+		'year' => function() {
+			$years = [];
+			for ($i = 0; $i < 5; $i++) {
+				$year = date('Y') - $i;
+				$years[] = [
+					'title' => $year,
+					'operator' => '=',
+					'value' => $year
+				];
+			}
+			return $years;
+		}
+	];
+
+	foreach ($MAP as $key => $value)
+		$MAP[$key] = $value();
+
+	$filters = $view->display_handler->getOption('filters');
+
+	foreach ($filters as $key => &$filter) {
+		$ginfo = $filter['group_info'] ?? [];
+		$mapping = $MAP[$ginfo['identifier']];
+
+		if (!isset($mapping)) continue;
+
+		$filter['group_info']['group_items'] = $mapping;
+	}
+
+	$view->display_handler->overrideOption('filters', $filters);
+}
