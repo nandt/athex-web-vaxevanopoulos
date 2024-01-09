@@ -178,14 +178,6 @@ width:100%;
   justify-content: space-around;
 }
 
-[class*="contextual-region"][class*="js-view-dom-id"] {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-
 .info-card {
   width: 389px!important;
   border: none;
