@@ -178,6 +178,13 @@ width:100%;
   justify-content: space-around;
 }
 
+.SeminarsViewBlock .container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
 .info-card {
   width: 389px!important;
   border: none;
@@ -238,7 +245,13 @@ width:100%;
     padding-bottom: 25px;
 }
 
+
+
 @media(min-width:992px){
+
+	.views-view-grid {
+		padding-top: 64px;
+	}
 
   .paragraph.paragraph--type--title-text.paragraph--view-mode--default {
     display: flex;
