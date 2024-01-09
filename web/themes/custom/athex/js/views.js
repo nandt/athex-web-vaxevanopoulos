@@ -1,11 +1,28 @@
 (function ($, Drupal, once) {
-
-
-	Drupal.behaviors.inBrokerTickerTape = {
+	Drupal.behaviors.viewsModifications = {
 		attach: function (context, settings) {
-			$(context).find("details.bef--secondary").on("toggle", function (e) {
-				$(document.body).toggleClass("befs-open", e.target.open);
-			})
+			once('befs-sidepanel-sync', 'details.bef--secondary', context).forEach(
+				function(element) {
+					$(element).on("toggle", function(e) {
+						$(document.body).toggleClass("befs-open", e.target.open);
+					});
+				}
+			);
+
+			once('athex-views-mods', '.bef--secondary > div', context).forEach(
+				function(element) {
+					var actions = $(element).parents("form").find(".form-actions");
+					$(element).append(actions);
+					$(element).prepend(
+						$(`<h2>${element.parentElement.children[0].innerText}</h2>`)
+					);
+					var closeBtn = $('<span class="close" />');
+					$(element).prepend(closeBtn);
+					closeBtn.on("click", function(e) {
+						$(element).parents(".bef--secondary").children("summary").click();
+					});
+				}
+			);
 		}
 	};
 })(jQuery, Drupal, once);
