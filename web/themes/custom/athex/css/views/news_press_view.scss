@@ -45,6 +45,10 @@
     align-items: center;
     cursor: pointer;
     color: #030314;
+    font-size:16px;
+    font-weight:500;
+    line-height:24px;
+    letter-spacing: 0.64px;
 }
 
 .more-link-view::after {
@@ -102,6 +106,7 @@ label[for^="edit-tid-all"] {
 #customize-controls-view {
     padding-right: 0;
     padding-left: 0;
+    padding-bottom:0px;
     background: white;
 }
 
@@ -114,5 +119,11 @@ label[for^="edit-tid-all"] {
 
     .viewNewsPress {
         padding-bottom: 150px;
+    }
+
+    .more-link-view{
+        font-size:18px;
+        line-height:28px;
+        letter-spacing: 0.72px;
     }
 }
