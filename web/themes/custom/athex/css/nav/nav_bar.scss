@@ -102,7 +102,7 @@ li.expaned ~ li:not(.expanded) {
 		position: fixed;
 		overflow: scroll;
 		z-index: 999;
-		height: -webkit-fill-available;
+		height: 100vh;
 		border-bottom: 3px solid #3300C6;
 		width: 100vw;
 	}
@@ -120,26 +120,20 @@ li.expaned ~ li:not(.expanded) {
     width: 360px;
 }
 
-.depth-4 {
-	background-color: #F9F9F9;
+.depth-4, .depth-3, .depth-2 {
+    background-color: #F9F9F9;
     position: absolute;
-    top: 0%;
     left: 110%;
 }
 
-.depth-3 {
-	background-color: #F9F9F9;
-    position: absolute;
+.depth-4, .depth-3 {
     top: 0%;
-    left: 110%;
 }
 
 .depth-2 {
-	background-color: #F9F9F9;
-    position: absolute;
-	top:2%;
-    left: 110%;
+    top: 2%;
 }
+
 
 .depth-1 {
     margin-top: 15px;
@@ -280,7 +274,7 @@ a.language-link {
 	.sub-menu.submenu-1.depth-1 {
 
 		max-width: none;
-		width: -webkit-fill-available;
+		width: 100%;
 		right: 0%;
 		position: absolute;
 		top: 0%;
@@ -296,7 +290,7 @@ a.language-link {
 
 	.sub-menu.submenu-2.depth-1 {
 		background-color: white;
-		width: -webkit-fill-available;
+		width: 100%;
 		right: 0%;
 		top: 0%;
 		position: absolute;
@@ -306,7 +300,7 @@ a.language-link {
 	.sub-menu.submenu-3.depth-1 {
 		background-color: white;
 		max-width: none;
-		width: -webkit-fill-available;
+		width: 100%;
 		right: 0%;
 		top: 0%;
 		position: absolute;
@@ -316,7 +310,7 @@ a.language-link {
 		background-color: white;
 		height: 100vh;
 		max-width: none;
-		width: -webkit-fill-available;
+		width: 100%;
 		left: 0%;
 		top: 0%;
 		position: absolute;
@@ -326,7 +320,7 @@ a.language-link {
 		background-color: white;
 		height: 100vh;
 		max-width: none;
-		width: -webkit-fill-available;
+		width: 100%;
 		left: 0%;
 		top: 0%;
 		position: absolute;
@@ -337,7 +331,7 @@ a.language-link {
 		background-color: white;
 		height: 100vh;
 		max-width: none;
-		width: -webkit-fill-available;
+		width: 100%;
 		left: 0%;
 		top: 0%;
 		position: absolute;
@@ -348,7 +342,7 @@ a.language-link {
 		background-color: white;
 		height: 100vh;
 		max-width: none;
-		width: -webkit-fill-available;
+		width: 100%;
 		left: 0%;
 		top: 0%;
 		position: absolute;
