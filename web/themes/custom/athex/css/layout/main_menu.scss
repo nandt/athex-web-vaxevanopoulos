@@ -144,13 +144,7 @@ hr {
 
 }
 
-.menu-block--main nav .top-level {
-	font-size: 13px;
-	font-weight: 600px;
-    color: #1A0069;
-    padding: 34px 12px 6px;
-    width: 100%;
-}
+
 
 .language-selector ul, .language-selector li, .login ul, .login li {
     column-gap: 10px;
@@ -164,6 +158,8 @@ hr {
 
 
 @media (min-width: 992px) {
+
+
 
 	.burger-btn {
 		display: none;
@@ -210,7 +206,7 @@ hr {
 		text-wrap: nowrap;
 		position: relative;
 		bottom: 85px;
-		left: 200px;
+		left: 390px;
 		min-width: 50%;
 	}
 
@@ -221,8 +217,8 @@ hr {
 	}
 
 	.row.menu {
-		padding-left: 2%;
-		padding-right: 2%;
+		padding-left: 15%;
+		padding-right: 15%;
 		background-color: white;
 		border-bottom: 1px solid #E8E5F0;
 		margin-top: 30px;
@@ -258,8 +254,39 @@ hr {
 
 }
 
+.menu-block--main nav .top-level {
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%);
+	display: flex;
+	align-content: center;
+	align-items: center;
+	font-size: 13px;
+	font-weight: 600px;
+	color: #1A0069;
+	padding: 34px 12px 6px;
+	width: 50%;
+	justify-content: center;
+}
+
 @media(max-width:992px){
 
+
+	.menu-block--main nav .top-level {
+		position: relative;
+		left: 0%;
+		transform: none;
+		display: flex;
+		align-content: center;
+		align-items: flex-start;
+		font-size: 13px;
+		font-weight: 600px;
+		color: #1A0069;
+		padding: 34px 12px 6px;
+		width: 100%;
+		justify-content: center;
+		flex-direction: column;
+	}
 	.menu-sublink, .login {
 	border-bottom: 1px solid #E6EBEE;
 	display: flex;

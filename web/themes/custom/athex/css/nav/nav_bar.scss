@@ -116,6 +116,11 @@ li.expaned ~ li:not(.expanded) {
 	}
 }
 
+.menu-block--main nav .top-level>li>.menu-title {
+    display: flex;
+    text-align: center;
+}
+
 .sub-menu.submenu-4.depth-3 {
     width: 360px;
 }
@@ -123,7 +128,8 @@ li.expaned ~ li:not(.expanded) {
 .depth-4, .depth-3, .depth-2 {
     background-color: #F9F9F9;
     position: absolute;
-    left: 110%;
+    left: 100%;
+    transform: translateX(10%);
 }
 
 .depth-4, .depth-3 {
@@ -136,11 +142,12 @@ li.expaned ~ li:not(.expanded) {
 
 
 .depth-1 {
+    transform: translateX(30%);
     margin-top: 15px;
     padding: 20px 10px 0px 60px;
     color: #A399C3;
-    right: 90%;
-    position: absolute;
+    right: 100%;
+    position: fixed;
     max-width: 350px;
     background: white;
     height: 100vh;
@@ -267,6 +274,7 @@ a.language-link {
 		background-color: white;
 	}
 	.menu-block--main nav li {
+		width: 100%;
 		font-size: 16px;
 		font-weight: 600;
 		color: #5F4D96;
@@ -282,11 +290,11 @@ a.language-link {
 	}
 
 	.sub-menu.submenu-1.depth-1 {
-
+		position: absolute;
 		max-width: none;
 		width: 100%;
-		right: 0%;
-		position: absolute;
+		right: 50%;
+		transform: translateX(50%);
 		top: 0%;
 	}
 
@@ -298,66 +306,18 @@ a.language-link {
 		display: none;
 	}
 
-	.sub-menu.submenu-2.depth-1 {
-		background-color: white;
-		width: 100%;
-		right: 0%;
-		top: 0%;
-		position: absolute;
-
-	}
-
-	.sub-menu.submenu-3.depth-1 {
-		background-color: white;
-		max-width: none;
-		width: 100%;
-		right: 0%;
-		top: 0%;
-		position: absolute;
-	}
-
-	.sub-menu.submenu-3.depth-2 {
-		background-color: white;
-		height: 100vh;
-		max-width: none;
-		width: 100%;
-		left: 0%;
-		top: 0%;
-		position: absolute;
-	}
-
-	.sub-menu.submenu-4.depth-3 {
-		background-color: white;
-		height: 100vh;
-		max-width: none;
-		width: 100%;
-		left: 0%;
-		top: 0%;
-		position: absolute;
-
-	}
-
-	.sub-menu.submenu-2.depth-2{
-		background-color: white;
-		height: 100vh;
-		max-width: none;
-		width: 100%;
-		left: 0%;
-		top: 0%;
-		position: absolute;
-
-	}
-
-	.sub-menu.submenu-3.depth-3{
-		background-color: white;
-		height: 100vh;
-		max-width: none;
-		width: 100%;
-		left: 0%;
-		top: 0%;
-		position: absolute;
-
-	}
+	.sub-menu.submenu-2.depth-1,
+	.sub-menu.submenu-3.depth-1,
+	.sub-menu.submenu-3.depth-2,
+	.sub-menu.submenu-4.depth-3,
+	.sub-menu.submenu-2.depth-2,
+	.sub-menu.submenu-3.depth-3 {
+    background-color: white;
+    width: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    position: absolute;
+}
 
 	.titleMenuMob {
 		color:#1A0069;
