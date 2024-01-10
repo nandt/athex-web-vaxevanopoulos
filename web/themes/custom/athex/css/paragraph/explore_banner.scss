@@ -2,7 +2,7 @@
     max-width: 100%;
     object-fit: none;
 }
-   
+
 
          .exploreBannerRow{
             padding:0px;
@@ -59,7 +59,7 @@ background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
     justify-content: space-evenly;
 }
  .textSide {
-    padding-bottom:0px;
+    padding:20px;
     max-width: 572px;
     display: flex;
     flex-direction: column;
@@ -68,11 +68,12 @@ background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
 }
 
 .eb-btn{
+	color: white;
     height: 88px;
-padding: 35px 40px;
-justify-content: center;
-align-items: center;
-background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+	padding: 35px 40px;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
 }
 
 .eb-btn a{
