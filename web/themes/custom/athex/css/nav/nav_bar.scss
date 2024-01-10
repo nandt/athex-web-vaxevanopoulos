@@ -98,7 +98,7 @@ li.expaned ~ li:not(.expanded) {
 	overflow-y: scroll;
 
 	header {
-		background-color: white;
+		background-color: #F9F9F9;
 		position: fixed;
 		overflow: scroll;
 		z-index: 999;
@@ -137,11 +137,11 @@ li.expaned ~ li:not(.expanded) {
 
 .depth-1 {
     margin-top: 15px;
-    padding: 20px 10px 0px 30px;
+    padding: 20px 10px 0px 60px;
     color: #A399C3;
     right: 90%;
     position: absolute;
-    max-width: 300px;
+    max-width: 350px;
     background: white;
     height: 100vh;
 }
@@ -240,6 +240,16 @@ a.language-link {
 		display: none;
 	}
 
+	.depth-1 {
+		margin-top: 15px;
+		padding: 20px 10px 0px 10px;
+		color: #A399C3;
+		right: 90%;
+		position: absolute;
+		max-width: 350px;
+		background: white;
+		height: 100vh;
+	}
 
 	span.menu-title.menu-title-depth-2{
 		background-image: none!important;
