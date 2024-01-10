@@ -8,8 +8,8 @@
 		padding: 40px 0px 24px;
 
 		img {
-			width: 327px;
-			height: 180px;
+			width: 100%;
+			height: auto;
 		}
 	}
 
@@ -26,3 +26,21 @@
 	}
 }
 
+
+@media(min-width: 992px) {
+	.newsViewTeaserWrapper {
+		display: flex;
+		gap: 56px;
+	}
+
+	.news-teaser {
+		.news-teaser-mainimage{
+			padding-top: 80px;
+		}
+	}
+
+	.news-teaser-view-wrapper {
+		margin: 0px -109px;
+		padding: 128px 0px;
+	}
+}

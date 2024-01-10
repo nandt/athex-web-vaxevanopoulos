@@ -16,23 +16,34 @@ jQuery(document).ready(function ($) {
 			rewind: true,
 			controlsPosition: 'bottom',
 			controlsContainer: '#news-teaser-slider',
-			items: 1,
-			slideBy: 1
+			responsive: {
+				1: {
+					items: 1,
+					slideBy: 1,
+					//gutter: 24
+				},
+				992: {
+					items: 3,
+					slideBy: 1
+				}
+			}
 		})
 	}
 
-	$(window).on("resize load orientationchange", function(){
-		if ($(window).width() < 992) {
-			initSlider();
-		} else {
-			destroySlider();
-		}
-	});
+	initSlider();
 
-	function destroySlider() {
-		if (slider){
-			slider.destroy();
-		}
-	}
+	// $(window).on("resize load orientationchange", function(){
+	// 	if ($(window).width() < 992) {
+	// 		initSlider();
+	// 	} else {
+	// 		destroySlider();
+	// 	}
+	// });
+
+	// function destroySlider() {
+	// 	if (slider){
+	// 		slider.destroy();
+	// 	}
+	// }
 
 })

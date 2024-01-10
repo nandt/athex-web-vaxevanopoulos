@@ -18,20 +18,22 @@ jQuery(document).ready(function ($) {
 			controlsContainer: '#images-slider',
 			responsive: {
 				1: {
-					items: 1,
+					items: 1.25,
 					slideBy: 1,
 					//gutter: 24
 				},
 				992: {
-					items: 3,
+					items: 2.5,
 					slideBy: 1
 				}
 			}
 		})
+
 	}
 
 	initSlider();
 
+	$(this).children('.tns-item').css( "width", "auto" );
 	// $(document).on('click', '.controls > .next', function() {
 	// 	$(this).sibling().children('.imagesliderWrapper').children('.tns-slide-active').next().toggleClass('active');
 	// })
