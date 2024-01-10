@@ -235,9 +235,17 @@ a.language-link {
 	color: #A399C3;
 }
 
+.hidden-menu{
+	display: none;
+}
 
 
  @media(max-width:992px){
+
+	.hidden-menu{
+		display: none;
+	}
+
 
 	span.menu-title.menu-title-depth-2{
 		background-image: none!important;
