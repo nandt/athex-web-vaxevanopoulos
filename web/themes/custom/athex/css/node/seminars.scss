@@ -322,13 +322,31 @@ width:100%;
   .info-card{
     max-width:389px;
   }
+
+  div#seminarDetailsMobile {
+    display: none;
 }
 
-
 div#seminarDetails {
+	display: flex!important;
     width: 350px;
 }
 
 .container.stopElement {
     margin-top: 200px;
+}
+
+}
+
+.SeminarTitle {
+    padding-bottom: 20px;
+}
+
+div#seminarDetails {
+	display: none;
+    width: 350px;
+}
+
+.container.stopElement {
+    margin-top: 0px;
 }

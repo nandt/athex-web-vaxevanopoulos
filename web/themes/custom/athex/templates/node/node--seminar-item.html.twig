@@ -15,12 +15,16 @@
   </div>
   <div class="container">
     <div class="row SeminarMainContent">
-	<div  class="col-12 col-lg-4  SeminarDetailsTable">
+	<div  class="col-12 col-lg-4 col-offset-2  SeminarDetailsTable">
         <div id="seminarDetails"> {{content.field_details_card_ref}}</div>
       </div>
-      <div class="col-12 col-lg-8  SeminarMainContentText">
+
+      <div class="col-12 col-lg-8 col-offset-1 SeminarMainContentText">
         <span class="titleContent heading3 weightBoldBook textColorDarkBlue">{{ content.field_si_body_title }}</span>
         {{ content.field_semitem_body }}
+      </div>
+	  <div  class="col-12 col-lg-4 col-offset-2  SeminarDetailsTable">
+        <div id="seminarDetailsMobile"> {{content.field_details_card_ref}}</div>
       </div>
 
     </div>
