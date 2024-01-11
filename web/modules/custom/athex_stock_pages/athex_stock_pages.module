@@ -1,0 +1,14 @@
+<?php
+
+function athex_stock_pages_theme($existing, $type, $theme, $path) {
+	return [
+		'stock_search' => [
+			'variables' => [
+				'filters' => null,
+				'index' => null,
+				'table' => null,
+				'pager' => null
+			]
+		]
+	];
+}

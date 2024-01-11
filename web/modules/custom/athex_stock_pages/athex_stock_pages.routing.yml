@@ -1,0 +1,6 @@
+athex_stock_pages.search:
+  path: '/stocks'
+  defaults:
+    _controller: '\Drupal\athex_stock_pages\Controller\StockSearchController::getPage'
+  requirements:
+    _permission: 'access content'
