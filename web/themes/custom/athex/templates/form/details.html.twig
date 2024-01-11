@@ -1,0 +1,25 @@
+{# web/core/themes/stable9/templates/form/details.html.twig #}
+
+<details{{ attributes }}>
+	{%
+		set summary_classes = [
+			required ? 'js-form-required',
+			required ? 'form-required',
+		]
+	%}
+	{%- if title -%}
+		<summary{{ summary_attributes.addClass(summary_classes) }}>{{ title }}</summary>
+	{%- endif -%}
+
+	{% if errors %}
+		<div>
+			{{ errors }}
+		</div>
+	{% endif %}
+
+	<div>
+		{{ description }}
+		{{ children }}
+		{{ value }}
+	</div>
+</details>

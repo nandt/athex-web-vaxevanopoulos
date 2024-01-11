@@ -144,11 +144,11 @@
 		.cta-btngrp {
 			display: flex;
 			justify-content: space-between;
+			padding: 0px 80px 56px 0px;
 		}
 
 		.controls {
 			order: 2;
-			padding: 0px 80px 56px 0px;
 		}
 
 		.listingsviewCta {
@@ -176,4 +176,8 @@
 			}
 		}
 	}
+}
+
+.form-actions {
+	display: none;
 }

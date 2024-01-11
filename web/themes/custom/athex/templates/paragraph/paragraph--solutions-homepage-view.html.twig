@@ -3,34 +3,38 @@
 {{ attach_library('athex/solutionsview_home') }}
 
 
-<div class="container solviewhomeContainer">
+<div class="container-fluid solviewhomeContainer">
 	<div class="row solviewhome">
-		<div class="col-12 col-lg-6 title">
-			{{content.field_solview_title}}
-		</div>
-		<div class="col-12 col-lg-6">
-			<div class="col-12 col-lg-12 textColorWhite body2 weightLight solvhomeBody">
-				{{content.field_solview_body}}
+	<div class="wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-6 textColorWhite heading2 weightBoldBook">
+				{{content.field_solview_title}}
 			</div>
-			<div class="col-12 col-lg-12 textColorWhite cta2 weightBoldBook solvhomeCTA">
-				{{content.field_solview_cta}}
-				<span class="arrow-right"></span>
+			<div class="col-12 col-lg-6">
+				<div class="col-12 col-lg-12 textColorWhite body2 weightLight solvhomeBody">
+					{{content.field_solview_body}}
+				</div>
+				<div class="col-12 col-lg-12 textColorWhite cta2 weightBoldBook solvhomeCTA">
+					{{content.field_solview_cta}}
+				</div>
 			</div>
-		</div>
 
-		<div class="col-12">
-			{{content.field_solutions_view}}
-		</div>
+			<div class="col-12">
+				{{content.field_solutions_view}}
+			</div>
 
-		<div class="solview-hr-wrapper">
-			<hr class="solview-hr">
-		</div>
+			<div class="solview-hr-wrapper">
+				<hr class="solview-hr">
+			</div>
 
-		<div class="controls" id="solutions-slider" aria-label="Carousel Navigation" tabindex="0">
-			<span class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
-			</span>
-			<span class="next" data-controls="next" aria-controls="customize" tabindex="-1">
-			</span>
+			<div class="controls" id="solutions-slider" aria-label="Carousel Navigation" tabindex="0">
+				<span class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+				</span>
+				<span class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+				</span>
+			</div>
 		</div>
 	</div>
 </div>
+</div></div>

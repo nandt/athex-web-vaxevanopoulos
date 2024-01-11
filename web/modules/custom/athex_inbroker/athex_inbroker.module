@@ -1,0 +1,37 @@
+<?php
+
+function athex_inbroker_theme($existing = null, $type = null, $theme = null, $path = null) {
+	return [
+		'ticker_tape' => [
+			'variables' => [
+				'info' => null,
+				'items' => null
+			]
+		],
+		'ticker_tape_info' => [
+			'variables' => [
+				'closed' => null,
+				'tradeDate' => null,
+				'time' => null,
+				'pinned_items' => null
+			]
+		],
+		'ticker_tape_item' => [
+			'variables' => [
+				'symbol' => null,
+				'value' => null,
+				'change' => null
+			]
+		],
+		'indices_overview_index_summary' => [
+			'variables' => [
+				'symbol' => null,
+				'value' => null,
+				'since_open_value' => null,
+				'since_open_percentage' => null,
+				'since_close_value' => null,
+				'since_close_percentage' => null
+			]
+		]
+	];
+}

@@ -3,23 +3,20 @@
 {{ attach_library('athex/main_menu') }}
 
 {% if content %}
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row" {{ attributes }}>
 
 			<div class="main-menu col-12">
 				<div class="row menu">
-					<div class="site-branding col-2">
+					<div class="site-branding logo col-2">
 						{{ elements['athex_sitebranding']['#markup'] }}
 					</div>
-
-
 					<div class="search-form col-2">
 						<span class="search-icon"></span>
 						<div class="hidden">
 							{{ elements['athex_searchform']['#markup'] }}
 						</div>
 					</div>
-
 					<div class="col-2 burger-btn">
 						<button class="navbar-toggler" type="button" aria-controls="{{attributes.id}}" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="burger-icon"></span>

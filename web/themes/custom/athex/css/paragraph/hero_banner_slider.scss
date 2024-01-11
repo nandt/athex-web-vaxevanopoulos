@@ -1,0 +1,139 @@
+.wraperHero {
+    position: relative;
+}
+
+.hbItems {
+    position: relative;
+    width: 100vw;
+    height: 516px;
+    display: flex;
+}
+
+.hbiWrapper {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    height: 100%;
+}
+
+.tns-inner {
+	position: relative;
+}
+
+.tns-controls {
+    display: none;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(103deg, #3202BC -0.57%, rgba(4, 179, 102, 0.66) 121.93%);
+}
+
+.linkDiv .clicked {
+    border-bottom: 3px solid #D8CDF7;
+    opacity: 1;
+    width: 100%;
+}
+
+
+
+.hbibCta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-spacing: 8px;
+    width: 160px;
+    margin-top: 32px;
+    border: 1.5px solid #21C0F2;
+    padding: 23px 33px;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        padding: 20px 48px;
+        background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+    }
+}
+
+.hbiWrapper_items {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.hbiCategory {
+    opacity: 0.6;
+    position: relative;
+    display: block;
+    z-index: 999;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 0px 24px 16px 24px;
+}
+
+.hbiCategory:not(:last-of-type) {
+    margin-right: 16px;
+}
+
+.hbiWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.linkDiv {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 42px;
+    padding-left: 24px;
+    padding-right: 24px;
+    cursor: pointer;
+}
+
+@media(min-width:992px) {
+    .hbItems {
+        height: 694px;
+    }
+
+    .hbiWrapper_items {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+
+    .hbibCta {
+        width: 200px;
+        margin-top: 128px;
+        padding: 35px 56px;
+
+        a {
+            padding: 31px 65px;
+        }
+    }
+
+    .linkDiv {
+        margin-right: 80px;
+        justify-content: end;
+        padding-left: unset;
+        padding-right: unset;
+    }
+
+    .linkDiv .clicked {
+        width: unset;
+    }
+
+    .hbiCategory:not(:last-of-type) {
+        margin-right: unset;
+    }
+}

@@ -1,0 +1,6 @@
+name: 'AthexGroup Drupal Customizations'
+version: '1.0.0'
+type: module
+description: 'Provides Drupal Customizations for the AthexGroup website.'
+package: 'Deloitte Digital'
+core_version_requirement: ^10
