@@ -5,8 +5,24 @@
 {% if content %}
 	<div class="container-fluid top-menu">
 		<div class="row menuRow" {{ attributes }}>
+		<div class="col-12 top-links-wrapper">
+				<div class="top-links">
+					{% for key, element in elements %}
+						{% if
+							element['#markup']
+							and key not in [
+								'athex_sitebranding',
+								'athex_searchform',
+								'athex_main_menu'
+							]
+						%}
+							<div class={{key}} >{{ element['#markup'] }}</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
 
-			<div class="main-menu col-12">
+			<div class="textColorPurpleLight">
 				<div class="row menu">
 					<div class="site-branding col-2">
 						{{ elements['athex_sitebranding']['#markup'] }}
@@ -33,22 +49,9 @@
 
 			<hr>
 
-			<div class="col-12 top-links-wrapper">
-				<div class="top-links">
-					{% for key, element in elements %}
-						{% if
-							element['#markup']
-							and key not in [
-								'athex_sitebranding',
-								'athex_searchform',
-								'athex_main_menu'
-							]
-						%}
-							<div class={{key}} >{{ element['#markup'] }}</div>
-						{% endif %}
-					{% endfor %}
-				</div>
-			</div>
+
 		</div>
 	</div>
+
+
 {% endif %}

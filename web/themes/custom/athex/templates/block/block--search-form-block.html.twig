@@ -1,0 +1,12 @@
+{# web/core/themes/stable9/templates/block/block.html.twig #}
+
+<div class="search-window">
+    <button class="close-button">X</button>
+	<div class="overlay-content">
+		<div class="form-search">
+			{% block content %}
+			{{ content }}
+			{% endblock %}
+		</div>
+	</div>
+</div>

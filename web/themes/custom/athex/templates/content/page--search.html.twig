@@ -1,0 +1,80 @@
+{# web/core/themes/stable9/templates/layout/page.html.twig #}
+
+<div class="layout-container searchPage">
+
+  <header role="banner">
+    {{ page.header }}
+  </header>
+
+  {{ page.primary_menu }}
+  {{ page.secondary_menu }}
+
+  {{ page.breadcrumb }}
+
+  {{ page.highlighted }}
+
+  {{ page.help }}
+<div class="bannerSearchPage gradient2">
+	<h1>Serach Results</h1>
+</div>
+  <main class="SearchPageContent" role="main">
+
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+    <div class="layout-content">
+      {{ page.content }}
+    </div>{# /.layout-content #}
+
+    {% if page.sidebar_first %}
+      <aside class="layout-sidebar-first" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    {% endif %}
+
+    {% if page.sidebar_second %}
+      <aside class="layout-sidebar-second" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    {% endif %}
+
+  </main>
+
+  {% if page.footer %}
+    <footer role="contentinfo">
+      {{ page.footer }}
+    </footer>
+  {% endif %}
+
+
+
+
+<style>
+
+
+.bannerSearchPage{
+	color:white;
+	height:200px;
+
+
+}
+
+.bannerSearchPage {
+    padding: 5%;
+    display: flex;
+    margin-top: 5%;
+    color: white;
+    height: 200px;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+main.SearchPageContent {
+    top: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+</style>

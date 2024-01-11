@@ -217,13 +217,12 @@ hr {
 	}
 
 	.row.menu {
-		padding-left: 15%;
-		padding-right: 15%;
-		background-color: white;
-		border-bottom: 1px solid #E8E5F0;
-		margin-top: 30px;
-		display: flex;
-	}
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: white;
+    border-bottom: 1px solid #E8E5F0;
+    display: flex;
+}
 
 	.athex_investorrelationslink {
 		background: rgba(232, 229, 240, 0.60);
@@ -255,18 +254,59 @@ hr {
 }
 
 .menu-block--main nav .top-level {
+    position: fixed;
+    left: 50%;
+    transform: translate(-40%);
+    display: flex;
+    align-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 600px;
+    color: #1A0069;
+    padding: 34px 12px 6px;
+    width: 65%;
+    justify-content: space-between;
+}
+
+span.menu-title.menu-title-depth-1 {
+    margin-right: 15px;
+}
+
+.top-menu{
 	position: fixed;
-	left: 50%;
-	transform: translate(-50%);
-	display: flex;
-	align-content: center;
-	align-items: center;
-	font-size: 13px;
-	font-weight: 600px;
-	color: #1A0069;
-	padding: 34px 12px 6px;
-	width: 50%;
-	justify-content: center;
+    background-color: white;
+    z-index: 1;
+}
+
+// forma anazititis
+
+.search-window {
+    padding: 5%;
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: white;
+    z-index: 1000;
+}
+
+  .close-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+
+  }
+
+  .form-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div#edit-actions--3 {
+    display: none;
 }
 
 @media(max-width:992px){

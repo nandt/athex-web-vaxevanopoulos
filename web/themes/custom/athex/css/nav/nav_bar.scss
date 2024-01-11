@@ -36,10 +36,13 @@ li.expaned ~ li:not(.expanded) {
 			flex-direction: column;
 
 			> a {
-				padding-bottom: 24px;
-				order: 2;
-				font-size: 18px;
-				font-weight: 600;
+
+			padding-top: 39px;
+			padding-bottom: 39px;
+			order: 2;
+			font-size: 18px;
+			font-weight: 600;
+
 			}
 
 			.back {
@@ -59,6 +62,7 @@ li.expaned ~ li:not(.expanded) {
 				display: flex;
 
 				li {
+					margin-right: 50px;
 					padding: 0px 12px;
 					font-size: 13px;
 				}
@@ -126,32 +130,46 @@ li.expaned ~ li:not(.expanded) {
 }
 
 .depth-4, .depth-3, .depth-2 {
+    width: 22vw !important;
     background-color: #F9F9F9;
+    padding-top: 0px;
     position: absolute;
     left: 100%;
+    top: 0%;
     transform: translateX(10%);
 }
 
-.depth-4, .depth-3 {
-    top: 0%;
-}
-
-.depth-2 {
-    top: 2%;
-}
-
-
 .depth-1 {
-    transform: translateX(30%);
+    transform: translateX(0%);
     margin-top: 15px;
-    padding: 20px 10px 0px 60px;
+    padding: 0px 10px 0px 5%;
     color: #A399C3;
     right: 100%;
     position: fixed;
-    max-width: 350px;
     background: white;
     height: 100vh;
 }
+
+.sub-menu.submenu-1.depth-1 {
+    width: 25vw;
+}
+
+.sub-menu.submenu-7.depth-5 {
+    display: contents;
+}
+
+.sub-menu.submenu-7.depth-5 .titleMenu {
+    display: none;
+}
+
+.sub-menu.submenu-8.depth-5 {
+    display: contents;
+}
+
+.sub-menu.submenu-8.depth-5 .titleMenu {
+    display: none;
+}
+
 
 .sub-menu a {
 	font-family: Manrope;
@@ -162,6 +180,25 @@ li.expaned ~ li:not(.expanded) {
     color: #5F4D96;
 }
 
+span.menu-title.menu-title-depth-5 {
+    padding-bottom: 13px;
+    color: #5F4D96;
+}
+
+li.col.liColDepth-5 a {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 18px !important;
+    background-image: url(/assets/iconBullet.svg);
+    background-repeat: no-repeat;
+    background-position: left center;
+    color: #5F4D96;
+}
+
+li.col.liColDepth-5:hover a {
+	background-image: url(/assets/iconBulletHover.svg);
+    color: #4508F5;
+}
 
 a.titleMenu {
 	margin-bottom: 20px;
@@ -194,6 +231,25 @@ span.menu-title.menu-title-depth-2  {
     color: #5F4D96;
 }
 
+li.col.liColDepth-1 {
+    width: 98%;
+}
+
+li.col.liColDepth-2 {
+    width: 98%;
+}
+
+li.col.liColDepth-3 {
+    width: 98%;
+}
+
+li.col.liColDepth-4 {
+    width: 98%;
+}
+
+
+
+
 span.menu-title.menu-title-depth-3  {
 	background-image: url(/assets/icons/purple/iconChevronRight.svg);
 	background-repeat: no-repeat;
@@ -215,6 +271,14 @@ span.menu-title.menu-title-depth-4{
 	padding: 10px;
     color: #5F4D96;
 }
+
+li.col.liColDepth-0.expanded {
+	background-image:  url(/assets/icons/purple/iconTopArrow.svg);
+	background-repeat: no-repeat;
+	background-position: right center;
+  }
+
+
 
 li.col.expanded {
     color: #4508F5;
