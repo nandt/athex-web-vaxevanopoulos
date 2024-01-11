@@ -305,3 +305,18 @@ ul.pager__items {
 		display: none;
 	}
 }
+
+th.select-all.views-field input,
+.views-form form > .form-wrapper > .form-wrapper {
+	display: none;
+}
+
+th.select-all.views-field:first-child,
+td.views-field.views-field-node-bulk-form:first-child {
+    padding: 24px 0;
+    width: 0;
+
+    input {
+        margin: 0 -20px 0 32px;
+    }
+}
