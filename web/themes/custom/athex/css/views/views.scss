@@ -102,6 +102,8 @@ table {
 	font-weight: 500;
 	line-height: 24px;
 	letter-spacing: 0.48px;
+	color: #331F71;
+	margin-bottom: 120px;
 
 	th {
 		background-color: #F6F5F8;
@@ -112,6 +114,10 @@ table {
 		letter-spacing: 0.42px;
 		text-transform: uppercase;
 		padding: 12px 32px;
+	}
+
+	tbody {
+		vertical-align: top;
 	}
 
 	td {
@@ -125,10 +131,6 @@ table {
 	td.views-field.views-field-name {
 		width: 30%;
 	}
-}
-
-.layout-content > div:only-child > div > .views-element-container {
-	margin-bottom: 78px;
 }
 
 details.bef--secondary > div {
@@ -231,4 +233,90 @@ details.bef--secondary > div {
 			}
 		}
 	}
+}
+
+ul.pager__items {
+	padding: 0;
+	margin: -60px 0 80px;
+	list-style: none;
+    display: flex;
+    align-items: center;
+
+	li.pager__item {
+        &, a {
+            display: inline-block;
+        }
+
+        &[class="pager__item"], &.is-active {
+            a {
+                border-radius: 4px;
+                width: 44px;
+                height: 44px;
+                line-height: 44px;
+                text-align: center;
+                margin-right: 16px;
+				color: #8E8E93;
+				font-weight: 700;
+            }
+        }
+
+        &.is-active a {
+            border: 1px solid #5A4DEF;
+			color: #5A4DEF;
+        }
+	}
+
+	li.pager__item--previous,
+	li.pager__item--next {
+        flex-grow: 2;
+        text-align: right;
+        font-size: 0;
+
+        a {
+    		width: 80px;
+    		height: 80px;
+    		gap: 10px;
+    		color: #A399C3;
+    		cursor: pointer;
+    		border-radius: 125px;
+    		border: 1.25px solid #A399C3;
+    		background-color: transparent;
+            position: relative;
+
+            &:after {
+                content: '>';
+        		font-size: 25px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+	}
+
+    li.pager__item--previous {
+        flex-grow: 1;
+        a:after {
+            content: '<';
+        }
+    }
+
+	li.pager__item--last a {
+		display: none;
+	}
+}
+
+th.select-all.views-field input,
+.views-form form > .form-wrapper > .form-wrapper {
+	display: none;
+}
+
+th.select-all.views-field:first-child,
+td.views-field.views-field-node-bulk-form:first-child {
+    padding: 24px 0;
+    width: 0;
+
+    input {
+        margin: 0 -20px 0 32px;
+    }
 }

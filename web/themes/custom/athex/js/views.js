@@ -9,7 +9,17 @@
 				}
 			);
 
-			once('athex-views-mods', '.bef--secondary > div', context).forEach(
+			once('athex-vbo-mods', '.views-form form > .form-wrapper', context).forEach(
+				function(element) {
+
+					//TODO
+
+					// if (!$(element.parentElement).find("table th.select-all.views-field input").length)
+					// 	return;
+				}
+			);
+
+			once('athex-bef-mods', '.bef--secondary > div', context).forEach(
 				function(element) {
 					var actions = $(element).parents("form").find(".form-actions");
 					$(element).append(actions);
