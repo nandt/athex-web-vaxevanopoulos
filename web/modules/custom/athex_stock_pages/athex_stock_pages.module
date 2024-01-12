@@ -9,6 +9,17 @@ function athex_stock_pages_theme($existing, $type, $theme, $path) {
 				'table' => null,
 				'pager' => null
 			]
+		],
+		'stock_hero' => [
+			'variables' => [
+				'stock_name' => null,
+				'cover_img_url' => null,
+				'logo_url' => null,
+				'ticker' => null
+			]
+		],
+		'stock_ticker' => [
+			'variables' => []
 		]
 	];
 }
