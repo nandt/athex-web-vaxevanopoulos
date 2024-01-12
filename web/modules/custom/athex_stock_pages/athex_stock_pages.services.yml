@@ -1,0 +1,7 @@
+services:
+  athex_stock_pages.layout:
+    class: Drupal\athex_stock_pages\Service\StockPageLayoutService
+    arguments: []
+  athex_stock_pages.overview_data:
+    class: Drupal\athex_stock_pages\Service\StockOverviewDataService
+    arguments: ['@athex_sis.db_data']

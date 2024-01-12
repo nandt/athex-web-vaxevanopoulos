@@ -32,6 +32,10 @@
 	color: #A7A8AA;
 }
 
+.textColorDarkGrey{
+	color: #3A3A3C;
+}
+
 .textColorPurple {
 	color: #1A0069;
 }
@@ -173,6 +177,15 @@
 .gradient1 {
 	background: linear-gradient(180deg, #15151A -101.46%, rgba(21, 21, 26, 0) 100%);
 }
+.gradientIndigo1{
+	background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+}
+
+
 
 /* Tiers */
 
@@ -248,6 +261,10 @@
 
 .textColorPurpleLight {
 	color: #5F4D96;
+}
+
+.textColorPurple7{
+	color:#4C37B0;
 }
 
 .bgColorPurpleLight {

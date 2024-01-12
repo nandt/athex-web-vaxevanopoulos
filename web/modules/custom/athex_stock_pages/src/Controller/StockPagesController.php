@@ -1,22 +1,22 @@
 <?php
 
-namespace Drupal\athex_company_pages\Controller;
+namespace Drupal\athex_stock_pages\Controller;
 
-use Drupal\athex_company_pages\Service\CompanyPageLayoutService;
-use Drupal\athex_company_pages\Service\CompanyOverviewDataService;
+use Drupal\athex_stock_pages\Service\StockPageLayoutService;
+use Drupal\athex_stock_pages\Service\StockOverviewDataService;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
-class CompanyPagesController extends ControllerBase {
+class StockPagesController extends ControllerBase {
 
 	protected $layout;
 	protected $overview_data;
 
 	public function __construct(
-		CompanyPageLayoutService $layout,
-		CompanyOverviewDataService $overview_data
+		StockPageLayoutService $layout,
+		StockOverviewDataService $overview_data
 	) {
 		$this->layout = $layout;
 		$this->overview_data = $overview_data;
@@ -24,8 +24,8 @@ class CompanyPagesController extends ControllerBase {
 
 	public static function create(ContainerInterface $container) {
 		return new static(
-			$container->get('athex_company_pages.layout'),
-			$container->get('athex_company_pages.overview_data')
+			$container->get('athex_stock_pages.layout'),
+			$container->get('athex_stock_pages.overview_data')
 		);
 	}
 
@@ -35,7 +35,7 @@ class CompanyPagesController extends ControllerBase {
 		return $this->layout->render($company_id, [
 			[
 				'#type' => 'container',
-				'title' => $this->layout->h2('Company overview'),
+				'title' => $this->layout->h2('Stock overview'),
 				'overview_table' => [
 					'#type' => 'table',
 					'$rows' => $this->overview_data->getOverviewRows($company_id)
@@ -62,7 +62,7 @@ class CompanyPagesController extends ControllerBase {
 				],
 				'instruments' => [
 					'#type' => 'container',
-					'title' => $this->layout->h2('Company Instruments'),
+					'title' => $this->layout->h2('Stock Instruments'),
 					// 'table' => [
 					// 	'#type' => 'table',
 					// 	'#header' => [
