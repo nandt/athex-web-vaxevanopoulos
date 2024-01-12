@@ -284,7 +284,7 @@ span.menu-title.menu-title-depth-1 {
     padding: 5%;
     display: none;
     position: fixed;
-    top: 10%;
+    top: 5%;
     left: 0;
     width: 100%;
     height: 50%;
@@ -292,24 +292,68 @@ span.menu-title.menu-title-depth-1 {
     z-index: 1000;
 }
 
-  .close-button {
-	position: absolute;
-	top: 10px;
-	right: 10px;
 
-  }
 
-  .form-search {
+button.close-button {
+    height: 100px;
+    background-image: url(/assets/icons/Gradient/iconClose.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    top: 10%;
+    right: 5%;
+}
+
+.form-search {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
 }
 
 div#edit-actions--3 {
     display: none;
 }
 
+.sItem {
+	background-color: transparent;
+	color:#5F4D96;
+	border-radius: 2px;
+    padding: 1%;
+    border: 1px solid #E4E1ED;
+}
+
+.sItem:hover {
+	background-color: #F0ECFC;
+	color:#3C06D9;
+    padding: 1%;
+    border: 1px solid #E4E1ED;
+}
+
+
+
+.popularSearchItems {
+    row-gap: 10px;
+    padding-top: 20px;
+    column-gap: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 @media(max-width:992px){
+
+	.search-window {
+		height: 100%;
+	}
+
+	button.close-button {
+		height: 50px;
+		top: 0%;
+	}
 
 
 	.menu-block--main nav .top-level {
