@@ -173,6 +173,14 @@ news_item_teaser:
       css/node/news_item_teaser.scss: {}
   js:
     js/news_overview.js: {}
+
+news_item_overview_teaser:
+  css:
+    theme:
+      css/node/news_item_teaser.scss: {}
+  js:
+    js/news_overview.js: {}
+
 image_slider_item:
   css:
     theme:

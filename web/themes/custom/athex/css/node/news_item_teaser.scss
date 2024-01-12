@@ -8,13 +8,24 @@
 		padding: 40px 0px 24px;
 
 		img {
-			width: 100%;
-			height: auto;
+			max-width: 327px;
+			max-height: 180px;
 		}
 	}
 
 	.news-item-info.teaser {
+		display: flex;
 		padding: 0px 0px 8px;
+
+		.newsitem-cat {
+			padding-right: 16px;
+			border-right: 1px solid #D1CCE1;
+		}
+
+		.newsitem-date {
+			padding-left: 16px;
+		}
+
 	}
 
 	.news-teaser-title {
@@ -36,6 +47,11 @@
 	.news-teaser {
 		.news-teaser-mainimage{
 			padding-top: 80px;
+
+			img {
+				max-width: 341px;
+				max-height: 208px;
+			}
 		}
 	}
 
