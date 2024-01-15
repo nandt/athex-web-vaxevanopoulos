@@ -162,7 +162,15 @@ li.expaned ~ li:not(.expanded) {
     display: none;
 }
 
+.sub-menu.submenu-6.depth-5 .titleMenu {
+    display: none;
+}
+
 .sub-menu.submenu-8.depth-5 {
+    display: contents;
+}
+
+.sub-menu.submenu-6.depth-5 {
     display: contents;
 }
 

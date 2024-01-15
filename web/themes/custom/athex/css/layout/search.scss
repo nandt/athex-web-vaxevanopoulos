@@ -1,0 +1,49 @@
+.serachFormPlace::placeholder {
+	color: #A399C3;
+  }
+
+  input#edit-keys {
+	  padding-top: 60px;
+	  margin-bottom: 48px;
+	  width: 140vh;
+	  padding-bottom: 48px;
+	  border-bottom: none;
+	  border-right: none;
+	  border-left: none;
+	  border-top: none;
+	  color: #3C06D9;
+	  font-weight: 600;
+	  font-size: 24px;
+  }
+
+
+
+  input#edit-keys:focus {
+	  outline: none;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button {
+	  -webkit-appearance: none;
+	  appearance: none;
+  }
+
+  div#edit-actions--2 {
+	  display: none;
+  }
+
+  @media(min-width:992px){
+
+	  input#edit-keys {
+	  padding-top: 0px;
+	  margin-bottom: 48px;
+	  width: 140vh;
+	  padding-bottom:48px;
+	  border-bottom: 1px solid #D1CCE1;
+	  border-right: none;
+	  border-left: none;
+	  border-top: none;
+	  color: #3C06D9;
+	  font-weight:600;
+	  font-size: 24px;
+  }
+  }

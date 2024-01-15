@@ -40,6 +40,11 @@ main_menu:
   js:
     js/main_menu.js: {}
 
+search:
+  css:
+    theme:
+      css/layout/search.scss: {}
+
 prefooter:
   css:
     theme:
