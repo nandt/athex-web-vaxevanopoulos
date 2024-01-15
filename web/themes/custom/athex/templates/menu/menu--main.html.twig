@@ -14,7 +14,6 @@
             <ul>
         {% endif %}
         {% for item in items %}
-            {# Υπολογίστε την κλάση βάθους για το li #}
             {% set depth_class = 'liColDepth-' ~ menu_level %}
 
             <li class="col {{ depth_class }}" {{ item.attributes }}>

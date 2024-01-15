@@ -7,8 +7,14 @@
 }
 
 .top-links, .nav-menu {
-	min-width: 100%;
+	// min-width: 100%;
 }
+
+.container.top-menu {
+    position: static;
+}
+
+
 
 hr {
 	color: #C2D1D9 !important;
@@ -23,7 +29,6 @@ hr {
 	background-repeat: no-repeat;
 	display: block;
 	position: relative;
-	top: 24px;
 }
 
 .menu-item-arrow, .back-icon {
@@ -101,8 +106,8 @@ hr {
 
 	nav {
 		.top-level {
-			padding: 34px 12px 6px;
-			width: 100%;
+			// padding: 34px 12px 6px;
+			// width: 100%;
 
 			> li > .menu-title {
 				text-align: center;
@@ -171,7 +176,6 @@ hr {
 
 	.top-links {
 		row-gap: 10px;
-		padding: 0px 2% 0px 2%;
 		height: 5cqh;
 		background-color: #F6F5F8;
 		display: flex;
@@ -202,13 +206,13 @@ hr {
 		min-width: 16.6%;
 	}
 
-	.nav-menu {
-		text-wrap: nowrap;
-		position: relative;
-		bottom: 85px;
-		left: 390px;
-		min-width: 50%;
-	}
+	// .nav-menu {
+	// 	text-wrap: nowrap;
+	// 	position: relative;
+	// 	bottom: 85px;
+	// 	left: 390px;
+	// 	min-width: 50%;
+	// }
 
 	.main-menu {
 		position: relative;
@@ -217,12 +221,12 @@ hr {
 	}
 
 	.row.menu {
-    padding-left: 2%;
-    padding-right: 2%;
-    background-color: white;
-    border-bottom: 1px solid #E8E5F0;
-    display: flex;
-}
+		background-color: white;
+		border-bottom: 1px solid #E8E5F0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
 
 	.athex_investorrelationslink {
 		background: rgba(232, 229, 240, 0.60);
@@ -237,10 +241,22 @@ hr {
 	}
 
 	.col-12.top-links-wrapper {
+		padding: 0px;
+		background-color: transparent;
+	}
+
+	.top-menu-bar{
 		border-top: 4px solid  #3300C6;
     	background:  #F6F5F8;
 	}
 
+	.main-menu-bar {
+		border-bottom: 1px solid gray;
+		background-color: white;
+	}
+	.col-8.nav-menu {
+		padding-top: 10px;
+	}
 	.language-selector ul, .language-selector li, .login ul, .login li {
 		column-gap: 10px;
 		display: flex;
@@ -254,18 +270,15 @@ hr {
 }
 
 .menu-block--main nav .top-level {
-    position: fixed;
-    left: 50%;
-    transform: translate(-40%);
+    width: 100%;
     display: flex;
     align-content: center;
-    align-items: center;
+    align-items: flex-end;
     font-size: 13px;
     font-weight: 600px;
     color: #1A0069;
-    padding: 34px 12px 6px;
-    width: 65%;
     justify-content: space-between;
+    flex-direction: row;
 }
 
 span.menu-title.menu-title-depth-1 {
