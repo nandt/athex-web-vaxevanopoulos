@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\athex_company_pages\Service;
+namespace Drupal\athex_stock_pages\Service;
 
 
-class CompanyPageLayoutService {
+class StockPageLayoutService {
 
 	public function render($company_id, $content = []) {
 		return array_merge([

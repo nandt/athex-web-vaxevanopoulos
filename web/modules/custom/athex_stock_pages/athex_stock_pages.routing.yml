@@ -1,0 +1,13 @@
+athex_stock_pages.search:
+  path: '/stocks'
+  defaults:
+    _controller: '\Drupal\athex_stock_pages\Controller\SearchController::getPage'
+  requirements:
+    _permission: 'access content'
+
+athex_stock_pages.overview:
+  path: '/stock/{stock_id}'
+  defaults:
+    _controller: '\Drupal\athex_stock_pages\Controller\StockPagesController::getOverview'
+  requirements:
+    _permission: 'access content'

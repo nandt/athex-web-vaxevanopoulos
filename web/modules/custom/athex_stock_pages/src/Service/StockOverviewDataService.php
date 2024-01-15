@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\athex_company_pages\Service;
+namespace Drupal\athex_stock_pages\Service;
 
 use Drupal\athex_sis\Service\SisDbDataService;
 
 
-class CompanyOverviewDataService {
+class StockOverviewDataService {
 
 	protected $sisdb;
 

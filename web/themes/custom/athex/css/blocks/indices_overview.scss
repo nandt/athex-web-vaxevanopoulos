@@ -1,5 +1,5 @@
 .indices_overview_container {
-	margin-bottom: 80px;
+	padding-bottom: 80px;
 }
 
 .indicesOverviewTitle {
@@ -47,6 +47,7 @@
 	margin-bottom: 32px !important;
 	display: flex !important;
 	overflow-x: auto;
+	overflow-y:hidden;
 	white-space: nowrap;
 	flex-wrap: nowrap !important;
 }
@@ -288,7 +289,7 @@
 	}
 
 	.indices_overview_container {
-		margin-bottom: 120px;
+		padding-bottom: 120px;
 	}
 
 }
