@@ -20,7 +20,6 @@ jQuery(document).ready(function ($) {
 				1: {
 					items: 1.25,
 					slideBy: 1,
-					//gutter: 24
 				},
 				992: {
 					items: 2.5,
@@ -34,10 +33,5 @@ jQuery(document).ready(function ($) {
 	initSlider();
 
 	$(this).children('.tns-item').css( "width", "auto" );
-	// $(document).on('click', '.controls > .next', function() {
-	// 	$(this).sibling().children('.imagesliderWrapper').children('.tns-slide-active').next().toggleClass('active');
-	// })
-
-	//$(document).find('.imagesliderWrapper').children('.tns-slide-active').prev().removeClas('active');
 })
 

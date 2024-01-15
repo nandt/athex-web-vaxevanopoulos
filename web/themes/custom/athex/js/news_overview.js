@@ -20,7 +20,6 @@ jQuery(document).ready(function ($) {
 				1: {
 					items: 1,
 					slideBy: 1,
-					//gutter: 24
 				},
 				992: {
 					items: 3,
@@ -31,19 +30,4 @@ jQuery(document).ready(function ($) {
 	}
 
 	initSlider();
-
-	// $(window).on("resize load orientationchange", function(){
-	// 	if ($(window).width() < 992) {
-	// 		initSlider();
-	// 	} else {
-	// 		destroySlider();
-	// 	}
-	// });
-
-	// function destroySlider() {
-	// 	if (slider){
-	// 		slider.destroy();
-	// 	}
-	// }
-
 })
