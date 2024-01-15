@@ -6,6 +6,64 @@ body.befs-open {
 	}
 }
 
+.views-element-container:first-child  {
+	.bgGrey {
+		header {
+			background: #F8F8FA;
+
+			.view-header {
+				padding: 48px 24px;
+
+				h1 {
+					font-size: 30px;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 40px;
+					letter-spacing: 1.2px;
+					color: #1A0069;
+					padding-bottom: 24px;
+
+					strong {
+						background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
+						background-clip: text;
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
+				}
+
+				p {
+					font-size: 16px;
+					font-style: normal;
+					font-weight: 400;
+					line-height: 24px; 
+					letter-spacing: 0.48px;
+					color: #030314;
+				}
+
+				@media (min-width: 992px) {
+					display: flex;
+					justify-content: space-between;
+					align-items: flex-start;
+					align-self: stretch;
+					padding: 0px;
+
+					h1 {
+						font-size: 48px;
+						line-height: 60px;
+						letter-spacing: 1.92px;
+					}
+
+					p {
+						font-size: 16px;
+						line-height: 24px;
+						letter-spacing: 0.48px;
+					}
+				}
+			}
+		}
+	}
+}
+
 .views-element-container:first-child {
 	header {
 		padding: 112px 0 84px 0;
@@ -320,3 +378,4 @@ td.views-field.views-field-node-bulk-form:first-child {
         margin: 0 -20px 0 32px;
     }
 }
+

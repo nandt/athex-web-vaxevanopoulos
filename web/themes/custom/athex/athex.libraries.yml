@@ -167,6 +167,20 @@ news_item:
     theme:
       css/node/news_item.scss: {}
 
+news_item_teaser:
+  css:
+    theme:
+      css/node/news_item_teaser.scss: {}
+  js:
+    js/news_overview.js: {}
+
+news_item_overview_teaser:
+  css:
+    theme:
+      css/node/news_item_teaser.scss: {}
+  js:
+    js/news_overview.js: {}
+
 image_slider_item:
   css:
     theme:
@@ -179,6 +193,12 @@ testimonial:
     theme:
       css/paragraph/testimonial.scss: {}
 
+image_slider:
+  css:
+    theme:
+      css/field/image_slider_item.scss: {}
+  js:
+    js/image_slider_item.js: {}
 news_overview:
   css:
     theme:
