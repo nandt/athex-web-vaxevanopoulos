@@ -125,6 +125,10 @@
 	border-bottom: 1px solid #3C06D9;
 }
 
+.listingview-body > div {
+	color: #030314;
+}
+
 @media(min-width: 992px) {
 	.hr-mobile-wrapper {
 		display: none;
@@ -145,6 +149,10 @@
 			display: flex;
 			justify-content: space-between;
 			padding: 0px 80px 56px 0px;
+
+			a {
+				color: #030314;
+			}
 		}
 
 		.controls {
@@ -152,7 +160,7 @@
 		}
 
 		.listingsviewCta {
-			padding-left: 80px;
+			padding-left: 104px;
 		}
 
 		.listingsviewhome {
