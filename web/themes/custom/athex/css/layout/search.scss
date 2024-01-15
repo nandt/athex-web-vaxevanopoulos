@@ -2,7 +2,7 @@
 	color: #A399C3;
   }
 
-  input#edit-keys {
+  input[id^="edit-keys"] {
 	  padding-top: 60px;
 	  margin-bottom: 48px;
 	  width: 140vh;
@@ -18,8 +18,9 @@
 
 
 
-  input#edit-keys:focus {
+  input[id^="edit-keys"]:focus {
 	  outline: none;
+	  border:none;
   }
 
   input[type="search"]::-webkit-search-cancel-button {
@@ -30,6 +31,33 @@
   div#edit-actions--2 {
 	  display: none;
   }
+
+
+  .bannerSearchPage{
+	color:white;
+	height:200px;
+
+
+}
+
+.bannerSearchPage {
+    padding: 5%;
+    display: flex;
+    margin-top: 5%;
+    color: white;
+    height: 200px;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+main.SearchPageContent {
+    top: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
   @media(min-width:992px){
 

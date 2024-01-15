@@ -1,5 +1,7 @@
 {# web/core/themes/stable9/templates/layout/page.html.twig #}
 
+{{ attach_library('athex/search') }}
+
 <div class="layout-container searchPage">
 
   <header role="banner">
@@ -46,35 +48,3 @@
   {% endif %}
 
 
-
-
-<style>
-
-
-.bannerSearchPage{
-	color:white;
-	height:200px;
-
-
-}
-
-.bannerSearchPage {
-    padding: 5%;
-    display: flex;
-    margin-top: 5%;
-    color: white;
-    height: 200px;
-    flex-direction: column;
-    align-content: center;
-    align-items: flex-start;
-    justify-content: center;
-}
-
-main.SearchPageContent {
-    top: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-</style>
