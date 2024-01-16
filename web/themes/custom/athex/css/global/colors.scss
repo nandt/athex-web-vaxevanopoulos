@@ -8,6 +8,10 @@
 	color: #3C06D9;
 }
 
+.textColorGreen {
+	color: #007F47;
+}
+
 .bgColorWhite {
 	background-color: #FFFFFF;
 }
@@ -173,12 +177,23 @@
 .gradient1 {
 	background: linear-gradient(180deg, #15151A -101.46%, rgba(21, 21, 26, 0) 100%);
 }
-.gradientIndigo1{
+
+.gradientIndigo1 {
 	background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
 	-webkit-background-clip: text;
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
 	color: transparent;
+}
+
+.greenBtn {
+	background: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+	backdrop-filter: blur(0px);
+}
+
+.blueBtn {
+	background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+	backdrop-filter: blur(0px);
 }
 
 
@@ -217,6 +232,14 @@
 
 .bgTextColorSilver {
 	background-color: #5A5A5E;
+}
+
+.bgGreenGradient {
+	background: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+}
+
+.bgBlueGradient {
+	background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
 }
 
 /* Gold */
@@ -259,8 +282,8 @@
 	color: #5F4D96;
 }
 
-.textColorPurple7{
-	color:#4C37B0;
+.textColorPurple7 {
+	color: #4C37B0;
 }
 
 .bgColorPurpleLight {
