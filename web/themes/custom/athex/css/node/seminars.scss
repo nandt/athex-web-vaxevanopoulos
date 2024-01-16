@@ -174,9 +174,8 @@ width:100%;
   justify-content: flex-end;
 }
 
-#tns1 {
-    width: calc(780%);
-    transition-duration: 0.3s;
+#tns1 > .tns-item{
+	width:auto!important;
 }
 
 .paragraph.paragraph--type--title-text.paragraph--view-mode--default {
@@ -184,7 +183,6 @@ width:100%;
   row-gap: 24px;
   height: 100%;
   background-color: #F8F8FA;
-  padding: 10% 5%;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;

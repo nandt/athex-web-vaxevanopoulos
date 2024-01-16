@@ -2,12 +2,13 @@
     container: '.my-slider',
     items: 1.25,
     mode: 'carousel',
-    slideBy: 'page',
+    slideBy: 1,
     autoplay: false,
     mouseDrag: true,
     autoplayButtonOutput: false,
     controls: true,
-    nav: false
+    nav: false,
+	gutter: 15
   });
 
   var controls = document.querySelectorAll('.tns-outer [aria-controls]');
