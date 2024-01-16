@@ -1,0 +1,94 @@
+.solutions-overview-page {
+
+    .solviewhomeWrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+        gap: 10px;
+
+        .solhome-item {
+            width: 100%;
+            margin-top: 20px;
+        }
+    }
+
+    .solutions-overview {
+        margin-top: 48px;
+    }
+
+    @media(min-width:992px) {
+
+        .solutions-overview {
+            margin-top: 64px;
+        }
+
+        .solviewhomeWrapper {
+            .solhome-item {
+                width: 290px;
+                margin-top: 40px;
+
+                article {
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+
+    #views-exposed-form-solutions-solutions-overview fieldset legend span {
+        display: none;
+    }
+
+    #views-exposed-form-solutions-solutions-overview .fieldset-wrapper>div {
+        display: flex;
+    }
+
+    #views-exposed-form-solutions-solutions-overview .fieldset-wrapper .js-form-item:not(:first-child) {
+        margin-right: 30px;
+    }
+
+    #views-exposed-form-solutions-solutions-overview .fieldset-wrapper .js-form-item label {
+        cursor: pointer;
+        color: #5f4d96;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.42px;
+        padding: 8px 12px;
+    }
+
+
+    #views-exposed-form-solutions-solutions-overview .fieldset-wrapper .js-form-item {
+        border: 1px solid #E4E1ED;
+        background-color: white;
+        margin-right: 12px;
+    }
+
+    #views-exposed-form-solutions-solutions-overview .js-form-type-radio:first-child {
+        display: none;
+    }
+
+    #views-exposed-form-solutions-solutions-overview .fieldset-wrapper input[type="radio"]:checked+label {
+        border: 1px solid #21C0F2;
+        background-color: #F0ECFC !important;
+        border-radius: 2px;
+    }
+
+    #views-exposed-form-solutions-solutions-overview .fieldset-wrapper .js-form-item input {
+        display: none;
+    }
+
+    #views-exposed-form-solutions-solutions-overview .fieldset-wrapper .js-form-item {
+        cursor: pointer;
+    }
+
+    label[for^="edit-tid-all"] {
+        display: none;
+    }
+
+    .fieldset-wrapper .js-form-item {
+        cursor: pointer;
+    }
+
+    #views-exposed-form-solutions-solutions-overview .form-actions {
+        display: none;
+    }
+}

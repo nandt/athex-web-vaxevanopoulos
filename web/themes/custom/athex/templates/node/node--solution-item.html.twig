@@ -1,0 +1,70 @@
+{{ attach_library('athex/solutions') }}
+
+<div class="container solutions">
+	<div class="row">
+		<div class="col-12">
+			<div class="mini-title subheading weightLight textColorPurple7">{{content.field_mini_title}}</div>
+		</div>
+		<div class="col-12 col-lg-8">
+			<h1 class="heading2 weightDemi textColorPurple solNodeTitle">{{ node.title.value }}</h1>
+			<div class="solBody body2 weightBook textColorBlackDark">{{content.field_si_body}}</div>
+		</div>
+		<div class="col-12 col-lg-4 padding-none">
+			<div class="btnShare cta3 textColorWhite weightBold">{{content.field_si_demo_button}}</div>
+		</div>
+		<div class="col-12">
+			<div class="solCategories">
+				<span class="body3 weightDemi textColorBlackDark">Refers to:</span>
+				<div class="solTags nav-pills">{{content.field_category_reference}}</div>
+			</div>
+		</div>
+		<div class="col-12 col-lg-12 padding-none">
+			<div class="image_container">
+				<div class="solImage">{{content.field_si_image}}</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<div class="section">
+				<div class="anchor-items">
+					<div class="bullet" data-index="0"></div>
+					<div class="vertical-bar"></div>
+				</div>
+				<div class="sectionWrapper">
+					<div class="leftSection">
+						<div class="sectionLabel benefits">{{content.field_si_benefits}}</div>
+					</div>
+					<div class="rightSection">
+						<div class="downloadBtn">{{content.field_si_download_link}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<div class="anchor-items">
+					<div class="bullet" data-index="1"></div>
+					<div class="vertical-bar"></div>
+				</div>
+				<div class="sectionLabel">{{content.field_si_tlogo_slider}}</div>
+			</div>
+			<div class="section">
+				<div class="anchor-items">
+					<div class="bullet" data-index="2"></div>
+					<div class="vertical-bar"></div>
+				</div>
+				<div class="sectionLabel">{{content.field_si_plogo_slider}}</div>
+			</div>
+			<div class="section">
+				<div class="anchor-items">
+					<div class="bullet" data-index="3"></div>
+				</div>
+				<div class="sectionLabel contact">{{content.field_si_contacts}}</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="sliding-text-container">
+	<div class="sliding-text">{{ content.field_si_sliding_text }}</div>
+</div>
