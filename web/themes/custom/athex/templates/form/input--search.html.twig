@@ -1,3 +1,35 @@
 {#  web/core/themes/stable9/templates/form/input.html.twig  #}
 <input class="serachFormPlace" placeholder="Type here to search" {{ attributes }} />{{ children }}
 
+<style>
+
+.serachFormPlace::placeholder {
+	padding-left:30px;
+  color: #A399C3;
+  font-size:24px;
+  font-weight:600px;
+  line-height:28px;
+
+}
+
+.serachFormPlace{
+background-image: url(assets/icons/Gradient2/search.svg);
+
+}
+
+
+.serachFormPlace::edit-keys {
+
+	background-repeat: no-repeat;
+	background-position: left center;
+	color:#3C06D9;
+	font-size:16px;
+	line-height:24px;
+	font-weight:600;
+
+
+}
+
+
+
+</style>
