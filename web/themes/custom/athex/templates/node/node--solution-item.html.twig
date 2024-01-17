@@ -1,3 +1,5 @@
+{# web/core/themes/stable9/templates/content/node.html.twig #}
+
 {{ attach_library('athex/solutions') }}
 
 {% set selectedColor = content.field_si_color.0['#markup'] %}
@@ -9,13 +11,13 @@
 		</div>
 		<div class="col-12 col-lg-8">
 			{% if selectedColor == 'Blue' %}
-				<h1 class="heading2 weightDemi textColorPurple solNodeTitle">{{ node.title.value }}</h1>
+				<h1 class="heading8 weightDemi textColorPurple solNodeTitle">{{ node.title.value }}</h1>
 			{% elseif selectedColor == 'Green' %}
-				<h1 class="heading2 weightDemi textColorGreen solNodeTitle">{{ node.title.value }}</h1>
+				<h1 class="heading8 weightDemi textColorGreen solNodeTitle">{{ node.title.value }}</h1>
 			{% endif %}
 			<div class="solBody body2 weightBook textColorBlackDark">{{content.field_si_body}}</div>
 		</div>
-		<div class="col-12 col-lg-4 padding-none">
+		<div class="col-lg-4 padding-none">
 			{% if selectedColor == 'Blue' %}
 				<div class="btnShare cta3 textColorWhite weightBold blueBtn">{{content.field_si_demo_button}}</div>
 			{% elseif selectedColor == 'Green' %}
@@ -28,7 +30,7 @@
 				<div class="solTags nav-pills">{{content.field_category_reference}}</div>
 			</div>
 		</div>
-		<div class="col-12 col-lg-12 padding-none">
+		<div class="col-lg-12 padding-none">
 			{% if selectedColor == 'Blue' %}
 				<div class="image_container bgBlueGradient">
 					<div class="solImage">{{content.field_si_image}}</div>

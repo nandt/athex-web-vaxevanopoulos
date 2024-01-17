@@ -6,11 +6,6 @@
     padding-top: 48px;
 }
 
-.col-12.padding-none {
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .section-label {
     color: #1A0069;
     font-size: 26px;
@@ -380,5 +375,13 @@
 
     .logo-item {
         margin-right: 40px;
+    }
+}
+
+//we need this here
+@media(max-width:992px){
+    .padding-none {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }

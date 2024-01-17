@@ -68,5 +68,9 @@ jQuery(document).ready(function ($) {
         $(window).on('orientationchange', function() {
           getAndDisplayMarginRight();
         });
+
+        $(window).on('load', function() {
+            getAndDisplayMarginRight();
+          });
       });
 });

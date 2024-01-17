@@ -1,22 +1,23 @@
-jQuery(document).ready(function ($) {
+(function ($) {
 
-    $(document).ajaxComplete(function (event, xhr, settings) {
-        if (settings.url.indexOf('/views/ajax') !== -1) {
-            $('[id^="views-exposed-form-solutions-solutions-overview"] .js-form-item').click(function () {
+    Drupal.behaviors.ajaxFilteringBehavior = {
+      attach: function (context, settings) {
 
-                $(this).addClass('active');
-                setTimeout(function () {
-                    $('[id^="edit-submit-solutions"]').click();
-                }, 1000);
-            });
-        }
-    });
-
-    $('[id^="views-exposed-form-solutions-solutions-overview"] .js-form-item:nth-child(2)').addClass('active');
-    $('[id^="views-exposed-form-solutions-solutions-overview"] .js-form-item').click(function () {
-        $(this).addClass('active');
-        setTimeout(function () {
+        function handleClick() {
+          $(this).addClass('active');
+          setTimeout(function () {
             $('[id^="edit-submit-solutions"]').click();
-        }, 1000);
-    });
-})
+          }, 1000);
+        }
+  
+        $('[id^="views-exposed-form-solutions-solutions-overview"] .js-form-item:nth-child(2)', context).addClass('active');
+  
+        $('[id^="views-exposed-form-solutions-solutions-overview"] .js-form-item', context).click(handleClick);
+      },
+      once: function (context, settings) {
+        
+      }
+    };
+  
+  })(jQuery);
+  
