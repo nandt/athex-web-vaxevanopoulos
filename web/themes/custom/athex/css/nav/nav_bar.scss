@@ -503,11 +503,18 @@ a.language-link {
 
 .language-selector a{
 	color:#A399C3;
-	font-size:14px;
+	font-size:18px;
 	font-weight:700;
 }
 
 .horLine{
+	font-weight: 100;
 	color: #D1CCE1;
 	font-size:25px;
+}
+
+.search-form.col-1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }

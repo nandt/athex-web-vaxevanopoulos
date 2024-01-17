@@ -13,6 +13,7 @@
 								<div class="{{ key }}">{{ element['#markup'] }}</div>
 							{% endif %}
 						{% endfor %}
+
 					</div>
 				</div>
 			</div>
@@ -25,12 +26,12 @@
 				<div class="col-2 site-branding">
 					{{ elements['athex_sitebranding']['#markup'] }}
 				</div>
-				<!-- <div class="burger-mobile"> -->
 				<div class="col-9 nav-menu">
 					{{ elements['athex_main_menu']['#markup'] }}
 				</div>
 
 				<div class="search-form col-1">
+				<span class="horLine">|</span>
 					<span class="search-icon"></span>
 					<div class="hidden">
 						{{ elements['athex_searchform']['#markup'] }}
