@@ -20,6 +20,10 @@
             margin-top: 64px;
         }
 
+        #views-exposed-form-solutions-solutions-overview{
+            overflow-x:hidden;
+        }
+
         .solviewhomeWrapper {
             gap:40px;
             .solhome-item {
@@ -32,9 +36,24 @@
         }
 
     }
+    
+    #views-exposed-form-solutions-solutions-overview::-webkit-scrollbar {
+        display: none;
+    }
+    
+    #views-exposed-form-solutions-solutions-overview::-moz-scrollbar {
+        width: 0;
+    }
 
     #views-exposed-form-solutions-solutions-overview fieldset legend span {
         display: none;
+    }
+
+    #views-exposed-form-solutions-solutions-overview{
+        overflow-x:scroll;
+        overflow-y:hidden;
+        scrollbar-width: thin;
+        scrollbar-color: transparent transparent;
     }
 
     #views-exposed-form-solutions-solutions-overview .fieldset-wrapper>div {
