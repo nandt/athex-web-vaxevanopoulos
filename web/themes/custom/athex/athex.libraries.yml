@@ -171,7 +171,6 @@ solutions:
     js/solutionsview_home.js: {}
     libraries/tiny-slider/min/tiny-slider.js: {}
 
-
 news_item:
   css:
     theme:

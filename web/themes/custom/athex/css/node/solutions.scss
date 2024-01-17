@@ -20,6 +20,47 @@
     .solhome-item article {
         background-color: #F7F5FD;
     }
+
+    .solview-hr-wrapper {
+		padding: 28px 0px;
+
+		.solview-hr {
+			opacity: 0.3;
+			background:#D1CCE1;
+		}
+
+	}
+
+    @media (min-width: 992px) {
+        .solview-hr-wrapper {
+            padding: 56px 0px;
+
+            .solview-hr {
+                display: block;
+            }
+        }
+    }
+}
+
+.solhome-item article {
+    width: 160px;
+    height: 160px;
+
+    .sol {
+        height: 100%;
+        display: block;
+        width: 100%;
+    }
+
+    @media (min-width: 992px) {
+        width: 206px;
+        height: 198px;
+    }
+}
+
+.controls {
+    padding: 0px 20px 28px 0px;
+    justify-content: end;
 }
 
 .section-label {

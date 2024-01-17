@@ -6,6 +6,7 @@
 		z-index: 1;
 		margin: 0;
 		position: relative;
+		max-width: 128px;
 		
 		> span {
 			position: absolute;
@@ -63,7 +64,8 @@
 
 		.sol-teaser-image {
 			img {
-				width: 206px;
+				width: 100%;
+				object-fit: cover;
     			height: 198px;
 				display: none;
 			}
