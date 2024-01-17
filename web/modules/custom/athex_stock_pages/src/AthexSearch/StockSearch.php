@@ -48,7 +48,7 @@ class StockSearch {
 			'#type' => 'html_tag',
 			'#tag' => 'ul',
 			'#attributes' => [
-				'class' => ['nav', 'nav-tabs'],
+				'class' => ['nav', 'nav-pills'],
 				'role' => 'tablist'
 			]
 		];
