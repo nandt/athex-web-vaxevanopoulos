@@ -1,13 +1,21 @@
 {# web/core/themes/stable9/templates/content/node.html.twig #}
 
 {{ attach_library('athex/lis_teaser') }}
+{% set currentDate = "now" %}
+{% set fieldDate = content.field_le_date.value %}
 
 <article class="listingsview-item">
 	<a href="{{ url }}" rel="bookmark">
 		<div class="listingview-img">{{ content.field_com_image }}</div>
 	</a>
 	<div class="listingsview-info">
-		<div class="listingview-cat body3 weightBold tag">{{ content.field_com_listings_category }}</div>
+		<div class="listingview-cat body3 weightBold textColorIndigo">
+			{% if currentDate|date("Y-m-d") < fieldDate|date("Y-m-d") %}
+				{{ "UPCOMING" }}
+			{% else %}
+				{{ "RECENT" }}
+			{% endif %}
+		</div>
 		<div class="body3 weightBoldBook textColorBlack listingview-date">{{ content.field_le_date }}</div>
 	</div>
 	<a href="{{ url }}">
