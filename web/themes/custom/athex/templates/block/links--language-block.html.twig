@@ -1,19 +1,38 @@
 {# web/core/themes/stable9/templates/navigation/links.html.twig #}
 
 <div class="language-selector">
-	{% if links -%}
-	<ul{{ attributes }}>
-		{%- for item in links -%}
-		<li{{ item.attributes }}>
-			{%- if item.link -%}
-			{{ item.link }}
-			{%- elseif item.text_attributes -%}
-			<span{{ item.text_attributes }}>{{ item.text }}</span>
-			{%- else -%}
-			{{ item.text }}
-			{%- endif -%}
-		</li>
-		{%- endfor -%}
-	</ul>
-	{%- endif %}
+    {% if links -%}
+    <ul{{ attributes }}>
+        {%- set has_en = false -%}
+        {%- set has_gr = false -%}
+        {%- for item in links -%}
+            {%- if item.link['#title'] == 'English' -%}
+                {%- set has_en = true -%}
+            {%- elseif item.link['#title'] == 'Greek' -%}
+                {%- set has_gr = true -%}
+            {%- endif -%}
+        {%- endfor -%}
+
+        {%- for item in links -%}
+        <li{{ item.attributes }}>
+            {%- if item.link -%}
+                {%- if item.link['#title'] == 'Greek' -%}
+                    <a href="{{ item.link['#url'] }}" hreflang="el">GR</a>
+                    {%- if has_gr -%}
+                        <span class="horLine">|</span>
+                    {%- endif -%}
+                {%- elseif item.link['#title'] == 'English' -%}
+                    <a href="{{ item.link['#url'] }}" hreflang="en">EN</a>
+                {%- else -%}
+                    {{ item.link }}
+                {%- endif -%}
+            {%- elseif item.text_attributes -%}
+                <span{{ item.text_attributes }}>{{ item.text }}</span>
+            {%- else -%}
+                {{ item.text }}
+            {%- endif -%}
+        </li>
+        {%- endfor -%}
+    </ul>
+    {%- endif %}
 </div>

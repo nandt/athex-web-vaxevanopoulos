@@ -250,6 +250,7 @@ hr {
 		padding-top: 10px;
 	}
 	.language-selector ul, .language-selector li, .login ul, .login li {
+		display: flex;
 		column-gap: 10px;
 		display: flex;
 		list-style: none;
@@ -257,8 +258,8 @@ hr {
 		padding: 0;
 		flex-direction: row;
 		justify-content: space-between;
+		align-items: center;
 	}
-
 }
 nav#block-athex-main-menu {
     display: flex;
