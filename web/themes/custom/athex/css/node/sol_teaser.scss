@@ -5,6 +5,12 @@
 		left: 20px;
 		z-index: 1;
 		margin: 0;
+		position: relative;
+		max-width: 128px;
+		
+		> span {
+			position: absolute;
+		}
 	}
 
 	.sol-teaser-arrow {
@@ -58,7 +64,8 @@
 
 		.sol-teaser-image {
 			img {
-				width: 206px;
+				width: 100%;
+				object-fit: cover;
     			height: 198px;
 				display: none;
 			}
@@ -68,8 +75,6 @@
 			.sol-teaser-image{
 				img {
 					display: block;
-					position: relative;
-					bottom: 28px;
 				}
 			}
 

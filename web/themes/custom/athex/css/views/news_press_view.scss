@@ -15,6 +15,12 @@
     margin-left: 30px;
 }
 
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper input[type="radio"]:checked + label{
+    border-bottom: 1px solid #3C06D9;
+    color: #3C06D9;
+    font-weight: 600 !important;
+}
+
 .viewsColWrapper .tns-outer{
     margin-bottom:56px;
     border-bottom: 1px solid #D1CCE1;

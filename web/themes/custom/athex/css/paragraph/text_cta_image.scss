@@ -1,7 +1,3 @@
-.tciContainer {
-	padding: 120px 0px;
-}
-
 .tciWrapper {
 	padding: 80px 24px;
 	background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
@@ -47,6 +43,21 @@
     height: 100%;
     width: 100%;
 	mask-image: linear-gradient(to right,rgba(0, 0, 0, 1), 200px ,transparent);
+}
+
+.listingsviewCta > div > a {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.listingsviewCta > div > a::after {
+	content: '';
+    background-image: url('assets/icons/black/arrow-right-black.svg');
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
 @media(min-width: 992px){
