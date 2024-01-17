@@ -3,11 +3,10 @@
     .solviewhomeWrapper {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-        gap: 10px;
+        gap: 24px;
 
         .solhome-item {
             width: 100%;
-            margin-top: 20px;
         }
     }
 
@@ -22,9 +21,9 @@
         }
 
         .solviewhomeWrapper {
+            gap:40px;
             .solhome-item {
-                width: 290px;
-                margin-top: 40px;
+                width: 100%;
 
                 article {
                     width: 100%;
