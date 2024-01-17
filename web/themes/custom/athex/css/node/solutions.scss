@@ -139,16 +139,6 @@
     display: flex;
     overflow-X: scroll;
     overflow-Y: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
-}
-
-.logo-wrapper::-webkit-scrollbar {
-    display: none;
-}
-
-.logo-wrapper::-moz-scrollbar {
-    width: 0;
 }
 
 .anchor-items {
