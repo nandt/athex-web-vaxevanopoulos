@@ -168,6 +168,9 @@ solutions:
       css/node/solutions.scss: {}
   js:
     js/node/solutions.js: {}
+    js/solutionsview_home.js: {}
+    libraries/tiny-slider/min/tiny-slider.js: {}
+
 
 news_item:
   css:

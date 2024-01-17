@@ -1,0 +1,10 @@
+{# web/core/themes/stable9/templates/field/field.html.twig #}
+
+{% if label %}
+    <div class="heading1 textColorDarkBlue weightBook block-label">
+        {{ label }}
+    </div>
+{% endif %}
+{% for item in items %}
+    <div{{ item.attributes }}>{{ item.content }}</div>
+{% endfor %}

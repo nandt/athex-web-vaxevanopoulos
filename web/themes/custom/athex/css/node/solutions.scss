@@ -4,6 +4,22 @@
 
 .container.solutions {
     padding-top: 48px;
+
+    .solviewhomeWrapper {
+        display: flex;
+    }
+
+    .tns-liveregion.tns-visually-hidden {
+        display: none;
+    }
+
+    .block-label {
+        padding-bottom: 72px;
+    }
+
+    .solhome-item article {
+        background-color: #F7F5FD;
+    }
 }
 
 .section-label {

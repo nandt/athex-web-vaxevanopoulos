@@ -5,6 +5,11 @@
 		left: 20px;
 		z-index: 1;
 		margin: 0;
+		position: relative;
+		
+		> span {
+			position: absolute;
+		}
 	}
 
 	.sol-teaser-arrow {
@@ -68,8 +73,6 @@
 			.sol-teaser-image{
 				img {
 					display: block;
-					position: relative;
-					bottom: 28px;
 				}
 			}
 
