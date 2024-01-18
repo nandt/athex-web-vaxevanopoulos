@@ -124,7 +124,7 @@ class StockSearch {
 		$dt = new DataTable(
 			[
 				[ 'field' => 'symbol',		'label' => 'Symbol',		'pinned' => true ],
-				[ 'field' => 'company',		'label' => 'Company Name'	 ],
+				[ 'field' => 'company',		'label' => 'Company Name'	 ], // WARN: has css styles on .field--company
 				[ 'field' => 'isin',		'label' => 'ISIN'			 ],
 				[ 'field' => 'market',		'label' => 'Market'			 ],
 				[ 'field' => 'last',		'label' => 'Last'			 ],

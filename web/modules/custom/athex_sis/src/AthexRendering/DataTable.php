@@ -46,21 +46,33 @@ class DataTable {
 	}
 
 	private function renderRowGeneric($data = null) {
-		$result = [];
+		$pins = false;
+		$cells = [];
+
 		foreach ($this->struct as $col) {
-			$result[] = [
+			$cell = [
 				'data' => (
 					$data
 					? (@$data[$col['field']] ?? '')
 					: $this->t($col['label'])
 				),
 				'class' => [
-					$col['pinned'] ? '' : 'mobile-hidden',
 					'field--' . strtolower($col['field'])
 				]
 			];
+
+			if ($col['pinned']) {
+				$cell['class'][] = 'mobile-hidden';
+				$pins = true;
+			}
+
+			$cells[] = $cell;
 		}
-		return $result;
+
+		if (!$pins)
+			$cells[0]['class'][] = 'mobile-hidden';
+
+		return $cells;
 	}
 
 	public function render() {
