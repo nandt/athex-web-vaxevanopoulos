@@ -229,6 +229,11 @@ esgbanner:
     theme:
       css/paragraph/esgbanner.scss: {}
 
+timeline:
+  css:
+    theme:
+      css/paragraph/timeline.scss: {}
+
 image_slider:
   css:
     theme:

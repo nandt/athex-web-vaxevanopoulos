@@ -1,7 +1,3 @@
-.bwbBanner{
-	margin-top: 200px;
-}
-
 .bwbBannerRow {
 	padding: 80px 20px;
 	display: flex;
@@ -21,7 +17,6 @@
 	object-fit: scale-down;
 	width: 100%;
 	height: 335px;
-
 }
 
 .bwbBannerImage {
@@ -59,8 +54,27 @@
 	background-color: #F1F9F5;
 }
 
+.row.bwbBannerRow.purple{
+	background: #F7F5FD;
+}
+
+.row.bwbBannerRow.purple .bwb_button {
+	color: #2B01D0;
+	border-color: #2B01D0;
+}
+
+.row.bwbBannerRow.purple .bwbTitle {
+	color: #1A0069;
+}
+
 .col-12.col-lg-6.bwbBannerText {
     margin-top: 0px;
+}
+
+.container.bwbBanner {
+    margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 60px;
 }
 
 @media(min-width:992px){
