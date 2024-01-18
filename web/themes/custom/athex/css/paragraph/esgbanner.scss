@@ -22,6 +22,10 @@
 	color: transparent;
 }
 
+.col-12.esgBannerBody {
+    padding: 20px;
+}
+
 @media(min-width:992px){
 	.esgBannerTitle {
 		height: 600px;
@@ -47,4 +51,10 @@
 		-webkit-text-fill-color: transparent;
 		color: transparent;
 	}
+
+	.col-12.esgBannerBody {
+		padding: 110px;
+	}
+
+
 }
