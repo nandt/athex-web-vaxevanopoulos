@@ -3,6 +3,7 @@
 namespace Drupal\athex_stock_pages\AthexSearch;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\athex_sis\AthexRendering\DataTable;
 
 class StockSearch {
 	use StringTranslationTrait;
@@ -99,44 +100,44 @@ class StockSearch {
 		];
 	}
 
-	private function getRows() {
+	private function getData($page) {
 		$result = [];
 		for ($i = 0; $i < 10; $i++) {
 			$result[] = [
-				[ 'class' => '', 'data' => 'ATG 10010' ],
-				[ 'class' => 'mobile-hidden field--company', 'data' => 'ABN AMRO BANK N.V.' ],
-				[ 'class' => 'mobile-hidden', 'data' => 'NL0000852564' ],
-				[ 'class' => 'mobile-hidden', 'data' => 'ALTERNATIVE' ],
-				[ 'class' => 'mobile-hidden', 'data' => 'EUR 29.33' ],
-				[ 'class' => '', 'data' => '3.56%' ],
-				[ 'class' => 'mobile-hidden', 'data' => '25/10/2023 10:28 CEST' ]
+				'symbol' => 'ATG 10010',
+				'company' => 'ABN AMRO BANK N.V.',
+				'isin' => 'NL0000852564',
+				'market' => 'ALTERNATIVE',
+				'last' => 'EUR 29.33',
+				'percent' => '3.56%',
+				'date_time' => '25/10/2023 10:28 CEST'
 			];
 		}
 		return $result;
 	}
 
-	private function getTableRA() {
-		return [
-			'#type' => 'table',
-			'#header' => [
-				[ 'class' => '', 'data' => $this->t('Symbol') ],
-				[ 'class' => 'mobile-hidden', 'data' => $this->t('Company Name') ],
-				[ 'class' => 'mobile-hidden', 'data' => $this->t('ISIN') ],
-				[ 'class' => 'mobile-hidden', 'data' => $this->t('Market') ],
-				[ 'class' => 'mobile-hidden', 'data' => $this->t('Last') ],
-				[ 'class' => '', 'data' => $this->t('%') ],
-				[ 'class' => 'mobile-hidden', 'data' => $this->t('Date / Time') ],
+	private function getTableRA($pager) {
+		$dt = new DataTable(
+			[
+				[ 'field' => 'symbol',		'label' => 'Symbol',		'pinned' => true ],
+				[ 'field' => 'company',		'label' => 'Company Name'	 ],
+				[ 'field' => 'isin',		'label' => 'ISIN'			 ],
+				[ 'field' => 'market',		'label' => 'Market'			 ],
+				[ 'field' => 'last',		'label' => 'Last'			 ],
+				[ 'field' => 'percent',		'label' => '%',				'pinned' => true ],
+				[ 'field' => 'date_time',	'label' => 'Date / Time'	 ]
 			],
-			'#rows' => $this->getRows()
-		];
+			$this->getData(
+				$pager->getCurrentPage()
+			)
+		);
+
+		return $dt->render();
 	}
 
 	public function render() {
 		/** @var \Drupal\Core\Pager\Pager $pager */
 		$pager = \Drupal::service('pager.manager')->createPager(30, 10);
-
-		// $pager->getCurrentPage();
-		// $data = $this->data->getResultData()
 
 		return [
 			//TODO: refine
@@ -144,7 +145,7 @@ class StockSearch {
 			//
 			'#theme' => 'stock_search',
 			'#search_form' => $this->getSearchFormRA(),
-			'#table' => $this->getTableRA(),
+			'#table' => $this->getTableRA($pager),
 			'#pager' => [ '#type' => 'pager' ],
 		];
 	}

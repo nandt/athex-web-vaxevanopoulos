@@ -11,7 +11,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
  * 		[
  * 			'label' => 'Label',
  * 			'field' => 'datakey',
- * 			'mobile' => true
+ * 			'pinned' => true
  * 		],
  * 		// ...
  * 	];
@@ -55,7 +55,7 @@ class DataTable {
 					: $this->t($col['label'])
 				),
 				'class' => [
-					$col['mobile'] ? '' : 'mobile-hidden',
+					$col['pinned'] ? '' : 'mobile-hidden',
 					'field--' . strtolower($col['field'])
 				]
 			];
