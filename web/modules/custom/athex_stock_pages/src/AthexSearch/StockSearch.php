@@ -3,6 +3,7 @@
 namespace Drupal\athex_stock_pages\AthexSearch;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\athex_sis\AthexRendering\DataTable;
 
 class StockSearch {
 	use StringTranslationTrait;
@@ -48,13 +49,13 @@ class StockSearch {
 			'#type' => 'html_tag',
 			'#tag' => 'ul',
 			'#attributes' => [
-				'class' => ['nav', 'nav-tabs'],
+				'class' => ['nav', 'nav-pills'],
 				'role' => 'tablist'
 			]
 		];
 
 		//TODO: $config->get('indices_overview_tabs');
-		$options = ['All', ...range('A', 'Z')];
+		$options = ['All', ...range('A', 'Z') ];
 
 		foreach ($options as $opt) {
 			$aAttributes = [
@@ -99,44 +100,44 @@ class StockSearch {
 		];
 	}
 
-	private function getRows() {
+	private function getData($page) {
 		$result = [];
 		for ($i = 0; $i < 10; $i++) {
 			$result[] = [
-				'ATG 10010',
-				'ABN AMRO BANK N.V.',
-				'NL0000852564',
-				'ALTERNATIVE',
-				'EUR 29.33',
-				'3.56%',
-				'25/10/2023 10:28 CEST'
+				'symbol' => 'ATG 10010',
+				'company' => 'ABN AMRO BANK N.V.',
+				'isin' => 'NL0000852564',
+				'market' => 'ALTERNATIVE',
+				'last' => 'EUR 29.33',
+				'percent' => '3.56%',
+				'date_time' => '25/10/2023 10:28 CEST'
 			];
 		}
 		return $result;
 	}
 
-	private function getTableRA() {
-		return [
-			'#type' => 'table',
-			'#header' => [
-				$this->t('Symbol'),
-				$this->t('Company Name'),
-				$this->t('ISIN'),
-				$this->t('Market'),
-				$this->t('Last'),
-				$this->t('%'),
-				$this->t('Date / Time')
+	private function getTableRA($pager) {
+		$dt = new DataTable(
+			[
+				[ 'field' => 'symbol',		'label' => 'Symbol',		'pinned' => true ],
+				[ 'field' => 'company',		'label' => 'Company Name'	 ],
+				[ 'field' => 'isin',		'label' => 'ISIN'			 ],
+				[ 'field' => 'market',		'label' => 'Market'			 ],
+				[ 'field' => 'last',		'label' => 'Last'			 ],
+				[ 'field' => 'percent',		'label' => '%',				'pinned' => true ],
+				[ 'field' => 'date_time',	'label' => 'Date / Time'	 ]
 			],
-			'#rows' => $this->getRows()
-		];
+			$this->getData(
+				$pager->getCurrentPage()
+			)
+		);
+
+		return $dt->render();
 	}
 
 	public function render() {
 		/** @var \Drupal\Core\Pager\Pager $pager */
 		$pager = \Drupal::service('pager.manager')->createPager(30, 10);
-
-		// $pager->getCurrentPage();
-		// $data = $this->data->getResultData()
 
 		return [
 			//TODO: refine
@@ -144,7 +145,7 @@ class StockSearch {
 			//
 			'#theme' => 'stock_search',
 			'#search_form' => $this->getSearchFormRA(),
-			'#table' => $this->getTableRA(),
+			'#table' => $this->getTableRA($pager),
 			'#pager' => [ '#type' => 'pager' ],
 		];
 	}
