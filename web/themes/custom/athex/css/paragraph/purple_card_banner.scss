@@ -1,0 +1,76 @@
+.container.pcbBanner{
+    background-color: #f7f5fd;
+    padding:80px 24px;
+}
+
+.subheading.cb{
+    margin-bottom:10px;
+}
+
+.heading8.cb{
+    margin-bottom:32px;
+}
+
+.pcbText{
+    margin-bottom:32px;
+}
+
+.pcb-btn{
+    margin-bottom:56px;
+    padding-top:35px;
+    padding-bottom:35px;
+}
+
+.pcb-btn a{
+    color: inherit;
+    padding: 35px 40px;
+    border: 1px solid #2b01d0;
+}
+
+.pcb-image{
+    height:100%;
+    border: 16px solid #ebe6fb;
+    img{
+        object-fit:cover;
+        width:100%;
+        max-height:470px;
+    }
+}
+
+@media(min-width:992px){
+    .container.pcbBanner{
+        padding:48px;
+    }
+
+    .textSide{
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+    }
+
+    .subheading.cb{
+        margin-bottom:8px;
+    }
+    
+    .heading8.cb{
+        margin-bottom:24px;
+    }
+    
+    .pcbText{
+        margin-bottom:64px;
+    }
+    
+    .pcb-btn{
+        margin-bottom:unset;
+    }
+
+    .pcb-image{
+        border: 12px solid #ebe6fb;
+        img{
+            object-fit:cover;
+            width:100%;
+            max-height:470px;
+        }
+    }
+    
+}

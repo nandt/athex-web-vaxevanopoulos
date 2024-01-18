@@ -243,3 +243,28 @@ solutions-overview-page:
         css/page/solutions_overview_page.scss: {}
   js:
     js/solutions_overview_page.js: {}
+
+blue_card_banner:
+  css:
+    theme:
+      css/paragraph/blue_card_banner.scss: {}
+
+green_card_banner:
+  css:
+    theme:
+      css/paragraph/green_card_banner.scss: {}
+
+purple_card_banner:
+  css:
+    theme:
+      css/paragraph/purple_card_banner.scss: {}
+
+cta_text_banner_card:
+  css:
+    theme:
+      css/paragraph/cta_text_banner_card.scss: {}
+
+text_with_hero_image:
+  css:
+    theme:
+      css/paragraph/text_with_hero_image.scss: {}
