@@ -54,7 +54,7 @@ class StockSearch {
 		];
 
 		//TODO: $config->get('indices_overview_tabs');
-		$options = ['All', ...range('A', 'Z')];
+		$options = ['All', ...range('A', 'Z') ];
 
 		foreach ($options as $opt) {
 			$aAttributes = [
@@ -103,13 +103,13 @@ class StockSearch {
 		$result = [];
 		for ($i = 0; $i < 10; $i++) {
 			$result[] = [
-				'ATG 10010',
-				'ABN AMRO BANK N.V.',
-				'NL0000852564',
-				'ALTERNATIVE',
-				'EUR 29.33',
-				'3.56%',
-				'25/10/2023 10:28 CEST'
+				[ 'class' => 'symbol', 'data' => 'ATG 10010' ],
+				[ 'class' => 'mobile-hidden company', 'data' => 'ABN AMRO BANK N.V.' ],
+				[ 'class' => 'mobile-hidden', 'data' => 'NL0000852564' ],
+				[ 'class' => 'mobile-hidden', 'data' => 'ALTERNATIVE' ],
+				[ 'class' => 'mobile-hidden', 'data' => 'EUR 29.33' ],
+				[ 'class' => '', 'data' => '3.56%' ],
+				[ 'class' => 'mobile-hidden', 'data' => '25/10/2023 10:28 CEST' ]
 			];
 		}
 		return $result;
@@ -119,13 +119,13 @@ class StockSearch {
 		return [
 			'#type' => 'table',
 			'#header' => [
-				$this->t('Symbol'),
-				$this->t('Company Name'),
-				$this->t('ISIN'),
-				$this->t('Market'),
-				$this->t('Last'),
-				$this->t('%'),
-				$this->t('Date / Time')
+				[ 'class' => '', 'data' => $this->t('Symbol') ],
+				[ 'class' => 'mobile-hidden', 'data' => $this->t('Company Name') ],
+				[ 'class' => 'mobile-hidden', 'data' => $this->t('ISIN') ],
+				[ 'class' => 'mobile-hidden', 'data' => $this->t('Market') ],
+				[ 'class' => 'mobile-hidden', 'data' => $this->t('Last') ],
+				[ 'class' => '', 'data' => $this->t('%') ],
+				[ 'class' => 'mobile-hidden', 'data' => $this->t('Date / Time') ],
 			],
 			'#rows' => $this->getRows()
 		];
