@@ -43,22 +43,12 @@ ul {
 
 	.pillsWrapper {
 		padding-right: 30px;
+		overflow-x: auto;
 	}
 
-	.company {
+	.field--company {
 		min-width: 325px;
-		padding-right: 0px;
 		padding-left: 32px;
-	}
-
-	.symbol {
-		color: #3C06D9;
-		text-decoration: underline;
-		
-		@media (min-width: 992px) {
-			color: initial;
-			text-decoration: initial;
-		}
 	}
 
 	.arrow-wrapper {

@@ -103,8 +103,8 @@ class StockSearch {
 		$result = [];
 		for ($i = 0; $i < 10; $i++) {
 			$result[] = [
-				[ 'class' => 'symbol', 'data' => 'ATG 10010' ],
-				[ 'class' => 'mobile-hidden company', 'data' => 'ABN AMRO BANK N.V.' ],
+				[ 'class' => '', 'data' => 'ATG 10010' ],
+				[ 'class' => 'mobile-hidden field--company', 'data' => 'ABN AMRO BANK N.V.' ],
 				[ 'class' => 'mobile-hidden', 'data' => 'NL0000852564' ],
 				[ 'class' => 'mobile-hidden', 'data' => 'ALTERNATIVE' ],
 				[ 'class' => 'mobile-hidden', 'data' => 'EUR 29.33' ],
