@@ -5,10 +5,10 @@ ul {
 }
 
 .container.relative {
-	position: relative;
+	//position: relative;
 
 	form.bef-exposed-form { 
-		position: initial;
+		//position: initial;
 		margin: 64px auto 160px;
 	}
 
@@ -41,9 +41,20 @@ ul {
 		}
 	}
 
-	.pillsWrapper {
-		padding-right: 30px;
+	.pill-filters {
+		width: 1180px;
+		max-width: 95vw;
+		margin: 48px 16% 0px -55%;
+		transform: translateX(50%);
 		overflow-x: auto;
+
+		@media( min-width: 1200px) {
+			width: 1260px;
+			max-width: 95vw;
+			margin: 48px 0% 0px -72%;
+			transform: translateX(50%);
+			overflow-x: hidden;
+		}
 	}
 
 	.field--company {
@@ -65,10 +76,10 @@ ul {
 	}
 
 	form.bef-exposed-form details.bef--secondary {
-		position: relative;
+		//position: relative;
 		
 		summary {
-			position: absolute;
+			//position: absolute;
 			bottom: 0px;
 			right: 0px;
 		}
