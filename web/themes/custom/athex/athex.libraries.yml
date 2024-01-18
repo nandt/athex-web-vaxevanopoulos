@@ -15,6 +15,7 @@ global:
 views:
   js:
     js/views.js: {}
+    js/table_expand.js: {}
   css:
     theme:
       css/views/views.scss: {}
