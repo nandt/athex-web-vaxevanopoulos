@@ -224,6 +224,10 @@ banner_without_image:
     theme:
       css/paragraph/banner_without_image.scss: {}
 
+esgbanner:
+  css:
+    theme:
+      css/paragraph/esgbanner.scss: {}
 
 image_slider:
   css:
