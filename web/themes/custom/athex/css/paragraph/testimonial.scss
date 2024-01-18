@@ -17,6 +17,13 @@
 	}
 }
 
+.testimonialPersonImage{
+	margin-right:0px;
+	margin-bottom: 30px;
+}
+
+
+
 @media(min-width: 992px) {
 	.testimonial-wrapper {
 		padding: 56px 0px;
@@ -29,4 +36,15 @@
 			display: block;
 		}
 	}
+	.testimonialPersonImage{
+		margin-right:132px;
+		margin-bottom: 0px;
+	}
+
+	.testimonial {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
 }

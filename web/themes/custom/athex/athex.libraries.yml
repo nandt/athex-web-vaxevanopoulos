@@ -206,6 +206,19 @@ testimonial:
   css:
     theme:
       css/paragraph/testimonial.scss: {}
+  js:
+    js/testimonial.js: {}
+
+banner_with_background:
+  css:
+    theme:
+      css/paragraph/banner_with_background.scss: {}
+
+banner_without_image:
+  css:
+    theme:
+      css/paragraph/banner_without_image.scss: {}
+
 
 image_slider:
   css:

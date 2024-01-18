@@ -1,0 +1,112 @@
+.bwbBanner{
+	margin-top: 200px;
+}
+
+.bwbBannerRow {
+padding: 80px 20px;
+display: flex;
+flex-direction: column;
+align-items: stretch;
+}
+
+.bwb_button {
+width: fit-content;
+border: 1px solid #FFF;
+padding: 35px 40px;
+margin-bottom:56px;
+}
+
+
+.bwbBannerImage img {
+object-fit: scale-down;
+width: 100%;
+height: 335px;
+
+
+}
+
+.bwbBannerImage {
+display: flex;
+}
+
+.bwbTitle{
+	padding-bottom:32px;
+	padding-top:10px;
+}
+
+.bwbBody{
+	padding-bottom:32px;
+
+}
+
+.row.bwbBannerRow.blue {
+	color:white;
+	background: linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%);
+}
+
+.row.bwbBannerRow.green .bwb_button {
+color: green;
+border-color: green;
+}
+
+.row.bwbBannerRow.green.with-background-graphic{
+	background-color: #F1F9F5;
+	background-image:  url(/assets/iconEsgGraphicMobile.svg);
+	background-repeat: no-repeat;
+	background-position: top center;
+
+}
+
+
+
+@media(min-width:992px){
+
+
+.bwbBannerText {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
+}
+
+
+.bwbBannerImage {
+display: flex;
+max-width: 400px;
+width: 100%;
+flex-direction: column;
+justify-content: center;
+align-items: flex-end;
+}
+.bwbBannerRow {
+display: flex;
+padding: 48px;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.bwbTitle{
+	padding-bottom:25px;
+}
+
+.bwbBody{
+	padding-bottom:64px;
+
+}
+
+
+
+.row.bwbBannerRow.green.with-background-graphic{
+	background-color: #F1F9F5;
+	background-image:  url(/assets/iconEsgGraphic.svg);
+		background-repeat: no-repeat;
+		background-position: top center;
+
+}
+
+.row.bwbBannerRow.green.without-background-graphic{
+	background-color: #F1F9F5;
+	background-image:  none;
+}
+
+}
