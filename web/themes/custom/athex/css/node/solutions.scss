@@ -105,9 +105,6 @@
     }
 }
 
-.benefit-item {
-    width: 100%;
-}
 
 .bi_item:not(:last-child) {
     border-bottom: 1px solid #D1CCE1;
@@ -346,7 +343,6 @@
     }
 
     .benefit-item {
-        width: 90%;
         padding-bottom: unset;
         border-bottom: unset;
         margin-bottom: 40px;
@@ -405,6 +401,7 @@
     .bi_item {
         margin-bottom: unset;
         padding-bottom: unset;
+        margin-right:40px;
     }
 
     .image_container {
