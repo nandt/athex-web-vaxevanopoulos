@@ -104,7 +104,11 @@ class StockSearch {
 		$result = [];
 		for ($i = 0; $i < 10; $i++) {
 			$result[] = [
-				'symbol' => 'ATG 10010',
+				'symbol' => [
+					'#type' => 'link',
+					'#title' => 'ATG 10010',
+					'#url' => \Drupal\Core\Url::fromUri('internal:#')
+				],
 				'company' => 'ABN AMRO BANK N.V.',
 				'isin' => 'NL0000852564',
 				'market' => 'ALTERNATIVE',
