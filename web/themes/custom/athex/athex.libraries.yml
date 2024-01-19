@@ -15,6 +15,7 @@ global:
 views:
   js:
     js/views.js: {}
+    js/table_expand.js: {}
   css:
     theme:
       css/views/views.scss: {}
@@ -270,3 +271,12 @@ solutions-overview-page:
         css/page/solutions_overview_page.scss: {}
   js:
     js/solutions_overview_page.js: {}
+
+product_search:
+  css:
+    theme:
+      css/product_search/product_search.scss: {}
+  js: 
+    js/stock_search.js: {}
+    libraries/tiny-slider/min/tiny-slider.js: {}
+
