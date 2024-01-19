@@ -4,7 +4,9 @@ namespace Drupal\athex_d_mde\Service;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
+use Drupal\athex_d_mde\AthexRendering\BsNav;
 use Drupal\athex_inbroker\Service\ApiDataService;
+
 
 class IndicesOverviewTablesService {
 
@@ -45,42 +47,7 @@ class IndicesOverviewTablesService {
 	}
 
 	private function getSubProductsPillsRA($seldTable) {
-		$result = [
-			'#type' => 'html_tag',
-			'#tag' => 'ul',
-			'#attributes' => [
-				'class' => ['nav', 'nav-pills'],
-				'role' => 'tablist'
-			]
-		];
-
-		foreach ($this->pills as $key => $label) {
-			$aAttributes = [
-				'class' => ['nav-link'],
-				'href' => '#'
-			];
-
-			if ($key == $seldTable) {
-				$aAttributes['class'][] = 'active';
-				$aAttributes['aria-current'] = 'page';
-			}
-
-			$result[] = [
-				'#type' => 'html_tag',
-				'#tag' => 'li',
-				'#attributes' => [
-					'class' => ['nav-item']
-				],
-				[
-					'#type' => 'html_tag',
-					'#tag' => 'a',
-					'#attributes' => $aAttributes,
-					'#value' => $label
-				]
-			];
-		}
-
-		return $result;
+		return (new BsNav($this->pills, $seldTable, 'pills'))->render();
 	}
 
 	private function getSubProductsRA($seldSymbol, $seldTable = null) {

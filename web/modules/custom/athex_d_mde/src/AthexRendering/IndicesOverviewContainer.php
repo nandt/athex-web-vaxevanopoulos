@@ -41,42 +41,8 @@ class IndicesOverviewContainer {
 	}
 
 	private function getTabsRA() {
-		$result = [
-			'#type' => 'html_tag',
-			'#tag' => 'ul',
-			'#attributes' => [
-				'class' => ['nav', 'nav-tabs'],
-				'role' => 'tablist'
-			]
-		];
-
-		foreach ($this->symbols as $index) {
-			$aAttributes = [
-				'class' => ['nav-link'],
-				'href' => '#'
-			];
-
-			if ($index == $this->selectedData['symbol']) {
-				$aAttributes['class'][] = 'active';
-				$aAttributes['aria-current'] = 'page';
-			}
-
-			$result[] = [
-				'#type' => 'html_tag',
-				'#tag' => 'li',
-				'#attributes' => [
-					'class' => ['nav-item']
-				],
-				[
-					'#type' => 'html_tag',
-					'#tag' => 'a',
-					'#attributes' => $aAttributes,
-					'#value' => $index
-				]
-			];
-		}
-
-		return $result;
+		$bsNav = new BsNav($this->symbols, $this->selectedData['symbol']);
+		return $bsNav->render();
 	}
 
 	public function render($innerRA) {

@@ -3,7 +3,10 @@
 namespace Drupal\athex_d_products\AthexSearch;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+
+use Drupal\athex_d_mde\AthexRendering\BsNav;
 use Drupal\athex_d_mde\AthexRendering\DataTable;
+
 
 class StockSearch {
 	use StringTranslationTrait;
@@ -45,45 +48,9 @@ class StockSearch {
 	}
 
 	private function getTabsRA($seldLetter) {
-		$result = [
-			'#type' => 'html_tag',
-			'#tag' => 'ul',
-			'#attributes' => [
-				'class' => ['nav', 'nav-pills'],
-				'role' => 'tablist'
-			]
-		];
-
-		//TODO: $config->get('indices_overview_tabs');
 		$options = ['All', ...range('A', 'Z') ];
-
-		foreach ($options as $opt) {
-			$aAttributes = [
-				'class' => ['nav-link'],
-				'href' => '#'
-			];
-
-			if ($opt == $seldLetter) {
-				$aAttributes['class'][] = 'active';
-				$aAttributes['aria-current'] = 'page';
-			}
-
-			$result[] = [
-				'#type' => 'html_tag',
-				'#tag' => 'li',
-				'#attributes' => [
-					'class' => ['nav-item']
-				],
-				[
-					'#type' => 'html_tag',
-					'#tag' => 'a',
-					'#attributes' => $aAttributes,
-					'#value' => $opt
-				]
-			];
-		}
-
-		return $result;
+		$bsNav = new BsNav($options, $seldLetter);
+		return $bsNav->render();
 	}
 
 	private function getSearchFormRA() {
