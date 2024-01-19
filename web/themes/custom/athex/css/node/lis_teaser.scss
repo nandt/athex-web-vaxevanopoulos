@@ -26,7 +26,7 @@
 	.listingsviewhomeWrapper {
 		display: flex;
 
-		> :nth-child(2n) {
+		:hover{
 			background-color: #F6F5F8;
 		}
 	}

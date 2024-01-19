@@ -129,7 +129,8 @@ class DefaultController extends ControllerBase {
     }
 
     $filename = $filename . '.zip';
-    $tmp_file = file_save_data('', 'temporary://' . $filename);
+	$fileRepo = \Drupal::service('file.repository');
+    $tmp_file = $fileRepo->writeData('', 'temporary://' . $filename);
     $tmp_file->status = 0;
     $tmp_file->save();
     $archive = new PclZip($this->fileSystem->realpath($tmp_file->getFileUri()));

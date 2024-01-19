@@ -1,0 +1,31 @@
+
+.TextTitle{
+	display: flex;
+	row-gap: 24px;
+	height: 100%;
+	background-color: #F8F8FA;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	margin-bottom:64px;
+}
+
+.container.TextTitleContainer {
+    padding: 80px 0px 80px 80px;
+}
+
+.TextTitle.row{
+
+	padding:0px;
+}
+
+.col-12.col-lg-6.title {
+    padding-bottom: 24px;
+}
+
+@media(max-width:992px){
+	.container.TextTitleContainer {
+		padding: 48px 24px 48px 24px;
+	}
+
+}

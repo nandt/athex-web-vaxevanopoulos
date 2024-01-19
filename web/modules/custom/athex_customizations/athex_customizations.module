@@ -1,6 +1,16 @@
 <?php
 
-function athex_customizations_views_pre_view(&$view) {
+function athex_customizations_views_plugins_exposed_form_alter(&$form) {
+	// \Drupal::messenger()->addStatus(print_r($form));
+}
+
+function athex_customizations_views_pre_view($view) { // by value??
+	// improve VBO controls
+	// $exposed_input = $view->getExposedInput();
+
+
+
+	// override options
 	$MAP = [
 		'year' => function() {
 			$years = [];
@@ -23,7 +33,7 @@ function athex_customizations_views_pre_view(&$view) {
 
 	foreach ($filters as $key => &$filter) {
 		$ginfo = $filter['group_info'] ?? [];
-		$mapping = $MAP[$ginfo['identifier']];
+		$mapping = @$MAP[$ginfo['identifier']];
 
 		if (!isset($mapping)) continue;
 

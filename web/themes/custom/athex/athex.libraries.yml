@@ -15,6 +15,7 @@ global:
 views:
   js:
     js/views.js: {}
+    js/table_expand.js: {}
   css:
     theme:
       css/views/views.scss: {}
@@ -59,6 +60,11 @@ cta_text_banner:
   css:
     theme:
       css/paragraph/cta_text_banner.scss: {}
+
+title_text:
+  css:
+    theme:
+      css/paragraph/title_text.scss: {}
 
 quick_link:
   css:
@@ -162,10 +168,33 @@ seminars:
   js:
     js/node/seminars.js: {}
 
+solutions:
+  css:
+    theme:
+      css/node/solutions.scss: {}
+  js:
+    js/node/solutions.js: {}
+    js/solutionsview_home.js: {}
+    libraries/tiny-slider/min/tiny-slider.js: {}
+
 news_item:
   css:
     theme:
       css/node/news_item.scss: {}
+
+news_item_teaser:
+  css:
+    theme:
+      css/node/news_item_teaser.scss: {}
+  js:
+    js/news_overview.js: {}
+
+news_item_overview_teaser:
+  css:
+    theme:
+      css/node/news_item_teaser.scss: {}
+  js:
+    js/news_overview.js: {}
 
 image_slider_item:
   css:
@@ -179,9 +208,48 @@ testimonial:
     theme:
       css/paragraph/testimonial.scss: {}
 
+image_slider:
+  css:
+    theme:
+      css/field/image_slider_item.scss: {}
+  js:
+    js/image_slider_item.js: {}
 news_overview:
   css:
     theme:
       css/node/news_overview.scss: {}
   js:
     js/news_overview.js: {}
+
+webform:
+  css:
+    theme:
+      css/webform/webform.scss: {}
+  js:
+    js/webform.js: {}
+
+ask_a_question:
+  css:
+    theme:
+      css/blocks/ask_a_question.scss: {}
+
+info_card:
+  css:
+    theme:
+      css/paragraph/info_card.scss: {}
+
+solutions-overview-page:
+  css:
+      theme:
+        css/page/solutions_overview_page.scss: {}
+  js:
+    js/solutions_overview_page.js: {}
+
+product_search:
+  css:
+    theme:
+      css/product_search/product_search.scss: {}
+  js: 
+    js/stock_search.js: {}
+    libraries/tiny-slider/min/tiny-slider.js: {}
+
