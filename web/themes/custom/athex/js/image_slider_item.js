@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
 			controlsContainer: '#images-slider',
 			responsive: {
 				1: {
-					items: 1.35,
+					items: 1.25,
 					slideBy: 1,
 				},
 				992: {
