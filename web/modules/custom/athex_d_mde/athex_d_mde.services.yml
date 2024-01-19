@@ -1,0 +1,10 @@
+services:
+  athex_d_mde.api_data:
+    class: Drupal\athex_d_mde\Service\ApiDataService
+    arguments: ['@logger.factory', '@config.factory', '@http_client']
+  athex_d_mde.ticker_tape:
+    class: Drupal\athex_d_mde\Service\TickerTapeService
+    arguments: ['@logger.factory', '@config.factory', '@athex_inbroker.api_data', '@renderer']
+  athex_d_mde.indices_overview:
+    class: Drupal\athex_d_mde\Service\IndicesOverviewService
+    arguments: ['@logger.factory', '@config.factory', '@athex_inbroker.api_data']

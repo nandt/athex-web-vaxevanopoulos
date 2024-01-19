@@ -13,10 +13,3 @@ athex_inbroker.settings:
 #     _controller: '\Drupal\athex_inbroker\Controller\TestController::test'
 #   requirements:
 #     _permission: 'access content'
-
-athex_inbroker.ticker_tape_data:
-  path: '/tickerTapeData'
-  defaults:
-    _controller: '\Drupal\athex_inbroker\Controller\TickerTapeController::getData'
-  requirements:
-    _permission: 'access content'
