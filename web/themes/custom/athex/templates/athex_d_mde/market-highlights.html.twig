@@ -1,0 +1,13 @@
+
+{%- for section in sections -%}
+	<div class="mh--{{section.en_name|clean_class}}">
+		<h3>{{section.en_name|t}}</h3>
+
+		{%- for item in section.items -%}
+			{{item.company}}
+			{{item.symbol}}
+			{{item.value}}
+			{{item.change}}
+		{%- endfor -%}
+	</div>
+{%- endfor -%}
