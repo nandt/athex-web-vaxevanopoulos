@@ -29,6 +29,9 @@ function athex_d_mde_theme($existing, $type, $theme, $path) {
 		'market_summary' => [ 'variables' => [
 			'indices_overview' => null,
 			'market_activity' => null
+		] ],
+		'market_highlights' => [ 'variables' => [
+			'sections' => null
 		] ]
 	];
 }
