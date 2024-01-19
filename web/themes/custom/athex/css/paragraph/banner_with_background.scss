@@ -50,6 +50,13 @@
 
 }
 
+.row.bwbBannerRow.blue.with-background-graphic{
+	background: url(/assets/iconBannerBlue.svg) ,linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%);
+	background-repeat: no-repeat;
+	background-position: top center;
+
+}
+
 .row.bwbBannerRow.green.without-background-graphic {
 	background-color: #F1F9F5;
 }
@@ -59,8 +66,23 @@
 }
 
 .row.bwbBannerRow.purple .bwb_button {
-	color: #2B01D0;
-	border-color: #2B01D0;
+
+	border-color: #3C06D9;
+}
+
+.row.bwbBannerRow.purple .bwb_button a{
+	color: #3C06D9;
+}
+
+.row.bwbBannerRow.blue .bwb_button a{
+	color: white;
+}
+
+.row.bwbBannerRow.green .bwb_button a{
+	background:  linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .row.bwbBannerRow.purple .bwbTitle {
