@@ -65,6 +65,11 @@ title_text:
     theme:
       css/paragraph/title_text.scss: {}
 
+list:
+  css:
+    theme:
+      css/paragraph/list.scss: {}
+
 quick_link:
   css:
     theme:
