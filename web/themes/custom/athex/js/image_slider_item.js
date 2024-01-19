@@ -13,17 +13,17 @@ jQuery(document).ready(function ($) {
 			mouseDrag: true,
 			preventScrollOnTouch: 'auto',
 			lazyload: true,
-			rewind: true,
+			rewind: false,
 			controlsPosition: 'bottom',
 			controlsContainer: '#images-slider',
 			responsive: {
 				1: {
-					items: 1.25,
+					items: 1.35,
 					slideBy: 1,
 				},
 				992: {
 					items: 2.5,
-					slideBy: 1
+					slideBy: 2
 				}
 			}
 		})
