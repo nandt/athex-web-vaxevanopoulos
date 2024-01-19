@@ -1,0 +1,115 @@
+ul {
+	.nav-pills {
+		margin-top: 64px;
+	}
+}
+
+.container.relative {
+	//position: relative;
+
+	form.bef-exposed-form { 
+		//position: initial;
+		margin: 64px auto 160px;
+	}
+
+	.nav-pills {
+		position: absolute;
+		left: 15px;
+		width: 100%;
+		margin-top: 48px;
+		gap: 12px;
+		flex-wrap: nowrap;
+
+		@media (min-width: 992px) {
+			margin-top: 64px;
+		}
+
+		.nav-link {
+			padding: 12px !important;
+			color: #5F4D96 ;
+			text-align: center;
+			font-size: 12px;
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			letter-spacing: 0.36px;
+			border: 1px solid #E4E1ED;
+		}
+
+		.nav-link.active {
+			background: #F0ECFC;
+		}
+	}
+
+	.pill-filters {
+		width: 1180px;
+		max-width: 95vw;
+		margin: 48px 16% 0px -55%;
+		transform: translateX(50%);
+		overflow-x: auto;
+
+		@media( min-width: 1200px) {
+			width: 1240px;
+			max-width: 98vw;
+			margin: 64px 0% 0px -67%;
+			transform: translateX(50%);
+			overflow-x: hidden;
+		}
+	}
+
+	.field--company {
+		min-width: 325px;
+		padding-left: 32px;
+	}
+
+	.arrow-wrapper {
+		padding: 0px;
+	}
+
+	.childDiv {
+		display: flex;
+		padding-bottom: 16px;
+
+		.expanded-th {
+			min-width: 153px;
+		}
+	}
+
+	form.bef-exposed-form details.bef--secondary {
+		//position: relative;
+		
+		summary {
+			//position: absolute;
+			bottom: 0px;
+			right: 0px;
+		}
+	}
+
+	table {
+		background: #F6F5F8;
+
+		tbody {
+			background: #fff;
+		}
+	}
+
+	.tns-liveregion.tns-visually-hidden {
+		display: none;
+	}
+
+	@media (min-width: 992px) { 
+		tr:hover {
+			background: #F7F5FD;
+	
+			td {
+				color: #3C06D9;
+			}
+
+			.symbol, .company {
+				text-decoration: underline;
+				font-weight: 600;
+			}
+
+		}
+	}
+}

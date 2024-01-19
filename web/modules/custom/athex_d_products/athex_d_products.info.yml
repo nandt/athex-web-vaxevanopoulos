@@ -1,0 +1,10 @@
+name: 'AthexGroup Product Pages'
+version: '1.0.0'
+type: module
+description: 'Provides pages for AthexGroup products.'
+package: 'Deloitte Digital'
+core_version_requirement: ^10
+dependencies:
+  - athex_inbroker
+  - athex_sis
+  - athex_d_mde
