@@ -250,6 +250,5 @@ product_search:
     theme:
       css/product_search/product_search.scss: {}
   js: 
-    js/stock_search.js: {}
-    libraries/tiny-slider/min/tiny-slider.js: {}
+    js/table_expand.js: {}
 

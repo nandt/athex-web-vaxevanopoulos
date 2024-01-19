@@ -4,17 +4,13 @@ ul {
 	}
 }
 
-.container.relative {
-	//position: relative;
+.container.stocks {
 
 	form.bef-exposed-form { 
-		//position: initial;
-		margin: 64px auto 160px;
+		margin: 64px auto 0;
 	}
 
 	.nav-pills {
-		position: absolute;
-		left: 15px;
 		width: 100%;
 		margin-top: 48px;
 		gap: 12px;
@@ -41,18 +37,18 @@ ul {
 		}
 	}
 
-	.pill-filters {
-		width: 1180px;
+	.nav-pills {
+		width: 995px;
 		max-width: 95vw;
-		margin: 48px 16% 0px -55%;
-		transform: translateX(50%);
+		margin: 48px 0 64px 50%;
+		transform: translateX(-50%);
 		overflow-x: auto;
 
 		@media( min-width: 1200px) {
-			width: 1240px;
-			max-width: 98vw;
-			margin: 64px 0% 0px -67%;
-			transform: translateX(50%);
+			width: 1296px;
+			max-width: 95vw;
+			margin: 64px 0% 84px 50%;
+			transform: translateX(-50%);
 			overflow-x: hidden;
 		}
 	}
