@@ -61,16 +61,16 @@ class DataTable {
 				]
 			];
 
-			if (@$col['pinned']) {
+			if (!@$col['pinned'])
 				$cell['class'][] = 'mobile-hidden';
+			else
 				$pins = true;
-			}
 
 			$cells[] = $cell;
 		}
 
 		if (!$pins)
-			$cells[0]['class'][] = 'mobile-hidden';
+			array_pop($cells[0]['class']);
 
 		return $cells;
 	}
