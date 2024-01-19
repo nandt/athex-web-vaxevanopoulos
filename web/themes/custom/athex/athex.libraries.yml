@@ -275,3 +275,10 @@ link_with_image_overlay:
       css/paragraph/link_with_image_overlay.scss: {}
   js:
     js/image_overlay_links.js: {}
+
+link_cards_bundle:
+  css:
+    theme:
+      css/paragraph/link_cards_bundle.scss: {}
+  js:
+    js/link_cards_bundle.js: {}
