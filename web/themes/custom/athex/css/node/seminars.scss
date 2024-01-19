@@ -1,3 +1,7 @@
+.SeminarItemElements {
+	padding-bottom: 164px;
+}
+
 .sticky-button {
   position: fixed;
   bottom: 2px;
@@ -40,13 +44,15 @@
 .btnShare{
   color:#8466DB;
   background-position: left center;
+  background-position-x: 10%;
   background-repeat: no-repeat;
   padding: 12px 15px 12px 48px;
-  background-image: url('assets/icons/white/slider-arrow.svg');
+  background-image: url('assets/icons/purple/iconShare.svg');
   align-items: flex-start;
   gap: 16px;
   border: 1px solid  #5350F8;
   background-color: transparent;
+  margin-bottom: 20px;
 }
 
 .SeminarTitle {
@@ -54,15 +60,21 @@
   row-gap: 20px;
 }
 
+.SeminarTitle h1 {
+	font-size: 40px;
+	line-height: 48px;
+	font-weight: 500;
+}
+
 .SeminarDetailsTable {
   max-width: 320px;
 }
 
-.SeminarMainContentText{
+.SeminarMainContentText {
   justify-content: space-between;
 }
 
-.register{
+.register {
   border: none;
   font-size: 14px;
   font-weight: bold;
@@ -74,7 +86,6 @@
   align-items: center;
   gap: 8px;
   background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
-
 }
 
 button.btnShare a {
@@ -137,6 +148,7 @@ width:100%;
 }
 
 /* Μορφοποίηση Slider Gallery */
+
 .tns-outer [aria-controls], .tns-outer [data-action] {
   width: 80px;
   height: 80px;
@@ -162,27 +174,29 @@ width:100%;
   justify-content: flex-end;
 }
 
+#tns1 > .tns-item{
+	width:auto!important;
+}
+
 .paragraph.paragraph--type--title-text.paragraph--view-mode--default {
   display: flex;
   row-gap: 24px;
   height: 100%;
   background-color: #F8F8FA;
-  padding: 5%;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
 
-[class*="contextual-region"][class*="js-view-dom-id"] {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
+.SeminarsViewBlock .container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-end;
 }
 
-
 .info-card {
-  width: 389px!important;
+  width: 100%!important;
   border: none;
   padding: 20px;
   margin-top: 20px;
@@ -191,7 +205,7 @@ width:100%;
 .info-card:hover{
   background-color:#F6F5F8
 
-  }
+}
 
 .info-card img {
   width: 100%;
@@ -241,75 +255,117 @@ width:100%;
     padding-bottom: 25px;
 }
 
+.SeminarTitle {
+    padding-bottom: 20px;
+}
+
+div#seminarDetails {
+	display: none;
+    width: 350px;
+}
+
+.container.stopElement {
+    margin-top: 0px;
+}
+
 @media(min-width:992px){
 
-  .paragraph.paragraph--type--title-text.paragraph--view-mode--default {
-    display: flex;
-    height: 200px;
-    background-color: #F8F8FA;
-    padding: 0%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-  }
+	.info-card {
+		width: 100%;
+		max-width:387px!important;
+		border: none;
+		padding: 20px;
+		margin-top: 20px;
+	  }
 
-  .btnShare{
-    display: block;
-  }
+	.views-view-grid {
+		padding-top: 64px;
+	}
 
-  .register{
-    display:block;
- }
+	.paragraph.paragraph--type--title-text.paragraph--view-mode--default {
+		margin-bottom: 64px;
+		display: flex;
+		height: 200px;
+		background-color: #F8F8FA;
+		padding: 5% 0% 5% 0%;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+	}
 
- .sticky-button{
-    display:block;
- }
+	.btnShare{
+		display: block;
+	}
 
-  .sticky-button{
-    display: none!important;
-  }
-  .SeminarDetailsTable{
-    max-width: 320px;
-  }
+	.register{
+		display:block;
+	}
 
-  .ViewSeminarDate{
-    display: flex;
-    padding: 16px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 39px;
-    align-self: stretch;
-    border: 1px solid  #D1CCE1;
-    background:  #FFF;
-  }
+	.sticky-button{
+		display:block;
+	}
 
-  .SeminarDetailsHr{
-    display:block;
-    color: #D1CCE1;
-  }
+	.sticky-button{
+		display: none!important;
+	}
+	.SeminarDetailsTable{
+		max-width: 320px;
+	}
 
-  .PhotoBundleParagraph{
-    padding-top:40px;
-  }
+	.ViewSeminarDate{
+		display: flex;
+		padding: 16px 24px;
+		justify-content: center;
+		align-items: center;
+		gap: 39px;
+		align-self: stretch;
+		border: 1px solid  #D1CCE1;
+		background:  #FFF;
+	}
 
-  .PhotosBundleItem{
-    padding-top:48px;
-  }
+	.SeminarDetailsHr{
+		display:block;
+		color: #D1CCE1;
+	}
 
-  .LeftSideItemElements{
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    justify-content: space-between;
-  }
-  .scheduleItem{
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+	.PhotoBundleParagraph{
+		padding-top:40px;
+	}
 
-  .info-card{
-    max-width:389px;
-  }
+	.PhotosBundleItem{
+		padding-top:48px;
+	}
+
+	.LeftSideItemElements{
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+	.scheduleItem{
+		flex-direction: row;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.info-card{
+		max-width:389px;
+	}
+
+	div#seminarDetailsMobile {
+		display: none;
+	}
+
+	div#seminarDetails {
+		display: flex!important;
+		width: 350px;
+	}
+
+	.container.stopElement {
+		margin-top: 200px;
+	}
+
 }
+
+

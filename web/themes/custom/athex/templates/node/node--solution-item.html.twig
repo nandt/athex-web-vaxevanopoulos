@@ -1,0 +1,98 @@
+{# web/core/themes/stable9/templates/content/node.html.twig #}
+
+{{ attach_library('athex/solutions') }}
+
+{% set selectedColor = content.field_si_color.0['#markup'] %}
+
+<div class="container solutions">
+	<div class="row">
+		<div class="col-12">
+			<div class="mini-title subheading weightLight textColorPurple7">{{content.field_mini_title}}</div>
+		</div>
+		<div class="col-12 col-lg-8">
+			{% if selectedColor == 'Blue' %}
+				<h1 class="heading8 weightDemi textColorPurple solNodeTitle">{{ node.title.value }}</h1>
+			{% elseif selectedColor == 'Green' %}
+				<h1 class="heading8 weightDemi textColorGreen solNodeTitle">{{ node.title.value }}</h1>
+			{% endif %}
+			<div class="solBody body2 weightBook textColorBlackDark">{{content.field_si_body}}</div>
+		</div>
+		<div class="col-lg-4 padding-none">
+			{% if selectedColor == 'Blue' %}
+				<div class="btnShare cta3 textColorWhite weightBold blueBtn">{{content.field_si_demo_button}}</div>
+			{% elseif selectedColor == 'Green' %}
+				<div class="btnShare cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
+			{% endif %}
+		</div>
+		<div class="col-12">
+			<div class="solCategories">
+				<span class="body3 weightDemi textColorBlackDark">Refers to:</span>
+				<div class="solTags nav-pills">{{content.field_category_reference}}</div>
+			</div>
+		</div>
+		<div class="col-lg-12 padding-none">
+			{% if selectedColor == 'Blue' %}
+				<div class="image_container bgBlueGradient">
+					<div class="solImage">{{content.field_si_image}}</div>
+				</div>
+			{% elseif selectedColor == 'Green' %}
+				<div class="image_container bgGreenGradient">
+					<div class="solImage">{{content.field_si_image}}</div>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<div class="section">
+				<div class="anchor-items">
+					<div class="bullet" data-index="0"></div>
+					<div class="vertical-bar"></div>
+				</div>
+				<div class="sectionWrapper">
+					<div class="leftSection">
+						<div class="sectionLabel benefits">{{content.field_si_benefits}}</div>
+					</div>
+					<div class="rightSection">
+						<div class="downloadBtn">{{content.field_si_download_link}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<div class="anchor-items">
+					<div class="bullet" data-index="1"></div>
+					<div class="vertical-bar"></div>
+				</div>
+				<div class="sectionLabel">{{content.field_si_tlogo_slider}}</div>
+			</div>
+			<div class="section">
+				<div class="anchor-items">
+					<div class="bullet" data-index="2"></div>
+					<div class="vertical-bar"></div>
+				</div>
+				<div class="sectionLabel">{{content.field_si_plogo_slider}}</div>
+			</div>
+			<div class="section">
+				<div class="anchor-items">
+					<div class="bullet" data-index="3"></div>
+				</div>
+				<div class="sectionLabel contact">{{content.field_si_contacts}}</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-12">
+		<div>{{content.field_solutions_reference}}</div>
+		
+		<div class="controls" id="solutions-slider" aria-label="Carousel Navigation" tabindex="0">
+			<span class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
+			</span>
+			<span class="next" data-controls="next" aria-controls="customize" tabindex="-1">
+			</span>
+		</div>
+	</div>
+</div>
+<div class="sliding-text-container">
+	<div class="sliding-text">{{ content.field_si_sliding_text }}</div>
+</div>
