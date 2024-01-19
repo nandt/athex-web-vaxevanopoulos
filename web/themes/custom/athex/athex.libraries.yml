@@ -41,6 +41,11 @@ main_menu:
   js:
     js/main_menu.js: {}
 
+search:
+  css:
+    theme:
+      css/layout/search.scss: {}
+
 prefooter:
   css:
     theme:
@@ -207,6 +212,28 @@ testimonial:
   css:
     theme:
       css/paragraph/testimonial.scss: {}
+  js:
+    js/testimonial.js: {}
+
+banner_with_background:
+  css:
+    theme:
+      css/paragraph/banner_with_background.scss: {}
+
+banner_without_image:
+  css:
+    theme:
+      css/paragraph/banner_without_image.scss: {}
+
+esgbanner:
+  css:
+    theme:
+      css/paragraph/esgbanner.scss: {}
+
+timeline:
+  css:
+    theme:
+      css/paragraph/timeline.scss: {}
 
 image_slider:
   css:
