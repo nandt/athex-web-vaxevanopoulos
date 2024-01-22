@@ -38,7 +38,7 @@ class StockPagesController extends ControllerBase {
 				'title' => $this->layout->h2('Stock overview'),
 				'overview_table' => [
 					'#type' => 'table',
-					'$rows' => $this->overview_data->getOverviewRows($company_id)
+					'#rows' => $this->overview_data->getOverviewRows($company_id)
 				],
 				'overview_chart' => [
 					//...
