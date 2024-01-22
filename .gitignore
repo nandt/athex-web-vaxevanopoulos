@@ -9,3 +9,11 @@
 !/web/themes
 /web/themes/*
 !/web/themes/custom
+/readme.txt
+/ docker-compose.yml
+/athexweb_20240119.sql
+/.idea/
+/Dockerfile
+/athex-dev.Dockerfile
+/athex-base.Dockerfile
+/dev-launch.sh
