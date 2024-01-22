@@ -65,6 +65,13 @@
 	background: #F7F5FD;
 }
 
+.row.bwbBannerRow.purple .bwbTitle strong{
+	background:  linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 .row.bwbBannerRow.purple .bwb_button {
 
 	border-color: #3C06D9;
