@@ -44,6 +44,11 @@
 
 @media(min-width:992px){
 
+	.row.list-items {
+		overflow-y: scroll;
+		height: 380px;
+	}
+
 	.listParagraphHeaderBanner {
 		padding-bottom: 70px;
 		display: flex;
