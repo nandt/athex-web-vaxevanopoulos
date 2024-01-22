@@ -317,3 +317,8 @@ link_cards_bundle:
       css/paragraph/link_cards_bundle.scss: {}
   js:
     js/link_cards_bundle.js: {}
+
+market_summary:
+  css:
+    theme:
+      css/blocks/market_summary.scss: {}

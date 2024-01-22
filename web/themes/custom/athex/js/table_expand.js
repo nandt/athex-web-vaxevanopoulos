@@ -5,7 +5,7 @@ jQuery(document).ready(function ($) {
         $(this).children().toggleClass('arrow-expanded')
         let currRow = $(this).closest('tr');
 
-        currRow.toggleClass('expanded-row')
+        currRow.toggleClass('expanded-row');
         
         currRow.siblings('.childRow').remove();
 

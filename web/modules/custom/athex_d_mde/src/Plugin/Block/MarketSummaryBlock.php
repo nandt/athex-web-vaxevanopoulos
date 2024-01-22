@@ -39,7 +39,10 @@ class MarketSummaryBlock extends BlockBase implements BlockPluginInterface {
 				[
 					'#type' => 'link',
 					'#title' => $this->t('Explore Indices'),
-					'#url' => \Drupal\Core\Url::fromUri('internal:#')
+					'#url' => \Drupal\Core\Url::fromUri('internal:#'),
+					'#attributes' => [
+						'class' => ['md-link']
+					]
 				]
 			],
 			'#market_activity' => [
@@ -52,7 +55,10 @@ class MarketSummaryBlock extends BlockBase implements BlockPluginInterface {
 				[
 					'#type' => 'link',
 					'#title' => $this->t('Explore Stocks'),
-					'#url' => \Drupal\Core\Url::fromUri('internal:#')
+					'#url' => \Drupal\Core\Url::fromUri('internal:#'),
+					'#attributes' => [
+						'class' => ['md-link']
+					]
 				]
 			]
 		];
