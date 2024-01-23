@@ -1,0 +1,44 @@
+{# web/core/themes/stable9/templates/dataset/item-list.html.twig #}
+
+{% if context.list_style %}
+  {%- set attributes = attributes.addClass('item-list__' ~ context.list_style) %}
+{% endif %}
+{% if items or empty %}
+  {%- if title is not empty -%}
+    <h3>{{ title }}</h3>
+  {%- endif -%}
+
+  {%- if items -%}
+    <p>Βρέθηκαν <span class="weightBold textColorIndigo">{{ items|length }}</span> αποτελέσματα</p>
+    <{{ list_type }}{{ attributes }}>
+      {%- for item in items -%}
+        <li class="searchResult" {{ item.attributes }}>{{ item.value }}</li>
+      {%- endfor -%}
+    </{{ list_type }}>
+  {%- else -%}
+    {{- empty -}}
+  {%- endif -%}
+{%- endif %}
+
+
+
+
+<style>
+
+
+li.searchResult {
+    row-gap: 12px;
+    list-style: none;
+    padding: 2%;
+    border-bottom: 1px solid #D1CCE1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+input#edit-keys {
+    height: 56px;
+    margin: 5%;
+    width: 80vw;
+}
+</style>

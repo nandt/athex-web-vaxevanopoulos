@@ -1,0 +1,19 @@
+{{ attach_library('athex/link_cards_bundle') }}
+
+<div class="container-fluid lcb">
+    <div class="row">
+        <div class="col-12 col-lg-5 lcbTextWrapper">
+            <div class="lcbTitle heading1 cb textColorWhite weightBoldBook">{{content.field_lcb_title}}</div>
+        </div>
+        <div class="col-12 col-lg-6 offset-lg-1 textCtaWrapper">
+            <div class="lcbText cb weightBook body2 textColorWhite">{{content.field_lcb_text}}</div>
+            <div class="textColorWhite cta2 weightBoldBook solvhomeCTA">{{ content.field_lcb_cta }}</div>
+        </div>
+        <div class="col-12">
+            <div class="lcb-items">
+            {{ content.field_link_item_with_image }}
+            {{ content.field_link_card_item }}
+            </div>
+        </div>
+    </div>
+</div>

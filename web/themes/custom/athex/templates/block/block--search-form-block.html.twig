@@ -1,0 +1,32 @@
+{# web/core/themes/stable9/templates/block/block.html.twig #}
+
+{{ attach_library('athex/search') }}
+
+<div class="search-window">
+    <button class="close-button"></button>
+	<div class="container overlay-content">
+		<div class="form-search">
+			{% block content %}
+			{{ content }}
+			{% endblock %}
+
+		</div>
+		<div class="popularSearches">
+			<h2 class="textColorPurple textColorPurple  weightBold">Popular Searches</h2>
+			<div class="popularSearchItems">
+			<div class="sItem body4 textColorPurpleLight">Annual Report 2023 </div>
+			<div class="sItem body4 textColorPurpleLight">Bonds</div>
+			<div class="sItem body4 textColorPurpleLight">Newly Listed Companies</div>
+			<div class="sItem body4 textColorPurpleLight">ESG</div>
+			<div class="sItem body4 textColorPurpleLight">How To  Invest</div>
+			<div class="sItem body4 textColorPurpleLight">Investor Relations</div>
+			<div class="sItem body4 textColorPurpleLight">Upcoming Event</div>
+			<div class="sItem body4 textColorPurpleLight">Stock Overview</div>
+			<div class="sItem body4 textColorPurpleLight">Investor Relations</div>
+			<div class="sItem body4 textColorPurpleLight">Upcoming Event</div>
+			<div class="sItem body4 textColorPurpleLight">Stock Overview</div>
+			</div>
+			</div>
+
+	</div>
+</div>

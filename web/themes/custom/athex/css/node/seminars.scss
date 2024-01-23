@@ -56,7 +56,7 @@
 }
 
 .SeminarTitle {
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   row-gap: 20px;
 }
 
@@ -198,7 +198,7 @@ width:100%;
 .info-card {
   width: 100%!important;
   border: none;
-  padding: 20px;
+  padding:24px;
   margin-top: 20px;
 }
 
@@ -255,9 +255,7 @@ width:100%;
     padding-bottom: 25px;
 }
 
-.SeminarTitle {
-    padding-bottom: 20px;
-}
+
 
 div#seminarDetails {
 	display: none;
@@ -268,29 +266,55 @@ div#seminarDetails {
     margin-top: 0px;
 }
 
+
+.info-card:hover .info-box {
+    border: none;
+}
+
+
+.SeminarsViewBlock .container {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.categoryTitle {
+    padding-top: 15px;
+}
+
+.PhotosBundleItem img {
+	padding-bottom: 24px;
+}
+
 @media(min-width:992px){
 
-	.info-card {
+	.PhotosBundleItem img {
 		width: 100%;
-		max-width:387px!important;
-		border: none;
-		padding: 20px;
-		margin-top: 20px;
-	  }
+		height: auto;
+		padding-bottom: 24px;
+	}
+
+
+	.SeminarTitle {
+		padding-bottom: 75px;
+	}
+
+	.SeminarsViewBlock .container {
+		padding: 0px;
+		margin: 0px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: row;
+	}
 
 	.views-view-grid {
 		padding-top: 64px;
-	}
-
-	.paragraph.paragraph--type--title-text.paragraph--view-mode--default {
-		margin-bottom: 64px;
-		display: flex;
-		height: 200px;
-		background-color: #F8F8FA;
-		padding: 5% 0% 5% 0%;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-around;
 	}
 
 	.btnShare{
@@ -360,10 +384,6 @@ div#seminarDetails {
 	div#seminarDetails {
 		display: flex!important;
 		width: 350px;
-	}
-
-	.container.stopElement {
-		margin-top: 200px;
 	}
 
 }

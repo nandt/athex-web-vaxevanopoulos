@@ -1,0 +1,23 @@
+{{ attach_library('athex/banner_without_image') }}
+
+{% set background_color = content.	field_bwi_background_color.0['#markup']|clean_class %}
+
+<div class="container bwiBanner">
+	<div class="row bwiBannerRow {{ background_color }} ">
+		<div class="col-12 col-lg-6 bwiBannerTitles {{ font_color }} ">
+			<div class=" subheading ">{{ content.field_bwi_upper_title }}
+			</div>
+			<div class="heading1 bwiTitle">{{ content.field_bwi_title }}
+			</div>
+		</div>
+		<div class="col-12 col-lg-6 bwiBannerbody">
+			<div class="body3 bwiBody ">{{ content.field_bwi_body }}
+			</div>
+			<div class=" bwi_button {{ button_color }} cta3 ">{{ content.field_bwi_cta }}
+			</div>
+
+		</div>
+
+	</div>
+</div>
+

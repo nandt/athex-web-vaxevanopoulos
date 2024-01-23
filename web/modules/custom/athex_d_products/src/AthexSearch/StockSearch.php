@@ -49,7 +49,7 @@ class StockSearch {
 
 	private function getTabsRA($seldLetter) {
 		$options = ['All', ...range('A', 'Z') ];
-		$bsNav = new BsNav($options, $seldLetter);
+		$bsNav = new BsNav($options, $seldLetter, 'pills');
 		return $bsNav->render();
 	}
 
