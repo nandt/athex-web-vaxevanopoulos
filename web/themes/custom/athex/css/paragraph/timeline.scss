@@ -1,3 +1,15 @@
+span.tlidate div {
+	padding-left: 20px;
+    font-size: 26px;
+	background-image: url(assets/iconTimelineBullet.svg);
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+
+.container.horizontal span.tlidate div {
+	background-image: none;
+}
+
 .timelineItemCta {
 margin-top: 20px;
     display: flex;
@@ -140,7 +152,22 @@ margin-top: 20px;
     justify-content: space-between;
 }
 
+.timeLineItemMedia {
+    padding: 0px;
+}
+
+.col-12.col-lg-4.timeLineItemMedia img {
+    width: 100%;
+}
+
 @media(min-width:992px){
+
+	span.tlidate div {
+		padding-left: 0px;
+		font-size: 34px;
+		background-image: none;
+	}
+
 
 	.container.horizontal .row.timelineTitleText {
 		row-gap: 0px;
