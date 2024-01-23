@@ -3,11 +3,16 @@
 namespace Drupal\athex_d_products\Service;
 
 use Drupal\athex_d_mde\AthexRendering\BsNav;
+use Drupal\athex_d_products\ProductType;
 
 
 class ProductPageLayoutService {
 
-	public function render($company_id, $content = []) {
+	public function render(
+		ProductType $product_type,
+		string $product_id,
+		$content = []
+	) {
 		return array_merge([
 			[
 				'#theme' => 'product_hero',
