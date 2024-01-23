@@ -1,6 +1,6 @@
 {{ attach_library('athex/title_text') }}
 
-{% set tt_background_color = content.	field_tt_background_color.0['#markup']|clean_class %}
+{% set tt_background_color = content.field_tt_backgorund_color.0['#markup']|clean_class %}
 
 
 <div class="TextTitle {{tt_background_color}}">
@@ -13,6 +13,7 @@
 			</div>
 			<div class="col-12 col-lg-6 text">
 				<span class="body2 weightBook textColorBlack ">{{content.field_sn_text}}
+				<span class="exploreMore">{{content.field_tt_cta}}</span>
 			</div>
 		</div>
 	</div>
