@@ -9,7 +9,7 @@ jQuery(document).ready(function ($) {
         let label;
         if ($(this).closest('.collapsible-container').hasClass('esg')) {
             const letters = ['E', 'S', 'G'];
-            label = letters[index % letters.length]; // Επιλέγει το γράμμα ανάλογα με τον δείκτη
+            label = letters[index % letters.length];
         } else {
             const itemNumber = index + 1;
             label = '0' + itemNumber;
@@ -30,7 +30,7 @@ jQuery(document).ready(function ($) {
 
     const itemsMobile = $('.collapsible-container.mobile .collapsible-item.mobile');
     itemsMobile.first().addClass('active');
-    itemsMobile.not(':first-child').addClass('inactive');
+    itemsMobile.slice(1).addClass('inactive');
 
     itemsMobile.each(function (index) {
         let label;
