@@ -53,7 +53,12 @@ class StockSearchController extends ControllerBase {
 			$row['symbol'] = [
 				'#type' => 'link',
 				'#title' => $row['symbol'],
-				'#url' => \Drupal\Core\Url::fromUri('internal:#')
+				'#url' => \Drupal\Core\Url::fromRoute(
+					'athex_d_products.stock_profile',
+					[
+						'product_id' => $row['symbol']
+					]
+				)
 			];
 		}
 
