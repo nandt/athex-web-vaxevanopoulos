@@ -2,14 +2,16 @@
 
 namespace Drupal\athex_d_products\Service;
 
+use Drupal\athex_d_mde\AthexRendering\BsNav;
 
-class StockPageLayoutService {
+
+class ProductPageLayoutService {
 
 	public function render($company_id, $content = []) {
 		return array_merge([
 			[
-				'#theme' => 'company_hero',
-				'#company_name' => [
+				'#theme' => 'product_hero',
+				'#product_name' => [
 					'#type' => 'html_tag',
 					'#tag' => 'h1',
 					'#value' => 'ΑΘΗΝΑΪΚΟΣ ΧΡΗΜΑΤΙΣΤΗΡΙΑΚΟΣ ΟΡΓΑΝΙΣΜΟΣ'
@@ -17,12 +19,12 @@ class StockPageLayoutService {
 				'#cover_img_url' => null,
 				'#logo_url' => null,
 				'#ticker' => [
-					'#theme' => 'company_ticker'
+					'#theme' => 'product_ticker'
 				]
-			], [
-				// '#type' => 'contextual_links'
-				//TODO: nav tabs // contextual_links // local_tasks ??
-			]
+			],
+			new BsNav(
+				['Profile', 'Issuer', 'Financial Data & Announcements']
+			)
 		], $content);
 	}
 
