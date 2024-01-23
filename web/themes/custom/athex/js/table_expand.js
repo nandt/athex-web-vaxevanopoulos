@@ -6,24 +6,24 @@ jQuery(document).ready(function ($) {
         let currRow = $(this).closest('tr');
 
         currRow.toggleClass('expanded-row');
-        
+
         currRow.siblings('.childRow').remove();
 
         let hiddenTd = currRow.find("td.mobile-hidden");
 
-        if (hiddenTd.length > 0) { 
+        if (hiddenTd.length > 0) {
             let childRow = $("<tr class='childRow'></tr>");
             let childTd =$(`<td colspan='5'></td>`)
 
-            hiddenTd.each(function () { 
+            hiddenTd.each(function () {
                 let columnIndex = $(this).index();
                 let correspondingTH = currRow.closest("table").find("th").eq(columnIndex);
 
                 let childDiv = $("<div class='childDiv'></div>")
-                
+
                 let newTH = $("<span class='expanded-th textColorPurple7 body2'></span>").text(correspondingTH.text());
                 let newTD = $("<span class='expanded-td textColorPurple2 body2'></span>").text($(this).text());
-                
+
                 childDiv.append(newTH);
                 childDiv.append(newTD);
 
@@ -32,8 +32,8 @@ jQuery(document).ready(function ($) {
                 childRow.append(childTd);
             })
 
-            currRow.after(childRow);   
+            currRow.after(childRow);
         }
-        
+
     })
 })

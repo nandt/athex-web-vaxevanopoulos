@@ -41,6 +41,16 @@
     }
 }
 
+.folded {
+	display: none;
+}
+
+.foldedRow {
+	.folded {
+		display: block;
+	}
+}
+
 @media (min-width: 992px) {
     .msContainer {
         padding: 120px 0px;
@@ -52,7 +62,7 @@
 
         .md-link {
             font-size: 18px;
-            line-height: 28px; 
+            line-height: 28px;
             letter-spacing: 0.72px;
             width: 172px;
             gap: 16px;
@@ -81,7 +91,7 @@
 
             table {
                 width: 545px;
-    
+
                 td {
                     max-width: 109px;
                 }
@@ -91,11 +101,66 @@
         .marketDataTable {
             table {
                 width: 628px;
-    
+
                 td {
                     max-width: 75px;
                 }
             }
         }
+
+		.folded {
+			display: table-cell;
+		}
+
+		.foldedRow {
+			display: none;
+		}
     }
-}   
+}
+
+//temporary
+
+.mdContainer {
+	display: none;
+}
+
+
+.products-table {
+	table {
+		margin: 0px;
+	}
+
+	.arrow {
+		padding-left: 0px;
+	}
+
+	.arrow-wrapper {
+		padding: 0;
+		position: relative;
+
+		.arrow-expand {
+			position: absolute;
+			right: 0;
+		}
+	}
+
+	.expanded-td {
+		margin-left: 0px;
+	}
+
+	.expanded-th {
+		display: none;
+	}
+
+	td {
+		border-bottom: none;
+	}
+
+	.foldedRow {
+		border-bottom: 1.5px solid #E5E5EA;
+	}
+
+	.expanded-row~.childRow {
+		display: table;
+	}
+}
