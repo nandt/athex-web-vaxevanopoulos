@@ -1,5 +1,28 @@
+.max-lines p {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 7.6em;
+    line-height: 1.8em;
+}
+
+.row.bwiBannerRow{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
 .row.bwiBannerRow.greengradient {
     background: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+}
+
+.row.bwiBannerRow.greengradient .bwi_button{
+	border-color: white;
+	color: white;
+}
+
+.row.bwiBannerRow.greengradient .bwi_button a{
+	color: white;
 }
 
 .row.bwiBannerRow.purple {
