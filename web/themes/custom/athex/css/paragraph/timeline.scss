@@ -1,0 +1,73 @@
+.timelineItemCta {
+	font-weight: 500;
+	margin-bottom: 32px;
+    padding-right: 30px;
+    width: max-content;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-image: url(/assets/icons/black/arrow-right-black.svg);
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.timelineItemCta a{
+	color:#030314;
+}
+
+.row.timelineItem {
+    min-height: 250px;
+    padding: 80px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.report-timeline-item{
+	background-color: #F6F5F8;
+}
+
+.no-report-timeline-item{
+	background-color: none;
+}
+
+.tliUpperTitle {
+
+    padding-bottom: 8px;
+}
+
+.tliTitle {
+    padding-bottom: 24px;
+}
+
+.tlibody{
+	padding-bottom: 32px;
+}
+
+.tlidate{
+	padding-bottom: 48px;
+}
+
+
+@media(min-width:992px){
+
+	.row.timelineItem {
+		padding:  80px;
+	}
+
+	.timeLineItemText {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.tliTitle {
+		padding-bottom: 32px;
+	}
+
+	.tlibody{
+		padding-bottom: 32px;
+	}
+
+	.tlidate{
+		padding-bottom: 60px;
+	}
+
+}

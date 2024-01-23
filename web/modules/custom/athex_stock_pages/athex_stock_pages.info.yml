@@ -1,9 +1,0 @@
-name: 'AthexGroup Stock Pages'
-version: '1.0.0'
-type: module
-description: 'Provides pages for AthexGroup stocks.'
-package: 'Deloitte Digital'
-core_version_requirement: ^10
-dependencies:
-  - athex_inbroker
-  - athex_sis

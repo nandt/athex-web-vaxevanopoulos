@@ -1,0 +1,6 @@
+athex_d_mde.ticker_tape_data:
+  path: '/tickerTapeData'
+  defaults:
+    _controller: '\Drupal\athex_d_mde\Controller\TickerTapeController::getData'
+  requirements:
+    _permission: 'access content'

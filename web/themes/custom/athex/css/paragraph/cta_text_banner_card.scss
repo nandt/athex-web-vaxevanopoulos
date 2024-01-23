@@ -1,0 +1,49 @@
+.container.ctbcBanner {
+    background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
+    padding: 80px 24px;
+    margin-bottom: 0;
+}
+
+.subheading.cb {
+    margin-bottom: 12px;
+}
+
+.heading8.cb {
+    margin-bottom: 24px;
+}
+
+.ctbcText {
+    margin-bottom: 48px;
+}
+
+.ctbc-btn {
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+.ctbc-btn a {
+    color: inherit;
+    padding: 35px 40px;
+    border: 1px solid#21C0F2;
+}
+
+@media(min-width:992px) {
+    .container.ctbcBanner {
+        padding: 48px;
+        margin-bottom: 120px;
+    }
+
+    .subheading.cb {
+        margin-bottom: 8px;
+    }
+
+    .heading8.cb {
+        margin-bottom: 0px;
+    }
+
+    .ctbcText {
+        margin-bottom: 40px;
+    }
+
+
+}

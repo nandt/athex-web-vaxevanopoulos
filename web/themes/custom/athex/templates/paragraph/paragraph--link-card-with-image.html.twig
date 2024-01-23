@@ -1,0 +1,10 @@
+{{ attach_library('athex/link_cards_bundle') }}
+
+
+<div class="link_card imgLinkCard">
+    <div class="linkCardImage textColorWhite weightBoldBook">{{content.field_lcwi_image}}</div>
+    <div class="oli-teaser-number textColorWhite"></div>
+    <div class="linkCardLink textColorWhite weightBoldBook">{{content.field_lcwi_link}}</div>
+    <a class="linkCardUrl" href="{{content.field_lcwi_link.0['#url']}}"></a>
+</div>
+

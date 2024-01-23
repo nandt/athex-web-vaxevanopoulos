@@ -1,0 +1,24 @@
+
+{{ attach_library('athex/views') }}
+
+<div class="views-element-container">
+	<div>
+		<header>
+			<div class="container">
+				<h1>{{"Stock Search"|t}}</h1>
+			</div>
+		</header>
+
+		<div class="container stocks">
+
+			{{search_form}}
+
+			<div class="mini-pager"></div>
+
+			{{table}}
+
+			{{pager}}
+
+		</div>
+	</div>
+</div>
