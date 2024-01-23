@@ -16,6 +16,7 @@ class ProductSearch {
 	public readonly string $title;
 	public array $secondaryFiltersRA;
 	private Pager $pager;
+	private string|null $seldLetter;
 
 	public function __construct(
 		string $enTitle,
@@ -24,6 +25,9 @@ class ProductSearch {
 		$this->title = $this->t($enTitle);
 		$this->secondaryFiltersRA = $secondaryFiltersRA;
 		$this->pager = \Drupal::service('pager.manager')->createPager(30, 10);
+		$this->seldLetter = strtoupper(\Drupal::request()->get('letter'));
+		if (!in_array($this->seldLetter, range('A', 'Z')))
+			$this->seldLetter = null;
 	}
 
 	public function getResultsOffset() {
@@ -59,7 +63,9 @@ class ProductSearch {
 		], $this->secondaryFiltersRA);
 	}
 
-	private function getTabsRA($seldLetter) {
+	private function getTabsRA() {
+		$seldLetter = $this->seldLetter;
+		if (!$seldLetter) $seldLetter = 'All';
 		$options = ['All', ...range('A', 'Z') ];
 		$bsNav = new BsNav($options, $seldLetter, 'pills');
 		return $bsNav->render();
@@ -73,7 +79,7 @@ class ProductSearch {
 			],
 			'#children' => [
 				$this->getSearchbarRA(),
-				$this->getTabsRA('All'),
+				$this->getTabsRA(),
 				$this->getSecondaryFiltersRA()
 			]
 		];

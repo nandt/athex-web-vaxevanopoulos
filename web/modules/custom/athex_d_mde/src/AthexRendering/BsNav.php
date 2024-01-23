@@ -28,13 +28,13 @@ class BsNav {
 			]
 		];
 
-		foreach ($this->tabs as $key => $label) {
+		foreach ($this->tabs as $label) {
 			$aAttributes = [
 				'class' => ['nav-link'],
 				'href' => '#'
 			];
 
-			if ($key == $this->seldTab) {
+			if ($label == $this->seldTab) {
 				$aAttributes['class'][] = 'active';
 				$aAttributes['aria-current'] = 'page';
 			}
