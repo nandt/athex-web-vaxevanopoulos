@@ -3,6 +3,7 @@
 namespace Drupal\athex_d_products\Controller;
 
 use Drupal\athex_d_mde\AthexRendering\DataTable;
+use Drupal\athex_d_mde\AthexRendering\PropertyTable;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -52,48 +53,51 @@ class StockProfileController extends ControllerBase {
 	}
 
 	private function renderSummaryTable() {
-		return [
-			'#type' => 'table',
-			'#rows' => $this->dummyReplicate([
-				'SummaryTable', 'SummaryTable'
-			])
-		];
+		return (new PropertyTable(
+			[
+				'SummaryTableKey' => 'SummaryTableENLabel'
+			],
+			[
+				'SummaryTableKey' => ['SummaryTableValue']
+			]
+		))->render();
 	}
 
 	private function renderSummaryChart() {
-		return [
-			'#type' => 'table',
-			'#rows' => [
-				[ 'SummaryChart' ]
-			]
-		];
+		return [ '#markup' => 'SummaryChart' ];
 	}
 
 	private function renderStockOverviewTable() {
-		return [
-			'#type' => 'table',
-			'#rows' => $this->dummyReplicate([
-				'StockOverviewTable', 'StockOverviewTable'
-			])
-		];
+		return (new PropertyTable(
+			[
+				'StockOverviewTableKey' => 'StockOverviewTableENLabel'
+			],
+			[
+				'StockOverviewTableKey' => ['StockOverviewTableValue']
+			]
+		))->render();
 	}
 
 	private function renderTradingInfoTable() {
-		return [
-			'#type' => 'table',
-			'#rows' => $this->dummyReplicate([
-				'TradingInfoTable', 'TradingInfoTable'
-			])
-		];
+		return (new PropertyTable(
+			[
+				'TradingInfoTableKey' => 'TradingInfoTableENLabel'
+			],
+			[
+				'TradingInfoTableKey' => ['TradingInfoTableValue']
+			]
+		))->render();
 	}
 
 	private function renderKeyStatisticsTable() {
-		return [
-			'#type' => 'table',
-			'#rows' => $this->dummyReplicate([
-				'KeyStatisticsTable', 'KeyStatisticsTable'
-			])
-		];
+		return (new PropertyTable(
+			[
+				'KeyStatisticsTableKey' => 'KeyStatisticsTableENLabel'
+			],
+			[
+				'KeyStatisticsTableKey' => ['KeyStatisticsTableValue']
+			]
+		))->render();
 	}
 
 	private function renderIndexWeightTable() {
