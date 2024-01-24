@@ -15,7 +15,7 @@ jQuery(document).ready(function ($) {
 			lazyload: true,
 			rewind: false,
 			controlsPosition: 'bottom',
-			controlsContainer: '#tiles-slider',
+			controlsContainer: '.tiles-slider',
 			responsive: {
 				1: {
 					items: 2,
