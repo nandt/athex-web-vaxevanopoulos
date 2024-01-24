@@ -45,7 +45,7 @@
 	display: none;
 }
 
-.foldedRow {
+.foldedTable {
 	.folded {
 		display: block;
 	}
@@ -112,7 +112,7 @@
 			display: table-cell;
 		}
 
-		.foldedRow {
+		.foldedTable {
 			display: none;
 		}
     }
@@ -156,7 +156,7 @@
 		border-bottom: none;
 	}
 
-	.foldedRow {
+	.foldedTable {
 		border-bottom: 1.5px solid #E5E5EA;
 	}
 

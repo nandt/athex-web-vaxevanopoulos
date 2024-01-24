@@ -43,7 +43,7 @@ class MarketSummaryBlock extends BlockBase implements BlockPluginInterface {
 				$summary->render(
 					(new ProductsTable(
 						$this->dummyReplicate([
-							'GD', 7402.14, 97.39, -1.3
+							'GD', 7402.14, '+97.39', -1.3
 						])
 					))->render()
 				),
@@ -60,7 +60,7 @@ class MarketSummaryBlock extends BlockBase implements BlockPluginInterface {
 				$activity->render(
 					(new ProductsTable(
 						$this->dummyReplicate([
-							'ATG', '[chart]', 695.55, 85.9, -7.39
+							'ATG', '[chart]', 695.55, '+85.9', -7.39
 						])
 					))->render()
 				),
