@@ -1,0 +1,32 @@
+.tl-wrapper {
+	padding: 48px 0px 80px;
+	overflow-x: hidden;
+
+	.tns-liveregion.tns-visually-hidden {
+		display: none;
+	}
+
+	.tl-group-title {
+		margin-bottom: 28px;
+	}
+
+	.controls {
+		justify-content: flex-end;
+		margin-top: 28px;
+	}
+}
+
+@media (min-width: 992px) {
+	.tl-wrapper {
+		padding: 80px 0px 120px;
+
+		.tl-group-title {
+			margin-bottom: 56px;
+		}
+
+		.controls {
+			justify-content: flex-end;
+			margin-top: 56px;
+		}
+	}
+}
