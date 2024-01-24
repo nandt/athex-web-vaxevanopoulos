@@ -29,6 +29,11 @@
 		}
 	}
 
+	.controls {
+		margin-top: 28px;
+		justify-content: end;
+	}
+
 	.controls span {
 		border: 1px solid #FFF;
 	}
@@ -66,7 +71,7 @@
 	}
 
 	.solview-hr-wrapper {
-		padding: 28px 0px;
+		margin: 28px 0px;
 
 		.solview-hr {
 			opacity: 0.3;
@@ -85,6 +90,7 @@
 
 @media (min-width: 992px) {
 	.solviewhomeWrapper {
+		display: flex;
 		padding-top: 132px;
 	}
 
@@ -100,11 +106,15 @@
 		}
 
 		.solview-hr-wrapper {
-			padding: 56px 0px;
+			margin: 56px 0px;
 
 			.solview-hr {
 				display: block;
 			}
+		}
+
+		.controls {
+			margin-top: 56px;
 		}
 	}
 }
