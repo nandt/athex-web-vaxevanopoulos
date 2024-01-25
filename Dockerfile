@@ -27,3 +27,7 @@ RUN sed -ri -e 's!/var/www/!/var/www/html/web!g' /etc/apache2/apache2.conf /etc/
 
 EXPOSE 80
 CMD ["apache2ctl", "-D", "FOREGROUND"]
+# Install Drush
+RUN composer global require drush/drush
+ENV PATH="/var/www/html/vendor/bin:${PATH}"
+

@@ -16,3 +16,6 @@ COPY .docker/imgs-version /version
 
 EXPOSE 80
 CMD ["./.docker/dev-launch.sh"]
+# Install Drush
+RUN composer global require drush/drush
+ENV PATH="/var/www/html/vendor/bin:${PATH}"

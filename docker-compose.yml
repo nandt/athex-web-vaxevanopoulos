@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: athex-dev.Dockerfile
+    ports:
+      - "8098:80"
+    volumes:
+      - .:/var/www/html
+    stdin_open: true  # Docker Compose equivalent of -i
+    tty: true         # Docker Compose equivalent of -t
+    depends_on:
+      - mysql
+
+  mysql:
+    image: percona/percona-server:8.0.32
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+
