@@ -1,20 +1,18 @@
 <?php
 
-namespace Drupal\athex_d_products\Controller;
+namespace Drupal\athex_d_products\Service;
 
 use Drupal\athex_d_mde\AthexRendering\DataTable;
 use Drupal\athex_d_mde\AthexRendering\PropertyTable;
 use Drupal\Core\Controller\ControllerBase;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use Drupal\athex_d_products\ProductType;
 use Drupal\athex_d_products\AthexRendering\BsGrid;
 use Drupal\athex_d_products\AthexRendering\ProductPage;
 use Drupal\athex_d_products\Service\StockDataService;
 
 
-class StockProfileController extends ControllerBase {
+class StockProfileRenderingService extends ControllerBase {
 
 	protected $data;
 
@@ -22,12 +20,6 @@ class StockProfileController extends ControllerBase {
 		StockDataService $data
 	) {
 		$this->data = $data;
-	}
-
-	public static function create(ContainerInterface $container) {
-		return new static(
-			$container->get('athex_d_products.stock_data')
-		);
 	}
 
 	private function dummyReplicate($data) {
@@ -39,14 +31,26 @@ class StockProfileController extends ControllerBase {
 	}
 
 	private function renderSummaryTable() {
-		return (new PropertyTable(
+		return [
+			'#type' => 'container',
+			(new PropertyTable(
+				[
+					'SummaryTableKey' => 'SummaryTableENLabel'
+				],
+				[
+					'SummaryTableKey' => ['SummaryTableValue']
+				]
+			))->render(),
 			[
-				'SummaryTableKey' => 'SummaryTableENLabel'
-			],
-			[
-				'SummaryTableKey' => ['SummaryTableValue']
+				'#type' => 'container',
+				'#attributes' => [ 'class' => ['athex-table-footer'] ],
+				[
+					'#type' => 'html_tag',
+					'#tag' => 'span',
+					'#value' => $this->t('15 minutes delayed data.')
+				]
 			]
-		))->render();
+		];
 	}
 
 	private function renderSummaryChart() {
@@ -87,35 +91,64 @@ class StockProfileController extends ControllerBase {
 	}
 
 	private function renderIndexWeightTable() {
-		return (new DataTable(
+		return [
+			'#type' => 'container',
+			(new DataTable(
+				[
+					[ 'field' => 'index',	'label' => 'Index' ],
+					[ 'field' => 'weight',	'label' => '%' ]
+				],
+				$this->dummyReplicate([
+					'index' => 'GD',
+					'weight' => '7'
+				])
+			))->render(),
 			[
-				[ 'field' => 'index',	'label' => 'Index' ],
-				[ 'field' => 'weight',	'label' => '%' ]
-			],
-			$this->dummyReplicate([
-				'index' => 'GD',
-				'weight' => '7'
-			])
-		))->render();
+				'#type' => 'container',
+				'#attributes' => [ 'class' => ['athex-table-footer'] ],
+				[
+					'#type' => 'html_tag',
+					'#tag' => 'span',
+					'#value' => $this->t('15 minutes delayed data.')
+				]
+			]
+		];
 	}
 
 	private function renderHistoricDataTable() {
-		return (new DataTable(
+		return [
+			'#type' => 'container',
+			(new DataTable(
+				[
+					[ 'field' => 'date',	'label' => 'Date' ],
+					[ 'field' => 'close',	'label' => 'Close' ],
+					[ 'field' => 'open',	'label' => 'Open' ],
+					[ 'field' => 'volume',	'label' => 'Volume' ],
+					[ 'field' => 'value',	'label' => 'Value' ],
+				],
+				$this->dummyReplicate([
+					'date' => '2019-01-01',
+					'close' => '1.00',
+					'open' => '1.00',
+					'volume' => '100',
+					'value' => '100.00'
+				])
+			))->render(),
 			[
-				[ 'field' => 'date',	'label' => 'Date' ],
-				[ 'field' => 'close',	'label' => 'Close' ],
-				[ 'field' => 'open',	'label' => 'Open' ],
-				[ 'field' => 'volume',	'label' => 'Volume' ],
-				[ 'field' => 'value',	'label' => 'Value' ],
-			],
-			$this->dummyReplicate([
-				'date' => '2019-01-01',
-				'close' => '1.00',
-				'open' => '1.00',
-				'volume' => '100',
-				'value' => '100.00'
-			])
-		))->render();
+				'#type' => 'container',
+				'#attributes' => [ 'class' => ['athex-table-footer'] ],
+				[
+					'#type' => 'html_tag',
+					'#tag' => 'span',
+					'#value' => $this->t('Data for the last 15 days')
+				],
+				[
+					'#type' => 'html_tag',
+					'#tag' => 'button',
+					'#value' => $this->t('View All')
+				]
+			]
+		];
 	}
 
 	private function renderRelatedInstrumentsTable() {
@@ -151,7 +184,7 @@ class StockProfileController extends ControllerBase {
 		// throw new NotFoundHttpException();
 
 		$page = new ProductPage([
-			'product_type' => 'stock',
+			'product_type' => 'stocks',
 			'product_id' => $product_id
 		]);
 
@@ -161,12 +194,12 @@ class StockProfileController extends ControllerBase {
 			)
 		);
 
-		$page->addSection('Stock Overview', 		$this->renderStockOverviewTable());
-		$page->addSection('Trading Information', 	$this->renderTradingInfoTable());
-		$page->addSection('Key Statistics', 		$this->renderKeyStatisticsTable());
-		$page->addSection('Index Weight', 			$this->renderIndexWeightTable());
-		$page->addSection('Historic Data', 			$this->renderHistoricDataTable());
-		$page->addSection('Related Instruments', 	$this->renderRelatedInstrumentsTable());
+		$page->addCol('Stock Overview', 		$this->renderStockOverviewTable());
+		$page->addCol('Trading Information', 	$this->renderTradingInfoTable());
+		$page->addCol('Key Statistics', 		$this->renderKeyStatisticsTable());
+		$page->addCol('Index Weight', 			$this->renderIndexWeightTable());
+		$page->addCol('Historic Data', 			$this->renderHistoricDataTable());
+		$page->addCol('Related Instruments', 	$this->renderRelatedInstrumentsTable());
 
 		return $page->render();
 	}

@@ -33,7 +33,7 @@ class IssuerPublicationsPageController extends ControllerBase {
 		}
 
 		$page = new ProductPage([
-			'product_type' => 'stock',
+			'product_type' => 'stocks',
 			'product_id' => $product_id
 		]);
 

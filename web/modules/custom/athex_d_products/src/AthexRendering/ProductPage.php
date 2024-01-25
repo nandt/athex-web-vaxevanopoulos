@@ -35,7 +35,7 @@ class ProductPage {
 				]
 			],
 			(new BsNavLinks([
-				'Profile' => Url::fromRoute('athex_d_products.stock_profile', $params),
+				'Profile' => Url::fromRoute('athex_d_products.product_profile', $params),
 				'Issuer' => Url::fromRoute('athex_d_products.product_issuer', $params),
 				'Financial Data & Announcements' => Url::fromRoute('athex_d_products.product_publications', $params)
 			]))->render()
@@ -53,11 +53,12 @@ class ProductPage {
 	private function closeRow() {
 		if (!count($this->currRow)) return;
 
-		$this->renderArray[] = BsGrid::renderContainer(
+		$this->renderArray[] = BsGrid::renderContainer([
 			BsGrid::renderRow(
 				$this->currRow
 			)
-		);
+		]);
+
 		$this->currRow = [];
 	}
 
@@ -66,20 +67,24 @@ class ProductPage {
 		$this->renderArray[] = $content;
 	}
 
-	public function addSection($enTitle, $content) {
+	public function addCol($enTitle, $content) {
 		if (count($this->currRow) > 1)
 			$this->closeRow();
 
-		$this->currRow[] = [
-			[
+		$row = [];
+
+		if ($enTitle)
+			$row[] = [
 				'#type' => 'html_tag',
 				'#tag' => 'h2',
 				'#value' => $this->t(
 					$enTitle
 				)
-			],
-			$content
-		];
+			];
+
+		$row[] = $content;
+
+		$this->currRow[] = $row;
 	}
 
 	public function render() {
