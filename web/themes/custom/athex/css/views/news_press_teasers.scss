@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.even-slide .updatesItemTeaserWrapper {
+.updatesItemTeaserWrapper:hover {
     background-color: #F6F5F8;
 }
 
@@ -42,6 +42,10 @@
 .updatesItemTeaserTitle {
     margin-top: 5px;
     margin-bottom: 24px;
+
+    a{
+        color:inherit;
+    }
 }
 
 @media(min-width:992px) {

@@ -1,0 +1,6 @@
+{{ attach_library('athex/timeline') }}
+
+<div class="container">
+	<span class="heading1 weightBoldBook textColorDarkBlue">{{content.field_timeline_title}}</span>
+	{{ content|without('field_timeline_title') }}
+</div>

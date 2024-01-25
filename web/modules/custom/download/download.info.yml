@@ -1,6 +1,6 @@
 name: Download
 description: 'Provides a download link with compressed files'
-core_version_requirement: ^8.8 || ^9 || ^10
+core_version_requirement: ^9 || ^10
 type: module
 
 # Information added by Drupal.org packaging script on 2022-07-13

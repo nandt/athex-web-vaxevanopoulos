@@ -15,6 +15,7 @@ global:
 views:
   js:
     js/views.js: {}
+    js/table_expand.js: {}
   css:
     theme:
       css/views/views.scss: {}
@@ -40,6 +41,11 @@ main_menu:
   js:
     js/main_menu.js: {}
 
+search:
+  css:
+    theme:
+      css/layout/search.scss: {}
+
 prefooter:
   css:
     theme:
@@ -59,6 +65,11 @@ cta_text_banner:
   css:
     theme:
       css/paragraph/cta_text_banner.scss: {}
+
+title_text:
+  css:
+    theme:
+      css/paragraph/title_text.scss: {}
 
 quick_link:
   css:
@@ -176,6 +187,20 @@ news_item:
     theme:
       css/node/news_item.scss: {}
 
+news_item_teaser:
+  css:
+    theme:
+      css/node/news_item_teaser.scss: {}
+  js:
+    js/news_overview.js: {}
+
+news_item_overview_teaser:
+  css:
+    theme:
+      css/node/news_item_teaser.scss: {}
+  js:
+    js/news_overview.js: {}
+
 image_slider_item:
   css:
     theme:
@@ -187,7 +212,35 @@ testimonial:
   css:
     theme:
       css/paragraph/testimonial.scss: {}
+  js:
+    js/testimonial.js: {}
 
+banner_with_background:
+  css:
+    theme:
+      css/paragraph/banner_with_background.scss: {}
+
+banner_without_image:
+  css:
+    theme:
+      css/paragraph/banner_without_image.scss: {}
+
+esgbanner:
+  css:
+    theme:
+      css/paragraph/esgbanner.scss: {}
+
+timeline:
+  css:
+    theme:
+      css/paragraph/timeline.scss: {}
+
+image_slider:
+  css:
+    theme:
+      css/field/image_slider_item.scss: {}
+  js:
+    js/image_slider_item.js: {}
 news_overview:
   css:
     theme:
@@ -218,3 +271,49 @@ solutions-overview-page:
         css/page/solutions_overview_page.scss: {}
   js:
     js/solutions_overview_page.js: {}
+
+product_search:
+  css:
+    theme:
+      css/product_search/product_search.scss: {}
+  js:
+    js/table_expand.js: {}
+
+blue_card_banner:
+  css:
+    theme:
+      css/paragraph/blue_card_banner.scss: {}
+
+green_card_banner:
+  css:
+    theme:
+      css/paragraph/green_card_banner.scss: {}
+
+purple_card_banner:
+  css:
+    theme:
+      css/paragraph/purple_card_banner.scss: {}
+
+cta_text_banner_card:
+  css:
+    theme:
+      css/paragraph/cta_text_banner_card.scss: {}
+
+text_with_hero_image:
+  css:
+    theme:
+      css/paragraph/text_with_hero_image.scss: {}
+
+link_with_image_overlay:
+  css:
+    theme:
+      css/paragraph/link_with_image_overlay.scss: {}
+  js:
+    js/image_overlay_links.js: {}
+
+link_cards_bundle:
+  css:
+    theme:
+      css/paragraph/link_cards_bundle.scss: {}
+  js:
+    js/link_cards_bundle.js: {}

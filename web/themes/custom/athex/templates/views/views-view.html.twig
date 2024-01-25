@@ -14,8 +14,12 @@
 
 	{% if header %}
 		<header>
-			<div class="container">
-				{{ header }}
+			<div class="container view-header">
+				{%- for item in header -%}
+					<div class="col-12 col-lg-6">
+						{{item}}
+					</div>
+				{%- endfor -%}
 			</div>
 		</header>
 	{% endif %}

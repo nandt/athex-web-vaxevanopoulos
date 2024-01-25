@@ -1,6 +1,0 @@
-athex_company_pages.overview:
-  path: '/company/{company_id}'
-  defaults:
-    _controller: '\Drupal\athex_company_pages\Controller\CompanyPagesController::getOverview'
-  requirements:
-    _permission: 'access content'

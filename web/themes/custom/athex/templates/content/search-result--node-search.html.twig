@@ -1,0 +1,22 @@
+{# web/themes/custom/athex/templates/content/search-result--node-search.html.twig #}
+
+{{ title_prefix }}
+<p class="body3 textColorDeepPurple weightBold" {{ title_attributes }}>
+  <a href="{{ url }}">{{ title }}</a>
+</p>
+{{ title_suffix }}
+{% if snippet %}
+  <p class="body2 weightBook searchKeyWord " {{ content_attributes }}>{{ snippet }}</p>
+{% endif %}
+{% if info %}
+  <p>{{ info }}</p>
+{% endif %}
+
+
+<style>
+
+	.searchKeyWord strong {
+    background-color: #DDE9FE;
+}
+
+</style>

@@ -1,0 +1,92 @@
+.row.bwiBannerRow.greengradient {
+    background: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+}
+
+.row.bwiBannerRow.purple {
+    background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
+}
+
+
+
+.bwiBanner {
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+.bwi_button {
+    color: white;
+    width: fit-content;
+    border: 1px solid #FFF;
+        padding: 33px 40px;
+}
+
+.bwiBannerRow {
+	padding: 80px 20px;
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+}
+
+.bwiBannerbody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.bwiTitle{
+	padding-bottom:32px;
+	padding-top:10px;
+}
+
+.bwiBody{
+	padding-bottom:32px;
+
+}
+
+.bwi_button.green-button {
+	border: 1px solid #00845D;
+}
+
+@media(min-width:992px){
+
+	.bwiBanner {
+		margin-bottom: 100px;
+		margin-top: 0px;
+	}
+
+	.bwiBannerText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+	}
+
+	.bwiBannerImage {
+		display: flex;
+		max-width: 400px;
+		width: 100%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-end;
+	}
+	.bwiBannerRow {
+    display: flex;
+    padding: 56px;
+    flex-direction: row;
+    justify-content: space-between;
+	}
+
+	.bwiTitle{
+		padding-bottom:25px;
+	}
+
+	.bwiBody{
+		padding-bottom:40px;
+		 max-width: 519px;
+
+	}
+
+
+}
