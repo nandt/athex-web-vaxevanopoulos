@@ -31,6 +31,8 @@
 
 	}
 
+
+
     @media (min-width: 992px) {
         .solview-hr-wrapper {
             padding: 56px 0px;
@@ -105,6 +107,13 @@
     }
 }
 
+span.siCta a {
+	padding-right: 25px;
+	background-repeat: no-repeat;
+	background-position: center right;
+	background-image: url(/assets/icons/black/arrow-right-black.svg);
+    color: black;
+}
 
 .bi_item:not(:last-child) {
     border-bottom: 1px solid #D1CCE1;
@@ -230,6 +239,27 @@
     margin-right: 25px;
     border-radius: 50%;
     font-size: 30px;
+}
+
+
+.benefitTitle{padding-bottom:20px;}
+
+.benefitItems div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.benefit-item {
+	width:390px;
+    display: flex;
+    flex-direction: column;
+}
+
+.benefit-item {
+    display: flex;
+    flex-direction: column;
 }
 
 @keyframes marquee {
@@ -383,10 +413,6 @@
 
     .leftSection {
         width: calc(100% - 232px);
-    }
-
-    .solBody {
-        margin-bottom: 48px;
     }
 
     .logo-item img {
