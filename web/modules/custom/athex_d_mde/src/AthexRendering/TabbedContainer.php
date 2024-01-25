@@ -2,17 +2,15 @@
 
 namespace Drupal\athex_d_mde\AthexRendering;
 
-class TabbedTable {
+
+class TabbedContainer {
 
 	public $tabs;
-	public $data;
 
 	public function __construct(
-		Array $tabs = [],
-		Array $data = []
+		array $tabs = []
 	) {
 		$this->tabs = $tabs;
-		$this->data = $data;
 	}
 
 	private function renderTabs() {
@@ -20,14 +18,11 @@ class TabbedTable {
 		return $bsNav->render();
 	}
 
-	public function render() {
+	public function render($render) {
 		return [
 			'#type' => 'container',
 			$this->renderTabs(),
-			[
-				'#type' => 'table',
-				'#rows' => $this->data
-			]
+			$render
 		];
 	}
 }
