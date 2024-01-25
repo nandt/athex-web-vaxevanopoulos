@@ -2,54 +2,74 @@
 
 namespace Drupal\athex_d_mde\AthexRendering;
 
-
 class IndicesOverviewContainer {
 
 	protected $symbols;
-	public readonly Array $selectedData;
+	public readonly array $selectedData;
 
 	public function __construct(
-		Array $symbols = [],
-		Array $selectedData = []
+		array $symbols = [],
+		array $selectedData = []
 	) {
 		$this->symbols = $symbols;
 		$this->selectedData = $selectedData;
 	}
 
-	private function getIndexSummaryRA() {
+	private function getIndexSummaryRA($data) {
 		return [
 			'#theme' => 'indices_overview_index_summary',
-			'#symbol' => $this->selectedData['symbol'],
-			'#value' => $this->selectedData['value'],
-			'#since_open_value' => $this->selectedData['since_open_value'],
-			'#since_open_percentage' => $this->selectedData['since_open_percentage'],
-			'#since_close_value' => $this->selectedData['since_close_value'],
-			'#since_close_percentage' => $this->selectedData['since_close_percentage']
+			'#symbol' => $data['symbol'],
+			'#value' => $data['value'],
+			'#since_open_value' => $data['since_open_value'],
+			'#since_open_percentage' => $data['since_open_percentage'],
+			'#since_close_value' => $data['since_close_value'],
+			'#since_close_percentage' => $data['since_close_percentage']
 		];
 	}
 
-	private function getTabContentRA($innerRA) {
-		return [
-			'#type' => 'html_tag',
-			'#tag' => 'div',
-			'#attributes' => [
-				'role' => 'tabpanel'
-			],
-			$this->getIndexSummaryRA(),
-			$innerRA
-		];
-	}
-
-	private function getTabsRA() {
-		$bsNav = new BsNav($this->symbols, $this->selectedData['symbol']);
+	private function renderTabs() {
+		$bsNav = new BsNav(array_column($this->selectedData, 'symbol'));
 		return $bsNav->render();
 	}
 
-	public function render($innerRA) {
-		return [
-			'#type' => 'container',
-			$this->getTabsRA(),
-			$this->getTabContentRA($innerRA)
-		];
+	private function renderTabContent() {
+		$content = [];
+		foreach ($this->selectedData as $index => $data) {
+			// Assign a unique ID to each tab content
+			$contentId = 'tab-content-' . $index;
+			$content[] = [
+				'#type' => 'html_tag',
+				'#tag' => 'div',
+				'#attributes' => ['id' => $contentId, 'class' => ['tab-content']],
+				'content' => $this->getIndexSummaryRA($data),
+			];
+		}
+		return $content;
 	}
+
+	public function render() {
+		$tabs = $this->renderTabs();
+		$content = $this->renderTabContent();
+
+		// Debugging
+		// \Drupal::logger('my_module')->notice('Tabs: ' . print_r($tabs, TRUE));
+		// \Drupal::logger('my_module')->notice('Content: ' . print_r($content, TRUE));
+
+		$build = [
+			'#type' => 'container',
+			'tabs' => $tabs,
+			'content' => $content,
+			'#attached' => [
+				'library' => [
+					'athex_d_mde/tab-switching',
+					'core/once',
+				],
+			],
+		];
+
+		return $build;
+	}
+
+
+
 }

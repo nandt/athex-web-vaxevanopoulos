@@ -17,3 +17,4 @@
 /athex-dev.Dockerfile
 /athex-base.Dockerfile
 /dev-launch.sh
+/web/modules/custom/athex_d_mde/src/Service/TickerTapeService (copy).php

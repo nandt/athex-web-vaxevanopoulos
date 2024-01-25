@@ -28,7 +28,7 @@ class TickerTapeService {
 		$this->api = $api;
 		$this->renderer = $renderer;
   	}
-
+/*
 	public function getItemData($codes) {
 		//TODO: remove to get actual data
 		return array_slice([
@@ -70,47 +70,126 @@ class TickerTapeService {
 			];
 		}, $items);
 	}
+*/
+	/*public function getItemData($codes) {
+		$codes = join(',', $codes);
+		$items = $this->api->callDelayed('Info', ['code' => $codes]);
+		var_dump($items); // This will print the structure of $items
 
-	public function getTapeItemData() {
+		/*return array_map(function($item) {
+			return [
+				'symbol' => $item['instrSysName'], // e.g., 'ETE.ATH',
+				'value' => $item['price'],
+				'change' => $item['pricePrevClosePricePDelta']
+			];
+		}, $items);
+
+		return array_map(function($item) {
+			// Ensure that $item is an array and has the expected keys
+			if (is_array($item) && isset($item['instrSysName'], $item['price'], $item['pricePrevClosePricePDelta'])) {
+				return [
+					'symbol' => $item['instrSysName'],
+					'value' => $item['price'],
+					'change' => $item['pricePrevClosePricePDelta']
+				];
+			} else {
+				// Handle unexpected item format
+				// Log error or return a default value
+			}
+		}, $items);
+	}
+	*/
+public function getItemData($codes) {
+	$codes = join(',', $codes);
+	$items = $this->api->callDelayed('Info', ['code' => $codes]);
+	//var_dump($items); // This will print the structure of $items
+
+	$result = [];
+	foreach ($items as $item) {
+		// Check if the necessary keys exist
+		if (isset($item['instrSysName'], $item['price'], $item['pricePrevClosePriceDelta'])) {
+			$result[] = [
+				'symbol' => $item['instrSysName'],
+				'value' => $item['price'],
+				'change' => $item['pricePrevClosePriceDelta']
+			];
+		}
+	}
+	return $result;
+}
+
+
+	/*public function getTapeItemData() {
 		//TODO: get codes based on config
 		$codes = ['ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
 
 		return $this->getItemData($codes);
 	}
+*/
+
 
 	public function getItemsRenderArray($codes) {
 		$result = [];
 
-		foreach ($this->getItemData($codes) as $product) {
+		$itemData = $this->getItemData($codes);
+
+		// Log the item data for debugging
+		$this->logger->info('Item data: ' . print_r($itemData, TRUE));
+
+		foreach ($itemData as $product) {
 			$item = [
 				'#theme' => 'ticker_tape_item'
 			];
-			foreach ($product as $key => $value)
+			foreach ($product as $key => $value) {
 				$item['#' . $key] = $value;
+			}
 
 			$result[] = $item;
 		}
 
 		return $result;
 	}
+	public function getAllInstrCodes($instrCode) {
 
+	/*
+	 * $codes = join(',', $codes);
+	$items = $this->api->callDelayed('Info', ['code' => $codes]);
+	 * */
+		// Make an API call to fetch data that includes 'instrCode' for all items
+		// The specifics of this call depend on the API you're working with
+		// Assuming the API returns an array of items, each with an 'instrCode' field
+		$instrCode = join(',', $instrCode);
+		$allItems = $this->api->callDelayed('Info', ['instrCode' =>$instrCode]);
+		$allCodes = [];
+
+		foreach ($allItems as $item) {
+			if (isset($item['instrCode'])) {
+				$allCodes[] = $item['instrCode'];
+			}
+		}
+
+		return $allCodes;
+		//var_dump($allCodes); // This will print the structure of $items
+
+	}
+	public function getTapeItemData() {
+		// Fetch all 'instrCode' values
+		$codes = $this->getAllInstrCodes();
+
+		// Get detailed data for each code
+		return $this->getItemData($codes);
+	}
 	public function getTapeItemRenderArray() {
 		//TODO: get codes based on config
-		$codes = ['ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
+		$codes = ['GD.ATH', 'FTSE.ATH', 'ETE.ATH', 'ALPHA.ATH','TPEIR.ATH','EXAE.ATH'];
 
 		return $this->getItemsRenderArray($codes);
 	}
 
 	public function getMarketStatusData() {
-		//TODO: remove to get actual data
-		return [
-			'closed' => 1,
-			'tradeDate' => '2023-12-14',
-			'time' => '12:34'
-		];
 
-		$info = $this->api->callDelayed('MarketInfo', ['market' => 'ATH', 'instrument' => 'EQ']);
-
+     	$info = $this->api->callDelayed('MarketInfo', ['market' => 'ATH', 'instrument' => 'EQ']);
+		//var_dump($info); // This will print the structure of $items
 		// Τα πεδία που σας ενδιαφέρουν είναι
 		// •	closed (0/1 => Ανοικτή/Κλειστή)
 		// •	tradeDate (ημ/νια διαπραγμάτευσης)
