@@ -4,6 +4,11 @@
 	border-radius: var(--colors-pixels-spacing-null, 0px);
 	background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
 
+	.solviewhomeWrapper {
+		display: flex;
+		gap: 8px;
+	}
+
 	.solvhomeBody {
 		padding: 28px 0px;
 	}
