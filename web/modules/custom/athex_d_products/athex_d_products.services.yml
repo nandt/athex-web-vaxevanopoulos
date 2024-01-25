@@ -1,7 +1,4 @@
 services:
-  athex_d_products.layout:
-    class: Drupal\athex_d_products\Service\ProductPageLayoutService
-    arguments: []
   athex_d_products.stock_data:
     class: Drupal\athex_d_products\Service\StockDataService
     arguments: ['@athex_sis.db_data']
