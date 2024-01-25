@@ -1,6 +1,5 @@
 .tileLinksWrapper {
 	display: flex;
-	gap: 8px;
 }
 
 .tile-link {
@@ -41,6 +40,16 @@
 	}
 }
 
+.solviewhome {
+
+	.tile-link {
+
+		.tile-link-wrapper {
+			width: 152px;
+			height: 152px;
+		}
+	}
+}
 
 @media(min-width: 992px) {
 	.tile-link {
@@ -74,10 +83,37 @@
 
 			.tl-arrow {
 				background: url("assets/icons/white/arrow-right.svg");
+				background-size: contain;
+			}
+
+		}
+	}
+
+	.solviewhome {
+
+		.tile-link {
+
+			.tile-link-wrapper {
+				width: 247px;
+				height: 247px;
+				background: var(--Primary-Purple-Teal-07, #4C37B0);
+
+				a {
+					color: #fff;
+				}
+			}
+
+			.tl-arrow {
+				background: url('assets/icons/white/plus.svg');
 				width: 20px;
 				height: 20px;
 			}
 
+			.tile-link-wrapper:hover {
+				.tl-arrow {
+					background: url('assets/icons/white/arrow-right.svg');
+				}
+			}
 		}
 	}
 

@@ -357,4 +357,8 @@ tile_link:
   js:
     libraries/tiny-slider/min/tiny-slider.js: {}
     js/tile_link_slider.js: {}
+  dependencies:
+    - athex/tiny-slider
+    - core/drupal
+    - core/once
 

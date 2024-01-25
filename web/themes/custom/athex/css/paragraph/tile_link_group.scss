@@ -8,6 +8,7 @@
 
 	.tl-group-title {
 		margin-bottom: 28px;
+		text-transform: uppercase;
 	}
 
 	.controls {
@@ -27,6 +28,15 @@
 		.controls {
 			justify-content: flex-end;
 			margin-top: 56px;
+		}
+	}
+}
+
+.solviewhome {
+	.tl-wrapper {
+
+		.tl-group-title {
+			color: #fff;
 		}
 	}
 }
