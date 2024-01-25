@@ -71,6 +71,11 @@ banner_with_cta_item:
     theme:
       css/paragraph/banner_with_cta_item.scss: {}
 
+banner_with_cta:
+  css:
+    theme:
+      css/paragraph/banner_with_cta_item.scss: {}
+
 title_text:
   css:
     theme:
