@@ -58,32 +58,46 @@ jQuery(document).ready(function ($) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const marqueeText = document.getElementById('marquee-text');
+    const marqueeElements = document.querySelectorAll('.marquee-text');
     const marqueeContainer = document.querySelector('.marquee-container');
 
-    if (!marqueeText || marqueeText.textContent.trim() === '') {
+    let isEmpty = true;
+    marqueeElements.forEach(marqueeText => {
+        if (marqueeText.textContent.trim() !== '') {
+            isEmpty = false;
+        }
+    });
+
+    if (isEmpty) {
         marqueeContainer.style.display = 'none';
     } else {
         animateMarquee();
     }
 });
 
+
 function animateMarquee() {
-    const marqueeText = document.getElementById('marquee-text');
-    let marqueeWidth = marqueeText.offsetWidth;
-    let containerWidth = marqueeText.parentElement.offsetWidth;
-    let start = containerWidth;
-    let end = -marqueeWidth;
+    const marqueeElements = document.querySelectorAll('.marquee-text');
 
-    function step() {
-        if (start <= end) {
-            start = containerWidth;
-        } else {
-            start -= 1;
+    marqueeElements.forEach(marqueeText => {
+        let marqueeWidth = marqueeText.offsetWidth;
+        let containerWidth = marqueeText.parentElement.offsetWidth;
+        let start = containerWidth;
+        let end = -marqueeWidth;
+
+        function step() {
+            if (start <= end) {
+                start = containerWidth;
+            } else {
+                start -= 1;
+            }
+            marqueeText.style.transform = `translateX(${start}px)`;
+            window.requestAnimationFrame(step);
         }
-        marqueeText.style.transform = `translateX(${start}px)`;
-        window.requestAnimationFrame(step);
-    }
 
-    window.requestAnimationFrame(step);
+        window.requestAnimationFrame(step);
+    });
 }
+
+
+animateMarquee();
