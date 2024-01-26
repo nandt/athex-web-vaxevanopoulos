@@ -15,10 +15,11 @@ jQuery(document).ready(function ($) {
 			lazyload: true,
 			controlsPosition: 'bottom',
 			controlsContainer: '#solutions-slider',
+			gutter: 8,
 			responsive: {
 				1: {
 					items: 2,
-					slideBy: 2
+					slideBy: 1
 				},
 				992: {
 					items: 5,

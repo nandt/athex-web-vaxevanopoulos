@@ -6,9 +6,12 @@
     padding-top: 48px;
     overflow: hidden;
 
+	.tns-outer {
+		padding: 0;
+	}
+
     .solviewhomeWrapper {
         display: flex;
-        gap: 8px;
     }
 
     article:hover {
@@ -68,8 +71,8 @@
 }
 
 .solhome-item article {
-    width: 160px;
-    height: 160px;
+    width: 152px;
+    height: 152px;
 
     .sol {
         height: 100%;
