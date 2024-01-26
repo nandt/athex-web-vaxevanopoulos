@@ -1,3 +1,55 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var btnsShare = document.querySelectorAll('.btnShare');
+    var modal = document.getElementById('myModal');
+    var overlay = document.getElementById('modalOverlay');
+    var closeBtn = document.querySelector('.close-btn');
+
+    btnsShare.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+        });
+    });
+
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target == overlay) {
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var btnShare = document.querySelector('.btnShare');
+    var bottomCTAs = document.querySelector('.bottomCTAs');
+    bottomCTAs.style.display = 'none';
+
+    window.addEventListener('scroll', function() {
+
+        if (window.innerWidth > 992) {
+            var btnShareTop = btnShare.getBoundingClientRect().top;
+
+            if (btnShareTop <= 0) {
+                bottomCTAs.style.display = 'flex';
+            } else {
+                bottomCTAs.style.display = 'none';
+            }
+        } else {
+
+            bottomCTAs.style.display = 'none';
+        }
+    });
+});
+
+
+
 jQuery(document).ready(function ($) {
     const bullets = $('.bullet');
     const verticalBars = $('.vertical-bar');
@@ -54,16 +106,16 @@ jQuery(document).ready(function ($) {
         var negativeMarginRight = '-' + marginRight;
         $('.logo-wrapper').css('margin-right', negativeMarginRight);
       }
-    
+
       // On document ready
       $(document).ready(function() {
         getAndDisplayMarginRight(); // Initial call on page load
-    
+
         // On window resize
         $(window).resize(function() {
           getAndDisplayMarginRight();
         });
-    
+
         // On orientation change
         $(window).on('orientationchange', function() {
           getAndDisplayMarginRight();
@@ -74,3 +126,4 @@ jQuery(document).ready(function ($) {
           });
       });
 });
+

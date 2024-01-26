@@ -1,5 +1,95 @@
+.btnShare {
+    bottom: 0;
+    width: inherit;
+    position: fixed;
+    z-index: 1000;
+}
+
+.sectionWrapper {
+    margin-top: 48px;
+}
+
+.benefit-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #D1CCE1;
+}
+
+.padding-none.bottomCTAs {
+    padding: 8px 8px 8px 32px;
+    width: 450px;
+    bottom: 20px;
+    transform: translateX(-50%);
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.padding-none.bottomCTAs {
+	display: none;
+}
+
+.bottomCTAs {
+    background: #FFF;
+    box-shadow: 0px 4px 30px 0px rgba(23, 20, 64, 0.11);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bottomCTAs .btnShare.blueBtn {
+	background: white;
+	border: 1px solid #3C06D9;
+	color: #3C06D9;
+}
+
+.bottomCTAs .greenBtn {
+	color: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+	background: white;
+	border: 1px solid linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+}
+
 .solCategories {
     display: none;
+}
+
+.modal-overlay {
+	z-index: 2;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1001;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 90%;
+	overflow: auto;
+	background-color: white;
+	padding: 20px;
+}
+
+.modal-content {
+	margin: 0;
+	padding: 0;
+}
+
+.close-btn {
+	color: black;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .container.solutions {
@@ -30,8 +120,6 @@
 		}
 
 	}
-
-
 
     @media (min-width: 992px) {
         .solview-hr-wrapper {
@@ -169,15 +257,14 @@ span.siCta a {
     }
 }
 
-
 .btnShare {
     display: flex;
     align-items: center;
     justify-content: center;
+	padding: 35px 48px;
 
     a {
         display: inline-block;
-        padding: 35px 48px;
         color: inherit;
     }
 }
@@ -241,15 +328,15 @@ span.siCta a {
     font-size: 30px;
 }
 
-
-.benefitTitle{padding-bottom:20px;}
+.benefitTitle {
+	padding-bottom:20px;
+}
 
 .benefitItems div {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-
 
 .benefit-item {
 	width:390px;
@@ -272,7 +359,69 @@ span.siCta a {
     }
 }
 
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
 @media(min-width:992px) {
+
+	.modal {
+		display: none;
+		position: fixed;
+		z-index: 1001;
+		right: 0;
+		top: 0;
+		width: 33%;
+		height: 100%;
+		overflow: auto;
+		background-color: white;
+		padding: 20px;
+	}
+
+	.modal-content {
+		margin: 0;
+		padding: 0;
+	}
+
+	.close-btn {
+		color: #aaaaaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+
+	.close-btn:hover,
+	.close-btn:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.benefit-item {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		border-bottom: none;
+	}
+
+	.btnShare {
+
+		bottom: 0;
+		width: inherit;
+		position: relative;
+		z-index: 1000;
+	}
+
+
+	.padding-none.bottomCTAs {
+		display: flex;
+	}
 
     .sliding-text-container {
         padding-top: 100px;
@@ -365,7 +514,7 @@ span.siCta a {
 
     .btnShare {
         width: 50%;
-        margin-left: auto;
+        margin-left: 32px;
 
         a {
             padding: 35px 40px;
@@ -383,6 +532,7 @@ span.siCta a {
         display: flex;
         align-items: center;
         pointer-events: none;
+		padding-top:50px;
     }
 
     .benefit-wrapper {
