@@ -64,43 +64,6 @@ class IndicesOverviewTablesService {
 		];
 	}
 
-	/*its for testing the above function */
-	/*private function getSubProductsRA($seldSymbol, $seldTable) {
-		return [
-			'#theme' => 'table',
-			'#rows' => [
-				['Symbol', $seldSymbol]
-			]
-		];
-	}
-*/
-
-
-
-	/* public function getBlockRA($seldTable = null) {
-		$container = $this->containers->createContainer();
-		var_dump($container->selectedData); // Debugging line
-		return $container->render(
-			$this->getSubProductsRA(
-				$container->selectedData['symbol'],
-				$seldTable
-			)
-		);
-	}*/
-	/*public function getBlockRA($seldTable = null) {
-		$container = $this->containers->createContainer();
-
-		$content = [];
-		foreach ($container->selectedData as $data) {
-			$content[] = $this->getSubProductsRA(
-				$data['symbol'],
-				$seldTable
-			);
-		}
-
-		return $content;
-	}
-*/
 	public function getBlockRA($seldTable = null) {
 		$container = $this->containers->createContainer();
 		$firstSymbolData = $container->selectedData[0] ?? null;
@@ -120,33 +83,7 @@ class IndicesOverviewTablesService {
 
 
 
-	/*for one debugging */
 
-	/*public function getBlockRA($seldTable = null) {
-		// Hardcoded data for testing
-		$testSymbol = 'GD.ATH';
-
-		// Attempt to render a single block
-		return $this->getSubProductsRA($testSymbol, $seldTable);
-	}
-*/
-
-	/*public function getBlockRA($seldTable = null) {
-		$container = $this->containers->createContainer();
-
-		// Assuming you want to display all indices
-		$allIndicesContent = [];
-		foreach ($container->selectedData as $indexData) {
-			// Now $indexData is an associative array for a single index
-			$allIndicesContent[] = $this->getSubProductsRA(
-				$indexData['symbol'], // Access the 'symbol' for each index
-				$seldTable
-			);
-		}
-
-		// Return all indices content. Adjust this part as per your requirement.
-		return $allIndicesContent;
-	}*/
 
 
 }

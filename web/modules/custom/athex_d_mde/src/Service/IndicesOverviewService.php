@@ -33,7 +33,7 @@ class IndicesOverviewService
 
 		// Fetch data from the API
 		$apiResponse = $this->api->callDelayed('Info', ['code' => $indicesString, 'format' => 'json']);
-
+		//var_dump($apiResponse); // This will print the structure of $items
 		// Initialize an array to store processed data
 		$processedData = [];
 
@@ -51,7 +51,9 @@ class IndicesOverviewService
 				];
 			}
 		}
-
+/*
+ * https://fcd-p1.inbroker.com/Info?userName=newAthexSite&IBSessionId=6CFE02B5-43B5-4BEB-A417-3EF0E1371B6F&company=InTarget&lang=GR&code=GD.ATH,FTSE.ATH,ETE.ATH,ALPHA.ATH,TPEIR.ATH,EXAE.ATH&format=json
+ * */
 		// For debugging: print the processed data for each index
 		foreach ($indices as $index) {
 			if (isset($processedData[$index])) {

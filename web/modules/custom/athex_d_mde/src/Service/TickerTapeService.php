@@ -189,7 +189,7 @@ public function getItemData($codes) {
 	public function getMarketStatusData() {
 
      	$info = $this->api->callDelayed('MarketInfo', ['market' => 'ATH', 'instrument' => 'EQ']);
-		//var_dump($info); // This will print the structure of $items
+		var_dump($info); // This will print the structure of $items
 		// Τα πεδία που σας ενδιαφέρουν είναι
 		// •	closed (0/1 => Ανοικτή/Κλειστή)
 		// •	tradeDate (ημ/νια διαπραγμάτευσης)
@@ -203,7 +203,7 @@ public function getItemData($codes) {
 
 	public function getPrimaryInfoRenderArray() {
 		//TODO: get codes based on config
-		$codes = ['ETE.ATH'];
+		$codes = ['GD.ATH'];
 
 		$result = [
 			'#theme' => 'ticker_tape_info',
