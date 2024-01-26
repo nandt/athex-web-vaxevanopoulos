@@ -342,8 +342,6 @@ market_highlights:
     theme:
       css/blocks/market_highlights.scss: {}
       css/views/views.scss: {}
-  # js:
-    # js/mh_slider.js: {}
 
 tile_link_group:
   css:
