@@ -46,7 +46,7 @@ class MarketSummaryBlock extends BlockBase implements BlockPluginInterface {
 						$this->dummyReplicate([
 							'GD', 7402.14,
 							Helpers::renderDelta(97.39),
-							Helpers::renderDelta(-1.3)
+							Helpers::renderDelta(-1.3, ' %')
 						])
 					))->render()
 				),
@@ -65,7 +65,7 @@ class MarketSummaryBlock extends BlockBase implements BlockPluginInterface {
 						$this->dummyReplicate([
 							'ATG', '[chart]', 695.55,
 							Helpers::renderDelta(85.9),
-							Helpers::renderDelta(-7.39)
+							Helpers::renderDelta(-7.39, ' %')
 						])
 					))->render()
 				),

@@ -8,6 +8,8 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\athex_d_mde\AthexRendering\IndicesOverviewContainer;
 use Drupal\athex_inbroker\Service\ApiDataService;
 
+use Drupal\athex_d_mde\AthexRendering\Helpers;
+
 class IndicesOverviewService {
 
 	use StringTranslationTrait;
@@ -29,10 +31,10 @@ class IndicesOverviewService {
 			[
 				'symbol' => 'GD',
 				'value' => 1167.93,
-				'since_open_value' => 17.89,
-				'since_open_percentage' => 1.46,
-				'since_close_value' => 204.11,
-				'since_close_percentage' => 6.05
+				'since_open_value' => Helpers::renderDelta(17.89),
+				'since_open_percentage' => Helpers::renderDelta(1.46, ' %'),
+				'since_close_value' => Helpers::renderDelta(204.11),
+				'since_close_percentage' => Helpers::renderDelta(6.05, ' %')
 			]
 		);
 	}

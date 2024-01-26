@@ -19,6 +19,6 @@ class Helpers {
 			'#tag' => 'span',
 			'#attributes' => $class ? [ 'class' => [$class] ] : [],
 			'#value' => $prefix . $val . $suffix
-		]
+		];
 	}
 }
