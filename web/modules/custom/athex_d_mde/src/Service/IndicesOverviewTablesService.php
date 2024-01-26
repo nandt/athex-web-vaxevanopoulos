@@ -17,9 +17,9 @@ class IndicesOverviewTablesService {
 	protected $containers;
 
 	private $pills = [
-		'risers' => 'Risers',
-		'fallers' => 'Fallers',
-		'active' => 'Most Active'
+		'Risers',
+		'Fallers',
+		'Most Active'
 	];
 
 	public function __construct(
@@ -50,7 +50,7 @@ class IndicesOverviewTablesService {
 
 	private function getSubProductsRA($seldSymbol, $seldTable = null) {
 		if ($seldTable == null)
-			$seldTable = array_keys($this->pills)[0];
+			$seldTable = $this->pills[0];
 
 		return [
 			'#type' => 'container',

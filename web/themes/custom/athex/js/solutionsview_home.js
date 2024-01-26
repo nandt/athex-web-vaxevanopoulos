@@ -18,7 +18,7 @@ jQuery(document).ready(function ($) {
 			responsive: {
 				1: {
 					items: 2,
-					slideBy: 2
+					slideBy: 1
 				},
 				992: {
 					items: 5,

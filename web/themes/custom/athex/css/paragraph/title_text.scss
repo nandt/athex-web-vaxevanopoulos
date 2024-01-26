@@ -3,11 +3,25 @@
 	display: flex;
 	row-gap: 24px;
 	height: 100%;
-	background-color: #F8F8FA;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
 	margin-bottom:64px;
+}
+
+.TextTitle.white{
+	background-color: white;
+}
+
+.TextTitle.grey{
+	background-color: #F8F8FA;
+}
+
+.TextTitle strong{
+	background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .container.TextTitleContainer {
@@ -29,6 +43,22 @@
 .col-12.col-lg-6.title {
     padding-bottom: 24px;
 }
+
+.exploreMore a{
+	margin-top: 30px;
+	background-image: url('assets/icons/black/arrow-right-black.svg');
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 25px;
+	color:black;
+
+}
+
+.text p {
+    padding-bottom: 20px;
+}
+
+
 
 @media(min-width:992px){
 	.container.TextTitleContainer {
