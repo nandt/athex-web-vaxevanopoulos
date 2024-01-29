@@ -1,8 +1,26 @@
-.webformWrapper_aaq{
-    padding:80px;
-    background:linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
+.webformWrapper_aaq {
+    padding: 40px 24px 40px 24px;
+    background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
+
+    .body2 strong {
+        background: linear-gradient(93deg, #B6F691 1.6%, #51C8D2 68.54%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
-.block-label{
-    margin-bottom:24px;
+.webformWrapper_aaq.cu {
+    background: linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%);
+}
+
+.block-label {
+    margin-bottom: 24px;
+}
+
+@media(min-width:992px) {
+    .webformWrapper_aaq {
+        padding: 48px;
+        background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
+    }
 }
