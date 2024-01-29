@@ -6,6 +6,7 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Render\RendererInterface;
 use GuzzleHttp\ClientInterface;
+use Drupal\athex_d_mde\AthexRendering\Helpers;
 
 use Drupal\athex_inbroker\Service\ApiDataService;
 
@@ -35,19 +36,19 @@ class TickerTapeService {
 			[
 				'symbol' => 'ETE.ATH',
 				'value' => 5.1 + (rand(-5, 5) * 0.1),
-				'change' => 1
+				'change' => Helpers::renderDelta(1, ' %')
 			], [
 				'symbol' => 'ALPHA.ATH',
 				'value' => 1.2 + (rand(-5, 5) * 0.1),
-				'change' => 0.5
+				'change' => Helpers::renderDelta(0.5, ' %')
 			], [
 				'symbol' => 'TPEIR.ATH',
 				'value' => 2.3 + (rand(-5, 5) * 0.1),
-				'change' => -0.5
+				'change' => Helpers::renderDelta(-1.5, ' %')
 			], [
 				'symbol' => 'EXAE.ATH',
 				'value' => 3.4 + (rand(-5, 5) * 0.1),
-				'change' => 0
+				'change' => Helpers::renderDelta(0, ' %')
 			]
 		], 0, count($codes));
 
