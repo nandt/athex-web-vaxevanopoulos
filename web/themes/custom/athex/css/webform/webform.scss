@@ -59,6 +59,81 @@ select {
     }
 }
 
+//Jquery select2 overrides for custom dropdown styles
+
+.select2-container {
+
+    .select2-search {
+        display: none;
+    }
+
+    .select2-results ul {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        li {
+            background: white;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 20px;
+            letter-spacing: 0.42px;
+            color: #030314;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #D1CCE1;
+
+            &:first-of-type {
+                display: none;
+            }
+
+            &:hover {
+                background: white !important;
+                color: #3c06d9;
+            }
+        }
+    }
+
+    .select2-dropdown {
+        border-radius: 4px !important;
+        background: #FFF;
+        border: none !important;
+        box-shadow: 0px 2px 24px 0px rgba(3, 3, 20, 0.12);
+    }
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background: none !important;
+    color: #3c06d9 !important;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: white !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    pointer-events: none !important;
+}
+
+.select2-selection__rendered {
+    padding-left: 0 !important;
+}
+
+.select2 {
+    padding-bottom: 12px;
+}
+
+.select2-container--default .select2-selection--single {
+    border: none !important;
+
+    .select2-selection__arrow {
+        display: none;
+    }
+}
+
+.select2-selection__rendered[title="none"] {
+    display: none !important;
+}
+
 .webformWrapper input[type="email"],
 .webformWrapper input[type="text"],
 .webformWrapper input[type="tel"],
@@ -73,7 +148,7 @@ select {
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    color: black;
+    color: #030314;
     display: inline-block;
     line-height: 24px;
     letter-spacing: 0.4px;
@@ -249,7 +324,6 @@ label.js-form-required::after,
     border: none;
     background: inherit;
     color: #CAB683;
-    font-family: NeutraTextGreek;
     font-size: 18px;
     font-weight: 600;
     line-height: 16px;
@@ -390,12 +464,13 @@ select.type2 option {
     .webformWrapper input[type="text"],
     .webformWrapper input[type="tel"],
     .webformWrapper textarea,
+    .select2-selection__rendered,
     .webformWrapper select {
-        font-size: 18px;
-        line-height: 28px;
-        letter-spacing: 0.54px;
-        font-weight: 500;
-        color: #030314;
+        font-size: 18px !important;
+        line-height: 28px !important;
+        letter-spacing: 0.54px !important;
+        font-weight: 500 !important;
+        color: #030314 !important;
     }
 
     .webformWrapper .js-form-item {
