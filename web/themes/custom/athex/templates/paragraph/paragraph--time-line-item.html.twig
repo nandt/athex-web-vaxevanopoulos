@@ -1,6 +1,6 @@
 {%  set report = content.field_report.0['#markup']|clean_class %}
 <div class="row timelineItem {{report}}">
-<span class="heading3 textColorDarkBlue weightBoldBook tlidate">{{content.field_tli_date}}</span>
+	<span class="heading3 textColorDarkBlue weightBoldBook tlidate">{{content.field_tli_date}}</span>
 	<div class="col-12 col-lg-6 timeLineItemText">
 		<div class="subheading textColorDarkGrey weightLight tliUpperTitle">{{content.field_tli_uppertitle}}</div>
 		<div class="textColorDarkBlue heading8 weightBoldBook tliTitle">{{content.field_tli_title}}</div>
@@ -8,7 +8,7 @@
 		<div class="timelineItemCta">{{content.field_tli_cta}}</div>
 	</div>
 	<div class="col-12 col-lg-4 timeLineItemMedia">
-	{{content.field_time_line_item_media_ref}}
+		{{content.field_time_line_item_media_ref}}
 	</div>
 
 </div>

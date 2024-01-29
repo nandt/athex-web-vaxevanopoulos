@@ -9,7 +9,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
  *
  * 	$struct = [
  * 		[
- * 			'label' => 'Label',
+ * 			'label' => 'EN Label',
  * 			'field' => 'datakey',
  * 			'pinned' => true
  * 		],
