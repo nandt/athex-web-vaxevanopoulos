@@ -5,11 +5,11 @@ namespace Drupal\athex_d_mde\Service;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
+use Drupal\athex_d_mde\AthexRendering\Helpers;
 use Drupal\athex_d_mde\AthexRendering\IndicesOverviewContainer;
 use Drupal\athex_inbroker\Service\ApiDataService;
 
-class IndicesOverviewService
-{
+class IndicesOverviewService {
 
 	use StringTranslationTrait;
 
@@ -19,15 +19,13 @@ class IndicesOverviewService
 	public function __construct(
 		ConfigFactoryInterface $configFactory,
 		ApiDataService         $api
-	)
-	{
+	) {
 		$this->config = $configFactory->get('athex_d_mde.settings');
 		$this->api = $api;
-	}
+  	}
 
 
-	public function createContainer()
-	{
+	public function createContainer() {
 		$indices = ['GD.ATH', 'FTSE.ATH', 'ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
 		$indicesString = join(',', $indices);
 
@@ -44,10 +42,14 @@ class IndicesOverviewService
 				$processedData[$item['instrSysName']] = [
 					'symbol' => $item['instrSysName'],
 					'value' => $item['price'],
-					'since_open_value' => $item['pricePrevPriceDelta'],
-					'since_open_percentage' => $item['pricePrevPricePDelta'],
-					'since_close_value' => $item['pricePrevClosePriceDelta'],
-					'since_close_percentage' => $item['pricePrevClosePricePDelta']
+					'since_open_value'
+						=> Helpers::renderDelta($item['pricePrevPriceDelta']),
+					'since_open_percentage'
+						=> Helpers::renderDelta($item['pricePrevPricePDelta'], '%'),
+					'since_close_value'
+						=> Helpers::renderDelta($item['pricePrevClosePriceDelta']),
+					'since_close_percentage'
+						=> Helpers::renderDelta($item['pricePrevClosePricePDelta'], '%')
 				];
 			}
 		}
@@ -66,12 +68,4 @@ class IndicesOverviewService
 		// Create and return the container with the processed data
 		return new IndicesOverviewContainer(array_keys($processedData), array_values($processedData));
 	}
-
-
-
-
-
-
-
-
 }

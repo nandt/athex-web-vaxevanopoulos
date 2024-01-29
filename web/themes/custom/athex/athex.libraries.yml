@@ -19,6 +19,10 @@ views:
   css:
     theme:
       css/views/views.scss: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
 
 tiny-slider:
   js:
@@ -66,10 +70,30 @@ cta_text_banner:
     theme:
       css/paragraph/cta_text_banner.scss: {}
 
+banner_with_cta_item:
+  css:
+    theme:
+      css/paragraph/banner_with_cta_item.scss: {}
+
+banner_with_cta:
+  css:
+    theme:
+      css/paragraph/banner_with_cta_item.scss: {}
+
 title_text:
   css:
     theme:
       css/paragraph/title_text.scss: {}
+
+category_reference:
+  css:
+    theme:
+      css/paragraph/category_reference.scss: {}
+
+list:
+  css:
+    theme:
+      css/paragraph/list.scss: {}
 
 quick_link:
   css:
@@ -125,13 +149,20 @@ indices_overview:
   css:
     theme:
       css/blocks/indices_overview.scss: {}
+      css/views/views.scss: {}
   js:
     js/indices_overview.js: {}
+    js/table_expand.js: {}
 
 solutionsview_home:
   css:
     theme:
       css/paragraph/solutionsview_home.scss: {}
+
+solutions_slider:
+  css:
+      theme:
+        css/paragraph/solutionsview_home.scss: {}
   js:
     js/solutionsview_home.js: {}
 
@@ -317,3 +348,35 @@ link_cards_bundle:
       css/paragraph/link_cards_bundle.scss: {}
   js:
     js/link_cards_bundle.js: {}
+
+market_summary:
+  css:
+    theme:
+      css/blocks/market_summary.scss: {}
+  js:
+    js/table_fold.js: {}
+    js/table_expand.js: {}
+
+market_highlights:
+  css:
+    theme:
+      css/blocks/market_highlights.scss: {}
+      css/views/views.scss: {}
+
+tile_link_group:
+  css:
+    theme:
+      css/paragraph/tile_link_group.scss: {}
+
+tile_link:
+  css:
+    theme:
+      css/paragraph/tile_link.scss: {}
+  js:
+    libraries/tiny-slider/min/tiny-slider.js: {}
+    js/tile_link_slider.js: {}
+  dependencies:
+    - athex/tiny-slider
+    - core/drupal
+    - core/once
+

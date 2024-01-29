@@ -7,6 +7,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\athex_d_mde\AthexRendering\BsNav;
 use Drupal\athex_d_mde\AthexRendering\ProductsTable;
 use Drupal\athex_inbroker\Service\ApiDataService;
+use Drupal\athex_d_mde\AthexRendering\Helpers;
 
 
 class IndicesOverviewTablesService {
@@ -33,14 +34,14 @@ class IndicesOverviewTablesService {
 	private function getSubProductsTableRA($seldSymbol, $seldTable) {
 		//TODO: get data from API
 		return (new ProductsTable([
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, 97.39, 1.2],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, 97.39, 1.2],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2]
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')]
 		]))->render();
 	}
 

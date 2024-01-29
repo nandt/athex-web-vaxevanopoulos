@@ -4,6 +4,7 @@ namespace Drupal\athex_d_mde\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\BlockPluginInterface;
+use Drupal\athex_d_mde\AthexRendering\Helpers;
 
 
 /**
@@ -34,7 +35,7 @@ class MarketHighlightsBlock extends BlockBase implements BlockPluginInterface {
 						'company' => 'Intracom',
 						'symbol' => 'INTRA',
 						'value' => 874.50,
-						'change' => 20.1
+						'change' => Helpers::renderDelta(20.1, ' %')
 					])
 				], [
 					'en_name' => 'Top Fallers',
@@ -42,7 +43,7 @@ class MarketHighlightsBlock extends BlockBase implements BlockPluginInterface {
 						'company' => 'Intracom',
 						'symbol' => 'INTRA',
 						'value' => 874.50,
-						'change' => -20.1
+						'change' => Helpers::renderDelta(-20.1, ' %')
 					])
 				], [
 					'en_name' => 'Most Active',
@@ -50,7 +51,7 @@ class MarketHighlightsBlock extends BlockBase implements BlockPluginInterface {
 						'company' => 'Intracom',
 						'symbol' => 'INTRA',
 						'value' => 874.50,
-						'change' => 20.1
+						'change' => Helpers::renderDelta(20.1, ' %')
 					])
 				]
 			]

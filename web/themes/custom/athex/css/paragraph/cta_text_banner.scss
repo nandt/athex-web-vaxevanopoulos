@@ -17,7 +17,15 @@
     cursor: pointer;
 }
 
-.ctbCta::after {
+.ctbCta a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ctbCta a::after {
     content: '';
     background-image: url('assets/icons/black/arrow-right-black.svg');
     display: block;
@@ -25,12 +33,6 @@
     width: 15px;
     height: 15px;
     flex-shrink: 0;
-    margin-left: 16px;
-}
-
-.ctbCta a {
-    text-decoration: none;
-    color: inherit;
 }
 
 .ctbTitle{

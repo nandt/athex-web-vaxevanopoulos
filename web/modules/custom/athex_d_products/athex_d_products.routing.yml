@@ -5,14 +5,12 @@ athex_d_products.stock_search:
   requirements:
     _permission: 'access content'
 
-athex_d_products.stock_profile:
-  path: '/market-data/instruments/stocks/{product_id}'
+athex_d_products.product_profile:
+  path: '/market-data/instruments/{product_type}/{product_id}'
   defaults:
-    _controller: '\Drupal\athex_d_products\Controller\StockProfileController::render'
+    _controller: '\Drupal\athex_d_products\Controller\ProductProfileController::render'
   requirements:
     _permission: 'access content'
-
-# ...
 
 athex_d_products.product_issuer:
   path: '/market-data/instruments/{product_type}/{product_id}/issuer-profile'

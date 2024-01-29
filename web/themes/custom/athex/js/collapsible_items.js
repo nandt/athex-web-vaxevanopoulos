@@ -1,12 +1,20 @@
 jQuery(document).ready(function ($) {
 
+
     const itemsDesktop = $('.collapsible-container.desktop .collapsible-item.desktop');
     itemsDesktop.first().addClass('active');
     itemsDesktop.not(':first-child').addClass('inactive');
 
     itemsDesktop.each(function (index) {
-        const itemNumber = index + 1;
-        $(this).prepend($('<div class="number">' + '0' + itemNumber + '</div>'));
+        let label;
+        if ($(this).closest('.collapsible-container').hasClass('esg')) {
+            const letters = ['E', 'S', 'G'];
+            label = letters[index % letters.length];
+        } else {
+            const itemNumber = index + 1;
+            label = '0' + itemNumber;
+        }
+        $(this).prepend($('<div class="number">' + label + '</div>'));
     });
 
     itemsDesktop.click(function () {
@@ -19,12 +27,21 @@ jQuery(document).ready(function ($) {
         }
     });
 
+
     const itemsMobile = $('.collapsible-container.mobile .collapsible-item.mobile');
-    $('.collapsible-container.mobile .collapsible-item.mobile:first').addClass('active');
-    $('.collapsible-container.mobile .collapsible-item.mobile:not(:first)').addClass('inactive');
+    itemsMobile.first().addClass('active');
+    itemsMobile.slice(1).addClass('inactive');
+
     itemsMobile.each(function (index) {
-        const itemNumberMobile = index + 1;
-        $(this).prepend($('<div class="numberMobile">' + '0' + itemNumberMobile + '</div>'));
+        let label;
+        if ($(this).closest('.collapsible-container').hasClass('esg')) {
+            const letters = ['E', 'S', 'G'];
+            label = letters[index % letters.length];
+        } else {
+            const itemNumberMobile = index + 1;
+            label = '0' + itemNumberMobile;
+        }
+        $(this).prepend($('<div class="numberMobile">' + label + '</div>'));
     });
 
     itemsMobile.click(function () {
@@ -37,4 +54,50 @@ jQuery(document).ready(function ($) {
         }
     });
 
-})
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const marqueeElements = document.querySelectorAll('.marquee-text');
+    const marqueeContainer = document.querySelector('.marquee-container');
+
+    let isEmpty = true;
+    marqueeElements.forEach(marqueeText => {
+        if (marqueeText.textContent.trim() !== '') {
+            isEmpty = false;
+        }
+    });
+
+    if (isEmpty) {
+        marqueeContainer.style.display = 'none';
+    } else {
+        animateMarquee();
+    }
+});
+
+
+function animateMarquee() {
+    const marqueeElements = document.querySelectorAll('.marquee-text');
+
+    marqueeElements.forEach(marqueeText => {
+        let marqueeWidth = marqueeText.offsetWidth;
+        let containerWidth = marqueeText.parentElement.offsetWidth;
+        let start = containerWidth;
+        let end = -marqueeWidth;
+
+        function step() {
+            if (start <= end) {
+                start = containerWidth;
+            } else {
+                start -= 1;
+            }
+            marqueeText.style.transform = `translateX(${start}px)`;
+            window.requestAnimationFrame(step);
+        }
+
+        window.requestAnimationFrame(step);
+    });
+}
+
+
+animateMarquee();
