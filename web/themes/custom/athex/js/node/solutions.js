@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         overlay.style.display = 'none';
     });
 
-    window.addEventListener('click', function(event) {
+    overlay.addEventListener('click', function(event) {
         if (event.target == overlay) {
             modal.style.display = 'none';
             overlay.style.display = 'none';
