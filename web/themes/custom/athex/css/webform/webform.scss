@@ -34,6 +34,31 @@
     backdrop-filter: blur(0px);
 }
 
+.text-count-wrapper {
+    text-align: right;
+    font-size: 12px;
+    font-weight: 400;
+    color: #a399c3;
+    letter-spacing: 0.36px;
+}
+
+select {
+    appearance: none;
+    -webkit-appearane: none;
+    -moz-appearance: none;
+
+    option {
+        background: white;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: 0.42px;
+        color: #030314;
+        padding: 20px;
+        border-bottom: 1px solid #D1CCE1;
+    }
+}
+
 .webformWrapper input[type="email"],
 .webformWrapper input[type="text"],
 .webformWrapper input[type="tel"],
@@ -48,7 +73,7 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    color: #FFFFFF;
+    color: black;
     display: inline-block;
     line-height: 24px;
     letter-spacing: 0.4px;
@@ -119,18 +144,12 @@
 .js-form-type-select::after {
     content: '';
     display: block;
-    transform: rotate(90deg);
-    background-image: url(../../assets/iconography/brown3/general/iconChevron.svg);
+    background-image: url(assets/ChevronDown.svg);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 22px;
-    height: 22px;
-    width: 22px;
-}
-
-.js-form-type-select option {
-    background: #26262C;
-    padding: 16px;
+    background-size: 16px;
+    height: 16px;
+    width: 16px;
 }
 
 .webformWrapper textarea {
@@ -143,7 +162,6 @@
 }
 
 .webformWrapper select {
-    background: inherit;
     border: none;
 }
 
@@ -156,7 +174,7 @@
 }
 
 .webformWrapper select:not(.filled) option {
-    color: #FFFFFF;
+    color: #030314;
 }
 
 .actions-wrapper {
@@ -197,11 +215,6 @@
     border: none !important;
 }
 
-.js-form-item label,
-.js-webform-select-other {
-    color: #A7A8AA;
-}
-
 label.js-form-required,
 .js-webform-select-other legend {
     display: flex;
@@ -217,6 +230,19 @@ label.js-form-required::after,
     margin-left: 4px;
     font-size: 15px;
     color: #3C06D9;
+}
+
+.js-webform-select-other legend {
+    color: #A399C3 !important;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.54px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0px;
+    transition: .3s all ease-in-out;
 }
 
 .webform-actions button {
@@ -242,7 +268,7 @@ label.js-form-required::after,
 .webformWrapper select+*+label,
 .webformWrapper .js-form-type-select+label,
 .webformWrapper .js-form-type-select+*+label {
-    color: #A399C3;
+    color: #A399C3 !important;
     font-size: 18px;
     font-weight: 500;
     line-height: 28px;
@@ -332,7 +358,7 @@ label {
 }
 
 select.type2 option {
-    background-color: #26262C;
+    background-color: white;
 }
 
 .js-form-item {
