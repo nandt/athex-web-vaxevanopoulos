@@ -85,6 +85,11 @@ title_text:
     theme:
       css/paragraph/title_text.scss: {}
 
+category_reference:
+  css:
+    theme:
+      css/paragraph/category_reference.scss: {}
+
 list:
   css:
     theme:
