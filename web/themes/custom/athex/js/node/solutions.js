@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var btnsShare = document.querySelectorAll('.btnShare');
-    var modal = document.getElementById('myModal');
-    var overlay = document.getElementById('modalOverlay');
+    var modal = document.querySelector('.modal');
+    var overlay = document.querySelector('.modal-overlay');
     var closeBtn = document.querySelector('.close-btn');
 
     btnsShare.forEach(function(btn) {
