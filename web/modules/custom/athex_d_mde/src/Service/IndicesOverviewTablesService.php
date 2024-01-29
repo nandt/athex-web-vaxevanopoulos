@@ -81,10 +81,4 @@ class IndicesOverviewTablesService {
 			return ['#markup' => 'No data available.'];
 		}
 	}
-
-
-
-
-
-
 }
