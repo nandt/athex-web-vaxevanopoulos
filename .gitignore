@@ -10,7 +10,10 @@
 /web/themes/*
 !/web/themes/custom
 /readme.txt
-/ docker-compose.yml
+
+# Vasilis V ignored files
+#
+/docker-compose.yml
 /athexweb_20240119.sql
 /.idea/
 /Dockerfile
