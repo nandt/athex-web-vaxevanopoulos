@@ -1,10 +1,12 @@
 <div class="section-label">
 	{{  label  }}
 </div>
-<div class="benefit-wrapper">
-	{% for item in items %}
-		<div class="bi_item">
-			{{ item.content }}
-		</div>
-	{% endfor %}
+<div class="container">
+	<div class="benefit-wrapper row" style="justify-content:flex-start">
+		{% for item in items %}
+			<div class="bi_item col-lg-4 col-12">
+				{{ item.content }}
+			</div>
+		{% endfor %}
+	</div>
 </div>

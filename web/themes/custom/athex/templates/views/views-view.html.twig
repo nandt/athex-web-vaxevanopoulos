@@ -26,29 +26,31 @@
 
 	<div class="container">
 
-		{{ exposed }}
+		<div class="row">
+			{{ exposed }}
 
-		{{ attachment_before }}
+			{{ attachment_before }}
 
-		<div class="mini-pager"></div>
+			<div class="mini-pager"></div>
 
-		{% if rows -%}
-			{{ rows }}
-		{% elseif empty -%}
-			{{ empty }}
-		{% endif %}
+			{% if rows -%}
+				{{ rows }}
+			{% elseif empty -%}
+				{{ empty }}
+			{% endif %}
 
-		{{ pager }}
+			{{ pager }}
 
-		{{ attachment_after }}
-		{{ more }}
+			{{ attachment_after }}
+			{{ more }}
 
-		{% if footer %}
-			<footer>
-				{{ footer }}
-			</footer>
-		{% endif %}
+			{% if footer %}
+				<footer>
+					{{ footer }}
+				</footer>
+			{% endif %}
 
-		{{ feed_icons }}
+			{{ feed_icons }}
+		</div>
 	</div>
 </div>

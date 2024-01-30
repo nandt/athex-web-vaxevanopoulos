@@ -1,0 +1,16 @@
+{# modules/contrib/paragraphs/templates/paragraph.html.twig' #}
+
+{{ attach_library('athex/banner_with_cta') }}
+
+<div class="conteiner bannerWithCta">
+	<div class="row bwctaContent">
+	 	<div class="col-12 col-lg-6 bwctaTitleText">
+			{{content.field_bwc_title}}
+			{{content.field_bwc_body}}
+		</div>
+		<div class="col-12 col-lg-6 bwctaCtaButtons">
+			{{content.field_bwc_cta_items}}
+		</div>
+	</div>
+</div>
+

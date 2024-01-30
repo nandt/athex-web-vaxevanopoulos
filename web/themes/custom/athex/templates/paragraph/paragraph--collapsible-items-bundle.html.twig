@@ -1,5 +1,7 @@
 {{ attach_library('athex/collapsible_items') }}
 
+{% set type = content.field_page_type.0['#markup']|clean_class %}
+
 <div class="container-fluid colib">
 	<div class="row">
 		<div class="col-12">
@@ -12,14 +14,18 @@
 						<div class="colibCta textColorWhite weightBoldBook cta1">{{content.field_colib_cta}}</div>
 					</div>
 				</div>
-				<div class="collapsible-container desktop">
+				<div class="collapsible-container {{type}} desktop">
 					{{content.field_colib_items}}
 				</div>
-				<div class="collapsible-container mobile">
+				<div class="collapsible-container {{type}} mobile">
 					{{content.field_colib_items}}
 				</div>
+				</div>
+				<div class="marquee-container">
+    				<span class="marquee-text">{{ content.field_animation_text }}</span>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

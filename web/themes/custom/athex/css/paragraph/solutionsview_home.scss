@@ -1,8 +1,18 @@
 .solviewhomeContainer {
 	padding: 80px 24px;
 
+	.solviewhomeWrapper {
+		display: flex;
+		gap: 8px;
+	}
+
 	border-radius: var(--colors-pixels-spacing-null, 0px);
 	background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
+
+	.solviewhomeWrapper {
+		display: flex;
+		gap: 8px;
+	}
 
 	.solvhomeBody {
 		padding: 28px 0px;
@@ -27,6 +37,11 @@
 			height: 20px;
 			display: block;
 		}
+	}
+
+	.controls {
+		margin-top: 28px;
+		justify-content: end;
 	}
 
 	.controls span {
@@ -66,7 +81,7 @@
 	}
 
 	.solview-hr-wrapper {
-		padding: 28px 0px;
+		margin: 28px 0px;
 
 		.solview-hr {
 			opacity: 0.3;
@@ -85,6 +100,7 @@
 
 @media (min-width: 992px) {
 	.solviewhomeWrapper {
+		display: flex;
 		padding-top: 132px;
 	}
 
@@ -100,11 +116,15 @@
 		}
 
 		.solview-hr-wrapper {
-			padding: 56px 0px;
+			margin: 56px 0px;
 
 			.solview-hr {
 				display: block;
 			}
+		}
+
+		.controls {
+			margin-top: 56px;
 		}
 	}
 }

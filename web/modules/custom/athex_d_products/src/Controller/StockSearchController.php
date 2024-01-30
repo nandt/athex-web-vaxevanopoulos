@@ -56,6 +56,7 @@ class StockSearchController extends ControllerBase {
 				'#url' => \Drupal\Core\Url::fromRoute(
 					'athex_d_products.stock_profile',
 					[
+						'product_type' => 'stocks',
 						'product_id' => $row['symbol']
 					]
 				)
