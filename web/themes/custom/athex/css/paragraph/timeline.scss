@@ -94,7 +94,7 @@ margin-top: 20px;
     font-weight: 500px;
 }
 .container.horizontal .row.timelineitems div {
-    max-width: 385px;
+    max-width: 340px;
     width: max-content;
     display: flex;
     align-content: center;
@@ -108,12 +108,12 @@ margin-top: 20px;
 
 
 .container.horizontal .row.timelineitems {
+    margin-right: 1px;
     display: flex;
     overflow-x: scroll;
     flex-direction: row;
     justify-content: space-between;
 }
-
 
 
 
@@ -124,6 +124,7 @@ margin-top: 20px;
 
 
 .container.horizontal span.heading1.weightBoldBook.textColorDarkBlue strong {
+	font-weight: 500;
     background:linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -174,12 +175,12 @@ margin-top: 20px;
 		display: flex;
 		padding-bottom: 60px;
 		flex-direction: row;
-		justify-content: space-between;
+		justify-content: flex-start;
 	}
 
 
 	.container.horizontal {
-		padding: 120px 80px 120px 80px;
+		padding: 120px 0px 120px 80px;
 		background-color: #F8F8FA;
 	}
 	.container.horizontal .row.timelineTitleText {
