@@ -52,8 +52,8 @@ class IndicesOverviewContainer {
 		$content = $this->renderTabContent();
 
 		// Debugging
-		// \Drupal::logger('my_module')->notice('Tabs: ' . print_r($tabs, TRUE));
-		// \Drupal::logger('my_module')->notice('Content: ' . print_r($content, TRUE));
+		 \Drupal::logger('my_module')->notice('Tabs: ' . print_r($tabs, TRUE));
+		 \Drupal::logger('my_module')->notice('Content: ' . print_r($content, TRUE));
 
 		$build = [
 			'#type' => 'container',
