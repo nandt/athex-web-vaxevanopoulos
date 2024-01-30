@@ -24,10 +24,10 @@ class TickerTapeService {
 		RendererInterface $renderer
 	) {
 		$this->logger = $loggerFactory->get('athex_d_mde');
-		$this->config = $configFactory->get('athex_d_mde.settings');
+		$this->configFactory = $configFactory; // Store the config factory itself
 		$this->api = $api;
 		$this->renderer = $renderer;
-  	}
+	}
 /*
 	public function getItemData($codes) {
 		//TODO: remove to get actual data
@@ -119,14 +119,21 @@ public function getItemData($codes) {
 }
 
 
-	/*public function getTapeItemData() {
+	public function getTapeItemData() {
 		//TODO: get codes based on config
 		$codes = ['ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
 
 		return $this->getItemData($codes);
 	}
-*/
 
+	/*public function getTapeItemData() {
+		// Fetch all 'instrCode' values
+		$codes = $this->getAllInstrCodes();
+
+		// Get detailed data for each code
+		return $this->getItemData($codes);
+	}
+	*/
 
 	public function getItemsRenderArray($codes) {
 		$result = [];
@@ -172,24 +179,40 @@ public function getItemData($codes) {
 		//var_dump($allCodes); // This will print the structure of $items
 
 	}
-	public function getTapeItemData() {
-		// Fetch all 'instrCode' values
-		$codes = $this->getAllInstrCodes();
 
-		// Get detailed data for each code
-		return $this->getItemData($codes);
-	}
-	public function getTapeItemRenderArray() {
+	/*public function getTapeItemRenderArray() {
 		//TODO: get codes based on config
-		$codes = ['GD.ATH', 'FTSE.ATH', 'ETE.ATH', 'ALPHA.ATH','TPEIR.ATH','EXAE.ATH'];
+		//$codes = ['GD.ATH', 'FTSE.ATH', 'ETE.ATH', 'ALPHA.ATH','TPEIR.ATH','EXAE.ATH'];
+                //$codes = ['GD.ATH','TPEIR.ATH','EXAE.ATH'];
+		$config = $this->config->get('athex_d_mde.tickertape');
+		$codes = $config->get('codes') ;
+		return $this->getItemsRenderArray($codes);
+	}
+*/
+
+	public function getTapeItemRenderArray() {
+		$config = $this->configFactory->get('athex_d_mde.tickertape'); // Use the factory to get the 'athex_d_mde.tickertape' config
+		$codesString = $config->get('codes') ?: 'GD.ATH,TPEIR.ATH,EXAE.ATH'; // Use a default value if 'codes' is not set
+		$codes = explode(',', $codesString);
 
 		return $this->getItemsRenderArray($codes);
 	}
 
+	/*public function getTapeItemRenderArray() {
+    // Fetch codes from the configuration
+    $config = $this->config->get('athex_d_mde.tickertape');
+    //var_dump($config);
+   // $codesString = $config->get('codes') ?: 'GD.ATH,TPEIR.ATH,EXAE.ATH'; // Default value if not set
+     //  $codesString = $config->get('codes') ; // Default value if not set
+    $codes = explode(',', $codesString);
+
+    return $this->getItemsRenderArray($codes);
+}
+*/
 	public function getMarketStatusData() {
 
      	$info = $this->api->callDelayed('MarketInfo', ['market' => 'ATH', 'instrument' => 'EQ']);
-		var_dump($info); // This will print the structure of $items
+		//var_dump($info); // This will print the structure of $items
 		// Τα πεδία που σας ενδιαφέρουν είναι
 		// •	closed (0/1 => Ανοικτή/Κλειστή)
 		// •	tradeDate (ημ/νια διαπραγμάτευσης)
