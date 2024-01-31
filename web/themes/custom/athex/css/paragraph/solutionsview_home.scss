@@ -1,17 +1,12 @@
 .solviewhomeContainer {
 	padding: 80px 24px;
-
-	.solviewhomeWrapper {
-		display: flex;
-		gap: 8px;
-	}
-
 	border-radius: var(--colors-pixels-spacing-null, 0px);
 	background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
 
 	.solviewhomeWrapper {
 		display: flex;
 		gap: 8px;
+		margin-top: 48px;
 	}
 
 	.solvhomeBody {
@@ -100,8 +95,7 @@
 
 @media (min-width: 992px) {
 	.solviewhomeWrapper {
-		display: flex;
-		padding-top: 132px;
+		margin-top: 120px;
 	}
 
 	.solviewhomeContainer {
@@ -129,4 +123,12 @@
 	}
 }
 
+.controls.solutions-slider {
+	margin-top: 28px;
+	justify-content: end;
+	padding: 0;
 
+	@media (min-width: 992px) {
+		margin-top: 56px;
+	}
+}

@@ -165,6 +165,10 @@ solutions_slider:
         css/paragraph/solutionsview_home.scss: {}
   js:
     js/solutionsview_home.js: {}
+  dependencies:
+    - athex/tiny-slider
+    - core/drupal
+    - core/once
 
 sol_teaser:
   css:
@@ -211,7 +215,10 @@ solutions:
   js:
     js/node/solutions.js: {}
     js/solutionsview_home.js: {}
-    libraries/tiny-slider/min/tiny-slider.js: {}
+  dependencies:
+    - athex/tiny-slider
+    - core/drupal
+    - core/once
 
 news_item:
   css:
@@ -238,6 +245,10 @@ image_slider_item:
       css/field/image_slider_item.scss: {}
   js:
     js/image_slider_item.js: {}
+  dependencies:
+    - athex/tiny-slider
+    - core/drupal
+    - core/once
 
 testimonial:
   css:
@@ -380,3 +391,10 @@ tile_link:
     - core/drupal
     - core/once
 
+product-hero:
+  css:
+    theme:
+      css/athex_d_products/product-hero.scss: {}
+      css/views/views.scss: {}
+  js:
+    js/table_expand.js: {}

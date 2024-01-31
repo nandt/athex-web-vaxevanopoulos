@@ -1,19 +1,16 @@
 .solhome-item {
 	.sol-teaser-title {
-		position: relative;
-		top: 20px;
-		left: 16px;
-		margin: 0;
-		max-width: 128px;
 
 		> span {
+			max-width: 128px;
+			max-height: 56px;
 			position: absolute;
-			max-width: 112px;
-			max-height: 112px;
+			padding: 0px 16px;
+			margin-top: 56px;
 			text-overflow: ellipsis;
 			overflow: hidden;
 			display: -webkit-box;
-			-webkit-line-clamp: 4;
+			-webkit-line-clamp: 2;
 			-webkit-box-orient: vertical;
 		}
 	}
@@ -53,14 +50,29 @@
     	width: 100%;
 		background: linear-gradient(121deg, #602BD0 -3.57%, rgba(60, 212, 224, 0.77) 115%),lightgray 50% / cover no-repeat;
 	}
+
+	.number {
+		padding: 20px 16px 0px;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 24px;
+		letter-spacing: 0.48px;
+		color: #fff;
+		position: absolute;
+	}
 }
 
 @media(min-width: 992px) {
 
 	.solhome-item {
+
+		.number {
+			padding: 32px 24px 0px;
+		}
+
 		article {
-			width: 206px;
-    		height: 198px;
+			width: 254px;
+    		height: 254px;
 			background: var(--Primary-Teals-Purple-Teal-07, #4C37B0);
 		}
 
@@ -73,12 +85,12 @@
 		}
 
 		.sol-teaser-title {
-			top: 24px;
-			left: 24px;
 
-			>span {
-				max-width: 136px;
+			> span {
+				max-width: 206px;
 				max-height: 144px;
+				padding: 4px 24px;
+				-webkit-line-clamp: 4;
 			}
 		}
 
@@ -86,17 +98,17 @@
 			background-image: url('assets/icons/white/plus.svg');
 			width: 28px;
 			height: 28px;
-			left: 162px;
+			left: 206px;
 			display: block;
 			position: relative;
-			top: 153px;
+			top: 206px;
 		}
 
 		.sol-teaser-image {
 			img {
 				width: 100%;
 				object-fit: cover;
-    			height: 198px;
+    			height: 254px;
 				display: none;
 			}
 		}
@@ -111,7 +123,7 @@
 			.sol-teaser-arrow {
 				background-image: url('assets/icons/white/arrow-right.svg');
 				top: -44px;
-				left: 164px;
+				left: 202px;
 			}
 		}
 	}

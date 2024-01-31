@@ -103,12 +103,17 @@
 
     .solviewhomeWrapper {
         display: flex;
+		gap: 8px;
     }
 
     article:hover {
         .textColorWhite {
             color: #fff;
         }
+
+		.number {
+			color: #fff;
+		}
     }
 
     .sol {
@@ -155,25 +160,18 @@
             }
         }
 
-        .textColorWhite {
+        .textColorWhite, .number {
             color: #1A0069;
         }
     }
 }
 
 .solhome-item article {
-    width: 152px;
-    height: 152px;
 
     .sol {
         height: 100%;
         display: block;
         width: 100%;
-    }
-
-    @media (min-width: 992px) {
-        width: 206px;
-        height: 198px;
     }
 }
 
