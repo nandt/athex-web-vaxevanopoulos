@@ -18,12 +18,7 @@ class IndicesOverviewContainer {
 	private function getIndexSummaryRA($data) {
 		return [
 			'#theme' => 'indices_overview_index_summary',
-			'#symbol' => $data['symbol'],
-			'#value' => $data['value'],
-			'#since_open_value' => $data['since_open_value'],
-			'#since_open_percentage' => $data['since_open_percentage'],
-			'#since_close_value' => $data['since_close_value'],
-			'#since_close_percentage' => $data['since_close_percentage']
+			...Helpers::hashtagKeys($data)
 		];
 	}
 

@@ -5,11 +5,11 @@ namespace Drupal\athex_d_mde\Service;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
+use Drupal\athex_d_mde\AthexRendering\Helpers;
 use Drupal\athex_d_mde\AthexRendering\IndicesOverviewContainer;
 use Drupal\athex_inbroker\Service\ApiDataService;
 
-class IndicesOverviewService
-{
+class IndicesOverviewService {
 
 	use StringTranslationTrait;
 
@@ -19,6 +19,8 @@ class IndicesOverviewService
 	public function __construct(
 		ConfigFactoryInterface $configFactory,
 		ApiDataService         $api
+	) {
+		$this->config = $configFactory->get('athex_d_mde.settings');
 	)
 	{
 		$this->config = $configFactory->get('athex_d_mde.indicessettings');
@@ -51,6 +53,7 @@ class IndicesOverviewService
 					'since_close_percentage' => $item['pricePrevClosePricePDelta']
 				];
 			}
+			$processedData[$item['instrSysName']] = Helpers::getProductRenderVars($item);
 		}
 
 		foreach ($indices as $index) {
@@ -61,7 +64,7 @@ class IndicesOverviewService
 			}
 		}
 
+		// Create and return the container with the processed data
 		return new IndicesOverviewContainer(array_keys($processedData), array_values($processedData));
 	}
-
 }
