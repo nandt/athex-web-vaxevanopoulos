@@ -63,13 +63,4 @@ class IndicesOverviewService
     return new IndicesOverviewContainer(array_keys($processedData), array_values($processedData));
 }
 
-
-/*
- * https://fcd-p1.inbroker.com/Info?userName=newAthexSite&IBSessionId=6CFE02B5-43B5-4BEB-A417-3EF0E1371B6F&company=InTarget&lang=GR&code=GD.ATH,FTSE.ATH,ETE.ATH,ALPHA.ATH,TPEIR.ATH,EXAE.ATH&format=json
- * */
-
-
-
-
-
 }
