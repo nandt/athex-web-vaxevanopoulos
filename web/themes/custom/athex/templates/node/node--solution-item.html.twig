@@ -44,35 +44,12 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <div class="section">
-                <div class="anchor-items">
-                    <div class="bullet" data-index="0"></div>
-                    <div class="vertical-bar"></div>
-                </div>
-                <div class="sectionWrapper">
-                    <div class="leftSection">
-                        <div class="sectionLabel benefits">{{content.field_si_benefits_group}}</div>
-                    </div>
-                    <div class="rightSection">
+             <div class="section">
                         {% if content.field_si_download_link|render|striptags|trim is not empty %}
-                            <div class="downloadBtn">{{ content.field_si_download_link }}</div>
+                            <div class="downloadBtn">{{ content.field_si_download_link }}
                         {% endif %}
-                    </div>
-                </div>
-            </div>
-
-            {{content.field_logo_wrapper}}
-
-            <div class="section">
-                <div class="anchor-items">
-                    <div class="bullet" data-index="0"></div>
-                    <div class="vertical-bar"></div>
-                </div>
-                <div class="sectionLabel contact">{{content.field_si_contacts}}</div>
-            </div>
-            <div class="section">
-                <div class="sectionLabel contact">{{content.field_timelineeffect_paragraphs_}}</div>
-            </div>
+           </div>
+                {{content.field_timelineeffect_paragraphs_}}
         </div>
     </div>
 </div>
