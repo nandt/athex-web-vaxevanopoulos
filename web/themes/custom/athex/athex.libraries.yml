@@ -70,6 +70,11 @@ cta_text_banner:
     theme:
       css/paragraph/cta_text_banner.scss: {}
 
+logo_wrapper:
+  css:
+    theme:
+      css/paragraph/logo_wrapper.scss: {}
+
 banner_with_cta_item:
   css:
     theme:

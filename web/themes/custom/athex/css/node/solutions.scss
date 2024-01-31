@@ -155,9 +155,6 @@
             }
         }
 
-        .textColorWhite {
-            color: #1A0069;
-        }
     }
 }
 
@@ -290,7 +287,6 @@ span.siCta a {
     display: flex;
     align-items: center;
     justify-content: center;
-	padding: 35px 48px;
 
     a {
         display: inline-block;
@@ -362,6 +358,7 @@ span.siCta a {
 }
 
 .benefitItems div {
+    column-gap: 40px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -437,6 +434,10 @@ span.siCta a {
 		padding-top: 20px;
 		padding-bottom: 20px;
 		border-bottom: none;
+	}
+
+	.benefit-body {
+		max-width: 400px;
 	}
 
 	.btnShare {

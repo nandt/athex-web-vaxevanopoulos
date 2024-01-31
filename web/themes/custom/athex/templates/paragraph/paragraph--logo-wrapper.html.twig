@@ -1,0 +1,17 @@
+{{ attach_library('athex/logo_wrapper') }}
+
+
+<div class="section logo_wrapper">
+    <div class="anchor-items">
+        <div class="bullet" data-index="1"></div>
+        <div class="vertical-bar"></div>
+    </div>
+    {% block paragraph %}
+        <div class="parContent"{{ attributes.addClass(classes) }}>
+            {% block content %}
+                <span class="heading3 textColorDarkBlue weightBoldBook lwTitle"> {{content.field_lw_title}}</span>
+                <div class="logos">{{content.field_lw_logos}}</div>
+            {% endblock %}
+        </div>
+    {% endblock paragraph %}
+</div>
