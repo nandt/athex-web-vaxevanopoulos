@@ -101,12 +101,13 @@ strong {
     }
 }
 
+
+
 .lcb-items {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
 }
-
 .link_card {
     margin-bottom: 22px;
     padding: 20px 16px 24px 16px;
@@ -136,6 +137,7 @@ strong {
     }
 
     .link_card.imgLinkCard {
+		top: 350px;
 		position: absolute;
 		left: 200px;
 		width: 40%;
@@ -162,8 +164,9 @@ strong {
     }
 
     .container-fluid.lcb {
-        padding: 120px 80px;
-    }
+		position: relative;
+		padding: 120px 80px;
+	}
 
     .link_card:after {
         content: '';
