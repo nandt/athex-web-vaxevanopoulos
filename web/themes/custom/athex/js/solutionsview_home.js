@@ -14,11 +14,11 @@ jQuery(document).ready(function ($) {
 			preventScrollOnTouch: 'auto',
 			lazyload: true,
 			controlsPosition: 'bottom',
-			controlsContainer: '#solutions-slider',
+			controlsContainer: '.solutions-slider',
 			responsive: {
 				1: {
 					items: 2,
-					slideBy: 2
+					slideBy: 1
 				},
 				992: {
 					items: 5,
@@ -30,10 +30,4 @@ jQuery(document).ready(function ($) {
 
 	initSlider();
 
-	const slides = $(document).find('.solviewhomeWrapper').children();
-	slides.each(function(index) {
-		solNumber = index + 1;
-
-		$(this).children('.sol-teaser-number').prepend("test" + solNumber);
-	})
 })

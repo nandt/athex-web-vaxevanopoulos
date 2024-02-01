@@ -1,15 +1,20 @@
 .solhome-item {
 	.sol-teaser-title {
 		position: relative;
-		top: 45px;
-		left: 20px;
-		z-index: 1;
+		top: 20px;
+		left: 16px;
 		margin: 0;
-		position: relative;
 		max-width: 128px;
-		
+
 		> span {
 			position: absolute;
+			max-width: 112px;
+			max-height: 112px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			display: -webkit-box;
+			-webkit-line-clamp: 4;
+			-webkit-box-orient: vertical;
 		}
 	}
 
@@ -20,7 +25,7 @@
 		height: 20px;
 		position: relative;
 		bottom: 30px;
-		left: 130px;
+		left: 118px;
 		background-repeat: no-repeat;
 	}
 
@@ -31,10 +36,22 @@
 			background: lightgray 50% / cover no-repeat;
 			border-radius: var(--colors-pixels-spacing-null, 0px);
 			mask-image: linear-gradient(to right,rgba(0, 0, 0, 1), 200px ,transparent);
-			width: 160px;
-			height: 160px;
-			opacity: 0.35;
+			width: 152px;
+			height: 152px;
+			opacity: 0.15;
 		}
+	}
+
+	article {
+		width: 152px;
+   		height: 152px;
+	}
+
+	.sol {
+		height: 100%;
+    	display: block;
+    	width: 100%;
+		background: linear-gradient(121deg, #602BD0 -3.57%, rgba(60, 212, 224, 0.77) 115%),lightgray 50% / cover no-repeat;
 	}
 }
 
@@ -47,19 +64,32 @@
 			background: var(--Primary-Teals-Purple-Teal-07, #4C37B0);
 		}
 
+		.sol {
+			background: unset;
+		}
+
+		.sol:hover {
+			background: linear-gradient(121deg, #602BD0 -3.57%, rgba(60, 212, 224, 0.77) 115%), lightgray 50% / cover no-repeat !important;
+		}
+
 		.sol-teaser-title {
 			top: 24px;
 			left: 24px;
+
+			>span {
+				max-width: 136px;
+				max-height: 144px;
+			}
 		}
 
 		.sol-teaser-arrow, .sol-teaser-arrow:hover  {
 			background-image: url('assets/icons/white/plus.svg');
 			width: 28px;
 			height: 28px;
-			left: 152px;
+			left: 162px;
 			display: block;
 			position: relative;
-			top: 128px;
+			top: 153px;
 		}
 
 		.sol-teaser-image {
@@ -80,17 +110,10 @@
 
 			.sol-teaser-arrow {
 				background-image: url('assets/icons/white/arrow-right.svg');
-				top: -62px;
+				top: -44px;
 				left: 164px;
 			}
 		}
 	}
 
-	// .sol-teaser-image {
-	// 	border-radius: var(--colors-pixels-spacing-null, 0px);
-
-	// 	img {
-	// 		border-radius: var(--colors-pixels-spacing-null, 0px);
-	// 	}
-	// }
 }

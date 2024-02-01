@@ -4,18 +4,21 @@ namespace Drupal\athex_d_mde\AthexRendering;
 
 class BsNav {
 
-	public $tabs;
-	public $seldTab;
-	public $class;
+	public array $tabs;
+	public ?string $seldTab;
+	public string $class;
+	public ?array $urls;
 
 	public function __construct(
-		Array $tabs = [],
+		array $tabs,
 		string $seldTab = null,
-		string $class = 'tabs'
+		string $class = 'tabs',
+		array|null $urls = null
 	) {
 		$this->tabs = $tabs;
 		$this->seldTab = $seldTab;
 		$this->class = $class;
+		$this->urls = $urls;
 	}
 
 	public function render() {
@@ -28,13 +31,13 @@ class BsNav {
 			]
 		];
 
-		foreach ($this->tabs as $key => $label) {
+		foreach ($this->tabs as $idx => $label) {
 			$aAttributes = [
 				'class' => ['nav-link'],
-				'href' => '#'
+				'href' => (@$this->urls[$idx]) ?? '#'
 			];
 
-			if ($key == $this->seldTab) {
+			if ($label == $this->seldTab) {
 				$aAttributes['class'][] = 'active';
 				$aAttributes['aria-current'] = 'page';
 			}

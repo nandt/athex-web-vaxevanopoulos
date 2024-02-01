@@ -120,6 +120,10 @@ li.expaned ~ li:not(.expanded) {
 	}
 }
 
+.layout-container {
+    padding-top: 130px;
+}
+
 .menu-block--main nav .top-level>li>.menu-title {
     display: flex;
     text-align: center;

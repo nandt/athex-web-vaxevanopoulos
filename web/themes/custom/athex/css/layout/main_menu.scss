@@ -288,8 +288,10 @@ span.menu-title.menu-title-depth-1 {
     margin-right: 15px;
 }
 
-.top-menu{
-	position: fixed;
+.top-menu {
+    left: 0;
+    position: fixed;
+    top: 0;
     background-color: white;
     z-index: 1;
 }
