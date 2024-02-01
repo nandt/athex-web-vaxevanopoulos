@@ -62,8 +62,6 @@ li.expaned ~ li:not(.expanded) {
 				display: flex;
 
 				li {
-					// margin-right: 50px;
-					// padding: 0px 12px;
 					font-size: 13px;
 				}
 			}
@@ -147,14 +145,12 @@ li.liColDepth-1 {
     background-color: white;
     position: absolute;
     left: 0;
-    width: 22vw;
     transform: translateX(-50%);
     margin-left: -100px;
     padding-left: 20px;
 }
 .depth-2 {
 	min-width: 340px;
-
     position: absolute;
     top: 0;
     left: 100%;
@@ -440,6 +436,7 @@ a.language-link {
 	 a.titleMenu {
 		display: none;
 	}
+
 
 	.titleMenuMob {
 		color:#1A0069;
