@@ -6,15 +6,14 @@
   line-height:28px;
   }
 
-  .serachFormPlace{
-	background-image: url(assets/icons/Gradient2/search.svg);
-
-	}
+  .serachFormPlace {
+    background-repeat: no-repeat;
+    background-image: url(/themes/custom/athex/assets/icons/Gradient2/search.svg);
+}
 
   input[id^="edit-keys"] {
 	  padding-top: 60px;
 	  margin-bottom: 48px;
-	  width: 140vh;
 	  padding-bottom: 48px;
 	  border-bottom: none;
 	  border-right: none;
@@ -25,6 +24,11 @@
 	  font-size: 24px;
   }
 
+  .container.overlay-content {
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: row-reverse;
+}
 
 
   input[id^="edit-keys"]:focus {
@@ -94,13 +98,20 @@ main.SearchPageContent {
     align-items: center;
 }
 
+input#edit-keys {
+    width: 100%;
+}
 
   @media(min-width:992px){
 
+	input#edit-keys {
+		width: 100%;
+	}s
+
 	input[id^="edit-keys"] {
 	  padding-top: 0px;
-	  margin-bottom: 48px;
-	  width: 140vh;
+	  margin-bottom: 28px;
+	  width: 100%;
 	  padding-bottom:48px;
 	  border-bottom: 1px solid #D1CCE1;
 	  border-right: none;
