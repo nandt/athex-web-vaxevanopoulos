@@ -1,0 +1,36 @@
+
+.faq-content {
+	padding-bottom: 24px;
+	display: none;
+	overflow: hidden;
+	transition: max-height 0.3s ease;
+	max-width: 1113px;
+}
+
+.faq-item{
+
+border-bottom: 1px solid #D1CCE1;}
+
+
+
+  .faq-content.active {
+	display: block;
+  }
+
+
+  .faq-toggle {
+	padding-bottom: 24px;
+	padding-top: 24px;
+	cursor: pointer;
+	background-position:  center right;
+	background-repeat: no-repeat;
+	background-image: url(assets/iconChevronUp.svg);
+  }
+
+
+.faq-toggle.active-title {
+	color: #3C06D9;
+	background-image: url(assets/iconChevronUp.svg);
+  }
+
+

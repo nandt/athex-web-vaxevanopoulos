@@ -135,6 +135,14 @@ solutionsview_home:
   js:
     js/solutionsview_home.js: {}
 
+faq:
+  css:
+    theme:
+      css/paragraph/faq.scss: {}
+  js:
+    js/faq.js: {}
+
+
 sol_teaser:
   css:
     theme:
@@ -276,7 +284,7 @@ product_search:
   css:
     theme:
       css/product_search/product_search.scss: {}
-  js: 
+  js:
     js/stock_search.js: {}
     libraries/tiny-slider/min/tiny-slider.js: {}
 
