@@ -7,8 +7,14 @@
 }
 
 .top-links, .nav-menu {
-	min-width: 100%;
+	// min-width: 100%;
 }
+
+.container.top-menu {
+    position: static;
+}
+
+
 
 hr {
 	color: #C2D1D9 !important;
@@ -23,7 +29,6 @@ hr {
 	background-repeat: no-repeat;
 	display: block;
 	position: relative;
-	top: 24px;
 }
 
 .menu-item-arrow, .back-icon {
@@ -59,16 +64,7 @@ hr {
 	top: 28px;
 }
 
-.x-icon {
-	background-image: url('assets/icons/Gradient/iconClose.svg');
-	width: 24px;
-	height: 24px;
-	background-size: 24px;
-	background-repeat: no-repeat;
-	display: block;
-	position: relative;
-	top: 28px;
-}
+
 
 .main-menu {
 	padding: 0px 24px;
@@ -101,8 +97,8 @@ hr {
 
 	nav {
 		.top-level {
-			padding: 34px 12px 6px;
-			width: 100%;
+			// padding: 34px 12px 6px;
+			// width: 100%;
 
 			> li > .menu-title {
 				text-align: center;
@@ -110,9 +106,9 @@ hr {
 		}
 
 		li {
-			display: flex;
-			justify-content: space-between;
-			padding: 12px 0px;
+			// display: flex;
+			// justify-content: space-between;
+			// padding: 12px 0px;
 
 			@media(min-width: 992px) {
 				flex-direction: column;
@@ -126,7 +122,7 @@ hr {
 	border-bottom: 1px solid #E6EBEE;
 	display: flex;
 	justify-content: space-between;
-    padding: 12px 32px 12px 32px;
+    padding: 8px 32px 8px 32px;
 
 	div {
 		width: 100%;
@@ -171,7 +167,6 @@ hr {
 
 	.top-links {
 		row-gap: 10px;
-		padding: 0px 2% 0px 2%;
 		height: 5cqh;
 		background-color: #F6F5F8;
 		display: flex;
@@ -202,13 +197,13 @@ hr {
 		min-width: 16.6%;
 	}
 
-	.nav-menu {
-		text-wrap: nowrap;
-		position: relative;
-		bottom: 85px;
-		left: 390px;
-		min-width: 50%;
-	}
+	// .nav-menu {
+	// 	text-wrap: nowrap;
+	// 	position: relative;
+	// 	bottom: 85px;
+	// 	left: 390px;
+	// 	min-width: 50%;
+	// }
 
 	.main-menu {
 		position: relative;
@@ -217,15 +212,19 @@ hr {
 	}
 
 	.row.menu {
-    padding-left: 2%;
-    padding-right: 2%;
-    background-color: white;
-    border-bottom: 1px solid #E8E5F0;
-    display: flex;
-}
+		background-color: white;
+		border-bottom: 1px solid #E8E5F0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
 
 	.athex_investorrelationslink {
-		background: rgba(232, 229, 240, 0.60);
+		display: flex;
+		height: 100%;
+		background: rgba(232, 229, 240, 0.6);
+		flex-direction: column;
+		justify-content: center;
 	}
 
 	.athex_investorrelationslink a{
@@ -237,11 +236,25 @@ hr {
 	}
 
 	.col-12.top-links-wrapper {
+		padding: 0px;
+		background-color: transparent;
+	}
+
+	.top-menu-bar{
+		display: block;
 		border-top: 4px solid  #3300C6;
     	background:  #F6F5F8;
 	}
 
+	.main-menu-bar {
+		border-bottom: 1px solid gray;
+		background-color: white;
+	}
+	.col-8.nav-menu {
+		padding-top: 10px;
+	}
 	.language-selector ul, .language-selector li, .login ul, .login li {
+		display: flex;
 		column-gap: 10px;
 		display: flex;
 		list-style: none;
@@ -249,23 +262,26 @@ hr {
 		padding: 0;
 		flex-direction: row;
 		justify-content: space-between;
+		align-items: center;
 	}
-
+}
+nav#block-athex-main-menu {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .menu-block--main nav .top-level {
-    position: fixed;
-    left: 50%;
-    transform: translate(-40%);
+    margin-left: 55px;
+    margin-bottom: 0px;
+    width: 90%;
     display: flex;
     align-content: center;
-    align-items: center;
+    align-items: flex-end;
     font-size: 13px;
-    font-weight: 600px;
+    font-weight: 600;
     color: #1A0069;
-    padding: 34px 12px 6px;
-    width: 65%;
     justify-content: space-between;
+    flex-direction: row;
 }
 
 span.menu-title.menu-title-depth-1 {
@@ -346,6 +362,11 @@ div#edit-actions--3 {
     align-items: center;
     justify-content: flex-start;
 }
+.regionHeader {
+    width: 100%;
+    z-index: 999;
+    position: fixed;
+}
 
 @media(max-width:992px){
 
@@ -380,5 +401,38 @@ div#edit-actions--3 {
 	justify-content: space-between;
 	padding: 32px 32px 32px 32px;
 	}
+
+	.col-9.nav-menu {
+		display: none;
+	}
+	.col-9.nav-menu.active {
+		display: flex;
+	}
+
+	.menu-block--main {
+		width: 80vw;
+	}
+
+	nav#block-athex-main-menu {
+		width: 80vw;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.sub-menu {
+		display: none;
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-color: #fff;
+		z-index: 100;
+	}
+
+	.sub-menu.active {
+		display: block;
+	}
+
 
 }
