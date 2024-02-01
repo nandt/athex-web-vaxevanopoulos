@@ -23,7 +23,7 @@ class IndicesOverviewTablesService {
 		'Most Active'
 	];
 
-	public function __construct(
+	/*public function __construct(
 		ApiDataService $api,
 		IndicesOverviewService $containers
 	) {
