@@ -16,11 +16,7 @@ use Drupal\Core\Block\BlockPluginInterface;
  */
 class IndicesOverviewTablesBlock extends BlockBase implements BlockPluginInterface {
 
-	/*public function build() {
-		$service = \Drupal::service('athex_d_mde.indices_overview_tables');
-		return $service->getBlockRA();
 
-	}*/
 	public function build() {
 		$loggerFactory = \Drupal::service('logger.factory');
 		$logger = $loggerFactory->get('athex_d_mde');
