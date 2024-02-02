@@ -1,5 +1,6 @@
 
 .faq-content {
+
 	padding-bottom: 24px;
 	display: none;
 	overflow: hidden;
@@ -9,12 +10,13 @@
 
 .faq-item{
 
-border-bottom: 1px solid #D1CCE1;}
+	border-bottom: 1px solid #D1CCE1;
 
-
+}
 
   .faq-content.active {
-	display: block;
+	display: flex;
+    flex-direction: row;
   }
 
 
@@ -24,7 +26,7 @@ border-bottom: 1px solid #D1CCE1;}
 	cursor: pointer;
 	background-position:  center right;
 	background-repeat: no-repeat;
-	background-image: url(assets/iconChevronUp.svg);
+	background-image: url(assets/iconChevronDown.svg);
   }
 
 
@@ -33,4 +35,7 @@ border-bottom: 1px solid #D1CCE1;}
 	background-image: url(assets/iconChevronUp.svg);
   }
 
+  .faq-download-file{
 
+		background-image: url(assets/Download.svg);
+  }

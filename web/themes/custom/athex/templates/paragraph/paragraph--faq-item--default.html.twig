@@ -2,13 +2,13 @@
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
       <div class="faq-container">
-  <!-- FAQ Item 1 -->
+
   <div class="faq-item">
     <h2 class="faq-toggle heading6 weightBoldBook textColorPurple">{{content.field_faqi_title}}</h2>
     <div class="faq-content textColorPurple body2">
       <p>{{content.field_faqi_body}}</p>
 
-      <a href="path_to_download_file" target="_blank" class="faq-download-file"></a>
+      <a href="path_to_download_file" target="_blank" class="faq-download-file">{{content.field_faq_download_file}}</a>
     </div>
   </div>
 

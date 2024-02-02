@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	  toggle.addEventListener('click', function() {
 		var content = this.nextElementSibling;
 		content.classList.toggle('active');
-		// Προσθήκη ή αφαίρεση μιας κλάσης για τον τίτλο όταν το content γίνεται active
 		this.classList.toggle('active-title');
 	  });
 	});
