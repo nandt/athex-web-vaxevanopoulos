@@ -1,9 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
-	document.querySelectorAll('.faq-toggle').forEach(function(toggle) {
-	  toggle.addEventListener('click', function() {
-		var content = this.nextElementSibling;
-		content.classList.toggle('active');
-		this.classList.toggle('active-title');
-	  });
-	});
-  });
+    const firstFaqToggle = document.querySelector('.faq-toggle');
+    const firstFaqContent = firstFaqToggle.nextElementSibling;
+    firstFaqToggle.classList.add('active-title');
+    firstFaqContent.classList.add('active');
+
+
+    document.querySelectorAll('.faq-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+            const currentlyActiveContent = document.querySelector('.faq-content.active');
+            const currentlyActiveTitle = document.querySelector('.faq-toggle.active-title');
+            if (currentlyActiveContent && currentlyActiveContent !== this.nextElementSibling) {
+                currentlyActiveContent.classList.remove('active');
+                if (currentlyActiveTitle) {
+                    currentlyActiveTitle.classList.remove('active-title');
+                }
+            }
+
+            var content = this.nextElementSibling;
+            content.classList.toggle('active');
+            this.classList.toggle('active-title');
+        });
+    });
+});
