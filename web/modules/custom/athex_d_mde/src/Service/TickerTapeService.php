@@ -126,7 +126,7 @@ class TickerTapeService
 	public function getTapeItemData()
 	{
 		//TODO: get codes based on config
-		$codes = ['ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
+		//$codes = ['ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
 
 		return $this->getItemData($codes);
 	}

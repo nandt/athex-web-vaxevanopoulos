@@ -20,7 +20,7 @@ class TickerTapeController extends ControllerBase {
 
 	public static function create(ContainerInterface $container) {
 		return new static(
-			$container->get('athex_d_mde.ticker_tape')
+			$container->get('athex_d_mde.tickertape')
 		);
 	}
 
