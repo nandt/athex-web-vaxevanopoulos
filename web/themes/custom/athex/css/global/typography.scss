@@ -14,6 +14,12 @@
 	letter-spacing: 5.04px;
 }
 
+.subheading2 {
+	font-size: 14px;
+	line-height: 26px;
+	letter-spacing: 5.04px;
+}
+
 /* Headings */
 
 .heading1 {
@@ -22,7 +28,13 @@
 	letter-spacing: 1.44px;
 }
 
-.heading8{
+.heading2 {
+	font-size: 30px;
+	line-height: 40px;
+	letter-spacing: 1.2px;
+}
+
+.heading8 {
 	font-size: 30px;
 	line-height: 40px;
 	letter-spacing: 1.2px;
@@ -60,7 +72,7 @@
 
 /* body */
 
-.textColorPurple{
+.body1 {
 	font-size:18px;
 	line-height: 28px;
 	letter-spacing: 0.54px;
@@ -97,9 +109,9 @@
 }
 
 .cta1 {
-	font-size: 16px;
-	line-height: 24px;
-	letter-spacing: 0.64px;
+	font-size: 18px;
+	line-height: 28px;
+	letter-spacing: 0.72px;
 }
 
 @media(min-width:992px) {
@@ -109,10 +121,22 @@
 		letter-spacing: 6.48px;
 	}
 
+	.subheading2 {
+		font-size: 18px;
+		line-height: 28px;
+		letter-spacing: 7.74px;
+	}
+
 	.heading1 {
 		font-size: 48px;
 		line-height: 60px;
 		letter-spacing: 1.92px;
+	}
+
+	.heading2 {
+		font-size: 40px;
+		line-height: 48px;
+		letter-spacing: 1.6px;
 	}
 
 	.heading8{
@@ -127,13 +151,9 @@
 		letter-spacing: 1.12px;
 	}
 
-	.heading2 {
-		font-size: 64px;
-		line-height: 80px;
-		letter-spacing: 0.6px;
-	}
-
 	.heading5 {
+		font-size: 20px;
+		line-height: 28px;
 		letter-spacing: 0.6px;
 	}
 
@@ -143,9 +163,9 @@
 	}
 
 	.cta1 {
-		font-size: 18px;
-		line-height: 28px;
-		letter-spacing: 0.72px;
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: 0.64px;
 	}
 
 	.body4 {

@@ -5,7 +5,9 @@ namespace Drupal\athex_d_mde\Service;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 use Drupal\athex_d_mde\AthexRendering\BsNav;
+use Drupal\athex_d_mde\AthexRendering\ProductsTable;
 use Drupal\athex_inbroker\Service\ApiDataService;
+use Drupal\athex_d_mde\AthexRendering\Helpers;
 
 
 class IndicesOverviewTablesService {
@@ -16,9 +18,9 @@ class IndicesOverviewTablesService {
 	protected $containers;
 
 	private $pills = [
-		'risers' => 'Risers',
-		'fallers' => 'Fallers',
-		'active' => 'Most Active'
+		'Risers',
+		'Fallers',
+		'Most Active'
 	];
 
 	public function __construct(
@@ -31,19 +33,16 @@ class IndicesOverviewTablesService {
 
 	private function getSubProductsTableRA($seldSymbol, $seldTable) {
 		//TODO: get data from API
-		return [
-			'#theme' => 'table',
-			'#rows' => [
-				['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2],
-				['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2],
-				['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2],
-				['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, 97.39, 1.2],
-				['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, 97.39, 1.2],
-				['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2],
-				['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2],
-				['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, -97.39, -1.2]
-			]
-		];
+		return (new ProductsTable([
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
+			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')]
+		]))->render();
 	}
 
 	private function getSubProductsPillsRA($seldTable) {
@@ -52,7 +51,7 @@ class IndicesOverviewTablesService {
 
 	private function getSubProductsRA($seldSymbol, $seldTable = null) {
 		if ($seldTable == null)
-			$seldTable = array_keys($this->pills)[0];
+			$seldTable = $this->pills[0];
 
 		return [
 			'#type' => 'container',

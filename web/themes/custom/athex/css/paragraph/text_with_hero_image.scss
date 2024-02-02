@@ -1,0 +1,38 @@
+.twhiSection {
+    margin-top: 48px;
+    margin-bottom: 80px;
+}
+
+.twhi-image {
+    margin-top: 48px;
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        height: 210px;
+    }
+}
+
+.twhiTitle {
+    margin-bottom: 48px;
+}
+
+@media(min-width:992px) {
+    .twhiSection {
+        margin-top: 48px;
+        margin-bottom: 120px;
+    }
+
+    .twhi-image {
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            height: 600px;
+        }
+    }
+
+    .twhiTitle {
+        margin-bottom: unset;
+    }
+}

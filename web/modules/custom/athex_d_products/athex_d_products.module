@@ -2,22 +2,23 @@
 
 function athex_d_products_theme($existing, $type, $theme, $path) {
 	return [
-		'stock_search' => [
+		'product_search' => [
 			'variables' => [
+				'page_title' => null,
 				'search_form' => null,
 				'table' => null,
 				'pager' => null
 			]
 		],
-		'stock_hero' => [
+		'product_hero' => [
 			'variables' => [
-				'stock_name' => null,
+				'product_name' => null,
 				'cover_img_url' => null,
 				'logo_url' => null,
 				'ticker' => null
 			]
 		],
-		'stock_ticker' => [
+		'product_ticker' => [
 			'variables' => []
 		]
 	];

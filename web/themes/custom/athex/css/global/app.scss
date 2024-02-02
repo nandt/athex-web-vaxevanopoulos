@@ -1,10 +1,16 @@
 body{
     position: relative;
     font-family: 'Manrope' !important;
-}
 
-main {
-	margin-top: -120px;
+	&.toolbar-fixed{
+		height: 100vh;
+
+		.dialog-off-canvas-main-canvas {
+			transform: translate(0);
+			height: 100%;
+			overflow: auto;
+		}
+	}
 }
 
 .views-exposed-form .form-actions{

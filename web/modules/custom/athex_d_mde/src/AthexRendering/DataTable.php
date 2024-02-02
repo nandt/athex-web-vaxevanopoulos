@@ -9,7 +9,7 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
  *
  * 	$struct = [
  * 		[
- * 			'label' => 'Label',
+ * 			'label' => 'EN Label',
  * 			'field' => 'datakey',
  * 			'pinned' => true
  * 		],
@@ -61,16 +61,16 @@ class DataTable {
 				]
 			];
 
-			if (@$col['pinned']) {
+			if (!@$col['pinned'])
 				$cell['class'][] = 'mobile-hidden';
+			else
 				$pins = true;
-			}
 
 			$cells[] = $cell;
 		}
 
 		if (!$pins)
-			$cells[0]['class'][] = 'mobile-hidden';
+			array_pop($cells[0]['class']);
 
 		return $cells;
 	}

@@ -1,0 +1,17 @@
+.bannerWithCta{
+	color:white;
+	background :linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
+}
+
+.row.bwctaContent {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.col-12.col-lg-6.bwctaTitleText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
