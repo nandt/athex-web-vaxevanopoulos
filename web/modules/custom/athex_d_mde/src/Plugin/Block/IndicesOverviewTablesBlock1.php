@@ -117,12 +117,11 @@ class IndicesOverviewTablesBlock1 extends BlockBase implements ContainerFactoryP
 				$renderArray[$gdValue] = []; // Ensure an empty array is set if no data
 			}
 		}
-		return $renderArray;
-		// Return a render array for your block
-		/*return [
-			'#theme' => 'your_custom_block_template',
-			'#data' => $renderArray,
-		];*/
+
+		return [
+			'#theme' => 'indices_overview_tables_block1',
+			'#renderArray' => $renderArray,
+		];
 	}
 
 

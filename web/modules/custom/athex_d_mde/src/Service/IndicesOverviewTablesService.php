@@ -14,6 +14,14 @@ class IndicesOverviewTablesService {
 
 	use StringTranslationTrait;
 
+	protected $config;
+
+	/**
+	 * The SisDbDataService service.
+	 */
+	protected $sisDbDataService;
+
+
 	protected $api;
 	protected $containers;
 
