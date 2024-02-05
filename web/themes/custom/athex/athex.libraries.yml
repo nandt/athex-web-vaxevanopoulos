@@ -176,6 +176,13 @@ sol_teaser:
     theme:
       css/node/sol_teaser.scss: {}
 
+faq:
+  css:
+    theme:
+      css/paragraph/faq.scss: {}
+  js:
+    js/faq.js: {}
+
 listingsview_home:
   css:
     theme:
