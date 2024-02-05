@@ -23,7 +23,8 @@
 							},
 							992: {
 								items: 5,
-								slideBy: 5
+								slideBy: 5,
+								gutter: 8
 							}
 						}
 					})
