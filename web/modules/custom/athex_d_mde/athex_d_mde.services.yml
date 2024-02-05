@@ -10,6 +10,5 @@ services:
     arguments: ['@config.factory', '@athex_inbroker.api_data']
   athex_d_mde.indices_overview_tables:
     class: Drupal\athex_d_mde\Service\IndicesOverviewTablesService
-    arguments: ['@logger.factory', '@athex_sis.db_data', '@athex_d_mde.indices_overview', '@athex_inbroker.api_data', '@language_manager','@config.factory',]
-
+    arguments: [ '@logger.factory', '@athex_sis.db_data', '@athex_d_mde.indices_overview', '@athex_inbroker.api_data', '@language_manager', '@config.factory' ]
 

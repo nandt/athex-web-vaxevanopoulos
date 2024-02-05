@@ -34,107 +34,41 @@ class IndicesOverviewTablesService
 		'Fallers',
 		'Most Active'
 	];
-
+	protected $configFactory;
 
 	public function __construct(
 		LoggerChannelFactoryInterface $loggerFactory,
-		SisDbDataService              $sisDbDataService,
-		IndicesOverviewService        $indicesOverviewService,
-		ApiDataService                $apiDataService,
-		LanguageManagerInterface      $languageManager,
-		ConfigFactoryInterface        $configFactory
-	)
-	{
+		SisDbDataService $sisDbDataService,
+		IndicesOverviewService $indicesOverviewService,
+		ApiDataService $apiDataService,
+		LanguageManagerInterface $languageManager,
+		ConfigFactoryInterface $configFactory // Ensure this is passed in
+	) {
+		if ($configFactory === null) {
+			drupal_set_message('ConfigFactory is null');
+		}
 		$this->logger = $loggerFactory->get('athex_d_mde');
 		$this->sisDbDataService = $sisDbDataService;
 		$this->indicesOverviewService = $indicesOverviewService;
-		//$this->apiDataService = $apiDataService;
-		$this->api = $apiDataService; // updated this line
+		$this->api = $apiDataService;
 		$this->languageManager = $languageManager;
-		$this->config = $configFactory->get('athex_d_mde.indicessettings');
+		$this->configFactory = $configFactory; // Assign to class property
+		//$this->gdValues = explode(',', $this->configFactory->get('athex_d_mde.settings')->get('gd_values'));
+		$gdValuesString = $this->configFactory->get('athex_d_mde.settings')->get('gd_values');
+		$this->gdValues = $gdValuesString ? explode(',', $gdValuesString) : [];
+
 	}
 
 
-
-
-	/*private function getSubProductsTableRA($seldSymbol, $seldTable) {
-		//TODO: get data from API
-		return (new ProductsTable([
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(97.39), Helpers::renderDelta(-1.3, ' %')],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(97.39), Helpers::renderDelta(-1.3, ' %')],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')],
-			['ATG 10010', 'Lorem ipsum dolor sit amet', 7402.14, Helpers::renderDelta(-97.39), Helpers::renderDelta(-1.3, ' %')]
-		]))->render();
-	}
-*/
-
-
-	/*public function getSubProductsTableRA() {
-		$firstResponseLogged = false; // Initialize the variable at the start of the function
-		$gdValues = ['GD', 'FTSE', 'ETE', 'ALPHA', 'TPEIR', 'EXAE'];
-		$tableRows = [];
-
-		foreach ($gdValues as $gdValue) {
-			$sql = "SELECT hs.TICKER_EN FROM HELEX_STOCKS hs
-                JOIN HELEX_INDEXCOMPOSITION hic ON hs.STOCK_ID = hic.STOCK_ID
-                JOIN HELEX_INDICES hi ON hic.INDEX_ID = hi.INDEX_ID
-                WHERE hi.TICKER_EN = :gdValue";
-			    $params = [':gdValue' => $gdValue ];
-			$data = $this->sisDbDataService->fetchAllWithParams($sql, $params);
-           // Count and log number of items returned for each gdValue
-			$count = count($data);
-			$this->logger->info("Count for {$gdValue}: {$count}");
-			// end of count function
-			foreach ($data as $entry) {
-				$tickerEn = $entry['TICKER_EN'] . '.ATH';
-				$apiResponse = $this->api->callDelayed('Info', ['code' => $tickerEn, 'format' => 'json']);
-				//checks if api is null
-				if ($apiResponse === null) {
-					// Log an error message or handle this case however you prefer
-					$this->logger->error("API response for {$tickerEn} is null");
-					continue; // this skips the current iteration of the loop and moves on to the next entry
-				}
-				// Log the first API response for inspection
-				if (!$firstResponseLogged) {
-					$this->logger->info(print_r($apiResponse, true));
-					$firstResponseLogged = true;
-				}
-
-				if (isset($apiResponse['instrSysName'])) { // Ensure there's a symbol in the response
-					$tableRows[] = [
-						'symbol' => $apiResponse['instrSysName'] ?? 'N/A',
-						'name' => $apiResponse['instrName'] ?? 'N/A',
-						'value' => isset($apiResponse['price']) ? $apiResponse['price'] : 'N/A', // Check explicitly for price to handle 0 or null
-						'change_euro' => isset($apiResponse['pricePrevClosePriceDelta']) ? $apiResponse['pricePrevClosePriceDelta'] : 'N/A',
-						'change_percent' => isset($apiResponse['pricePrevClosePricePDelta']) ? $apiResponse['pricePrevClosePricePDelta'] : 'N/A',
-					];
-				} else {
-					// Handle the case where API response does not include the necessary symbol information
-					$tableRows[] = [$tickerEn, 'Symbol data not available', 'N/A', 'N/A', 'N/A'];
-				}
-			}
-		}
-
-		return (new ProductsTable($tableRows))->render();
-	}
-*/
-
-
-	public function getSubProductsTables()
-	{
-		$gdValues = ['GD', 'FTSE', 'ETE', 'ALPHA', 'TPEIR', 'EXAE'];
+	public function getSubProductsTables() {
 		$allTables = [];
 
-		foreach ($gdValues as $gdValue) {
+		foreach ($this->gdValues as $gdValue) {
 			// Fetch data from your database for this GD value
 			$sql = "SELECT hs.TICKER_EN FROM HELEX_STOCKS hs
-                JOIN HELEX_INDEXCOMPOSITION hic ON hs.STOCK_ID = hic.STOCK_ID
-                JOIN HELEX_INDICES hi ON hic.INDEX_ID = hi.INDEX_ID
-                WHERE hi.TICKER_EN = :gdValue";
+            JOIN HELEX_INDEXCOMPOSITION hic ON hs.STOCK_ID = hic.STOCK_ID
+            JOIN HELEX_INDICES hi ON hic.INDEX_ID = hi.INDEX_ID
+            WHERE hi.TICKER_EN = :gdValue";
 			$params = [':gdValue' => $gdValue];
 			$data = $this->sisDbDataService->fetchAllWithParams($sql, $params);
 
@@ -199,22 +133,5 @@ class IndicesOverviewTablesService
 	{
 		return (new BsNav($this->pills, $seldTable, 'pills'))->render();
 	}
-
-	/*private function getSubProductsTables($seldSymbol, $seldTable = null) {
-		if ($seldTable == null)
-			$seldTable = $this->pills[0];
-
-		return [
-			'#type' => 'container',
-			$this->getSubProductsPillsRA($seldTable),
-			$this->getSubProductsTableRA($seldSymbol, $seldTable),
-			[
-				'#type' => 'link',
-				'#title' => $this->t('Explore More'),
-				'#url' => \Drupal\Core\Url::fromUri('internal:#')
-			]
-		];
-	}*/
-
 
 }
