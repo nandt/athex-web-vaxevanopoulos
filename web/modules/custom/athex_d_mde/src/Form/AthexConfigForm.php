@@ -5,26 +5,30 @@ namespace Drupal\athex_d_mde\Form;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 
-class AthexConfigForm extends ConfigFormBase {
+class AthexConfigForm extends ConfigFormBase
+{
 
 	/**
 	 * {@inheritdoc}
 	 */
-	protected function getEditableConfigNames() {
+	protected function getEditableConfigNames()
+	{
 		return ['athex_d_mde.settings'];
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
-	public function getFormId() {
+	public function getFormId()
+	{
 		return 'athex_d_mde_admin_settings';
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
-	public function buildForm(array $form, FormStateInterface $form_state) {
+	public function buildForm(array $form, FormStateInterface $form_state)
+	{
 		$config = $this->config('athex_d_mde.settings');
 
 		$form['gd_values'] = [
@@ -40,7 +44,8 @@ class AthexConfigForm extends ConfigFormBase {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function submitForm(array &$form, FormStateInterface $form_state) {
+	public function submitForm(array &$form, FormStateInterface $form_state)
+	{
 		parent::submitForm($form, $form_state);
 
 		$this->config('athex_d_mde.settings')

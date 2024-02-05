@@ -38,12 +38,13 @@ class IndicesOverviewTablesService
 
 	public function __construct(
 		LoggerChannelFactoryInterface $loggerFactory,
-		SisDbDataService $sisDbDataService,
-		IndicesOverviewService $indicesOverviewService,
-		ApiDataService $apiDataService,
-		LanguageManagerInterface $languageManager,
-		ConfigFactoryInterface $configFactory // Ensure this is passed in
-	) {
+		SisDbDataService              $sisDbDataService,
+		IndicesOverviewService        $indicesOverviewService,
+		ApiDataService                $apiDataService,
+		LanguageManagerInterface      $languageManager,
+		ConfigFactoryInterface        $configFactory // Ensure this is passed in
+	)
+	{
 		if ($configFactory === null) {
 			drupal_set_message('ConfigFactory is null');
 		}
@@ -60,7 +61,8 @@ class IndicesOverviewTablesService
 	}
 
 
-	public function getSubProductsTables() {
+	public function getSubProductsTables()
+	{
 		$allTables = [];
 
 		foreach ($this->gdValues as $gdValue) {

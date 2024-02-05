@@ -7,7 +7,9 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\athex_d_mde\Service\IndicesOverviewTablesService;
-use Drupal\Core\Config\ConfigFactoryInterface; // Import the ConfigFactory service
+use Drupal\Core\Config\ConfigFactoryInterface;
+
+// Import the ConfigFactory service
 
 /**
  * Provides a 'IndicesOverviewTables' Block.
@@ -46,8 +48,8 @@ class IndicesOverviewTablesBlock1 extends BlockBase implements ContainerFactoryP
 	protected $configFactory;
 
 
-	  public function __construct(array $configuration, $plugin_id, $plugin_definition, SisDbDataService $sisDbDataService, IndicesOverviewTablesService $indicesOverviewTablesService, ConfigFactoryInterface $configFactory)
-	  {
+	public function __construct(array $configuration, $plugin_id, $plugin_definition, SisDbDataService $sisDbDataService, IndicesOverviewTablesService $indicesOverviewTablesService, ConfigFactoryInterface $configFactory)
+	{
 		parent::__construct($configuration, $plugin_id, $plugin_definition);
 		$this->sisDbDataService = $sisDbDataService;
 		$this->indicesOverviewTablesService = $indicesOverviewTablesService;
@@ -78,8 +80,8 @@ class IndicesOverviewTablesBlock1 extends BlockBase implements ContainerFactoryP
 	 */
 
 
-
-	public function build() {
+	public function build()
+	{
 		$config = $this->configFactory->get('athex_d_mde.settings');
 		$gdValuesString = $config->get('gd_values');
 		$gdValues = $gdValuesString ? explode(',', $gdValuesString) : []; // Use the settings from the config
