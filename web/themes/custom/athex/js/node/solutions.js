@@ -1,32 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var btnsShare = document.querySelectorAll('.btnShare');
-    var modal = document.querySelector('.modal');
-    var overlay = document.querySelector('.modal-overlay');
-    var closeBtn = document.querySelector('.close-btn');
-
-    btnsShare.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            modal.style.display = 'block';
-            overlay.style.display = 'block';
-        });
-    });
-
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-        overlay.style.display = 'none';
-    });
-
-    overlay.addEventListener('click', function(event) {
-        if (event.target == overlay) {
-            modal.style.display = 'none';
-            overlay.style.display = 'none';
-        }
-    });
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
     var btnShare = document.querySelector('.btnShare');
     var bottomCTAs = document.querySelector('.bottomCTAs');
     bottomCTAs.style.display = 'none';
@@ -116,7 +88,7 @@ jQuery(document).ready(function ($) {
           getAndDisplayMarginRight();
         });
 
-        // On orientation change
+
         $(window).on('orientationchange', function() {
           getAndDisplayMarginRight();
         });
@@ -127,3 +99,44 @@ jQuery(document).ready(function ($) {
       });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+
+    var bottomCTAs = document.querySelector('.bottomCTAs');
+    bottomCTAs.style.display = 'none';
+
+    window.addEventListener('scroll', function() {
+        var btnShare = document.querySelector('.btnShare');
+        if (btnShare) {
+            var btnShareRect = btnShare.getBoundingClientRect();
+            if (btnShareRect.top < 0 || btnShareRect.bottom < 0) {
+                bottomCTAs.style.display = 'flex';
+            } else {
+                bottomCTAs.style.display = 'none';
+            }
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var bottomCTAButton = document.querySelector('.scrollBtn');
+
+    bottomCTAButton.addEventListener('click', function() {
+
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var bottomCTAButton = document.querySelector('.scrollBtn2');
+
+    bottomCTAButton.addEventListener('click', function() {
+
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: 'smooth'
+        });
+    });
+});

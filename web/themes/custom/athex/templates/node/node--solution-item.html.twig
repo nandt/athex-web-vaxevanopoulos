@@ -20,9 +20,9 @@
         </div>
         <div class="col-lg-4 padding-none">
             {% if selectedColor == 'Blue' %}
-                <div class="btnShare cta3 textColorWhite weightBold blueBtn">{{content.field_si_demo_button}}</div>
+                <div class="btnShare scrollBtn cta3 textColorWhite weightBold blueBtn">{{content.field_si_demo_button}}</div>
             {% elseif selectedColor == 'Green' %}
-                <div class="btnShare cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
+                <div class="btnShare scrollBtn cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
             {% endif %}
         </div>
         <div class="col-12 ">
@@ -32,11 +32,11 @@
         </div>
         <div class="col-lg-12 padding-none">
             {% if selectedColor == 'Blue' %}
-                <div class="image_container bgBlueGradient">
+                <div class="image_container scrollBtn bgBlueGradient">
                     <div class="solImage">{{content.field_si_image}}</div>
                 </div>
             {% elseif selectedColor == 'Green' %}
-                <div class="image_container bgGreenGradient">
+                <div class="image_container scrollBtn bgGreenGradient">
                     <div class="solImage">{{content.field_si_image}}</div>
                 </div>
             </div>
@@ -55,12 +55,12 @@
         </div>
     </div>
 </div>
-<div class="col-lg-4 padding-none bottomCTAs ">
-    <span class="BTNCtaText">Digital Certificates </span>
+<div class="col-lg-4 padding-none bottomCTAs">
+    <span class="BTNCtaText">{{node.label}} </span>
     {% if selectedColor == 'Blue' %}
-        <div class="btnShare cta3 textColorWhite weightBold blueBtn ">{{content.field_si_demo_button}}</div>
+        <div class="btnShare scrollBtn2 cta3 textColorWhite weightBold blueBtn ">{{content.field_si_demo_button}}</div>
     {% elseif selectedColor == 'Green' %}
-        <div class="btnShare cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
+        <div class="btnShare scrollBtn2 cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
     {% endif %}
 </div>
 <div class="sliding-text-container">
