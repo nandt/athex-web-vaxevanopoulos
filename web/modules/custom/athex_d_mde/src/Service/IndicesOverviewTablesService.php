@@ -13,7 +13,8 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 
-class IndicesOverviewTablesService {
+class IndicesOverviewTablesService
+{
 
 	use StringTranslationTrait;
 
@@ -37,12 +38,13 @@ class IndicesOverviewTablesService {
 
 	public function __construct(
 		LoggerChannelFactoryInterface $loggerFactory,
-		SisDbDataService $sisDbDataService,
-		IndicesOverviewService $indicesOverviewService,
-		ApiDataService $apiDataService,
-		LanguageManagerInterface $languageManager,
-		ConfigFactoryInterface $configFactory
-	) {
+		SisDbDataService              $sisDbDataService,
+		IndicesOverviewService        $indicesOverviewService,
+		ApiDataService                $apiDataService,
+		LanguageManagerInterface      $languageManager,
+		ConfigFactoryInterface        $configFactory
+	)
+	{
 		$this->logger = $loggerFactory->get('athex_d_mde');
 		$this->sisDbDataService = $sisDbDataService;
 		$this->indicesOverviewService = $indicesOverviewService;
@@ -71,7 +73,7 @@ class IndicesOverviewTablesService {
 */
 
 
-	public function getSubProductsTableRA() {
+	/*public function getSubProductsTableRA() {
 		$firstResponseLogged = false; // Initialize the variable at the start of the function
 		$gdValues = ['GD', 'FTSE', 'ETE', 'ALPHA', 'TPEIR', 'EXAE'];
 		$tableRows = [];
@@ -119,20 +121,86 @@ class IndicesOverviewTablesService {
 
 		return (new ProductsTable($tableRows))->render();
 	}
+*/
+
+
+	public function getSubProductsTables()
+	{
+		$gdValues = ['GD', 'FTSE', 'ETE', 'ALPHA', 'TPEIR', 'EXAE'];
+		$allTables = [];
+
+		foreach ($gdValues as $gdValue) {
+			// Fetch data from your database for this GD value
+			$sql = "SELECT hs.TICKER_EN FROM HELEX_STOCKS hs
+                JOIN HELEX_INDEXCOMPOSITION hic ON hs.STOCK_ID = hic.STOCK_ID
+                JOIN HELEX_INDICES hi ON hic.INDEX_ID = hi.INDEX_ID
+                WHERE hi.TICKER_EN = :gdValue";
+			$params = [':gdValue' => $gdValue];
+			$data = $this->sisDbDataService->fetchAllWithParams($sql, $params);
+
+			// Prepare tables for "Risers" and "Fallers" categories with common data structure
+			$allTables[$gdValue]['Risers'] = $this->prepareTable($data, 'common');
+			$allTables[$gdValue]['Fallers'] = $this->prepareTable($data, 'common');
+
+			// Prepare table for "Most Active" category with specific data structure
+			$allTables[$gdValue]['Most Active'] = $this->prepareTable($data, 'most_active');
+		}
+
+		// This will return an array of tables for each GD value and category
+		return $allTables;
+	}
+
+	private function prepareTable($data, $type)
+	{
+		$tableRows = [];
+
+		foreach ($data as $entry) {
+			$tickerEn = $entry['TICKER_EN'] . '.ATH';
+			$apiResponse = $this->api->callDelayed('Info', ['code' => $tickerEn, 'format' => 'json']);
+
+			if ($apiResponse === null) {
+				$this->logger->error("API response for {$tickerEn} is null");
+				continue;
+			}
+
+			if ($type == 'most_active') {
+				// Specific data structure for "Most Active"
+				$tableRows[] = [
+					'symbol' => $apiResponse['instrSysName'] ?? 'N/A',
+					'value' => $apiResponse['price'] ?? 'N/A',
+					'total_volume' => $apiResponse['totalInstrVolume'] ?? 'N/A',
+				];
+			} else {
+				// Common data structure for "Risers" and "Fallers"
+				$tableRows[] = [
+					'symbol' => $apiResponse['instrSysName'] ?? 'N/A',
+					'name' => $apiResponse['instrName'] ?? 'N/A',
+					'value' => isset($apiResponse['price']) ? $apiResponse['price'] : 'N/A',
+					'change_euro' => isset($apiResponse['pricePrevClosePriceDelta']) ? $apiResponse['pricePrevClosePriceDelta'] : 'N/A',
+					'change_percent' => isset($apiResponse['pricePrevClosePricePDelta']) ? $apiResponse['pricePrevClosePricePDelta'] : 'N/A',
+				];
+			}
+		}
+
+		return (new ProductsTable($tableRows))->render();
+	}
+
 
 	public function getBlockRA($seldTable = null)
 	{
-		$blockContent = $this->getSubProductsRA(null, $seldTable); // Passing null for the symbol argument.
+		$blockContent = $this->getSubProductsTables(null, $seldTable); // Passing null for the symbol argument.
 		$container = $this->indicesOverviewService->createContainer();
 		$renderedBlock = $container->render($blockContent);
 
 		return [$renderedBlock];
 	}
-	private function getSubProductsPillsRA($seldTable) {
+
+	private function getSubProductsPillsRA($seldTable)
+	{
 		return (new BsNav($this->pills, $seldTable, 'pills'))->render();
 	}
 
-	private function getSubProductsRA($seldSymbol, $seldTable = null) {
+	/*private function getSubProductsTables($seldSymbol, $seldTable = null) {
 		if ($seldTable == null)
 			$seldTable = $this->pills[0];
 
@@ -146,7 +214,7 @@ class IndicesOverviewTablesService {
 				'#url' => \Drupal\Core\Url::fromUri('internal:#')
 			]
 		];
-	}
+	}*/
 
 
 }

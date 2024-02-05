@@ -97,7 +97,7 @@ class IndicesOverviewTablesBlock1 extends BlockBase implements ContainerFactoryP
 		return $renderArray;
 	}*/
 
-	public function build() {
+	/*public function build() {
 		$renderArray = [];
 		$gdValues = ['GD', 'FTSE', 'ETE', 'ALPHA', 'TPEIR', 'EXAE'];
 
@@ -115,6 +115,37 @@ class IndicesOverviewTablesBlock1 extends BlockBase implements ContainerFactoryP
 				$renderArray[$gdValue] = $this->indicesOverviewTablesService->getSubProductsTableRA($data); // Assuming 'Risers' is a valid second argument
 			} else {
 				$renderArray[$gdValue] = []; // Ensure an empty array is set if no data
+			}
+		}
+
+		return [
+			'#theme' => 'indices_overview_tables_block1',
+			'#renderArray' => $renderArray,
+		];
+	}*/
+
+	public function build() {
+		$renderArray = [];
+		$gdValues = ['GD', 'FTSE', 'ETE', 'ALPHA', 'TPEIR', 'EXAE'];
+
+		// Fetch the tables for all categories and GD values
+		$allTables = $this->indicesOverviewTablesService->getSubProductsTables();
+
+		foreach ($gdValues as $gdValue) {
+			// Check if the data for this GD value exists
+			if (isset($allTables[$gdValue])) {
+				$renderArray[$gdValue] = [
+					'Risers' => $allTables[$gdValue]['Risers'],
+					'Fallers' => $allTables[$gdValue]['Fallers'],
+					'Most Active' => $allTables[$gdValue]['Most Active'],
+				];
+			} else {
+				// Ensure an empty array is set if no data for this GD value
+				$renderArray[$gdValue] = [
+					'Risers' => [],
+					'Fallers' => [],
+					'Most Active' => [],
+				];
 			}
 		}
 

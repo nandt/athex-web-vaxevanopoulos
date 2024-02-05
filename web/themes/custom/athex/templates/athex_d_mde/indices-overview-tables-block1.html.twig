@@ -1,4 +1,4 @@
-<table>
+{# <table>
 
 	HELLO
 	{% for key, value in renderArray %}
@@ -8,3 +8,17 @@
 		</tr>
 	{% endfor %}
 </table>
+#}
+{# Template: indices-overview-tables-block1.html.twig #}
+
+{% for gdValue, categories in renderArray %}
+	<div class="gd-value-container">
+		<h2>{{ gdValue }}</h2> <!-- Display the GD value -->
+		{% for category, tableHtml in categories %}
+			<div class="category-container">
+				<h3>{{ category }}</h3> <!-- Display the category name (Risers, Fallers, Most Active) -->
+				{{ tableHtml|raw }} <!-- Render the HTML table. Use the |raw filter to render HTML properly -->
+			</div>
+		{% endfor %}
+	</div>
+{% endfor %}

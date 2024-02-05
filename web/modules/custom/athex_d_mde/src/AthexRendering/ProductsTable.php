@@ -28,6 +28,7 @@ class ProductsTable
 				];
 			}
 
+
 			if (count($cols) === 5)
 				$cols[1]['class'] = ['mobile-hidden'];
 
