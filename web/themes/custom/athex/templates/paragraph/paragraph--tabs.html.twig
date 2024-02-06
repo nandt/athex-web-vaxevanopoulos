@@ -1,10 +1,10 @@
 {{ attach_library('athex/tabs') }}
 
 <div class="tabs-container">
-  {% if paragraph.field_t_title.value %}
+  {% if paragraph.field_t_title %}
     <h2>{{ paragraph.field_t_title.value }}</h2>
   {% endif %}
-  {% if paragraph.field_t_text.value %}
+  {% if paragraph.field_t_text %}
     <div class="tabs-description">{{ paragraph.field_t_text.value }}</div>
   {% endif %}
   <ul class="tabs-titles">
@@ -12,10 +12,28 @@
       <li class="tab-title" data-tab-target-id="tab-{{ loop.index }}">{{ item.entity.field_ti_name.value }}</li>
     {% endfor %}
   </ul>
-  <hr>
-  <div class="tabs-content">
+  <div class="tabs-line"></div>
+  <div class=" tabs-content">
     {% for item in paragraph.field_tab_item %}
-      {{content.field_tab_item}}
+      <div id="tab-{{ loop.index }}" class="tab-content">
+	  <div class="col-12 col-lg-6">
+	  <span class="upperTitle subheading  textColorDarkGrey">{{item.entity.field_ti_name.value}}</span>
+        <h3 class="textColorDarkBlue">{{ item.entity.field_ti_title.value }}</h3>
+        {% if item.entity.field_ti_text.value %}
+          <p>{{ item.entity.field_ti_text.value }}</p>
+        {% endif %}
+		  {% if item.entity.field_ti_cta.uri %}
+          <div class="exploreMore"><a href="{{ item.entity.field_ti_cta.uri }}">{{ item.entity.field_ti_cta.title }}</a></div>
+        {% endif %}
+		</div>
+		<div class="col-12 col-lg-6 offset-lg-1 imgtab">
+			{% if item.entity.field_tii_image %}
+	{% set image = item.entity.field_tii_image.entity %}
+	<img src="{{ file_url(image.fileuri) }}" alt="{{ image.alt }}" />
+	{% endif %}
+
+</div>
+      </div>
     {% endfor %}
   </div>
 </div>

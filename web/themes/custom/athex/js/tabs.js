@@ -3,10 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	const firstTabContentId = tabs[0].getAttribute('data-tab-target-id');
 	const firstTabContent = document.querySelector('#' + firstTabContentId);
 
-	console.log(tabs);
-
-	//tabs[0].toggleClass('active');
-	//firstTabContent.toggleClass('active');
+	tabs[0].classList.add('active');
+	firstTabContent.classList.add('active');
 
 	tabs.forEach(tab => {
 	  tab.addEventListener('click', () => {
@@ -20,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		  t.classList.remove('active');
 		});
 
-		tab.toggleClass('active');
-		targetContent.toggleClass('active');
+		tab.classList.add('active');
+		targetContent.classList.add('active');
 	  });
 	});
   });
