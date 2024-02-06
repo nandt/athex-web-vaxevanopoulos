@@ -1,25 +1,18 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
     var btnShare = document.querySelector('.btnShare');
     var bottomCTAs = document.querySelector('.bottomCTAs');
-    bottomCTAs.style.display = 'none';
 
-    window.addEventListener('scroll', function() {
+    var observer = new IntersectionObserver(function(entries) {
 
-        if (window.innerWidth > 992) {
-            var btnShareTop = btnShare.getBoundingClientRect().top;
-
-            if (btnShareTop <= 0) {
-                bottomCTAs.style.display = 'flex';
-            } else {
-                bottomCTAs.style.display = 'none';
-            }
+        if(entries[0].intersectionRatio === 0) {
+            bottomCTAs.style.display = 'flex';
         } else {
-
             bottomCTAs.style.display = 'none';
         }
-    });
-});
+    }, { threshold: [0] });
 
+    observer.observe(btnShare);
+});
 
 
 jQuery(document).ready(function ($) {
@@ -99,44 +92,5 @@ jQuery(document).ready(function ($) {
       });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
 
-    var bottomCTAs = document.querySelector('.bottomCTAs');
-    bottomCTAs.style.display = 'none';
 
-    window.addEventListener('scroll', function() {
-        var btnShare = document.querySelector('.btnShare');
-        if (btnShare) {
-            var btnShareRect = btnShare.getBoundingClientRect();
-            if (btnShareRect.top < 0 || btnShareRect.bottom < 0) {
-                bottomCTAs.style.display = 'flex';
-            } else {
-                bottomCTAs.style.display = 'none';
-            }
-        }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    var bottomCTAButton = document.querySelector('.scrollBtn');
-
-    bottomCTAButton.addEventListener('click', function() {
-
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: 'smooth'
-        });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    var bottomCTAButton = document.querySelector('.scrollBtn2');
-
-    bottomCTAButton.addEventListener('click', function() {
-
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: 'smooth'
-        });
-    });
-});

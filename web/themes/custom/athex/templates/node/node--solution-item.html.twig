@@ -18,11 +18,11 @@
             <div class="solBody body2 weightBook textColorBlackDark">{{content.field_si_body}}</div>
             <span class="siCta">{{content.field_si_call_to_action}}</span>
         </div>
-        <div class="col-lg-4 padding-none">
+        <div class="col-lg-4 padding-none scrollBtn">
             {% if selectedColor == 'Blue' %}
-                <div class="btnShare scrollBtn cta3 textColorWhite weightBold blueBtn">{{content.field_si_demo_button}}</div>
+                <div class="btnShare cta3 textColorWhite weightBold blueBtn">{{content.field_si_demo_button}}</div>
             {% elseif selectedColor == 'Green' %}
-                <div class="btnShare scrollBtn cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
+                <div class="btnShare  cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
             {% endif %}
         </div>
         <div class="col-12 ">
@@ -55,15 +55,7 @@
         </div>
     </div>
 </div>
-<div class="col-lg-4 padding-none bottomCTAs">
-    <span class="BTNCtaText">{{node.label}} </span>
-    {% if selectedColor == 'Blue' %}
-        <div class="btnShare scrollBtn2 cta3 textColorWhite weightBold blueBtn ">{{content.field_si_demo_button}}</div>
-    {% elseif selectedColor == 'Green' %}
-        <div class="btnShare scrollBtn2 cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
-    {% endif %}
-</div>
-<div class="pageElements">
+<div class="container pageElements">
 	{{content.field_si_page_elements}}
 </div>
 <div class="sliding-text-container">
@@ -78,10 +70,11 @@
     <div class="sectionLabel contact">{{content.field_explore_more_solutions}}</div>
 </div>
 
-<div class="modal">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <span>Request Info</span>
-    </div>
+<div class="col-lg-4 padding-none bottomCTAs scrollBtn">
+    <span class="BTNCtaText">{{node.label}} </span>
+    {% if selectedColor == 'Blue' %}
+        <div class="btnShare cta3 textColorWhite weightBold blueBtn ">{{content.field_si_demo_button}}</div>
+    {% elseif selectedColor == 'Green' %}
+        <div class="btnShare  cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
+    {% endif %}
 </div>
-<div class="modal-overlay"></div>

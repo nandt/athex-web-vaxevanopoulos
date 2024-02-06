@@ -7,6 +7,9 @@
 
 }
 
+.bottomCTAs {
+    display: none;
+}
 
 
 .downloadBtn {
@@ -82,16 +85,12 @@
     width: 450px;
     bottom: 20px;
     transform: translateX(-50%);
-    position: fixed;
+    position: sticky;
     z-index: 1000;
     left: 50%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-}
-
-.padding-none.bottomCTAs {
-	display: none;
 }
 
 .bottomCTAs {
@@ -153,7 +152,6 @@
 	text-decoration: none;
 	cursor: pointer;
 }
-
 
 
 .container.solutions {
@@ -615,6 +613,7 @@ span.siCta a {
     }
 
     .btnShare {
+		cursor: pointer;
         width: 50%;
         margin-left: 32px;
 
