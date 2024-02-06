@@ -1,19 +1,17 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var btnShare = document.querySelector('.btnShare');
-    var bottomCTAs = document.querySelector('.bottomCTAs');
-
-    var observer = new IntersectionObserver(function(entries) {
-
-        if(entries[0].intersectionRatio === 0) {
-            bottomCTAs.style.display = 'flex';
-        } else {
-            bottomCTAs.style.display = 'none';
-        }
-    }, { threshold: [0] });
-
-    observer.observe(btnShare);
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.scrollBtn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const targetElement = document.querySelector('#block-athex-content');
+            if (targetElement) {
+                const bottomPosition = targetElement.offsetTop + targetElement.offsetHeight;
+                window.scrollTo({
+                    top: bottomPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
-
 
 jQuery(document).ready(function ($) {
     const bullets = $('.bullet');
@@ -91,6 +89,26 @@ jQuery(document).ready(function ($) {
           });
       });
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var btnShare = document.querySelector('.btnShare');
+    var bottomCTAs = document.querySelector('.bottomCTAs');
+
+    var observer = new IntersectionObserver(function(entries) {
+
+        if(entries[0].intersectionRatio === 0) {
+            bottomCTAs.style.display = 'flex';
+        } else {
+            bottomCTAs.style.display = 'none';
+        }
+    }, { threshold: [0] });
+
+    observer.observe(btnShare);
+});
+
 
 
 
