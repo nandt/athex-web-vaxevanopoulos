@@ -7,19 +7,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	firstTabContent.classList.add('active');
 
 	tabs.forEach(tab => {
-	  tab.addEventListener('click', () => {
-		const targetId = tab.getAttribute('data-tab-target-id');
-		const targetContent = document.querySelector('#' + targetId);
+		tab.addEventListener('click', () => {
+			const targetId = tab.getAttribute('data-tab-target-id');
+			const targetContent = document.querySelector('#' + targetId);
 
-		document.querySelectorAll('.tab-content').forEach(tc => {
-		  tc.classList.remove('active');
-		});
-		tabs.forEach(t => {
-		  t.classList.remove('active');
-		});
+			document.querySelectorAll('.tab-content').forEach(tc => {
+				tc.classList.remove('active');
+			});
+			tabs.forEach(t => {
+				t.classList.remove('active');
+			});
 
-		tab.classList.add('active');
-		targetContent.classList.add('active');
-	  });
+			tab.classList.add('active');
+			targetContent.classList.add('active');
+		});
 	});
-  });
+});
