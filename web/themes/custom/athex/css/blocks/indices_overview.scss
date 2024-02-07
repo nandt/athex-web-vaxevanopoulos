@@ -50,6 +50,7 @@
 	overflow-y:hidden;
 	white-space: nowrap;
 	flex-wrap: nowrap !important;
+	text-transform: uppercase;
 }
 
 .is_Wrapper {
@@ -291,5 +292,30 @@
 	.indices_overview_container {
 		padding-bottom: 120px;
 	}
+}
 
+.mdContainer {
+	padding: 0 12px 48px;
+
+	.col_Wrapper {
+		background: #fff;
+		padding: 16px;
+	}
+
+	.is_Symbol {
+		padding: 0px 12px;
+	}
+
+	.is_Wrapper {
+		background: #F7F5FD;
+		padding: 16px 12px 21px 12px
+	}
+
+	@media(min-width: 992px) {
+		padding-bottom: 120px;
+
+		.col_Wrapper {
+			padding: 32px 12px;
+		}
+	}
 }

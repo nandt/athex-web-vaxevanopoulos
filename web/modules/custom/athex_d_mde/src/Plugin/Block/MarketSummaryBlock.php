@@ -2,10 +2,11 @@
 
 namespace Drupal\athex_d_mde\Plugin\Block;
 
-use Drupal\athex_d_mde\AthexRendering\ProductsTable;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\BlockPluginInterface;
 
+use Drupal\athex_d_mde\AthexRendering\Helpers;
+use Drupal\athex_d_mde\AthexRendering\ProductsTable;
 use Drupal\athex_d_mde\AthexRendering\TabbedContainer;
 
 
@@ -43,28 +44,38 @@ class MarketSummaryBlock extends BlockBase implements BlockPluginInterface {
 				$summary->render(
 					(new ProductsTable(
 						$this->dummyReplicate([
-							'GD', 7402.14, 97.39, -1.3
+							'GD', 7402.14,
+							Helpers::renderDelta(97.39),
+							Helpers::renderDelta(-1.3, ' %')
 						])
 					))->render()
 				),
 				[
 					'#type' => 'link',
 					'#title' => $this->t('Explore Indices'),
-					'#url' => \Drupal\Core\Url::fromUri('internal:#')
+					'#url' => \Drupal\Core\Url::fromUri('internal:#'),
+					'#attributes' => [
+						'class' => ['md-link']
+					]
 				]
 			],
 			'#market_activity' => [
 				$activity->render(
 					(new ProductsTable(
 						$this->dummyReplicate([
-							'ATG', '[chart]', 695.55, 85.9, -7.39
+							'ATG', '[chart]', 695.55,
+							Helpers::renderDelta(85.9),
+							Helpers::renderDelta(-7.39, ' %')
 						])
 					))->render()
 				),
 				[
 					'#type' => 'link',
 					'#title' => $this->t('Explore Stocks'),
-					'#url' => \Drupal\Core\Url::fromUri('internal:#')
+					'#url' => \Drupal\Core\Url::fromUri('internal:#'),
+					'#attributes' => [
+						'class' => ['md-link']
+					]
 				]
 			]
 		];

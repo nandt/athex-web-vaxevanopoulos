@@ -1,5 +1,7 @@
 {# web/core/themes/stable9/templates/dataset/item-list.html.twig #}
 
+
+
 {% if context.list_style %}
   {%- set attributes = attributes.addClass('item-list__' ~ context.list_style) %}
 {% endif %}
@@ -23,22 +25,4 @@
 
 
 
-<style>
 
-
-li.searchResult {
-    row-gap: 12px;
-    list-style: none;
-    padding: 2%;
-    border-bottom: 1px solid #D1CCE1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-input#edit-keys {
-    height: 56px;
-    margin: 5%;
-    width: 80vw;
-}
-</style>
