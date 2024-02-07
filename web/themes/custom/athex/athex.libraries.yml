@@ -317,3 +317,10 @@ link_cards_bundle:
       css/paragraph/link_cards_bundle.scss: {}
   js:
     js/link_cards_bundle.js: {}
+
+prefooter_block:
+  css:
+    theme:
+      css/paragraph/prefooter_block.scss: {}
+  js:
+    js/prefooter_block.js: {}
