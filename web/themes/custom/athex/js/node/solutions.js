@@ -59,7 +59,7 @@ jQuery(document).ready(function ($) {
 
     function setVerticalBarHeights() {
         verticalBars.each(function (i) {
-            const sectionHeight = sections.eq(i).outerHeight();
+            const sectionHeight = sections.eq(i+1).outerHeight();
             $(this).css('height', sectionHeight - 38);
         });
     }
