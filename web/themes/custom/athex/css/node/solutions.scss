@@ -1,10 +1,17 @@
 .btnShare {
+	padding: 35px;
     bottom: 0;
 	right: 0;
     width: inherit;
     position: fixed;
     z-index: 1000;
+
 }
+
+.bottomCTAs {
+    display: none;
+}
+
 
 .downloadBtn {
     height: 232px;
@@ -71,7 +78,7 @@
 }
 
 .section.timelineeffectitems {
-    padding-top: 64px;
+    padding-top: 0px;
 }
 
 .padding-none.bottomCTAs {
@@ -79,16 +86,12 @@
     width: 450px;
     bottom: 20px;
     transform: translateX(-50%);
-    position: fixed;
-    z-index: 1000;
+    position: sticky;
+    z-index: 100;
     left: 50%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-}
-
-.padding-none.bottomCTAs {
-	display: none;
 }
 
 .bottomCTAs {
@@ -152,7 +155,6 @@
 }
 
 
-
 .container.solutions {
     padding-top: 48px;
     overflow: hidden;
@@ -209,7 +211,7 @@
 			gap: 0px;
 		}
 		.section.timelineeffectitems {
-			padding-top: 0px;
+			padding-top: 64px;
 		}
 
         .sol-teaser-arrow {
@@ -408,6 +410,7 @@ span.siCta a {
 }
 
 .sliding-text span {
+	height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -510,7 +513,6 @@ span.siCta a {
 	}
 
 	.btnShare {
-
 		bottom: 0;
 		width: inherit;
 		position: relative;
@@ -612,13 +614,15 @@ span.siCta a {
     }
 
     .btnShare {
+		padding: 35px 40px;
+		cursor: pointer;
         width: 50%;
         margin-left: 32px;
+	}
 
-        a {
-            padding: 35px 40px;
-        }
-    }
+	a.btnShare{
+		padding: 35px 40px;
+	}
 
     .benefit-item {
         padding-bottom: unset;
