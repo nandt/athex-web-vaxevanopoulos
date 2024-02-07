@@ -1,0 +1,27 @@
+athex_d_products.stock_search:
+  path: '/market-data/instruments/stocks'
+  defaults:
+    _controller: '\Drupal\athex_d_products\Controller\StockSearchController::render'
+  requirements:
+    _permission: 'access content'
+
+athex_d_products.product_profile:
+  path: '/market-data/instruments/{product_type}/{product_id}'
+  defaults:
+    _controller: '\Drupal\athex_d_products\Controller\ProductProfileController::render'
+  requirements:
+    _permission: 'access content'
+
+athex_d_products.product_issuer:
+  path: '/market-data/instruments/{product_type}/{product_id}/issuer-profile'
+  defaults:
+    _controller: '\Drupal\athex_d_products\Controller\IssuerPageController::render'
+  requirements:
+    _permission: 'access content'
+
+athex_d_products.product_publications:
+  path: '/market-data/instruments/{product_type}/{product_id}/issuer-publications'
+  defaults:
+    _controller: '\Drupal\athex_d_products\Controller\IssuerPublicationsPageController::render'
+  requirements:
+    _permission: 'access content'

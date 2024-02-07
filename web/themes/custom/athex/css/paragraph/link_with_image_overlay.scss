@@ -1,0 +1,153 @@
+.lwiobTitle {
+    margin-bottom: 32px;
+}
+
+.oli-teaser-number {
+	font-size: 18px;
+    color: #3C06D9;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0.54px;
+}
+
+.counter-link-wrapper {
+    border-bottom: 2px solid #D1CCE1;
+}
+
+.lwiobTitle.heading1.cb.textColorPurple.weightBoldBook strong {
+    font-weight: 500;
+	background:  linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+
+}
+
+.oli_link a {
+	font-weight: 500;
+	background-image: url('assets/icons/deepPurple/iconArrow.svg');
+	background-position: right center;
+	width: 20px;
+	height: 20px;
+	background-repeat: no-repeat;
+	padding-right: 40px;
+    color: #1a0069;
+    font-size: 26px;
+}
+
+.container.lwiob {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+
+.counter-link-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+	padding: 24px 12px 18px 12px;
+}
+
+.oli-teaser-number {
+    order: 1;
+}
+
+.oli-teaser-number {
+    padding-top: 16px;
+}
+
+.overlay_link_item {
+    margin-top: 48px;
+}
+
+@media(min-width:992px) {
+
+    .overlay_link_item {
+        margin-top: unset;
+    }
+
+    .container.lwiob {
+        margin-bottom: 121px;
+		margin-top: 120px;
+    }
+
+    .overlay_link_item {
+        border-bottom: 1px solid #d1cce1;
+    }
+
+    .counter-link-wrapper {
+		border-bottom: none;
+        padding: 56px;
+        position: relative;
+    }
+
+    .oli_link a {
+		background-image: none;
+        font-size: 34px;
+        font-weight: 500;
+        line-height: 44px;
+        letter-spacing: 1.36px;
+        color: #1a0069;
+        box-sizing: border-box;
+    }
+
+    .overlay_link_item:hover {
+        border-bottom: none;
+        border-width: 1px;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right, #21C0F2, #3300C6);
+    }
+
+	.overlay_link_item:hover .oli_link a {
+		color:white;
+        background-image: url('assets/icons/white/arrow-right.svg');
+		background-position: right center;
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+		padding-right: 40px;
+    }
+
+	.overlay_link_item:hover .oli-teaser-number  {
+		color:white;
+
+    }
+
+    .oli-teaser-number {
+		color:#A399C3;
+		font-size:18px;
+        line-height: 35px;
+        letter-spacing: 2.52px;
+        padding-top: unset;
+    }
+
+    .lwiobTitle {
+        margin-bottom: unset;
+    }
+
+    .lwiobText {
+        margin-bottom: unset;
+    }
+
+    .lwiobTextWrapper {
+        margin-bottom: 50px;
+    }
+
+    .counter-link-wrapper {
+        display: block;
+    }
+
+	.counter-link-wrapper:hover{
+		background: linear-gradient(128deg, #602BD0 -11.33%, rgba(60, 212, 224, 0.77) 114.19%);
+	}
+
+	.counter-link-wrapper:hover .oli_link a {
+		color: white;
+	}
+
+    .oli_link {
+        border: unset;
+        padding-bottom: unset;
+        padding-top: unset;
+    }
+}

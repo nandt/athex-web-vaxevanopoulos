@@ -1,0 +1,11 @@
+services:
+  athex_d_products.stock_data:
+    class: Drupal\athex_d_products\Service\StockDataService
+    arguments: ['@athex_sis.db_data']
+  athex_d_products.issuer_data:
+    class: Drupal\athex_d_products\Service\IssuerDataService
+    arguments: ['@athex_sis.db_data']
+  athex_d_products.stock_profile_rendering:
+    class: Drupal\athex_d_products\Service\StockProfileRenderingService
+    arguments: ['@athex_d_products.stock_data']
+

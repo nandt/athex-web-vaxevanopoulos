@@ -1,0 +1,44 @@
+.tickertapeWrapper {
+	padding: 12px 0px;
+}
+
+.ticker-tape-item {
+	text-wrap: nowrap;
+	padding: 10px 24px;
+	border-right: 1px solid #D0D5DD;
+
+	.ticker-tape-symbol {
+		padding-bottom: 4px;
+	}
+
+	.ticker-tape-change {
+		text-wrap: nowrap;
+	}
+
+	.pos-change {
+		color: #007F47;
+	}
+
+	.neg-change {
+		color: #FF453A;
+	}
+
+}
+
+// .main-ticker {
+// 	display: flex;
+// 	justify-content: space-between;
+// }
+
+
+// .ticker-item-border-wrapper {
+// 	width: 1px;
+// 	height: 40px;
+
+// 	.ticker-item-border {
+// 		height: 100%;
+// 		width: 100%;
+// 		border-right: 1px solid;
+// 		padding: 0px 16px
+// 	}
+// }

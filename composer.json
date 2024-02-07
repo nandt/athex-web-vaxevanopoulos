@@ -16,18 +16,24 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "drupal/better_exposed_filters": "^6.0",
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-project-message": "^10.1",
         "drupal/core-recommended": "^10.1",
         "drupal/metatag": "^2.0",
         "drupal/paragraphs": "^1.16",
         "drupal/pathauto": "^1.12",
+        "drupal/quick_node_clone": "^1.17",
         "drupal/recaptcha": "^3.2",
+        "drupal/scheduler_content_moderation_integration": "^2.0.0-beta2",
         "drupal/scss_compiler": "^1.2",
         "drupal/simple_sitemap": "^4.1",
         "drupal/webform": "^6.2",
+        "drupal/workflow": "^1.7",
         "drush/drush": "^12.4",
-        "twbs/bootstrap": "5.3.2"
+        "pclzip/pclzip": "^2.8",
+        "twbs/bootstrap": "5.3.2",
+        "wikimedia/composer-merge-plugin": "^2.1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -40,7 +46,8 @@
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
             "phpstan/extension-installer": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "wikimedia/composer-merge-plugin": true
         },
         "sort-packages": true
     },
@@ -102,6 +109,11 @@
                 "      https://www.drupal.org/getting-involved",
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
+            ]
+        },
+        "merge-plugin": {
+            "include": [
+                "web/modules/contrib/webform/composer.libraries.json"
             ]
         }
     }

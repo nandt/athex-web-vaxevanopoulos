@@ -1,0 +1,7 @@
+name: 'AthexGroup InBroker Integration'
+version: '1.0.0'
+type: module
+description: 'Provides integration with InBroker.'
+package: 'Deloitte Digital'
+core_version_requirement: ^10
+configure: athex_inbroker.settings

@@ -1,0 +1,13 @@
+{# web/core/themes/stable9/templates/layout/region.html.twig #}
+
+{{ attach_library('athex/prefooter') }}
+
+<div class="prefooter">
+    <div class="container">
+        <div class="row prefooter-links">
+			{% if content %}
+				{{content}}
+			{% endif %}
+        </div>
+    </div>
+</div>

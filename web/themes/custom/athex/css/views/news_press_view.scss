@@ -1,0 +1,135 @@
+.viewNewsPress {
+    padding-bottom: 80px;
+}
+
+#views-exposed-form-news-press-releases-news-press fieldset legend span {
+    display: none;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper>div {
+    display: flex;
+    border-bottom: 1px solid #D1CCE1;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper .js-form-item:not(:first-child) {
+    margin-left: 30px;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper input[type="radio"]:checked + label{
+    border-bottom: 1px solid #3C06D9;
+    color: #3C06D9;
+    font-weight: 600 !important;
+}
+
+.viewsColWrapper .tns-outer{
+    margin-bottom:56px;
+    border-bottom: 1px solid #D1CCE1;
+}
+
+.viewsColWrapper .tns-inner{
+    padding-bottom:56px;
+}
+
+.newsPressItemsWrapper{
+    display:flex;
+    .tns-item{
+        flex:1;
+        .updatesItemTeaserWrapper{
+            height:100%;
+        }
+    }
+}
+
+.controls-wrapper{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.more-link-view{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #030314;
+    font-size:16px;
+    font-weight:500;
+    line-height:24px;
+    letter-spacing: 0.64px;
+}
+
+.more-link-view::after {
+    content: '';
+    background-image: url('assets/icons/black/arrow-right-black.svg');
+    display: block;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    margin-left: 16px;
+}
+
+.more-link-view a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper .js-form-item label {
+    cursor: pointer;
+    color: #5f4d96;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.42px;
+    padding-bottom: 16px;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper .js-form-item.active {
+    border-bottom: 1px solid #3C06D9;
+    color: #3C06D9;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper .js-form-item input {
+    display: none;
+}
+
+#views-exposed-form-news-press-releases-news-press .fieldset-wrapper .js-form-item {
+    cursor: pointer;
+}
+
+label[for^="edit-tid-all"] {
+    display: none;
+}
+
+.fieldset-wrapper .js-form-item {
+    cursor: pointer;
+}
+
+.viewsColWrapper {
+    padding: 32px 20px;
+    background: white;
+    margin-top: 32px;
+}
+
+#customize-controls-view {
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom:0px;
+    background: white;
+}
+
+@media(min-width:992px) {
+
+    .viewsColWrapper {
+        padding: 56px 80px;
+        margin-top: 44px;
+    }
+
+    .viewNewsPress {
+        padding-bottom: 150px;
+    }
+
+    .more-link-view{
+        font-size:18px;
+        line-height:28px;
+        letter-spacing: 0.72px;
+    }
+}

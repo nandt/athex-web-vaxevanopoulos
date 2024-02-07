@@ -1,0 +1,200 @@
+/* Families */
+
+.familyManrope {
+	font-family: 'Manrope';
+	font-style: normal;
+}
+
+/* Subheadings */
+
+
+.subheading {
+	font-size: 14px;
+	line-height: 26px;
+	letter-spacing: 5.04px;
+}
+
+.subheading2 {
+	font-size: 14px;
+	line-height: 26px;
+	letter-spacing: 5.04px;
+}
+
+/* Headings */
+
+.heading1 {
+	font-size: 36px;
+	line-height: 46px;
+	letter-spacing: 1.44px;
+}
+
+.heading2 {
+	font-size: 30px;
+	line-height: 40px;
+	letter-spacing: 1.2px;
+}
+
+.heading8 {
+	font-size: 30px;
+	line-height: 40px;
+	letter-spacing: 1.2px;
+}
+
+.heading4 {
+	font-size: 24px;
+	line-height: 34px;
+	letter-spacing: 0.96px;
+}
+
+.heading3 {
+	font-size: 36px;
+	line-height: 46px;
+	letter-spacing: 1.44px;
+}
+
+.heading5 {
+	font-size: 20px;
+	line-height: 28px;
+	letter-spacing: 0.8px;
+}
+
+.heading6 {
+	font-size: 18px;
+	line-height: 28px;
+	letter-spacing: 0.54px;
+}
+
+.heading6 {
+	font-size: 20px;
+	line-height: 28px;
+	letter-spacing: 0.6px;
+}
+
+/* body */
+
+.body1 {
+	font-size:18px;
+	line-height: 28px;
+	letter-spacing: 0.54px;
+}
+
+.body2 {
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.48px;
+}
+
+.body3 {
+	font-size: 14px;
+	line-height: 20px;
+	letter-spacing: 0.42px;
+}
+
+.body4 {
+	font-size: 12px;
+	line-height: normal;
+	letter-spacing: 0.4px;
+}
+
+.cta2 {
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.64px;
+}
+
+.cta3{
+	font-size: 14px;
+	line-height: 22px;
+	letter-spacing: 0.56px;
+}
+
+.cta1 {
+	font-size: 18px;
+	line-height: 28px;
+	letter-spacing: 0.72px;
+}
+
+@media(min-width:992px) {
+	.subheading {
+		font-size: 18px;
+		line-height: 35px;
+		letter-spacing: 6.48px;
+	}
+
+	.subheading2 {
+		font-size: 18px;
+		line-height: 28px;
+		letter-spacing: 7.74px;
+	}
+
+	.heading1 {
+		font-size: 48px;
+		line-height: 60px;
+		letter-spacing: 1.92px;
+	}
+
+	.heading2 {
+		font-size: 40px;
+		line-height: 48px;
+		letter-spacing: 1.6px;
+	}
+
+	.heading8{
+		font-size: 40px;
+		line-height: 48px;
+		letter-spacing: 1.6px;
+	}
+
+	.heading4 {
+		font-size: 28px;
+		line-height: 38px;
+		letter-spacing: 1.12px;
+	}
+
+	.heading5 {
+		font-size: 20px;
+		line-height: 28px;
+		letter-spacing: 0.6px;
+	}
+
+	.heading6 {
+		font-size: 20px;
+		letter-spacing: 0.6px;
+	}
+
+	.cta1 {
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: 0.64px;
+	}
+
+	.body4 {
+		line-height: 16px;
+		letter-spacing: 0.36px;
+	}
+
+	.cta3{
+		font-weight:800;
+		letter-spacing: 1.4px;
+	}
+}
+
+.weightLight {
+	font-weight: 300 !important;
+}
+
+.weightBook {
+	font-weight: 400 !important;
+}
+
+.weightBoldBook {
+	font-weight: 500 !important;
+}
+
+.weightDemi {
+	font-weight: 600 !important;
+}
+
+.weightBold {
+	font-weight: 700 !important;
+}

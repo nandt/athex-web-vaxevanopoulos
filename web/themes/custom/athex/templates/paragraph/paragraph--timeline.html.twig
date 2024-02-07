@@ -1,0 +1,14 @@
+{{ attach_library('athex/timeline') }}
+
+{%  set orientation = content.field_timeline_orientation.0['#markup']|clean_class %}
+
+<div class="container {{orientation}}">
+	<div class="row timelineTitleText">
+		<div class="col-12 col-lg-6"><span class="heading1 weightBoldBook textColorDarkBlue">{{content.field_timeline_title}}</span></div>
+		<div class="col-12 col-lg-5"><span class=" weightBoldBook textColorDarkBlue">{{content.field_timeline_body}}</span>
+		<div class=""><span class=" weightBoldBook textColorDarkBlue timelineItemCta">{{content.field_timeline_cta}}</span></div></div>
+	</div>
+	<div class="row timelineitems">
+	{{ content|without('field_timeline_title' , 'field_timeline_body' , 'field_timeline_cta' , 'field_timeline_orientation') }}</div>
+</div>
+

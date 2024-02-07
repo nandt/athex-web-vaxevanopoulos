@@ -1,0 +1,313 @@
+.colibWrapper {
+    background: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+    padding: 80px 24px;
+    margin-bottom: 0px;
+}
+
+.colibTextWrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+}
+
+.container-fluid.colib .col-12{
+    padding-left:0;
+    padding-right:0;
+}
+
+.colibTitle strong {
+
+    background: linear-gradient(93deg, #B6F691 1.7%, #51C8D2 23.92%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.colibTextCta {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+}
+
+.colibCta {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.colibCta::after {
+    content: '';
+    background-image: url('assets/icons/white/iconArrow.svg');
+    display: block;
+    background-size: contain;
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    margin-left: 16px;
+}
+
+.colibCta a {
+    color: inherit;
+}
+
+.collapsible-item.desktop {
+    display: none;
+}
+
+.collapsible-item.mobile {
+    display: flex;
+    flex-direction: column;
+    border-top: 76px solid #57CDA3;
+    border-bottom: 24px solid #57CDA3;
+    border-left: 24px solid #57CDA3;
+    border-right: 24px solid #57CDA3;
+}
+
+.colibiImage img {
+    object-fit: cover;
+    height: 172px;
+    width: 100%;
+}
+
+.collapsible-item-text {
+    padding: 32px 20px;
+    background: rgba(0, 139, 78, 0.60);
+    backdrop-filter: blur(30px);
+    position: relative;
+}
+
+.colibiCta a {
+    color: inherit;
+}
+
+.colibiText {
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+.collapsible-container.desktop {
+    display: none;
+}
+
+.collapsible-container.mobile {
+    display: flex;
+    flex-direction: column;
+}
+
+.collapsible-item.desktop {
+    display: none;
+}
+
+.collapsible-item.mobile.inactive {
+    width: 100%;
+    position: relative;
+    height: 76px;
+    background: #37C199;
+    background-image: none !important;
+    cursor: pointer;
+
+    .collapsible-item-text,
+    .colibiImage {
+        display: none;
+    }
+}
+
+.actionButton {
+    position: absolute;
+    top: -40px;
+    display: block;
+    right: 0;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+}
+
+.collapsible-item.mobile.inactive .actionButton {
+    background-image: url('assets/icons/white/plus.svg');
+}
+
+.collapsible-item.mobile.active .actionButton {
+    background-image: url('assets/icons/white/minus.svg');
+}
+
+.collapsible-item.mobile:not(:first-child) {
+    margin-top: 24px;
+}
+
+.numberMobile,
+.number {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.6px;
+}
+
+.collapsible-item.mobile.inactive .numberMobile {
+    color: white;
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
+}
+
+.collapsible-item.mobile.active {
+    position: relative;
+}
+
+.collapsible-item.mobile.active .numberMobile {
+    color: white;
+    position: absolute;
+    top: -50px;
+}
+
+ .marquee-text {
+	letter-spacing: 2.24px;
+	line-height:72px;
+	font-weight:400;
+	font-size:32px;
+	background: var(--Supportive-Gradient-Light-Blue-01, linear-gradient(93deg, #B6F691 1.6%, #51C8D2 68.54%));
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	position: absolute;
+	white-space: nowrap;
+}
+
+.marquee-container {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	height: 120px;
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+}
+
+@media(min-width:992px) {
+
+
+    .colibWrapper {
+        margin-bottom: 120px;
+    }
+
+    .collapsible-container.desktop {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .collapsible-container.mobile {
+        display: none;
+    }
+
+    .colibWrapper {
+        padding: 120px 80px;
+    }
+
+    .colibTextWrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 56px;
+    }
+
+    .colibTextCta {
+        width: 34.7%;
+        margin-top: unset;
+    }
+
+    .colibCta {
+        margin-top: 32px;
+    }
+
+    .collapsible-item.active {
+        display: block;
+        position: relative;
+        background-size: cover;
+        height: 506px;
+        max-height: 506px;
+        width: 100%;
+        position: relative;
+        border-right: 76px solid #57CDA3;
+        border-bottom: 20px solid #57CDA3;
+        border-left: 20px solid #57CDA3;
+        border-top: 20px solid #57CDA3;
+    }
+
+    .collapsible-item.mobile {
+        display: none;
+    }
+
+    .collapsible-item-text {
+        padding: 56px;
+        background: rgba(0, 184, 104, 0.54);
+        backdrop-filter: blur(30px);
+        position: absolute;
+        width: 60%;
+        bottom: 0;
+    }
+
+    .colibiText {
+        margin-top: 24px;
+    }
+
+    .collapsible-item.desktop {
+        display: block;
+    }
+
+    .collapsible-item.desktop.inactive {
+        width: 82px;
+        position: relative;
+        height: inherit;
+        background: #37C199;
+        background-image: none !important;
+        cursor: pointer;
+
+        .collapsible-item-text {
+            display: none;
+        }
+    }
+
+    .collapsible-item.desktop:not(:first-child) {
+        margin-left: 24px;
+    }
+
+    .collapsible-item.desktop.inactive .number {
+        color: white;
+        position: absolute;
+        bottom: 20px;
+        left: 25px;
+    }
+
+    .collapsible-item.desktop.active .number {
+        color: white;
+        position: absolute;
+        bottom: 0;
+        right: -50px;
+    }
+
+
+	.marquee-text {
+		letter-spacing: 4.9px;
+		line-height:72px;
+		font-weight:400;
+		font-size:70px;
+		background: var(--Supportive-Gradient-Light-Blue-01, linear-gradient(93deg, #B6F691 1.6%, #51C8D2 68.54%));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		position: absolute;
+		white-space: nowrap;
+	}
+
+
+	.marquee-container {
+		padding-top: 150px;
+		padding-bottom: 220px;
+		height: 120px;
+		overflow: hidden;
+		white-space: nowrap;
+		position: relative;
+	}
+}

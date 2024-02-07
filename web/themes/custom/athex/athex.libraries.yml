@@ -1,8 +1,419 @@
-bootstrap:
-  js:
-    ../../../../vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js: {}
-
 global:
+  js:
+    libraries/bootstrap/js/bootstrap.bundle.min.js: {}
   css:
     theme:
       css/_base.scss: {}
+      css/global/app.scss: {}
+      css/global/fonts.scss: {}
+      css/global/typography.scss: {}
+      css/global/colors.scss: {}
+      css/tiny_slider_controls/tiny_slider_controls.scss: {}
+  dependencies:
+    - core/jquery
+
+views:
+  js:
+    js/views.js: {}
+    js/table_expand.js: {}
+  css:
+    theme:
+      css/views/views.scss: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once
+
+tiny-slider:
+  js:
+    libraries/tiny-slider/min/tiny-slider.js: {}
+  css:
+    theme:
+      libraries/tiny-slider/tiny-slider.css: {}
+
+nav_bar:
+  css:
+    theme:
+      css/nav/nav_bar.scss: {}
+  js:
+    js/nav_bar.js: {}
+
+main_menu:
+  css:
+    theme:
+      css/layout/main_menu.scss: {}
+  js:
+    js/main_menu.js: {}
+
+search:
+  css:
+    theme:
+      css/layout/search.scss: {}
+
+prefooter:
+  css:
+    theme:
+      css/layout/prefooter.scss: {}
+
+footer:
+  css:
+      theme:
+        css/layout/footer.scss: {}
+
+cta_image_banner:
+  css:
+    theme:
+      css/paragraph/cta_image_banner.scss: {}
+
+cta_text_banner:
+  css:
+    theme:
+      css/paragraph/cta_text_banner.scss: {}
+
+logo_wrapper:
+  css:
+    theme:
+      css/paragraph/logo_wrapper.scss: {}
+
+banner_with_cta_item:
+  css:
+    theme:
+      css/paragraph/banner_with_cta_item.scss: {}
+
+banner_with_cta:
+  css:
+    theme:
+      css/paragraph/banner_with_cta_item.scss: {}
+
+title_text:
+  css:
+    theme:
+      css/paragraph/title_text.scss: {}
+
+category_reference:
+  css:
+    theme:
+      css/paragraph/category_reference.scss: {}
+
+list:
+  css:
+    theme:
+      css/paragraph/list.scss: {}
+
+quick_link:
+  css:
+    theme:
+      css/paragraph/quick_link.scss: {}
+  js:
+    js/quick_link.js: {}
+
+collapsible_items:
+  css:
+    theme:
+      css/paragraph/collapsible_items.scss: {}
+  js:
+    js/collapsible_items.js: {}
+
+text_cta_image:
+  css:
+    theme:
+      css/paragraph/text_cta_image.scss: {}
+
+explore_banner:
+  css:
+    theme:
+      css/paragraph/explore_banner.scss: {}
+
+hero_banner_slider:
+  css:
+    theme:
+      css/paragraph/hero_banner_slider.scss: {}
+  js:
+    js/hero_banner_slider.js: {}
+
+news_press_teasers:
+  css:
+    theme:
+      css/views/news_press_teasers.scss: {}
+
+news_press_view:
+  css:
+    theme:
+      css/views/news_press_view.scss: {}
+  js:
+    js/news_press_view.js: {}
+
+gradient_hero_title:
+  css:
+    theme:
+      css/blocks/gradient_hero_title.scss: {}
+  js:
+    js/gradient_hero_title.js: {}
+
+indices_overview:
+  css:
+    theme:
+      css/blocks/indices_overview.scss: {}
+      css/views/views.scss: {}
+  js:
+    js/indices_overview.js: {}
+    js/table_expand.js: {}
+
+solutionsview_home:
+  css:
+    theme:
+      css/paragraph/solutionsview_home.scss: {}
+
+solutions_slider:
+  css:
+      theme:
+        css/paragraph/solutionsview_home.scss: {}
+  js:
+    js/solutionsview_home.js: {}
+  dependencies:
+    - athex/tiny-slider
+    - core/drupal
+    - core/once
+
+sol_teaser:
+  css:
+    theme:
+      css/node/sol_teaser.scss: {}
+
+faq:
+  css:
+    theme:
+      css/paragraph/faq.scss: {}
+  js:
+    js/faq.js: {}
+
+listingsview_home:
+  css:
+    theme:
+      css/paragraph/listingsview_home.scss: {}
+  js:
+    js/listingsview_home.js: {}
+
+tabs:
+  css:
+    theme:
+      css/paragraph/tabs.scss: {}
+  js:
+    js/tabs.js: {}
+
+lis_teaser:
+  css:
+    theme:
+      css/node/lis_teaser.scss: {}
+
+ticker-tape-info:
+  css:
+    theme:
+      css/athex_inbroker_integration/ticker-tape-info.scss: {}
+  js:
+    js/ticker-tape-info.js: {}
+
+ticker-tape-item:
+  css:
+    theme:
+      css/athex_inbroker_integration/ticker-tape-item.scss: {}
+  js:
+    js/ticker-tape-item.js: {}
+
+seminars:
+  css:
+    theme:
+      css/node/seminars.scss: {}
+  js:
+    js/node/seminars.js: {}
+
+solutions:
+  css:
+    theme:
+      css/node/solutions.scss: {}
+  js:
+    js/node/solutions.js: {}
+    js/solutionsview_home.js: {}
+  dependencies:
+    - athex/tiny-slider
+    - core/drupal
+    - core/once
+
+news_item:
+  css:
+    theme:
+      css/node/news_item.scss: {}
+
+news_item_teaser:
+  css:
+    theme:
+      css/node/news_item_teaser.scss: {}
+  js:
+    js/news_overview.js: {}
+
+news_item_overview_teaser:
+  css:
+    theme:
+      css/node/news_item_teaser.scss: {}
+  js:
+    js/news_overview.js: {}
+
+image_slider_item:
+  css:
+    theme:
+      css/field/image_slider_item.scss: {}
+  js:
+    js/image_slider_item.js: {}
+  dependencies:
+    - athex/tiny-slider
+    - core/drupal
+    - core/once
+
+testimonial:
+  css:
+    theme:
+      css/paragraph/testimonial.scss: {}
+  js:
+    js/testimonial.js: {}
+
+banner_with_background:
+  css:
+    theme:
+      css/paragraph/banner_with_background.scss: {}
+
+banner_without_image:
+  css:
+    theme:
+      css/paragraph/banner_without_image.scss: {}
+
+esgbanner:
+  css:
+    theme:
+      css/paragraph/esgbanner.scss: {}
+
+timeline:
+  css:
+    theme:
+      css/paragraph/timeline.scss: {}
+
+image_slider:
+  css:
+    theme:
+      css/field/image_slider_item.scss: {}
+  js:
+    js/image_slider_item.js: {}
+news_overview:
+  css:
+    theme:
+      css/node/news_overview.scss: {}
+  js:
+    js/news_overview.js: {}
+
+webform:
+  css:
+    theme:
+      css/webform/webform.scss: {}
+  js:
+    js/webform.js: {}
+
+ask_a_question:
+  css:
+    theme:
+      css/blocks/ask_a_question.scss: {}
+
+info_card:
+  css:
+    theme:
+      css/paragraph/info_card.scss: {}
+
+solutions-overview-page:
+  css:
+      theme:
+        css/page/solutions_overview_page.scss: {}
+  js:
+    js/solutions_overview_page.js: {}
+
+product_search:
+  css:
+    theme:
+      css/product_search/product_search.scss: {}
+  js:
+    js/table_expand.js: {}
+
+blue_card_banner:
+  css:
+    theme:
+      css/paragraph/blue_card_banner.scss: {}
+
+green_card_banner:
+  css:
+    theme:
+      css/paragraph/green_card_banner.scss: {}
+
+purple_card_banner:
+  css:
+    theme:
+      css/paragraph/purple_card_banner.scss: {}
+
+cta_text_banner_card:
+  css:
+    theme:
+      css/paragraph/cta_text_banner_card.scss: {}
+
+text_with_hero_image:
+  css:
+    theme:
+      css/paragraph/text_with_hero_image.scss: {}
+
+link_with_image_overlay:
+  css:
+    theme:
+      css/paragraph/link_with_image_overlay.scss: {}
+  js:
+    js/image_overlay_links.js: {}
+
+link_cards_bundle:
+  css:
+    theme:
+      css/paragraph/link_cards_bundle.scss: {}
+  js:
+    js/link_cards_bundle.js: {}
+
+market_summary:
+  css:
+    theme:
+      css/blocks/market_summary.scss: {}
+  js:
+    js/table_fold.js: {}
+    js/table_expand.js: {}
+
+market_highlights:
+  css:
+    theme:
+      css/blocks/market_highlights.scss: {}
+      css/views/views.scss: {}
+
+tile_link_group:
+  css:
+    theme:
+      css/paragraph/tile_link_group.scss: {}
+
+tile_link:
+  css:
+    theme:
+      css/paragraph/tile_link.scss: {}
+  js:
+    libraries/tiny-slider/min/tiny-slider.js: {}
+    js/tile_link_slider.js: {}
+  dependencies:
+    - athex/tiny-slider
+    - core/drupal
+    - core/once
+
+product-hero:
+  css:
+    theme:
+      css/athex_d_products/product-hero.scss: {}
+      css/views/views.scss: {}
+  js:
+    js/table_expand.js: {}

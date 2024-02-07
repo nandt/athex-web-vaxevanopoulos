@@ -1,0 +1,391 @@
+.SeminarItemElements {
+	padding-bottom: 164px;
+}
+
+.sticky-button {
+  position: fixed;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sticky-button button {
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  padding: 15px 35px;
+  cursor: pointer;
+}
+
+.container-main {
+  margin-bottom: 70px;
+}
+
+.table-bordered td, .table-bordered th {
+  border: none;
+}
+
+.table-bordered {
+  background-color: #F6F5F8;
+  border: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: none;
+}
+
+.btnShare{
+  color:#8466DB;
+  background-position: left center;
+  background-position-x: 10%;
+  background-repeat: no-repeat;
+  padding: 12px 15px 12px 48px;
+  background-image: url('assets/icons/purple/iconShare.svg');
+  align-items: flex-start;
+  gap: 16px;
+  border: 1px solid  #5350F8;
+  background-color: transparent;
+  margin-bottom: 20px;
+}
+
+.SeminarTitle {
+  padding-bottom: 50px;
+  row-gap: 20px;
+}
+
+.SeminarTitle h1 {
+	font-size: 40px;
+	line-height: 48px;
+	font-weight: 500;
+}
+
+.SeminarDetailsTable {
+  max-width: 320px;
+}
+
+.SeminarMainContentText {
+  justify-content: space-between;
+}
+
+.register {
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  width: 254px;
+  height: 88px;
+  padding: 35px 40px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+}
+
+button.btnShare a {
+  text-decoration: none;
+  color:#5350F8;
+}
+
+.PhotosBundleItem{
+  padding-top:48px;
+}
+
+.scheduleItem {
+  display: flex;
+  height: 80px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.scheduleItemHr{
+opacity:1;
+display:block;
+color: #D1CCE1;
+height:10px;
+width:100%;
+}
+
+.register{
+  display:none;
+}
+
+.sticky-button {
+  z-index: 1;
+  position: fixed;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sticky-button button {
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  padding: 15px 35px;
+  cursor: pointer;
+}
+
+.SeminarDetails {
+  background:#F6F5F8;
+  padding: 24px;
+}
+
+.btnShare{
+  display: none;
+}
+
+/* Μορφοποίηση Slider Gallery */
+
+.tns-outer [aria-controls], .tns-outer [data-action] {
+  width: 80px;
+  height: 80px;
+  gap: 10px;
+  color: #A399C3;
+  cursor: pointer;
+  border-radius: 125px;
+  border: 1.25px solid #A399C3;
+  font-size: 25px;
+  background-color: transparent;
+}
+
+.tns-outer {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+}
+
+.tns-controls {
+  padding-top: 20px;
+  column-gap: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#tns1 > .tns-item{
+	width:auto!important;
+}
+
+.paragraph.paragraph--type--title-text.paragraph--view-mode--default {
+  display: flex;
+  row-gap: 24px;
+  height: 100%;
+  background-color: #F8F8FA;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.SeminarsViewBlock .container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.info-card {
+  width: 100%!important;
+  border: none;
+  padding:24px;
+  margin-top: 20px;
+}
+
+.info-card:hover{
+  background-color:#F6F5F8
+
+}
+
+.info-card img {
+  width: 100%;
+  height: auto;
+}
+
+.info-box {
+  background:#ffff;
+  margin-top: 20px;
+  border: 1px solid #D1CCE1;
+  display: flex;
+  padding-top: 0px;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.info-box div {
+  text-align: center;
+  padding: 5px 0;
+}
+
+.vertical-divider {
+  border-left: 1px solid #ddd;
+  height: 35px;
+}
+
+.ViewSeminarDate {
+  padding: 16px 24px;
+  border: 1px solid #D1CCE1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ViewSeminarImage{
+  width:341px;
+  height:208px;
+  margin-bottom:24px;
+}
+
+.DetailsCardItems {
+    padding: 10px 10px 20px 0px;
+}
+
+.titleContent {
+    padding-bottom: 25px;
+}
+
+
+
+div#seminarDetails {
+	display: none;
+    width: 350px;
+}
+
+.container.stopElement {
+    margin-top: 0px;
+}
+
+
+.info-card:hover .info-box {
+    border: none;
+}
+
+
+.SeminarsViewBlock .container {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.categoryTitle {
+    padding-top: 15px;
+}
+
+.PhotosBundleItem img {
+	padding-bottom: 24px;
+}
+
+@media(min-width:992px){
+
+	.PhotosBundleItem img {
+		width: 100%;
+		height: auto;
+		padding-bottom: 24px;
+	}
+
+
+	.SeminarTitle {
+		padding-bottom: 75px;
+	}
+
+	.SeminarsViewBlock .container {
+		padding: 0px;
+		margin: 0px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: row;
+	}
+
+	.views-view-grid {
+		padding-top: 64px;
+	}
+
+	.btnShare{
+		display: block;
+	}
+
+	.register{
+		display:block;
+	}
+
+	.sticky-button{
+		display:block;
+	}
+
+	.sticky-button{
+		display: none!important;
+	}
+	.SeminarDetailsTable{
+		max-width: 320px;
+	}
+
+	.ViewSeminarDate{
+		display: flex;
+		padding: 16px 24px;
+		justify-content: center;
+		align-items: center;
+		gap: 39px;
+		align-self: stretch;
+		border: 1px solid  #D1CCE1;
+		background:  #FFF;
+	}
+
+	.SeminarDetailsHr{
+		display:block;
+		color: #D1CCE1;
+	}
+
+	.PhotoBundleParagraph{
+		padding-top:40px;
+	}
+
+	.PhotosBundleItem{
+		padding-top:48px;
+	}
+
+	.LeftSideItemElements{
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+	.scheduleItem{
+		flex-direction: row;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.info-card{
+		max-width:389px;
+	}
+
+	div#seminarDetailsMobile {
+		display: none;
+	}
+
+	div#seminarDetails {
+		display: flex!important;
+		width: 350px;
+	}
+
+}
+
+

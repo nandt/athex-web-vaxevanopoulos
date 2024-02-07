@@ -1,0 +1,82 @@
+.tciWrapper {
+	padding: 80px 0px;
+	background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
+}
+
+.tciBody {
+	padding-top: 32px;
+}
+
+.heading2 strong {
+	background: var(--Supportive-Gradient-Indigo-06, linear-gradient(96deg, #2F15A3 -27.43%, #594DE4 -1.01%, #19C2D0 28.85%, #98F7FF 66.53%));
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: 500;
+}
+
+.tciCTA {
+	display: flex;
+	padding: 28px 0px 48px;
+	align-items: center;
+	gap: var(--spacing-16, 16px);
+
+	a {
+		color: #fff;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
+	a::after {
+		background-image: url('assets/icons/white/arrow-right.svg');
+		content: '';
+		width: 20px;
+		height: 20px;
+		display: block;
+	}
+}
+
+.tciImage img{
+	border-radius: var(--Colors-Pixels-Spacing-null, 0px) var(--Colors-Pixels-Spacing-null, 0px) var(--Colors-Pixels-Spacing-null, 0px) 900px;
+	background: lightgray 50% / cover no-repeat;
+    height: 100%;
+    width: 100%;
+	mask-image: linear-gradient(to right,rgba(0, 0, 0, 1), 200px ,transparent);
+}
+
+.listingsviewCta > div > a {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.listingsviewCta > div > a::after {
+	content: '';
+    background-image: url('assets/icons/black/arrow-right-black.svg');
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+@media(min-width: 992px){
+	.tciWrapper {
+		padding: 120px 80px;
+	}
+
+	.tciImage img {
+		border-radius: var(--Colors-Pixels-Spacing-null, 0px) var(--Colors-Pixels-Spacing-null, 0px) var(--Colors-Pixels-Spacing-null, 0px) 900px;
+		background: lightgray 50% / cover no-repeat;
+        // min-height: 434px;
+		// min-width: 628px;
+	}
+
+	.tciBody {
+		padding: 80px 0px 0px 110px;
+	}
+
+	.tciCTA {
+		padding: 28px 0px 0px 110px;
+	}
+}

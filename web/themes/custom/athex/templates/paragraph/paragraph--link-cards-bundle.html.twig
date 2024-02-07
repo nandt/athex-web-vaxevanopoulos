@@ -1,0 +1,25 @@
+{{ attach_library('athex/link_cards_bundle') }}
+
+{% set contentRendered = content.field_link_card_item|render %}
+{% set hasImage = contentRendered|striptags('<img>') is not empty %}
+
+<div class="container-fluid lcb {{ hasImage ? 'with-image' : 'without-image' }}">
+    <div class="row">
+        <div class="col-12 col-lg-5 offset-lg-1 lcbTextWrapper">
+            <div class="lcbTitle heading1 cb textColorWhite weightBoldBook">{{content.field_lcb_title}}</div>
+        </div>
+        <div class="col-12 col-lg-5 offset-lg-1 textCtaWrapper">
+            <div class="lcbText cb weightBook body2 textColorWhite">{{content.field_lcb_text}}</div>
+            <div class="textColorWhite cta2 weightBoldBook solvhomeCTA">{{ content.field_lcb_cta }}</div>
+        </div>
+        <div class="col-11 offset-lg-1">
+            <div class="lcb-items">
+               {{ content.field_link_item_with_image }}
+                {{ content.field_link_card_item }}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

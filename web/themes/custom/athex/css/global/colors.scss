@@ -1,0 +1,328 @@
+/* Neutrals */
+
+.textColorWhite {
+	color: #FFFFFF;
+}
+
+.textColorIndigo {
+	color: #3C06D9;
+}
+
+.greenTextColor {
+	color: #007F47;
+}
+
+.bgColorWhite {
+	background-color: #FFFFFF;
+}
+
+.textColorGrey1 {
+	color: #D0D0CE;
+}
+
+.textColorGrey2 {
+	color: #8E8E93
+}
+
+.bgColorGrey1 {
+	background-color: #D0D0CE;
+}
+
+.bgColorGrey7 {
+	background-color: #F8F8FA;
+}
+
+.textColorGrey2 {
+	color: #A7A8AA;
+}
+
+.textColorDarkGrey{
+	color: #3A3A3C;
+}
+
+.textColorPurple {
+	color: #1A0069;
+}
+
+.textColorDeepPurple {
+	color: #3C06D9;
+}
+
+.bgColorGrey2 {
+	background-color: #A7A8AA;
+}
+
+.textColorGrey3 {
+	color: #5A5A5E;
+}
+
+.textColorGrey8 {
+	color: #636366;
+}
+
+.textColorGrey7 {
+	color: #575756;
+}
+
+.bgColorGrey3 {
+	background-color: #5A5A5E;
+}
+
+.textColorGrey4 {
+	color: #4B4B50;
+}
+
+.bgColorGrey4 {
+	background-color: #4B4B50;
+}
+
+.textColorGrey5 {
+	color: #39393F;
+}
+
+.bgColorGrey5 {
+	background-color: #39393F;
+}
+
+.textColorGrey6 {
+	color: #26262C;
+}
+
+.bgColorGrey6 {
+	background-color: #26262C;
+}
+
+/* Brown */
+
+.textColorBrown1 {
+	color: #ECE7D6;
+}
+
+.bgColorBrown1 {
+	background-color: #ECE7D6;
+}
+
+.textColorBrown2 {
+	color: #D9C89E;
+}
+
+.bgColorBrown2 {
+	background-color: #D9C89E;
+}
+
+.textColorBrown3 {
+	color: #CAB683;
+}
+
+.bgColorBrown3 {
+	background-color: #CAB683;
+}
+
+.textColorBrown4 {
+	color: #AD8F53;
+}
+
+.bgColorBrown4 {
+	background-color: #AD8F53;
+}
+
+.textColorBrown5 {
+	color: #9F7A41;
+}
+
+.bgColorBrown5 {
+	background-color: #9F7A41;
+}
+
+.textColorBrown6 {
+	color: #966A27;
+}
+
+.bgColorBrown6 {
+	background-color: #966A27;
+}
+
+/* Secondary */
+
+.textColorDarkGreen {
+	color: #427A7D;
+}
+
+.bgColorDarkGreen {
+	background-color: #427A7D;
+}
+
+.textColorGreen {
+	color: #6BC880;
+}
+
+.bgColorGreen {
+	background-color: #6BC880;
+}
+
+.textColorRed {
+	color: #F07272;
+}
+
+.bgColorRed {
+	background-color: #F07272;
+}
+
+.textColorDarkRed {
+	color: #CB333B;
+}
+
+.bgColorDarkRed {
+	background-color: #CB333B;
+}
+
+/* Gradients */
+
+.gradient1 {
+	background: linear-gradient(180deg, #15151A -101.46%, rgba(21, 21, 26, 0) 100%);
+}
+
+.gradient2{
+	background: linear-gradient(97deg, #0E00AB -18.5%, rgba(73, 43, 195, 0.51) 154.28%);
+}
+
+.gradientIndigo1 {
+	background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+}
+
+.greenBtn {
+	background: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+	backdrop-filter: blur(0px);
+}
+
+.blueBtn {
+	background: linear-gradient(89deg, #2B01D0 -30.4%, #5350F8 126.88%);
+	backdrop-filter: blur(0px);
+}
+
+
+
+/* Tiers */
+
+.textColorBeginner {
+	color: #9F7A41;
+}
+
+.textBgColorBeginner {
+	color: #D9C89E;
+}
+
+.bgColorBeginner {
+	background-color: #D9C89E;
+}
+
+.bgTextColorBeginner {
+	background-color: #9F7A41;
+}
+
+/* Silver */
+
+.textColorSilver {
+	color: #5A5A5E;
+}
+
+.textBgColorSilver {
+	color: #D3D3D1;
+}
+
+.bgColorSilver {
+	background-color: #D3D3D1;
+}
+
+.bgTextColorSilver {
+	background-color: #5A5A5E;
+}
+
+.bgGreenGradient {
+	background: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+}
+
+.bgBlueGradient {
+	background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
+}
+
+/* Gold */
+
+.textColorGold {
+	color: #AD8F53;
+}
+
+.textBgColorGold {
+	color: #E8D79F;
+}
+
+.bgColorGold {
+	background-color: #E8D79F;
+}
+
+.bgTextColorGold {
+	background-color: #AD8F53;
+}
+
+/* Platinum */
+
+.textColorPlatinum {
+	color: #427A7D;
+}
+
+.textBgColorPlatinum {
+	color: #B6CCCC;
+}
+
+.bgColorPlatinum {
+	background-color: #B6CCCC;
+}
+
+.bgTextColorPlatinum {
+	background-color: #427A7D;
+}
+
+.textColorPurpleLight {
+	color: #5F4D96;
+}
+
+.bgColorPurpleLight2 {
+	background-color: #F7F5FD;
+}
+
+.textColorPurple7 {
+	color: #4C37B0;
+}
+
+.textColorPurple2 {
+	color: #331F71;
+}
+
+.bgColorPurpleLight {
+	background-color: #F6F5F8;
+}
+
+/* Black */
+
+.textColorBlack {
+	color: #1C1C1E;
+}
+
+.textColorBlackDark,
+.headlineBlack {
+	color: #030314;
+}
+
+.bgColorBlack {
+	background-color: #26262C;
+}
+
+/* Blue */
+
+.textColorDarkBlue {
+	color: #1A0069;
+}

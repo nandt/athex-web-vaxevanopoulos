@@ -1,0 +1,12 @@
+{# web/core/themes/stable9/templates/content/node.html.twig #}
+
+{{ attach_library('athex/news_item_teaser') }}
+
+<article class="news-teaser">
+	<div class="col-12 news-teaser-mainimage"> {{ content.field_ni_main_image }} </div>
+	<div class="news-item-info teaser">
+		<div class="newsitem-cat body3 weightBold tag">{{ content.field_ni_category }}</div>
+		<div class="body3 weightBoldBook textColorBlack newsitem-date">{{ node.createdtime|date('d.m.Y') }}</div>
+	</div>
+	<h6 class="heading6 textColorBlack weightBold news-teaser-title"> {{ label }} </h6>
+</article>

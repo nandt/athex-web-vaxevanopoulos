@@ -1,0 +1,24 @@
+.logos div {
+    column-gap: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logos {
+    padding-bottom: 50px;
+    overflow-x: auto;
+}
+
+span.heading3.textColorDarkBlue.weightBoldBook.lwTitle div {
+	padding-bottom: 25px;
+}
+
+@media(min-width:992px){
+
+	.logos {
+		padding-bottom: 150px;
+		overflow-x: auto;
+	}
+
+}

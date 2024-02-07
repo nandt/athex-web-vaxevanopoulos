@@ -1,0 +1,13 @@
+{# web/core/themes/stable9/templates/content/node.html.twig #}
+
+{{ attach_library('athex/sol_teaser') }}
+
+<article>
+	<a href="{{ url }}" rel="bookmark" class="sol">
+		<h5 class="sol-teaser-title heading5 weightBoldBook textColorWhite"> {{ label }} </h5>
+		<div class="sol-teaser-image">
+			{{ content }}
+		</div>
+		<span class="sol-teaser-arrow"></span>
+	</a>
+</article>

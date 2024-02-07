@@ -1,0 +1,51 @@
+{# web/core/themes/stable9/templates/layout/region.html.twig #}
+
+{{ attach_library('athex/main_menu') }}
+<div class="regionHeader">
+	{% if content %}
+	<div class="top-menu-bar">
+		<div class="container top-menu">
+			<div class="row menuRow" {{ attributes }}>
+				<div class="col-12 top-links-wrapper">
+					<div class="top-links">
+						{% for key, element in elements %}
+							{% if element['#markup'] and key not in ['athex_sitebranding', 'athex_searchform', 'athex_main_menu'] %}
+								<div class="{{ key }}">{{ element['#markup'] }}</div>
+							{% endif %}
+						{% endfor %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="main-menu-bar">
+		<div class="container containerMainMenuBar textColorPurpleLight">
+			<div class="row menu">
+				<div class="col-2 site-branding">
+					{{ elements['athex_sitebranding']['#markup'] }}
+				</div>
+				<div class="col-9 nav-menu">
+					{{ elements['athex_main_menu']['#markup'] }}
+				</div>
+
+				<div class="search-form col-1">
+				<span class="horLine">|</span>
+					<span class="search-icon"></span>
+					<div class="hidden">
+						{{ elements['athex_searchform']['#markup'] }}
+					</div>
+				</div>
+				<div class="col-2 burger-btn">
+					<button class="navbar-toggler" type="button" aria-controls="{{ attributes.id }}" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="burger-icon"></span>
+					</button>
+				</div>
+			</div>
+			<hr>
+		</div>
+	</div>
+</div>
+
+{% endif %}

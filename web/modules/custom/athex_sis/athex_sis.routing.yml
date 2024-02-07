@@ -1,0 +1,15 @@
+athex_sis.settings:
+  path: '/admin/athex_sis/settings'
+  defaults:
+    _form: '\Drupal\athex_sis\Form\SettingsForm'
+    _title: 'SIS Integration - Settings'
+    _title_context: 'athex_integrations'
+  requirements:
+    _permission: 'administer sis integration'
+
+athex_sis.test:
+  path: '/sis-test'
+  defaults:
+    _controller: '\Drupal\athex_sis\Controller\TestController::test'
+  requirements:
+    _permission: 'access content'

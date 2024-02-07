@@ -1,0 +1,82 @@
+
+.TextTitle{
+	display: flex;
+	row-gap: 24px;
+	height: 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	margin-bottom:64px;
+}
+
+.TextTitle.white{
+	background-color: white;
+}
+
+.TextTitle.grey{
+	background-color: #F8F8FA;
+}
+
+.title.fuchsia p{
+	color: #B430BD;
+}
+
+.title.green p{
+	color: #05C405;
+}
+
+.title.darkblue p{
+	color: #1A0069;
+}
+
+
+.TextTitle strong{
+	background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.container.TextTitleContainer {
+    margin-top: 50px;
+    padding: 80px 20px 80px 20px;
+}
+
+.col-12.col-lg-6.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.TextTitle.row{
+
+	padding:0px;
+}
+
+.col-12.col-lg-6.title {
+    padding-bottom: 24px;
+}
+
+.exploreMore a{
+	margin-top: 30px;
+	background-image: url('assets/icons/black/arrow-right-black.svg');
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 25px;
+	color:black;
+
+}
+
+.text p {
+    padding-bottom: 20px;
+}
+
+
+
+@media(min-width:992px){
+	.container.TextTitleContainer {
+		padding: 48px 24px 48px 24px;
+		margin-top:100px;
+	}
+
+}

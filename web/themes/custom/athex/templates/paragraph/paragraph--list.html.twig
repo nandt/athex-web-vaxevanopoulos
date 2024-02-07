@@ -1,0 +1,15 @@
+{{ attach_library('athex/list') }}
+
+<div class="container listParagraph">
+	<div class="row listParagraphHeader">
+	  <div class="col-12 col-lg-6 listParagraphHeaderBanner">
+		<div class="listParagraphTitle heading8 textColorDarkBlue">{{content.field_list_title}}</div>
+	</div>
+	<div class="col-12 col-lg-6">
+		<div class="body2 textColorBlackDark weightBook listParagraphBody">{{content.field_list_text}}</div>
+		{{content.field_list_cta}}
+	</div>
+	</div>
+	<div class="row">
+	 {{ content|without('field_list_title', 'field_list_text' , 'field_list_cta') }}
+</div>

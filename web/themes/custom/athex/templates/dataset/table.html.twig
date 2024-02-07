@@ -1,0 +1,97 @@
+{# web/core/themes/stable9/templates/dataset/table.html.twig #}
+
+{{ attach_library('athex/product_search') }}
+
+{%
+	set classes = [
+		'cols-' ~ header|length,
+		responsive ? 'responsive-enabled',
+		sticky ? 'sticky-enabled',
+		'view-table'
+	]
+%}
+
+<table{{ attributes.addClass(classes) }} data-role="table">
+	{% if caption %}
+		<caption>{{ caption }}</caption>
+	{% endif %}
+
+	{% if header %}
+	<thead>
+		<tr>
+		{% for key, column in header %}
+			{% if column.default_classes %}
+			{%
+				set column_classes = [
+				'views-field',
+				'views-field-' ~ fields[key],
+				]
+			%}
+			{% endif %}
+			<th{{ column.attributes.addClass(column_classes).setAttribute('scope', 'col') }}>
+			{%- if column.wrapper_element -%}
+				<{{ column.wrapper_element }}>
+				{%- if column.url -%}
+					<a href="{{ column.url }}" title="{{ column.title }}" rel="nofollow">{{ column.content }}{{ column.sort_indicator }}</a>
+				{%- else -%}
+					{{ column.content }}{{ column.sort_indicator }}
+				{%- endif -%}
+				</{{ column.wrapper_element }}>
+			{%- else -%}
+				{%- if column.url -%}
+				<a href="{{ column.url }}" title="{{ column.title }}" rel="nofollow">{{ column.content }}{{ column.sort_indicator }}</a>
+				{%- else -%}
+				{{- column.content }}{{ column.sort_indicator }}
+				{%- endif -%}
+			{%- endif -%}
+			</th>
+		{% endfor %}
+		<th class="th-expand"></th>
+		</tr>
+	</thead>
+{% endif %}
+
+{% if rows %}
+	{% set hasMblHid = false %}
+	<tbody>
+		{% for row in rows %}
+			<tr{{ row.attributes }}>
+				{% for cell in row.cells %}
+					<{{ cell.tag }}{{ cell.attributes }}>
+						{{- cell.content -}}
+						{% if 'mobile-hidden' in cell.attributes['class'] %}
+							{% set hasMblHid = true %}
+						{% endif %}
+					</{{ cell.tag }}>
+				{% endfor %}
+				{% if hasMblHid %}
+					<td class="arrow">
+						<div class="arrow-wrapper">
+							<div class="arrow-expand"></div>
+						</div>
+					</td>
+				{% endif %}
+			</tr>
+		{% endfor %}
+	</tbody>
+{% elseif empty %}
+	<tbody>
+		<tr>
+			<td colspan="{{ header_columns }}">{{ empty }}</td>
+		</tr>
+	</tbody>
+{% endif %}
+{% if footer %}
+	<tfoot>
+		{% for row in footer %}
+			<tr{{ row.attributes }}>
+				{% for cell in row.cells %}
+					<{{ cell.tag }}{{ cell.attributes }}>
+						{{- cell.content -}}
+					</{{ cell.tag }}>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+	</tfoot>
+	{% endif %}
+</table>

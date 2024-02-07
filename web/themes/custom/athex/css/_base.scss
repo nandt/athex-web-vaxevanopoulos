@@ -1,16 +1,37 @@
-@import "../../../../../vendor/twbs/bootstrap/scss/functions";
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../libraries/bootstrap/scss/functions";
 
-@import "../../../../../vendor/twbs/bootstrap/scss/variables";
-@import "../../../../../vendor/twbs/bootstrap/scss/variables-dark";
+// 2. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "../libraries/bootstrap/scss/variables";
+@import "../libraries/bootstrap/scss/variables-dark";
 
-@import "../../../../../vendor/twbs/bootstrap/scss/maps";
-@import "../../../../../vendor/twbs/bootstrap/scss/mixins";
-@import "../../../../../vendor/twbs/bootstrap/scss/root";
+// 3. Include remainder of required parts
+@import "../libraries/bootstrap/scss/maps";
+@import "../libraries/bootstrap/scss/mixins";
+@import "../libraries/bootstrap/scss/root";
 
-@import "../../../../../vendor/twbs/bootstrap/scss/utilities";
-@import "../../../../../vendor/twbs/bootstrap/scss/reboot";
-@import "../../../../../vendor/twbs/bootstrap/scss/type";
-@import "../../../../../vendor/twbs/bootstrap/scss/images";
-@import "../../../../../vendor/twbs/bootstrap/scss/containers";
-@import "../../../../../vendor/twbs/bootstrap/scss/grid";
-@import "../../../../../vendor/twbs/bootstrap/scss/helpers";
+// 4. Optionally include any other parts as needed
+@import "../libraries/bootstrap/scss/utilities";
+@import "../libraries/bootstrap/scss/reboot";
+@import "../libraries/bootstrap/scss/type";
+@import "../libraries/bootstrap/scss/images";
+@import "../libraries/bootstrap/scss/containers";
+@import "../libraries/bootstrap/scss/grid";
+@import "../libraries/bootstrap/scss/helpers";
+
+// 5. Add additional custom code here
+@import "../libraries/bootstrap/scss/navbar";
+@import "../libraries/bootstrap/scss/nav";
+@import "../libraries/bootstrap/scss/dropdown";
+
+@import "../css/global/typography.scss";
+
+
+a {
+	text-decoration: none;
+	color: #3C06D9;
+}
+
+p {
+	margin: 0px;
+}

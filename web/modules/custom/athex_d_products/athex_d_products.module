@@ -1,0 +1,25 @@
+<?php
+
+function athex_d_products_theme($existing, $type, $theme, $path) {
+	return [
+		'product_search' => [
+			'variables' => [
+				'page_title' => null,
+				'search_form' => null,
+				'table' => null,
+				'pager' => null
+			]
+		],
+		'product_hero' => [
+			'variables' => [
+				'product_name' => null,
+				'cover_img_url' => null,
+				'logo_url' => null,
+				'ticker' => null
+			]
+		],
+		'product_ticker' => [
+			'variables' => []
+		]
+	];
+}

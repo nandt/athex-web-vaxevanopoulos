@@ -1,0 +1,35 @@
+{# web/core/themes/stable9/templates/navigation/links.html.twig #}
+
+<div class="language-selector">
+    {% if links -%}
+    <ul{{ attributes }}>
+        {%- set link_count = links | length -%}
+        {%- set current_count = 0 -%}
+        {%- for item in links -%}
+        {%- set current_count = current_count + 1 -%}
+        <li{{ item.attributes }}>
+            {%- if item.link -%}
+                {% set language_code = item.link['#options']['attributes']['hreflang'] | default('') %}
+                {% if language_code %}
+                    <a href="{{ item.link['#url'] }}" hreflang="{{ language_code }}">{{ language_code[:2] | upper }}</a>
+                {% else %}
+                    <a href="{{ item.link['#url'] }}">{{ item.link['#title'][:2] | upper }}</a>
+                {% endif %}
+                {% if current_count < link_count %}
+                    <span class="horLine">|</span>
+                {% endif %}
+            {%- elseif item.text_attributes -%}
+                <span{{ item.text_attributes }}>{{ item.text }}</span>
+            {%- else -%}
+                {{ item.text }}
+            {%- endif -%}
+        </li>
+        {%- endfor -%}
+    </ul>
+    {%- endif %}
+</div>
+
+
+
+
+

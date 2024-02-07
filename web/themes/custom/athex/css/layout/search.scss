@@ -1,0 +1,124 @@
+.serachFormPlace::placeholder {
+	padding-left:30px;
+  color: #A399C3;
+  font-size:24px;
+  font-weight:600px;
+  line-height:28px;
+  }
+
+  .serachFormPlace {
+    background-repeat: no-repeat;
+    background-image: url(/themes/custom/athex/assets/icons/Gradient2/search.svg);
+}
+
+  input[id^="edit-keys"] {
+	  padding-top: 60px;
+	  margin-bottom: 48px;
+	  padding-bottom: 48px;
+	  border-bottom: none;
+	  border-right: none;
+	  border-left: none;
+	  border-top: none;
+	  color: #3C06D9;
+	  font-weight: 600;
+	  font-size: 24px;
+  }
+
+  .container.overlay-content {
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+  input[id^="edit-keys"]:focus {
+	  outline: none;
+	  border:none;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button {
+	  -webkit-appearance: none;
+	  appearance: none;
+  }
+
+  div#edit-actions--2 {
+	  display: none;
+  }
+
+
+  .bannerSearchPage{
+	color:white;
+	height:200px;
+
+
+}
+
+.serachFormPlace::edit-keys {
+
+	background-repeat: no-repeat;
+	background-position: left center;
+	color:#3C06D9;
+	font-size:16px;
+	line-height:24px;
+	font-weight:600;
+
+
+}
+
+.bannerSearchPage {
+    padding: 5%;
+    display: flex;
+    margin-top: 5%;
+    color: white;
+    height: 200px;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+li.searchResult {
+    row-gap: 12px;
+    list-style: none;
+    padding: 2%;
+    border-bottom: 1px solid #D1CCE1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.searchKeyWord strong {
+    background-color: #DDE9FE;
+}
+
+main.SearchPageContent {
+    top: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input#edit-keys {
+    width: 100%;
+}
+
+  @media(min-width:992px){
+
+	input#edit-keys {
+		width: 100%;
+	}s
+
+	input[id^="edit-keys"] {
+	  padding-top: 0px;
+	  margin-bottom: 28px;
+	  width: 100%;
+	  padding-bottom:48px;
+	  border-bottom: 1px solid #D1CCE1;
+	  border-right: none;
+	  border-left: none;
+	  border-top: none;
+	  color: #3C06D9;
+	  font-weight:600;
+	  font-size: 24px;
+  }
+  }

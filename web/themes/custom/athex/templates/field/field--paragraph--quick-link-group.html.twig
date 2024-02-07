@@ -1,0 +1,18 @@
+<div class="qlWrapper textColorBlack weightBoldBook body3">
+	{% for item in items %}
+		{{ item.content }}
+	{% endfor %}
+</div>
+<div class="qlWrapperMobile textColorBlackDark weightBoldBook body3">
+	{% for chunk in items|batch(4) %}
+		<div>
+			{% for item in chunk %}
+				{{ item.content }}
+			{% endfor %}
+		</div>
+	{% endfor %}
+</div>
+<div class="controls" id="customize-controls" aria-label="Carousel Navigation" tabindex="0">
+	<span class="prev" data-controls="prev" aria-controls="customize" tabindex="-1"></span>
+	<span class="next" data-controls="next" aria-controls="customize" tabindex="-1"></span>
+</div>

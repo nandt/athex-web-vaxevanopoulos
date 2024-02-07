@@ -1,0 +1,15 @@
+athex_inbroker.settings:
+  path: '/admin/athex_inbroker/settings'
+  defaults:
+    _form: '\Drupal\athex_inbroker\Form\SettingsForm'
+    _title: 'InBroker Integration - Settings'
+    _title_context: 'athex_integrations'
+  requirements:
+    _permission: 'administer inbroker integration'
+
+# athex_inbroker.test:
+#   path: '/inbroker-test'
+#   defaults:
+#     _controller: '\Drupal\athex_inbroker\Controller\TestController::test'
+#   requirements:
+#     _permission: 'access content'

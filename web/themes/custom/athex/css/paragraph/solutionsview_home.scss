@@ -1,0 +1,138 @@
+.solviewhomeContainer {
+	padding: 80px 24px;
+	border-radius: var(--colors-pixels-spacing-null, 0px);
+	background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
+
+	.solviewhomeWrapper {
+		display: flex;
+		gap: 8px;
+		margin-top: 48px;
+
+		@media(min-width: 992px){
+			gap: 0px;
+		}
+	}
+
+	.solvhomeBody {
+		padding: 28px 0px;
+	}
+
+	.solvhomeCTA {
+		display: flex;
+		padding: 0px 0px 48px;
+		align-items: center;
+
+		a {
+			color: #fff;
+			display: flex;
+			align-items: center;
+			gap: 16px;
+		}
+
+		a::after {
+			background-image: url('assets/icons/white/arrow-right.svg');
+			content: '';
+			width: 20px;
+			height: 20px;
+			display: block;
+		}
+	}
+
+	.controls {
+		margin-top: 28px;
+		justify-content: end;
+	}
+
+	.controls span {
+		border: 1px solid #FFF;
+	}
+
+	.controls span[aria-disabled="true"] {
+		border: 1px solid #A399C3;
+	}
+
+	.controls span[aria-disabled="false"] {
+		border: 1px solid #FFF;
+	}
+
+	.controls .next::after {
+		background-image: url("assets/icons/white/slider-arrow.svg");
+		transform: rotate(180deg);
+		width: 16px;
+		height: 16px;
+	}
+
+	.controls .prev::after {
+		background-image: url('assets/icons/purple/iconSubtractDisabled.svg');
+		transform: rotate(0deg);
+	}
+
+	.controls .next[aria-disabled="true"]::after {
+		background-image: url('assets/icons/purple/iconSubtractDisabled.svg');
+		width: 9px;
+    	height: 12px
+	}
+
+	.controls .prev[aria-disabled="false"]::after {
+		background-image: url('assets/icons/white/slider-arrow.svg');
+		width: 16px;
+    	height: 16px;
+	}
+
+	.solview-hr-wrapper {
+		margin: 28px 0px;
+
+		.solview-hr {
+			opacity: 0.3;
+			background:#D1CCE1;
+		}
+	}
+
+	.heading2 strong {
+		background: var(--Supportive-Gradient-Indigo-06, linear-gradient(96deg, #2F15A3 -27.43%, #594DE4 -1.01%, #19C2D0 28.85%, #98F7FF 66.53%));
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+}
+
+@media (min-width: 992px) {
+	.solviewhomeWrapper {
+		margin-top: 120px;
+	}
+
+	.solviewhomeContainer {
+		padding: 120px 0px;
+
+		.solvhomeBody {
+			padding: 0px 0px 32px;
+		}
+
+		.solviewhome {
+			padding: 0px 80px;
+		}
+
+		.solview-hr-wrapper {
+			margin: 56px 0px;
+
+			.solview-hr {
+				display: block;
+			}
+		}
+
+		.controls {
+			margin-top: 56px;
+		}
+	}
+}
+
+.controls.solutions-slider {
+	margin-top: 28px;
+	justify-content: end;
+	padding: 0;
+
+	@media (min-width: 992px) {
+		margin-top: 56px;
+	}
+}

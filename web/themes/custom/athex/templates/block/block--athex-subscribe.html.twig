@@ -1,0 +1,13 @@
+{# web/core/themes/stable9/templates/block/block.html.twig #}
+
+{{ attach_library('athex/prefooter') }}
+
+<div class="col-lg-4 col-12" {{ attributes }}>
+	{% if label %}
+		<p class="body2 textColorPurple weightBoldBook"> {{ label }}</p>
+	{% endif %}
+    <div class="prefooter-link subscribe">
+		<h1 class="heading1 weightBook"> {{ content }} </h1>
+		<span class="prefooter-icon"></span>
+	</div>
+</div>

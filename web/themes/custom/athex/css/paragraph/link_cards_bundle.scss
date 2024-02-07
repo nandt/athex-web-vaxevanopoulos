@@ -1,0 +1,201 @@
+.container-fluid.lcb {
+    padding: 80px 24px;
+    background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
+}
+
+.link_card {
+    position: relative;
+}
+
+.link_card .linkCardUrl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.link_card:hover {
+    cursor: pointer;
+    background: linear-gradient(128deg, #602BD0 -11.33%, rgba(60, 212, 224, 0.77) 114.19%);
+}
+
+.link_card:after {
+    content: '';
+    display: block;
+    background-image: url('assets/icons/white/arrow-right.svg');
+    width: 28px;
+    height: 28px;
+    right: 16px;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 24px;
+
+}
+
+strong {
+    background: linear-gradient(96deg, #2F15A3 -27.43%, #594DE4 -1.01%, #19C2D0 28.85%, #98F7FF 66.53%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.link_card.imgLinkCard {
+
+    img {
+        width: 100%;
+        object-fit: cover;
+        max-height: 234px;
+        margin-bottom: 24px;
+    }
+}
+
+.oli-teaser-number.textColorWhite {
+    margin-bottom: 24px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.48px;
+}
+
+.linkCardLink.textColorWhite {
+    font-size: 24px;
+
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: 0.72px;
+
+    a {
+        color: white;
+    }
+}
+
+.lcbText {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+.textCtaWrapper {
+    margin-bottom: 48px;
+}
+
+.solvhomeCTA {
+    display: flex;
+    padding: 0px 0px 48px;
+    align-items: center;
+
+    a {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    a::after {
+        background-image: url('assets/icons/white/arrow-right.svg');
+        content: '';
+        width: 20px;
+        height: 20px;
+        display: block;
+    }
+}
+
+
+
+.lcb-items {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+.link_card {
+    margin-bottom: 22px;
+    padding: 20px 16px 24px 16px;
+    background: var(--Primary-Purple-Teal-07, #4C37B0);
+}
+
+.linkCardItemWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media(min-width:992px) {
+
+    .oli-teaser-number.textColorWhite {
+        margin-bottom: 35px;
+    }
+
+    .linkCardItemWrapper {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+    }
+
+    .linkCardItemWrapperImg {
+        width: 50%;
+    }
+
+    .link_card.imgLinkCard {
+		top: 350px;
+		position: absolute;
+		left: 200px;
+		width: 40%;
+		height: 100%;
+		min-height: 670px;
+		max-height: 670px;
+
+        .linkCardImage>div {
+            width: 100%;
+        }
+
+        img {
+            max-height: 496px;
+        }
+    }
+
+    .link_card {
+        padding: 24px 24px 28px 24px;
+        margin-bottom: 27px;
+    }
+
+    .lcb-items {
+        flex-direction: row;
+    }
+
+    .container-fluid.lcb {
+		position: relative;
+		padding: 120px 80px;
+	}
+
+    .link_card:after {
+        content: '';
+        display: block;
+        background-image: url('assets/icons/white/plus.svg');
+        width: 28px;
+        height: 28px;
+        right: 24px;
+        position: absolute;
+        bottom: 28px;
+    }
+
+    .link_card:hover:after {
+        content: '';
+        display: block;
+        background-image: url('assets/icons/white/arrow-right.svg');
+        width: 28px;
+        height: 28px;
+        right: 24px;
+        position: absolute;
+        bottom: 28px;
+    }
+
+    .lcbText {
+        margin-top: unset;
+    }
+
+    .textCtaWrapper {
+        margin-bottom: 80px;
+    }
+
+}

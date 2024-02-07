@@ -1,0 +1,23 @@
+
+{%- for section in sections -%}
+	<div class="mh--{{section.en_name|clean_class}}">
+		<div class="heading4 weightBoldBook textColorIndigo subheading">{{section.en_name|t}}</div>
+
+		<div class="item-cards">
+			{%- for item in section.items -%}
+				<div class="item-card bgColorWhite">
+					<div class="body3 textColorGrey7 weightBook">{{item.company}}</div>
+					<div class="body2 textColorPurpleLight weightDemi">{{item.symbol}}</div>
+					<div class="stock">
+						<div class="body2 textColorGrey8 weightBoldBook">
+							<span>{{item.value}}</span>
+						</div>
+						<div class="body2 weightDemi stock-val">
+							<span>{{item.change}}</span>
+						</div>
+					</div>
+				</div>
+			{%- endfor -%}
+		</div>
+	</div>
+{%- endfor -%}

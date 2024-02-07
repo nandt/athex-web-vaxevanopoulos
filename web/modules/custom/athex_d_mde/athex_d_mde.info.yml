@@ -1,0 +1,9 @@
+name: 'AthexGroup Market Data Elements'
+version: '1.0.0'
+type: module
+description: 'Provides blocks for AthexGroup Market Data Pages.'
+package: 'Deloitte Digital'
+core_version_requirement: ^10
+dependencies:
+  - athex_d_mde
+  - athex_sis

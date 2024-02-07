@@ -1,0 +1,9 @@
+name: Download
+description: 'Provides a download link with compressed files'
+core_version_requirement: ^9 || ^10
+type: module
+
+# Information added by Drupal.org packaging script on 2022-07-13
+version: '3.0.0-rc2'
+project: 'download'
+datestamp: 1657716917

@@ -1,0 +1,213 @@
+.listingsviewContainer {
+	padding: 80px 24px;
+	background: var(--Primary-Grey-Grey-03, #F8F8FA);
+
+	a {
+		color: #030314;
+	}
+
+	.listingsviewhome-item {
+		padding: 24px;
+	}
+
+	.title {
+		padding-bottom: 48px;
+	}
+
+	form {
+		.fieldset-legend {
+			display: none;
+		}
+
+		.fieldset-wrapper > div{
+			display:flex;
+			border-bottom: 1px solid #D1CCE1;
+		}
+
+		.fieldset-wrapper .js-form-item:not(:first-child) {
+    		margin-left:30px;
+		}
+
+		.fieldset-wrapper .js-form-item label {
+			cursor:pointer;
+			color: #5f4d96;
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 20px; 
+			letter-spacing: 0.42px;
+			padding: 0px 14px 16px;
+			text-transform: uppercase;
+			
+			@media( min-width: 992px) {
+				padding: 0px 24px 16px;
+			}
+		}
+
+		.fieldset-wrapper .js-form-item.active {
+			border-bottom: 1px solid #3C06D9;
+			color: #3C06D9;
+		}
+
+		.fieldset-wrapper .js-form-item input {
+			display: none;
+		}
+
+		.fieldset-wrapper {
+			padding-bottom: 32px;
+		}
+		.fieldset-wrapper .js-form-item {
+			cursor:pointer;
+		}
+
+		label[for^="edit-tid-all"]{
+			display:none;
+		}
+
+		.fieldset-wrapper .js-form-item{
+			cursor:pointer;
+		}
+
+		.viewsColWrapper{
+			padding: 32px 20px;
+			background: #fff;
+			margin-top: 32px;
+		}
+
+		#customize-controls-view {
+			padding: 56px 0px 0px;
+			background: #fff;
+		}
+
+	}
+
+	.listingsSliderContainer {
+		padding: 28px 20px;
+		margin: 0 -12px;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		padding-bottom: 28px;
+	}
+
+	.listingsviewCta {
+		display: flex;
+		gap: 16px;
+		padding: 28px 0px 20px 20px;
+
+		span {
+			background-image: url('assets/icons/black/arrow-right-black.svg');
+			display: block;
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	.hr-mobile-wrapper {
+		padding: 0px 20px;
+
+		.hr-mobile {
+			border-radius: var(--Colors-Pixels-Spacing-null, 0px);
+			background: var(--Colors-Border-Light-Purple, #D1CCE1);
+		}
+	}
+
+	.hr-desktop-wrapper {
+		display: none;
+	}
+}
+
+.controls {
+	padding: 0px 20px 28px 0px;
+    justify-content: end;
+}
+
+.controls span[aria-disabled="false"] {
+    border: 1px solid #3300C6;
+}
+
+.controls .next[aria-disabled="false"]::after {
+    background-image: url('assets/icons/purple/iconSubtract.svg');
+}
+
+.active {
+	color: #3C06D9;
+	border-bottom: 1px solid #3C06D9;
+}
+
+.listingview-body > div {
+	color: #030314;
+}
+
+@media(min-width: 992px) {
+	.hr-mobile-wrapper {
+		display: none;
+	}
+
+	.listingsviewContainer{
+
+		.listingsSliderContainer {
+			padding: 56px 80px;
+			margin: 0 -12px;
+		}
+
+		.title {
+			padding-bottom: 56px;
+		}
+		
+		img{
+			width: 100%;
+			height: 100%;
+    	}
+
+		.cta-btngrp {
+			display: flex;
+			justify-content: space-between;
+			padding: 0px 80px 56px 0px;
+		}
+
+		.listingsviewCta { 
+			padding: 28px 0px 32px 20px;
+		}
+
+		.controls {
+			order: 2;
+		}
+
+		.listingsviewCta {
+			padding-left: 80px;
+		}
+
+		.listingsviewhome {
+			padding: 120px 80px;
+		}
+
+		.hr-desktop-wrapper {
+			padding: 48px 80px;
+			display: block;
+
+			.hr-desktop {
+				display: block;
+				border-radius: var(--Colors-Pixels-Spacing-null, 0px);
+				background: var(--Colors-Border-Light-Purple, #D1CCE1);
+			}
+		}
+
+		form {
+			.fieldset-wrapper {
+				padding-bottom: 44px;
+			}
+		}
+	}
+}
+
+.form-actions {
+	display: none;
+}
+
+#views-exposed-form-listings-bells-listngsbells .fieldset-wrapper input[type="radio"]:checked+label {
+    border-bottom: 1px solid #3C06D9;
+    color: #3C06D9;
+    font-weight: 600 !important;
+}
