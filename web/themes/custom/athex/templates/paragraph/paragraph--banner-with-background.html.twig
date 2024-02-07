@@ -3,25 +3,25 @@
 {% set background_color = content.field_background_color.0['#markup']|clean_class %}
 {%  set background_graphic = content.field_bwb_background_graphic.0['#markup']|clean_class %}
 
-
 <div class="container bwbBanner">
 	<div class="row bwbBannerRow {{ background_color }} {{background_graphic}} ">
 		<div class="col-12 col-lg-6 bwbBannerText {{ font_color }} ">
 			<div class=" subheading ">{{ content.field_bwb_upper_title }}
 			</div>
-			<div class="heading1 bwbTitle">{{ content.field_bwb_title }}
+			<div class="heading2 bwbTitle weightBoldBook">{{ content.field_bwb_title }}
 			</div>
 			<div class="body3 bwbBody ">{{ content.field_bwb_body }}
 			</div>
+			{% if content.field_bwb_cta|render|trim is not empty %}
 			<div class=" bwb_button {{ button_color }} cta3 ">{{ content.field_bwb_cta }}
 			</div>
+			{% endif %}
 		</div>
 		<div class="col-12 col-lg-6 bwbBannerImage">
-			<div class="  ">{{ content.field_bwb_image }}
+			<div class="">{{ content.field_bwb_image }}
+			</div>
 		</div>
-
 	</div>
 </div>
-
 
 
