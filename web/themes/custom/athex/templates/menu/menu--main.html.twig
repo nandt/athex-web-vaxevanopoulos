@@ -32,7 +32,7 @@
 						<button class="navbar-toggler" type="button" aria-controls="{{attributes.id}}" aria-expanded="false" aria-label="Toggle navigation">
 						</button>
             			</div>
-							<a class="titleMenu" href="{{ item.url }}"> {{ 'Explore @title' | t ({'@title': item.title}) }} </a>
+							<a class="titleMenu" href="{{ item.url }}"> {{ ' @title' | t ({'@title': item.title}) }} </a>
                             {% else %}
                                 <a href="{{ item.url }}">{{ item.title }}</a>
                             {% endif %}
