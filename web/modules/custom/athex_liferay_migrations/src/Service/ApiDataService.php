@@ -35,7 +35,17 @@ class ApiDataService {
 		$args += [
 			'companyId' => $this->config->get('companyId')
 		];
+		$multipart = [];
 
+		foreach ($args as $k => $v) {
+			$multipart[] = [
+				'name' => $k,
+				'contents' => $v
+			];
+		}
+
+		$rq = null;
+		// try {
 		$rq = $this->http->request(
 			"GET",
 			"{$this->getBaseUrl()}/{$endpoint->value}",
@@ -44,10 +54,33 @@ class ApiDataService {
 					$this->config->get('username'),
 					$this->config->get('password')
 				],
-				'form_params' => $args
+				'multipart' => $multipart,
+				'verify' => false //TODO: turn into config flag
 			]
 		);
+		// }
+		// catch (RequestException $e) {
+		// 	if ($e->hasResponse()) {
+		// 		$rsp = $e->getResponse();
+		// 		$this->logger->error(
+		// 			"HTTP "
+		// 			. $rsp->getStatusCode()
+		// 			. " with message:\n\t"
+		// 			. $rsp->getBody()->getContents()
+		// 		);
+		// 	}
+		// 	else
+		// 		$this->logger->error('RequestException with no response');
+		// }
+		// catch (ConnectException $e) {
+		// 	$this->logger->error('Connection error');
+		// }
 
-		return json_decode($rq->getBody()->getContents(), true);
+		$rs = json_decode($rq->getBody()->getContents(), true);
+
+		if (isset($rs['exception']))
+			throw new \Error("Liferay API Exception: \"{$rs['exception']}\"");
+
+		return $rs;
 	}
 }
