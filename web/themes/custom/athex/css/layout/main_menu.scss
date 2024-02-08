@@ -137,6 +137,9 @@ hr {
     justify-content: flex-end;
 }
 
+.container.containerMainMenuBar {
+    position: relative;
+}
 
 @media (min-width: 992px) {
 
@@ -187,6 +190,7 @@ hr {
 	}
 
 	.row.menu {
+		position:relative;
 		background-color: white;
 		border-bottom: 1px solid #E8E5F0;
 		display: flex;
@@ -388,20 +392,22 @@ div#edit-actions--3 {
 	padding: 32px 32px 32px 32px;
 	}
 
-	.col-9.nav-menu {
+
+	.col-12.nav-menu {
 		display: none;
 	}
 
-	.col-9.nav-menu.active {
+	.col-12.nav-menu.active {
 		display: flex;
 	}
 
+
 	.menu-block--main {
-		width: 80vw;
+		width: 100%;
 	}
 
 	nav#block-athex-main-menu {
-		width: 80vw;
+		width: 100%;
 		display: flex;
 		justify-content: flex-end;
 	}
