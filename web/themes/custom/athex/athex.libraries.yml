@@ -417,3 +417,10 @@ product-hero:
       css/views/views.scss: {}
   js:
     js/table_expand.js: {}
+
+prefooter_block:
+  css:
+    theme:
+      css/paragraph/prefooter_block.scss: {}
+  js:
+    js/prefooter_block.js: {}

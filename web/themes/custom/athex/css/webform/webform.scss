@@ -59,12 +59,17 @@ select {
     }
 }
 
+input.webform-counter-warning, input.form-text.webform-counter-warning,
+textarea.webform-counter-warning, textarea.form-textarea.webform-counter-warning{
+	background:white !important;
+}
+
 //Jquery select2 overrides for custom dropdown styles
 
 .select2-container {
 
     .select2-search {
-        display: none;
+        display: block;
     }
 
     .select2-results ul {
