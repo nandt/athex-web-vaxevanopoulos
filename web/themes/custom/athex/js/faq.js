@@ -1,10 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const firstFaqToggle = document.querySelector('.faq-toggle');
-    const firstFaqContent = firstFaqToggle.nextElementSibling;
-    firstFaqToggle.classList.add('active-title');
-    firstFaqContent.classList.add('active');
-
-
     document.querySelectorAll('.faq-toggle').forEach(function(toggle) {
         toggle.addEventListener('click', function() {
             const currentlyActiveContent = document.querySelector('.faq-content.active');
