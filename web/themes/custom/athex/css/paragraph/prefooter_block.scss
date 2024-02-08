@@ -7,7 +7,7 @@
 }
 
 .prefooter-p_item.body {
-	background: var(--supportive-gradient-indigo-05, linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%));
+	background: linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -38,7 +38,7 @@
 	.prefooter-p_item.body:after{
 		content: '';
 		background-image: url('assets/icons/Gradient/arrow-right.svg');
-		fill: var(--supportive-gradient-indigo-05, linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%));
+		fill: linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%);
 		width: 20px;
 		height: 20px;
 		display: block;
@@ -50,10 +50,10 @@
 	.pref_items{
 		flex-direction:row;
 		justify-content: space-between;
-		.prefooter_item,
-		.prefooter_item:not(:last-of-type){
-			margin-bottom:unset;
-		}
+			.prefooter_item,
+			.prefooter_item:not(:last-of-type){
+				margin-bottom:unset;
+			}
 	}
 
 	.prefooter-p_item.body{
@@ -65,7 +65,7 @@
 	.prefooter-p_item.body:hover:after{
 		content: '';
 		background-image: url('assets/icons/Gradient/arrow-right.svg');
-		fill: var(--supportive-gradient-indigo-05, linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%));
+		fill: linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%);
 		width: 20px;
 		height: 20px;
 		display: block;
@@ -73,7 +73,7 @@
 	}
 
 	.prefooter-p_item.body:hover {
-		background: var(--supportive-gradient-indigo-05, linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%));
+		background: linear-gradient(88deg, #21C0F2 -66.86%, #3C06D9 124.88%);
 		background-clip: text;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
