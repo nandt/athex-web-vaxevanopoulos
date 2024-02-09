@@ -1,0 +1,7 @@
+athex_d_search.menu_link:
+  title: 'Athex Stock Search'
+  description: 'Search for Athex stocks.'
+  parent: main_menu
+  route_name: athex_d_search.form
+  weight: 10
+

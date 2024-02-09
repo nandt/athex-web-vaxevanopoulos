@@ -1,5 +1,5 @@
 <?php
-
+/*
 namespace Drupal\athex_d_products\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
@@ -54,7 +54,7 @@ class StockSearchController extends ControllerBase {
 				'#type' => 'link',
 				'#title' => $row['symbol'],
 				'#url' => \Drupal\Core\Url::fromRoute(
-					'athex_d_products.stock_profile',
+					'athex_d_products.product_profile',
 					[
 						'product_type' => 'stocks',
 						'product_id' => $row['symbol']
@@ -78,4 +78,151 @@ class StockSearchController extends ControllerBase {
 			)
 		);
 	}
+}
+*/
+
+/*that work apart the seach*/
+/*
+namespace Drupal\athex_d_products\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Drupal\athex_d_products\Service\StockDataService;
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\athex_d_products\AthexRendering\ProductSearch;
+use Drupal\athex_d_mde\AthexRendering\DataTable;
+
+class StockSearchController extends ControllerBase {
+	protected $messenger;
+	protected $dataService;
+
+	public function __construct(StockDataService $dataService, MessengerInterface $messenger) {
+		$this->dataService = $dataService;
+		$this->messenger = $messenger;
+	}
+
+
+
+	public static function create(ContainerInterface $container) {
+		return new static(
+			$container->get('athex_d_products.stock_data'),
+			$container->get('messenger')
+		);
+	}
+
+	public function render(Request $request) {
+		$this->messenger->addMessage('Render method called');
+
+		// Define the table headers
+		$header = [
+			['data' => $this->t('Symbol')],
+			['data' => $this->t('ISIN')],
+			['data' => $this->t('Issuer')],
+			['data' => $this->t('Market')],
+			['data' => $this->t('Last Price')],
+			['data' => $this->t('Last Trading Date')],
+			['data' => $this->t('Percentage')],
+		];
+
+
+		// Get filters from request, e.g., search value
+		$searchValue = $request->query->get('search', '');
+
+		// Call the search method of data service with filters
+		$data = $this->dataService->search(['searchValue' => $searchValue], 0, 10);
+
+		// Construct the rows for the table
+		$rows = [];
+		foreach ($data as $item) {
+			$rows[] = [
+				'data' => [
+					$item['Symbol'] ?? 'N/A', // Provide 'N/A' if 'Symbol' key does not exist
+					$item['ISIN'] ?? 'N/A', // Provide 'N/A' if 'ISIN' key does not exist
+					$item['Issuer'] ?? 'N/A', // Provide 'N/A' if 'Issuer' key does not exist
+					$item['Market'] ?? 'N/A', // Provide 'N/A' if 'Market' key does not exist
+					$item['Last Price'] ?? 'N/A', // Provide 'N/A' if 'Last Price' key does not exist
+					$item['Last Trading Date'] ?? 'N/A', // Provide 'N/A' if 'Last Trading Date' key does not exist
+					$item['Percentage'] ?? 'N/A', // Provide 'N/A' if 'Percentage' key does not exist
+				]
+			];
+		}
+
+
+
+
+		$build['stock_table'] = [
+			'#type' => 'table',
+			'#header' => $header,
+			'#rows' => $rows,
+			'#empty' => $this->t('No stocks found'),
+		];
+
+
+		// Return the render array for the table
+		return $build;
+
+	}
+
+}*/
+
+/*new try*/
+namespace Drupal\athex_d_products\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Drupal\athex_d_products\Service\StockDataService;
+use Drupal\athex_d_products\AthexRendering\ProductSearch;
+use Drupal\athex_d_mde\AthexRendering\DataTable;
+use Drupal\Core\Messenger\MessengerInterface;
+
+class StockSearchController extends ControllerBase {
+	protected $dataService;
+	protected $productSearch;
+
+
+	public function __construct(StockDataService $dataService, ProductSearch $productSearch, MessengerInterface $messenger)
+	{
+		$this->dataService = $dataService;
+		$this->productSearch = $productSearch;
+		$this->messenger = $messenger;
+	}
+	public static function create(ContainerInterface $container) {
+		return new static(
+			$container->get('athex_d_products.stock_data'),
+			$container->get('athex_d_products.product_search') // Assuming 'athex_d_products.product_search' is defined in your services.yml
+		);
+	}
+
+	public function render(Request $request) {
+		// Get filters from request, e.g., search value
+		$searchValue = $request->query->get('search', '');
+
+		// Call the search method of data service with filters
+		$data = $this->dataService->search(['searchValue' => $searchValue], 0, 10);
+		//var_dump($data);
+		// Convert the data into a format suitable for DataTable rendering
+		$dataTable = new DataTable($this->getTableHeaders(), $data);
+
+		// Use ProductSearch to render the search form and table
+		$renderArray = $this->productSearch->render($dataTable);
+
+		// Return the render array for the search form and table
+		return $renderArray;
+	}
+
+	// In your StockSearchController.php or wherever you define the table structure
+	private function getTableHeaders() {
+		return [
+			['data' => $this->t('Symbol'), 'field' => 'Symbol'], // Capitalize 'Symbol'
+			['data' => $this->t('ISIN'), 'field' => 'ISIN'], // Capitalize 'ISIN'
+			['data' => $this->t('Issuer'), 'field' => 'Issuer'], // Capitalize 'Issuer'
+			['data' => $this->t('Market'), 'field' => 'Market'], // Capitalize 'Market'
+			['data' => $this->t('Last Price'), 'field' => 'Last Price'], // Capitalize 'Last Price'
+			['data' => $this->t('Last Trading Date'), 'field' => 'Last Trading Date'], // Capitalize 'Last Trading Date'
+			['data' => $this->t('Percentage'), 'field' => 'Percentage'] // Capitalize 'Percentage'
+		];
+	}
+
 }

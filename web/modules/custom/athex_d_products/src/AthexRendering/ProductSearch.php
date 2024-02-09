@@ -25,7 +25,7 @@ class ProductSearch {
 		$this->title = $this->t($enTitle);
 		$this->secondaryFiltersRA = $secondaryFiltersRA;
 		$this->pager = \Drupal::service('pager.manager')->createPager(30, 10);
-		$this->seldLetter = strtoupper(\Drupal::request()->get('letter'));
+		$this->seldLetter = strtoupper(\Drupal::request()->get('letter') ?? '');
 		if (!in_array($this->seldLetter, range('A', 'Z')))
 			$this->seldLetter = null;
 	}
