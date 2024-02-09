@@ -1,41 +1,4 @@
 <?php
-/*
-namespace Drupal\athex_d_products\Service;
-
-use Drupal\athex_sis\Service\SisDbDataService;
-
-
-class StockDataService {
-
-	protected $sisdb;
-
-	public function __construct(
-		SisDbDataService $sisdb
-	) {
-		$this->sisdb = $sisdb;
-	}
-
-	public function search(array $filters, int $offset, int $limit) {
-
-		//TODO: Get real data
-
-		$result = [];
-		for ($i = 0; $i < 10; $i++) {
-			$result[] = [
-				'symbol' => 'ATG 10010',
-				'company' => 'ABN AMRO BANK N.V.',
-				'isin' => 'NL0000852564',
-				'market' => 'ALTERNATIVE',
-				'last' => 'EUR 29.33',
-				'percent' => '3.56%',
-				'date_time' => '25/10/2023 10:28 CEST'
-			];
-		}
-		return $result;
-	}
-}
-*/
-
 namespace Drupal\athex_d_products\Service;
 
 use Drupal\athex_sis\Service\SisDbDataService;
@@ -47,6 +10,7 @@ class StockDataService {
 	public function __construct(SisDbDataService $sisdb) {
 		$this->sisdb = $sisdb;
 	}
+
 
 	public function search(array $filters, int $offset, int $limit) {
 		$sql = <<<SQL
@@ -80,17 +44,32 @@ WHERE
     s.NAME_EN LIKE :searchValue
 SQL;
 
+		$searchValue = '%' . ($filters['searchValue'] ?? '') . '%';
 
+		// Bind parameters and execute the query
+		$params = [':searchValue' => $searchValue];
+		$result = $this->sisdb->fetchAllWithParams($sql, $params);
 
-		// Prepare search value with wildcards for LIKE operator
-		$searchValue = '%' . $filters['searchValue'] . '%';
+		// Return results or an empty array
+		return $result ?: [];
 
-		// Execute the query with parameters
-		$result = $this->sisdb->fetchAllWithParams($sql, [
-			':searchValue' => $searchValue
-		]);
-		//var_dump($result);
-		// Process results if needed or return directly
-		return $result;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

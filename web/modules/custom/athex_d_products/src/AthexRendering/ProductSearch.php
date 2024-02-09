@@ -41,17 +41,15 @@ class ProductSearch {
 	private function getSearchbarRA() {
 		return [
 			'#type' => 'container',
-			'#attributes' => [
-				'class' => ['js-form-type-textfield']
-			],
+			'#attributes' => ['class' => ['js-form-type-textfield']],
 			[
 				'#type' => 'textfield',
-				'#attributes' => [
-					'placeholder' => $this->t("Type here to search")
-				]
+				'#name' => 'search_value',  // Add a name attribute
+				'#attributes' => ['placeholder' => $this->t("Type here to search")]
 			]
 		];
 	}
+
 
 	private function getSecondaryFiltersRA() {
 		return array_merge([
@@ -74,6 +72,7 @@ class ProductSearch {
 	private function getSearchFormRA() {
 		return [
 			'#type' => 'form',
+			'#method' => 'GET', // Ensure the form is submitted using the GET method
 			'#attributes' => [
 				'class' => ['bef-exposed-form']
 			],

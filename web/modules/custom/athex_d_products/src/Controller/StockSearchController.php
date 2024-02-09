@@ -195,7 +195,7 @@ class StockSearchController extends ControllerBase {
 		);
 	}
 
-	public function render(Request $request) {
+	/*public function render(Request $request) {
 		// Get filters from request, e.g., search value
 		$searchValue = $request->query->get('search', '');
 
@@ -211,6 +211,64 @@ class StockSearchController extends ControllerBase {
 		// Return the render array for the search form and table
 		return $renderArray;
 	}
+*/
+/*
+	public function render(Request $request) {
+		$searchValue = $request->query->get('search', '');
+
+		// Pass $searchValue to the search method
+		$data = $this->dataService->search(['searchValue' => $searchValue], 0, 10);
+
+		// Convert the data into a format suitable for DataTable rendering
+		$dataTable = new DataTable($this->getTableHeaders(), $data);
+
+		// Use ProductSearch to render the search form and table
+		$renderArray = $this->productSearch->render($dataTable);
+
+		return $renderArray;
+	}
+*/
+
+
+/*
+ *
+ *
+ *
+
+public function render(Request $request) {
+    // Capture search_value from query parameters
+    $searchValue = $request->query->get('search_value', ''); // Default to empty string if not set
+
+    // Pass $searchValue to the search method
+    $data = $this->dataService->search(['searchValue' => $searchValue], 0, 10);
+
+    // Rest of your render method...
+}
+
+
+ */
+
+
+
+	public function render(Request $request) {
+			//$searchValue = $request->query->get('search', '');
+		      $searchValue = $request->query->get('search_value', ''); // Default to empty string if not set
+			//$selectedLetter = $request->query->get('letter', ''); // Retrieve selected letter from query parameters
+
+			// Pass both search value and selected letter to the search method
+			/*$data = $this->dataService->search([
+				'searchValue' => $searchValue,
+				'selectedLetter' => $selectedLetter
+			], 0, 10);
+			*/
+		$data = $this->dataService->search(['searchValue' => $searchValue], 0, 10);
+
+		$dataTable = new DataTable($this->getTableHeaders(), $data);
+		$renderArray = $this->productSearch->render($dataTable);
+
+		return $renderArray;
+	}
+
 
 	// In your StockSearchController.php or wherever you define the table structure
 	private function getTableHeaders() {
