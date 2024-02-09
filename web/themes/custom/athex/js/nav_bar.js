@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.querySelector('.burger-icon').addEventListener('click', function() {
-    document.querySelector('.col-9.nav-menu').classList.toggle('active');
+    document.querySelector('.col-12.nav-menu').classList.toggle('active');
 });
 
 

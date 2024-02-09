@@ -23,16 +23,23 @@
                     <div class="sub-menu submenu-{{ submenu_counter }} depth-{{ menu_level + 1 }}">
                         {% if item.url %}
                             {% if item.below %}
-							 <div class="back">
-                <span class="back-icon"></span>
-                <button class="back-button"></button>
-				<a class="titleMenuMob" href="{{ item.url }}"> {{ ' Explore @title' | t ({'@title': item.title}) }} </a>
-					<div class="col-2 burger-btn">
-					</div>
-						<button class="navbar-toggler" type="button" aria-controls="{{attributes.id}}" aria-expanded="false" aria-label="Toggle navigation">
-						</button>
-            			</div>
-							<a class="titleMenu" href="{{ item.url }}"> {{ 'Explore @title' | t ({'@title': item.title}) }} </a>
+								<div class="back">
+									<span class="back-icon"></span>
+									<button class="back-button"></button>
+									<a class="titleMenuMob" href="{{ item.url }}">
+										{{ 'Explore @title' | t ({'@title': item.title}) }}
+									</a>
+									<div class="col-2 burger-btn"></div>
+									<button
+										class="navbar-toggler" type="button"
+										aria-controls="{{attributes.id}}"
+										aria-expanded="false"
+										aria-label="Toggle navigation"
+									></button>
+								</div>
+								<a class="titleMenu" href="{{ item.url }}">
+									{{ item.title }}
+								</a>
                             {% else %}
                                 <a href="{{ item.url }}">{{ item.title }}</a>
                             {% endif %}

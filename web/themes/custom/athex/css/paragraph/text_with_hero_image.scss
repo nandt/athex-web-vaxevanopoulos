@@ -17,13 +17,52 @@
     margin-bottom: 48px;
 }
 
+.downloadLinkBtn .wrapper{
+    position:relative;
+    margin-top:32px;
+}
+
+.downloadLinkBtn .wrapper{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.downloadLinkBtn .wrapper::after{
+content: '';
+    background-image: url('assets/icons/brochureDownload.svg');
+    display: block;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+.media{
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    z-index: 999;
+}
+
 @media(min-width:992px) {
+
+    .downloadLinkBtn .wrapper{
+        justify-content:flex-start;
+    }
+
+    .downloadLinkBtn .wrapper::after{
+        margin-left:42px;
+    }
+
+
     .twhiSection {
         margin-top: 48px;
         margin-bottom: 120px;
     }
 
     .twhi-image {
+        margin-top: 120px;
 
         img {
             width: 100%;
