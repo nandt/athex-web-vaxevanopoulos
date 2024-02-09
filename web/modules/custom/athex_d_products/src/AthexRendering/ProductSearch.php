@@ -52,6 +52,7 @@ class ProductSearch {
 
 
 	private function getSecondaryFiltersRA() {
+
 		return array_merge([
 			'#type' => 'details',
 			'#title' => $this->t('Filters'),

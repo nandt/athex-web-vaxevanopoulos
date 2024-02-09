@@ -15,5 +15,5 @@ services:
   athex_d_products.product_search:
     class: Drupal\athex_d_products\AthexRendering\ProductSearch
     arguments:
-      - 'Default Title' # You can change 'Default Title' to whatever default title you want to use
+      - 'Search Stocks' # You can change 'Default Title' to whatever default title you want to use
       - [ ] # This is an empty array for secondary filters. Adjust as needed if you have default filters to apply

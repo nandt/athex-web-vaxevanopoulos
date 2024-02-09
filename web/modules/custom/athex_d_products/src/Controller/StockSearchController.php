@@ -191,7 +191,7 @@ class StockSearchController extends ControllerBase {
 	public static function create(ContainerInterface $container) {
 		return new static(
 			$container->get('athex_d_products.stock_data'),
-			$container->get('athex_d_products.product_search') // Assuming 'athex_d_products.product_search' is defined in your services.yml
+			$container->get('athex_d_products.product_search')
 		);
 	}
 
@@ -251,7 +251,7 @@ public function render(Request $request) {
 
 
 	public function render(Request $request) {
-			//$searchValue = $request->query->get('search', '');
+
 		      $searchValue = $request->query->get('search_value', ''); // Default to empty string if not set
 			//$selectedLetter = $request->query->get('letter', ''); // Retrieve selected letter from query parameters
 
