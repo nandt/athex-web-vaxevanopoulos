@@ -115,7 +115,6 @@ class LiferayArticle {
 }
 
 /*
-
 // Testing Code
 
 $test = new LiferayArticle(json_decode("{
@@ -158,4 +157,4 @@ $test = new LiferayArticle(json_decode("{
 echo print_r($test->getData(1), true);
 echo "\n";
 
-*/
+/**/
