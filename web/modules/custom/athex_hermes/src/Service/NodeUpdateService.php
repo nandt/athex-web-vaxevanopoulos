@@ -4,7 +4,7 @@ namespace Drupal\athex_hermes\Service;
 
 use Symfony\Component\Yaml\Yaml;
 
-use Drupal\athex_hermes\AthexData\ProvidesNodeData;
+use Drupal\athex_hermes\AthexData\SubmissionNodeData;
 use Drupal\node\Entity\Node;
 
 
@@ -25,7 +25,6 @@ class NodeUpdateService {
 		if (!isset($oldAlfrescoUUID)) return;
 
 		$uids = \Drupal::entityQuery('node')
-			->condition('type', 'x')
 			->condition('field_alfrescoUUID', $oldAlfrescoUUID, '=')
 			->execute();
 
@@ -60,9 +59,9 @@ class NodeUpdateService {
 	/**
 	 * Add/Update node based on the given object.
 	 */
-	public function update(ProvidesNodeData $nodeData) {
+	public function update(SubmissionNodeData $nodeData) {
 		$type = end(explode('\\', get_class($nodeData)));
-		$nodeData = $nodeData->getNodeData();
+		$nodeData = $nodeData->getFinalNodeData();
 		if (empty($nodeData)) return;
 
 		$this->deleteAlfrescoOld($nodeData[0]['oldAlfrescoUUID']);

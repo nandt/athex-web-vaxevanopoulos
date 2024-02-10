@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Drupal\athex_hermes\AthexModel\AddSubmissionFileRq;
 use Drupal\Core\File\FileSystemInterface;
 
-class SubmissionFile implements ProvidesNodeData {
+class SubmissionFile implements SubmissionNodeData {
 
 	protected array $data;
 

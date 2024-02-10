@@ -104,7 +104,7 @@ class AddSubmissionRq extends HermesRequest {
 	public array $properties;
 
 	/**
-	 *Liferay tags
+	 * Liferay tags
 	 */
 	public array $tagNames;
 

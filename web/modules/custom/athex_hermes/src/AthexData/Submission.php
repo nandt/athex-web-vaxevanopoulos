@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Drupal\athex_hermes\AthexModel\AddSubmissionRq;
 
 
-class Submission extends LiferayEntity implements ProvidesNodeData {
+class Submission extends LiferayEntity implements SubmissionNodeData {
 
 	public function __construct(Request $request) {
 		$rqobj = new AddSubmissionRq($request);
