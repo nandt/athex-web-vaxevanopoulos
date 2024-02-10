@@ -38,7 +38,6 @@ class SisDbDataService
 	}
 
 
-
 	public function fetchAllWithParams($sql, array $params = [])
 	{
 		// Debugging lines:
@@ -50,6 +49,7 @@ class SisDbDataService
 
 
 		foreach ($params as $param => $value) {
+
 			oci_bind_by_name($stmt, $param, $params[$param]); // Ensure parameter names match
 		}
 

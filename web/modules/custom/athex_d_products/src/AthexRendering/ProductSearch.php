@@ -4,12 +4,11 @@ namespace Drupal\athex_d_products\AthexRendering;
 
 use Drupal\Core\Pager\Pager;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-
 use Drupal\athex_d_mde\AthexRendering\BsNav;
 use Drupal\athex_d_mde\AthexRendering\DataTable;
 
-
-class ProductSearch {
+class ProductSearch
+{
 
 	use StringTranslationTrait;
 
@@ -18,10 +17,8 @@ class ProductSearch {
 	private Pager $pager;
 	private string|null $seldLetter;
 
-	public function __construct(
-		string $enTitle,
-		array $secondaryFiltersRA
-	) {
+	public function __construct(string $enTitle, array $secondaryFiltersRA)
+	{
 		$this->title = $this->t($enTitle);
 		$this->secondaryFiltersRA = $secondaryFiltersRA;
 		$this->pager = \Drupal::service('pager.manager')->createPager(30, 10);
@@ -30,68 +27,131 @@ class ProductSearch {
 			$this->seldLetter = null;
 	}
 
-	public function getResultsOffset() {
+	public function getResultsOffset()
+	{
 		return ($this->pager->getCurrentPage() - 1) * $this->pager->getLimit();
 	}
 
-	public function getResultsLimit() {
+	public function getResultsLimit()
+	{
 		return $this->pager->getLimit();
 	}
 
-	private function getSearchbarRA() {
+	private function getSearchbarRA()
+	{
 		return [
 			'#type' => 'container',
 			'#attributes' => ['class' => ['js-form-type-textfield']],
 			[
 				'#type' => 'textfield',
-				'#name' => 'search_value',  // Add a name attribute
+				'#name' => 'search_value',
 				'#attributes' => ['placeholder' => $this->t("Type here to search")]
 			]
 		];
 	}
 
+	private function getMarketField()
+	{
+		// Use the prepared options array for the checkboxes
+		$marketOptions = [
+			'30117' => 'SECURITIES MARKET',
+			'30250' => 'ALTERNATIVE MARKET',
+			// Add more options as needed
+		];
 
-	private function getSecondaryFiltersRA() {
 
-		return array_merge([
-			'#type' => 'details',
-			'#title' => $this->t('Filters'),
-			'#attributes' => [
-				'class' => ['bef--secondary']
+		return [
+
+			'#type' => 'container',
+			'#attributes' => ['class' => ['js-form-type-textfield']],
+			[
+				'#title' => $this->t('Market'),
+				'#type' => 'select',
+
+				'#options' => $marketOptions,
+				//'#title_display' => $this->t('Closing Price Range23'),
+				'#id' => 'market-checkboxes', // Ensure this ID is unique if it's needed for CSS or JavaScript
+				'#name' => 'market',
 			]
-		], $this->secondaryFiltersRA);
+		];
+
 	}
 
-	private function getTabsRA() {
+
+	private function getPriceField()
+	{
+		return [
+			'#type' => 'fieldset',
+			'#title' => $this->t('Closing Price Range'),
+			'minPrice' => [
+				'#type' => 'textfield',
+				'#title' => $this->t('Min Price'),
+				'#size' => 10,
+				'#name' => 'minPrice',
+			],
+			'maxPrice' => [
+				'#type' => 'textfield',
+				'#title' => $this->t('Max Price'),
+				'#size' => 10,
+				'#name' => 'maxPrice',
+			],
+		];
+	}
+
+	private function getSubmitButton()
+	{
+		return [
+			'#type' => 'submit',
+			'#value' => $this->t('Apply Filters'),
+		];
+	}
+
+	private function getTabsRA()
+	{
 		$seldLetter = $this->seldLetter;
 		if (!$seldLetter) $seldLetter = 'All';
-		$options = ['All', ...range('A', 'Z') ];
+		$options = ['All', ...range('A', 'Z')];
 		$bsNav = new BsNav($options, $seldLetter, 'pills');
 		return $bsNav->render();
 	}
 
-	private function getSearchFormRA() {
+	private function getSearchFormRA()
+	{
+		$formAction = \Drupal\Core\Url::fromRoute('athex_d_products.stock_search')->toString();
+
 		return [
 			'#type' => 'form',
-			'#method' => 'GET', // Ensure the form is submitted using the GET method
-			'#attributes' => [
-				'class' => ['bef-exposed-form']
-			],
+			'#method' => 'GET',
+			'#action' => $formAction,
+			'#attributes' => ['class' => ['bef-exposed-form']],
 			'#children' => [
 				$this->getSearchbarRA(),
 				$this->getTabsRA(),
-				$this->getSecondaryFiltersRA()
+				$this->getSecondaryFiltersRA(),
+				//$this->getSubmitButton()
 			]
 		];
 	}
 
-	public function render(
-		DataTable $table
-	) {
+	private function getSecondaryFiltersRA()
+	{
 		return [
-			//TODO: refine
-			'#cache' => [ 'max-age' => 0 ],
-			//
+			'#type' => 'details',
+			'#method' => 'GET',
+			'#title' => $this->t('Filters'),
+			'#open' => true,
+			'#attributes' => ['class' => ['bef--secondary']],
+			'market' => $this->getMarketField(), // Incorporates the checkboxes for market
+			'price' => $this->getPriceField(), // Adds a fieldset for price range
+			'submit' => $this->getSubmitButton(), // Adds the submit button
+		];
+	}
+
+
+	public function render(DataTable $table)
+	{
+		return [
+			'#cache' => ['max-age' => 0],
 			'#theme' => 'product_search',
 			'#page_title' => [
 				'#type' => 'html_tag',
@@ -100,7 +160,7 @@ class ProductSearch {
 			],
 			'#search_form' => $this->getSearchFormRA(),
 			'#table' => $table->render(),
-			'#pager' => [ '#type' => 'pager' ],
+			'#pager' => ['#type' => 'pager'],
 		];
 	}
 }
