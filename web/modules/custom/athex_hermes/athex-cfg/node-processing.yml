@@ -1,0 +1,15 @@
+
+Submission:
+  bundle: hermes_submission
+  fields:
+    title: titleMapValues
+    langcode: langcode
+    created: displayDateTimestamp
+    changed: displayDateTimestamp
+    body: content
+
+SubmissionFile:
+  bundle: hermes_submission_file
+  fields:
+    title: title
+    field_files: files

@@ -27,6 +27,7 @@ namespace Drupal\athex_hermes\AthexModel;
 class AddSubmissionRq extends HermesRequest {
 
 	/**
+	 * @deprecated
 	 * πχ "en_US","el_GR"
 	 */
 	public array $mapLanguageIds;
@@ -59,7 +60,7 @@ class AddSubmissionRq extends HermesRequest {
 	/**
 	 * για ορθή επανάληψη, στέλνεται το AlfrescoUUID της προς αντικατάστασης υποβολής, ώστε να ξέρει το liferay τι να πανογραψει.
 	 */
-	public string $oldAlfrescoUUID;
+	public ?string $oldAlfrescoUUID;
 
 	/**
 	 * τα ονόματα των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
@@ -72,12 +73,13 @@ class AddSubmissionRq extends HermesRequest {
 	public array $mimeTypes;
 
 	/**
-	 *η γλώσσα που είναι γραμμένη το περιεχόμενο των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
+	 * @deprecated
+	 * η γλώσσα που είναι γραμμένη το περιεχόμενο των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
 	 */
 	public array $attachmentsLangs;
 
 	/**
-	 *η περιγραφή των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
+	 * η περιγραφή των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
 	 */
 	public array $attachmentDescriptions;
 
@@ -87,12 +89,12 @@ class AddSubmissionRq extends HermesRequest {
 	public array $fileURLs;
 
 	/**
-	 *τα liferay vocabularies της υποβολής (πχ Company, FiscalYear …)
+	 * τα liferay vocabularies της υποβολής (πχ Company, FiscalYear …)
 	 */
 	public array $vocabularies;
 
 	/**
-	 *η liferay κατηγοριοποίηση με βάση τα παραπάνω vocabularies πχ η εταιρεία που έκανε την υποβολή ή πχ το οικ. Ετος για την οποία έγινε
+	 * η liferay κατηγοριοποίηση με βάση τα παραπάνω vocabularies πχ η εταιρεία που έκανε την υποβολή ή πχ το οικ. Ετος για την οποία έγινε
 	 */
 	public array $categories;
 
