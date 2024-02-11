@@ -1,11 +1,19 @@
 .serachFormPlace::placeholder {
-	color: #A399C3;
+	padding-left:30px;
+  color: #A399C3;
+  font-size:24px;
+  font-weight:600px;
+  line-height:28px;
   }
+
+  .serachFormPlace {
+    background-repeat: no-repeat;
+    background-image: url(/themes/custom/athex/assets/icons/Gradient2/search.svg);
+}
 
   input[id^="edit-keys"] {
 	  padding-top: 60px;
 	  margin-bottom: 48px;
-	  width: 140vh;
 	  padding-bottom: 48px;
 	  border-bottom: none;
 	  border-right: none;
@@ -16,6 +24,11 @@
 	  font-size: 24px;
   }
 
+  .container.overlay-content {
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: row-reverse;
+}
 
 
   input[id^="edit-keys"]:focus {
@@ -40,6 +53,18 @@
 
 }
 
+.serachFormPlace::edit-keys {
+
+	background-repeat: no-repeat;
+	background-position: left center;
+	color:#3C06D9;
+	font-size:16px;
+	line-height:24px;
+	font-weight:600;
+
+
+}
+
 .bannerSearchPage {
     padding: 5%;
     display: flex;
@@ -52,6 +77,20 @@
     justify-content: center;
 }
 
+li.searchResult {
+    row-gap: 12px;
+    list-style: none;
+    padding: 2%;
+    border-bottom: 1px solid #D1CCE1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.searchKeyWord strong {
+    background-color: #DDE9FE;
+}
+
 main.SearchPageContent {
     top: 500px;
     display: flex;
@@ -59,12 +98,20 @@ main.SearchPageContent {
     align-items: center;
 }
 
+input#edit-keys {
+    width: 100%;
+}
+
   @media(min-width:992px){
 
-	  input#edit-keys {
+	input#edit-keys {
+		width: 100%;
+	}s
+
+	input[id^="edit-keys"] {
 	  padding-top: 0px;
-	  margin-bottom: 48px;
-	  width: 140vh;
+	  margin-bottom: 28px;
+	  width: 100%;
 	  padding-bottom:48px;
 	  border-bottom: 1px solid #D1CCE1;
 	  border-right: none;

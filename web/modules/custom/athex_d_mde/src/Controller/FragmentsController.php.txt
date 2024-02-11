@@ -1,0 +1,60 @@
+<?php
+
+namespace Drupal\athex_d_mde\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Cache\CacheableResponse;
+use Drupal\Core\Render\Renderer;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+use Drupal\athex_d_mde\Service\TickerTapeService;
+
+
+class FragmentsController extends ControllerBase {
+
+	protected Renderer $renderer;
+	protected TickerTapeService $service;
+
+
+	public function __construct(
+		Renderer $renderer,
+		TickerTapeService $service
+	) {
+		$this->renderer = $renderer;
+		$this->service = $service;
+	}
+
+	public static function create(ContainerInterface $container) {
+		return new static(
+			$container->get('renderer'),
+			$container->get('athex_d_mde.ticker_tape')
+		);
+	}
+
+	public function tickerTape() {
+
+		$result = [
+			'#theme' => 'ticker_tape',
+			'#info' => [
+				'#type' => 'container',
+				'#attributes' => [
+					'class' => ['ticker-info']
+				],
+				$this->service->getPrimaryInfoRenderArray()
+			],
+			'#items' => [
+				'#type' => 'container',
+				'#attributes' => [
+					'class' => ['tickertapeWrapper']
+				],
+				...$this->service->getTapeItemRenderArray()
+			]
+		];
+
+		$result = $this->renderer->renderPlain($result);
+		$result = new CacheableResponse($result);
+		$result->getCacheableMetadata()->setCacheMaxAge(9);
+		
+		return $result;
+	}
+}

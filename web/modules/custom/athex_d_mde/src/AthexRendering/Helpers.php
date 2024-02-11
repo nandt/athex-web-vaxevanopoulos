@@ -14,6 +14,10 @@ class Helpers {
 			$class = 'neg-change';
 		}
 
+		if ($suffix === '%') {
+			$val = number_format($val, 1);
+		}
+
 		return [
 			'#type' => 'html_tag',
 			'#tag' => 'span',
@@ -42,6 +46,8 @@ class Helpers {
 			'since_close_value'
 				=> Helpers::renderDelta($info['pricePrevClosePriceDelta']),
 			'since_close_percentage'
+				=> Helpers::renderDelta($info['pricePrevClosePricePDelta'], '%'),
+			'change'
 				=> Helpers::renderDelta($info['pricePrevClosePricePDelta'], '%')
 		];
 	}

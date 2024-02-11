@@ -11,7 +11,7 @@ span.tlidate div {
 }
 
 .timelineItemCta {
-margin-top: 20px;
+	margin-top: 20px;
     display: flex;
 	font-weight: 500;
 	margin-bottom: 32px;
@@ -23,6 +23,13 @@ margin-top: 20px;
     flex-direction: row;
     justify-content: flex-start;
 }
+
+
+.container.horizontal .timelineItemCta div a {
+    padding-right: 50px;
+}
+
+
 .timelineItemCta a{
 	color:#030314;
 }
@@ -85,6 +92,7 @@ margin-top: 20px;
 }
 
 .container.horizontal .tlidate {
+    padding-top: 20px;
     padding-left: 0px;
     padding-right: 0px;
     margin-right: 0px;
@@ -93,27 +101,33 @@ margin-top: 20px;
     font-size: 20px;
     font-weight: 500px;
 }
+
 .container.horizontal .row.timelineitems div {
-    max-width: 385px;
     width: max-content;
     display: flex;
     align-content: center;
     justify-content: flex-start;
 }
 
+.container.horizontal .tlibody {
+	padding-top: 20px;
+    max-width: 250px;
+}
+
 .container.horizontal .tliTitle{
+	max-width: 250px;
 	font-size: 28px;
 	font-weight: 500px;
 }
 
 
 .container.horizontal .row.timelineitems {
+    margin-right: 1px;
     display: flex;
     overflow-x: scroll;
     flex-direction: row;
     justify-content: space-between;
 }
-
 
 
 
@@ -124,6 +138,7 @@ margin-top: 20px;
 
 
 .container.horizontal span.heading1.weightBoldBook.textColorDarkBlue strong {
+	font-weight: 500;
     background:linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -174,12 +189,12 @@ margin-top: 20px;
 		display: flex;
 		padding-bottom: 60px;
 		flex-direction: row;
-		justify-content: space-between;
+		justify-content: flex-start;
 	}
 
 
 	.container.horizontal {
-		padding: 120px 80px 120px 80px;
+		padding: 120px 0px 120px 80px;
 		background-color: #F8F8FA;
 	}
 	.container.horizontal .row.timelineTitleText {

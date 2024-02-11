@@ -63,11 +63,4 @@ class IndicesOverviewService
     return new IndicesOverviewContainer(array_keys($processedData), array_values($processedData));
 }
 
-
-
-
-
-
-
-
 }

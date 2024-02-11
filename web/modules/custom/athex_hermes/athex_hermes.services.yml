@@ -1,0 +1,3 @@
+services:
+  athex_hermes.node_update_service:
+    class: Drupal\athex_hermes\Service\NodeUpdateService

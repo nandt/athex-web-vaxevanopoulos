@@ -1,0 +1,3 @@
+administer liferay migrations:
+  title: 'Administer Liferay Migrations settings'
+  description: 'Access and manage settings used for migrating from Athex Liferay.'
