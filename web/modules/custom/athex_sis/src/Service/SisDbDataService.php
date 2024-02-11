@@ -51,25 +51,29 @@ class SisDbDataService {
 		$this->logger->debug('SQL: ' . $sql);
 		$this->logger->debug('Params: ' . print_r($params, true));
 		// end debugging
-		$connection = $this->getConnection();
-		$stmt = oci_parse($connection, $sql);
-
-		foreach ($params as $param => $value) {
-			//echo "\nParam: $param";  //debug
-			//echo "\nValue: $value";  //debug
-
-			oci_bind_by_name($stmt, ltrim($param, ':'), $params[$param]); // Remove leading colon in parameter placeholder
-		}
-
-		oci_execute($stmt);
 
 		$data = [];
-		while ($row = oci_fetch_array($stmt, OCI_ASSOC)) {
-			$data[] = $row;
+
+		try {
+			$connection = $this->getConnection();
+			$stmt = oci_parse($connection, $sql);
+
+			foreach ($params as $param => $value) {
+				//echo "\nParam: $param";  //debug
+				//echo "\nValue: $value";  //debug
+
+				oci_bind_by_name($stmt, ltrim($param, ':'), $params[$param]); // Remove leading colon in parameter placeholder
+			}
+			oci_execute($stmt);
+
+			while ($row = oci_fetch_array($stmt, OCI_ASSOC)) {
+				$data[] = $row;
+			}
+		}
+		catch (\Exception $e) {
+			$this->logger->warning("Simulating empty response due to error:\n" . $e->getMessage());
 		}
 
 		return $data;
 	}
-
-
 }
