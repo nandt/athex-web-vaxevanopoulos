@@ -31,7 +31,7 @@ class TickerTapeService
 		$this->renderer = $renderer;
 	}
 
-	public function getItemData(array $codes)
+	private function getItemData(array $codes)
 	{
 		$items = $this->api->callDelayed('Info', ['code' => join(',', $codes)]);
 
@@ -46,22 +46,8 @@ class TickerTapeService
 		return $result;
 	}
 
-
-	public function getTapeItemData()
-	{
-		$codes = ['ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
-
-		return $this->getItemData($codes);
-	}
-
-	public function getItemsRenderArray($codes)
-	{
+	public function getItemsRenderArray(array $itemData) {
 		$result = [];
-
-		$itemData = $this->getItemData($codes);
-
-		// Log the item data for debugging
-		$this->logger->info('Item data: ' . print_r($itemData, TRUE));
 
 		foreach ($itemData as $product) {
 			$item = [
@@ -92,16 +78,19 @@ class TickerTapeService
 		return $allCodes;
 	}
 
-
-	public function getTapeItemRenderArray()
+	public function getTapeItemData()
 	{
 		$config = $this->configFactory->get('athex_d_mde.tickertape'); // Use the factory to get the 'athex_d_mde.tickertape' config
 		$codesString = $config->get('codes') ?: 'GD.ATH,TPEIR.ATH,EXAE.ATH'; // Use a default value if 'codes' is not set
 		$codes = explode(',', $codesString);
-
-		return $this->getItemsRenderArray($codes);
+		return $this->getItemData($codes);
 	}
 
+	// public function getTapeItemRenderArray() {
+	// 	return $this->getItemsRenderArray(
+	// 		$this->getTapeItemData()
+	// 	);
+	// }
 
 	public function getMarketStatusData()
 	{
@@ -125,7 +114,9 @@ class TickerTapeService
 
 		$result = [
 			'#theme' => 'ticker_tape_info',
-			'#pinned_items' => $this->getItemsRenderArray($codes)
+			'#pinned_items' => $this->getItemsRenderArray(
+				$this->getItemData($codes)
+			)
 		];
 
 		foreach ($this->getMarketStatusData() as $key => $value)

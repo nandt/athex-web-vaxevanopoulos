@@ -1,0 +1,31 @@
+<?php
+
+namespace Drupal\athex_d_mde\AthexRendering;
+
+use Drupal\Core\Url;
+
+
+class LiveFragment {
+
+	protected string $routeId;
+
+	public function __construct(string $renderRouteId) {
+		$this->routeId = $renderRouteId;
+	}
+
+	public function render() {
+		$url = Url::fromRoute($this->routeId, [], ['absolute' => TRUE]);
+		return [[
+			'#type' => 'container',
+			'#attributes' => [
+				'class' => ['live-render'],
+				'data-live-render' => $url->toString()
+			],
+			'#attached' => [
+				'library' => [
+					'athex_d_mde/live-render'
+				],
+			]
+		]];
+	}
+}

@@ -1,6 +1,6 @@
 <?php
 
-function athex_d_mde_theme($existing, $type, $theme, $path) {
+function athex_d_mde_theme() {
 	return [
 		'ticker_tape' => [ 'variables' => [
 			'info' => null,
