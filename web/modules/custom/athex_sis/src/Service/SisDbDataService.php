@@ -70,7 +70,7 @@ class SisDbDataService {
 				$data[] = $row;
 			}
 		}
-		catch (\Exception $e) {
+		catch (\Exception|\Error $e) {
 			$this->logger->warning("Simulating empty response due to error:\n" . $e->getMessage());
 		}
 

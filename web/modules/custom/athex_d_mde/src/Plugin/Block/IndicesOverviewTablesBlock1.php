@@ -82,8 +82,8 @@ class IndicesOverviewTablesBlock1 extends BlockBase implements ContainerFactoryP
 
 	public function build()
 	{
-		$config = $this->configFactory->get('athex_d_mde.settings');
-		$gdValuesString = $config->get('gd_values');
+		$config = $this->configFactory->get('athex_d_mde.indicessettings');
+		$gdValuesString = $config->get('indices');
 		$gdValues = $gdValuesString ? explode(',', $gdValuesString) : []; // Use the settings from the config
 
 		$renderArray = [];

@@ -15,3 +15,12 @@ live-render:
     - core/drupal
     - core/jquery
     - core/once
+
+live-nav:
+  version: 1.x
+  js:
+    js/live-nav.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once

@@ -8,13 +8,19 @@ use Drupal\Core\Url;
 class LiveFragment {
 
 	protected string $routeId;
+	protected array $routeParams;
 
-	public function __construct(string $renderRouteId) {
+	public function __construct(string $renderRouteId, array $routeParams = []) {
 		$this->routeId = $renderRouteId;
+		$this->routeParams = $routeParams;
 	}
 
 	public function render() {
-		$url = Url::fromRoute($this->routeId, [], ['absolute' => TRUE]);
+		$url = Url::fromRoute(
+			$this->routeId,
+			$this->routeParams,
+			['absolute' => TRUE]
+		);
 		return [[
 			'#type' => 'container',
 			'#attributes' => [

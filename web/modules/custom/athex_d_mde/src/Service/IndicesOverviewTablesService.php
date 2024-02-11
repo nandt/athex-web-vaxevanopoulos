@@ -11,6 +11,7 @@ use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\athex_d_mde\AthexRendering\BsNav;
 use Drupal\athex_d_mde\AthexRendering\ProductsTable;
 use Drupal\athex_d_mde\AthexRendering\Helpers;
+use Drupal\athex_d_mde\AthexRendering\LiveNavTabs;
 use Drupal\athex_inbroker\Service\ApiDataService;
 use Drupal\athex_sis\Service\SisDbDataService;
 
@@ -59,7 +60,7 @@ class IndicesOverviewTablesService
 		$this->api = $apiDataService;
 		$this->languageManager = $languageManager;
 		// $this->configFactory = $configFactory; // Assign to class property
-		$gdValuesString = $configFactory->get('athex_d_mde.settings')->get('gd_values');
+		$gdValuesString = $configFactory->get('athex_d_mde.indicessettings')->get('indices');
 		$this->gdValues = $gdValuesString ? explode(',', $gdValuesString) : [];
 
 	}
@@ -92,10 +93,10 @@ class IndicesOverviewTablesService
 
 		$sortVar = 'pricePrevClosePricePDelta';
 
-		if ($type == 'Most Active')
+		if ($type === TableType::MOST_ACTIVE)
 			$sortVar = 'totalInstrVolume';
 
-		if ($type == 'Fallers')
+		if ($type === TableType::FALLERS)
 			usort($data, function ($a, $b) use ($sortVar) {
 				return( $a[$sortVar] * 10000) - ($b[$sortVar] * 10000);
 			});
@@ -125,45 +126,40 @@ class IndicesOverviewTablesService
 		return $ra;
 	}
 
+	public function renderTable(string $seldSymbol, string $seldTable) {
+		return $this->getSubproductsTable(
+			$seldSymbol,
+			TableType::fromValue($seldTable)
+		);
+	}
 
-	public function getBlockRA()
-	{
-		$container = $this->indicesOverviewService->createContainer('GD');
-		$pillsContainer = $this->getSubProductsPillsRA(
-			TableType::fromValue('Risers')->value
-		);
-		$tableContent = $this->getSubproductsTable(
-			// $container->getSymbol(),
-			'GD',
-			// $pillsContainer->getSelected()
-			TableType::fromValue('Risers')
-		);
+	public function renderIndex($seldSymbol) {
+		$container = $this->indicesOverviewService->createContainer($seldSymbol);
 		$renderedBlock = $container->render(
-			// $pillsContainer->render(
-			[$pillsContainer,
-				$tableContent
-			]
-			// )
+			(new LiveNavTabs(
+				'athex_d_mde.fragment_index_table',
+				'table',
+				[
+					TableType::RISERS->value,
+					TableType::FALLERS->value,
+					TableType::MOST_ACTIVE->value
+				],
+				[
+					'symbol' => $seldSymbol,
+				],
+				'pills'
+			))->render()
 		);
-
-		// $this->logger->debug(
-		// 	print_r($renderedBlock, true)
-		// );
 
 		return [$renderedBlock];
 	}
 
-	private function getSubProductsPillsRA($seldTable)
-	{
-		return (new BsNav(
-			[
-				TableType::RISERS->value,
-				TableType::FALLERS->value,
-				TableType::MOST_ACTIVE->value
-			],
-			$seldTable,
-			'pills'
+	public function getBlockRA() {
+		$renderedBlock = (new LiveNavTabs(
+			'athex_d_mde.fragment_index_tabs',
+			'symbol',
+			$this->gdValues
 		))->render();
+		return [$renderedBlock];
 	}
-
 }

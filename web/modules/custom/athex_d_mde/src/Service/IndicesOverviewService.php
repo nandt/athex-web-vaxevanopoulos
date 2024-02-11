@@ -28,8 +28,12 @@ class IndicesOverviewService
 
 
 	public function createContainer(string $seldSymbol) {
-		$indicesString = $this->config->get('indices') ?: 'GD.ATH,FTSE.ATH,ETE.ATH,ALPHA.ATH,TPEIR.ATH,EXAE.ATH';
+		$indicesString = $this->config->get('indices');
 		$indices = explode(',', $indicesString);
+
+		foreach ($indices as $idx => $index) {
+			$indices[$idx] = $index . '.ATH';
+		}
 
 		$apiResponse = $this->api->callDelayed('Info', ['code' => "{$seldSymbol}.ATH" ]);
 

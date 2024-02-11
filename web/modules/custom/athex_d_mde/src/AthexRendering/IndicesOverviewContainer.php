@@ -23,11 +23,6 @@ class IndicesOverviewContainer {
 		];
 	}
 
-	private function renderTabs() {
-		$bsNav = new BsNav($this->symbols, $this->selectedData['symbol']);
-		return $bsNav->render();
-	}
-
 	private function renderTabContent(array $innerRA) {
 		return [
 			'#type' => 'html_tag',
@@ -41,11 +36,7 @@ class IndicesOverviewContainer {
 	}
 
 	public function render($innerRA) {
-		return [
-			'#type' => 'container',
-			'tabs' => $this->renderTabs(),
-			'content' => $this->renderTabContent($innerRA)
-		];
+		return $this->renderTabContent($innerRA);
 	}
 }
 
