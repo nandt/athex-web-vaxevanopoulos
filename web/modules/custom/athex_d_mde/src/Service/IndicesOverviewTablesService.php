@@ -67,11 +67,18 @@ class IndicesOverviewTablesService {
 
 	public function getBlockRA($seldTable = null) {
 		$container = $this->containers->createContainer();
-		return $container->render(
-			$this->getSubProductsRA(
-				$container->selectedData['symbol'],
-				$seldTable
-			)
-		);
+		$firstSymbolData = $container->selectedData[0] ?? null;
+
+		if ($firstSymbolData) {
+			return $container->render(
+				$this->getSubProductsRA(
+					$firstSymbolData['symbol'],
+					$seldTable
+				)
+			);
+		} else {
+			// Handle the case where there is no data
+			return ['#markup' => 'No data available.'];
+		}
 	}
 }
