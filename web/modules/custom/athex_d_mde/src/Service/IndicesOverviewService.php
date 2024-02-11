@@ -5,11 +5,11 @@ namespace Drupal\athex_d_mde\Service;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
-use Drupal\athex_d_mde\AthexRendering\Helpers;
 use Drupal\athex_d_mde\AthexRendering\IndicesOverviewContainer;
 use Drupal\athex_inbroker\Service\ApiDataService;
 
-class IndicesOverviewService {
+class IndicesOverviewService
+{
 
 	use StringTranslationTrait;
 
@@ -19,39 +19,48 @@ class IndicesOverviewService {
 	public function __construct(
 		ConfigFactoryInterface $configFactory,
 		ApiDataService         $api
-	) {
-		$this->config = $configFactory->get('athex_d_mde.settings');
+	)
+	{
+		$this->config = $configFactory->get('athex_d_mde.indicessettings');
 		$this->api = $api;
-  	}
+	}
 
 
 	public function createContainer() {
-		$indices = ['GD.ATH', 'FTSE.ATH', 'ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
-		$indicesString = join(',', $indices);
+    $indicesString = $this->config->get('indices') ?: 'GD.ATH,FTSE.ATH,ETE.ATH,ALPHA.ATH,TPEIR.ATH,EXAE.ATH';
+    $indices = explode(',', $indicesString);
 
-		// Fetch data from the API
-		$apiResponse = $this->api->callDelayed('Info', ['code' => $indicesString, 'format' => 'json']);
-		//var_dump($apiResponse); // This will print the structure of $items
-		// Initialize an array to store processed data
-		$processedData = [];
+    $apiResponse = $this->api->callDelayed('Info', ['code' => $indicesString, 'format' => 'json']);
+    if (!is_array($apiResponse)) {
+        // If response is not an array, something went wrong. Handle the error appropriately.
+         \Drupal::messenger()->addError(t('Error fetching API response.'));
+        return [];
+    }
 
-		// Iterate through each item in the API response
-		foreach ($apiResponse as $item) {
-			$processedData[$item['instrSysName']] = Helpers::getProductRenderVars($item);
-		}
-		/*
-		* https://fcd-p1.inbroker.com/Info?userName=newAthexSite&IBSessionId=6CFE02B5-43B5-4BEB-A417-3EF0E1371B6F&company=InTarget&lang=GR&code=GD.ATH,FTSE.ATH,ETE.ATH,ALPHA.ATH,TPEIR.ATH,EXAE.ATH&format=json
-		* */
-		// For debugging: print the processed data for each index
-		foreach ($indices as $index) {
-			if (isset($processedData[$index])) {
-				//var_dump($processedData[$index]);
-			} else {
-				echo "Data for index {$index} not found in API response.\n";
-			}
-		}
+    $processedData = [];
 
-		// Create and return the container with the processed data
-		return new IndicesOverviewContainer(array_keys($processedData), array_values($processedData));
-	}
+    foreach ($apiResponse as $item) {
+        if (is_array($item) && in_array($item['instrSysName'], $indices)) {
+            $processedData[$item['instrSysName']] = [
+                'symbol' => $item['instrSysName'],
+                'value' => $item['price'],
+                'since_open_value' => $item['pricePrevPriceDelta'],
+                'since_open_percentage' => $item['pricePrevPricePDelta'],
+                'since_close_value' => $item['pricePrevClosePriceDelta'],
+                'since_close_percentage' => $item['pricePrevClosePricePDelta']
+            ];
+        }
+    }
+
+    foreach ($indices as $index) {
+        if (!isset($processedData[$index])) {
+            // Handle the case where the index is not found in the API response
+            \Drupal::messenger()->addWarning(t('Data for index %index not found in API response.', ['%index' => $index]));
+
+        }
+    }
+
+    return new IndicesOverviewContainer(array_keys($processedData), array_values($processedData));
+}
+
 }

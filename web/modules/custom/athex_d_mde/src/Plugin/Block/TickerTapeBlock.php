@@ -9,14 +9,16 @@ use Drupal\Core\Block\BlockPluginInterface;
  * Provides a "Ticker Tape" block.
  *
  * @Block(
- * 	id = "ticker_tape",
- * 	admin_label = @Translation("Ticker Tape"),
- * 	category = @Translation("AthexGroup InBroker Integration")
+ *    id = "ticker_tape",
+ *    admin_label = @Translation("Ticker Tape"),
+ *    category = @Translation("AthexGroup InBroker Integration")
  * )
  */
-class TickerTapeBlock extends BlockBase implements BlockPluginInterface {
+class TickerTapeBlock extends BlockBase implements BlockPluginInterface
+{
 
-	public function build() {
+	public function build()
+	{
 		$service = \Drupal::service('athex_d_mde.ticker_tape');
 
 		$result = [
