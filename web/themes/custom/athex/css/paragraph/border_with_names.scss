@@ -1,0 +1,45 @@
+tr.firstLine.bgColorPurpleLight th {
+    padding: 12px 24px;
+}
+
+tr.BorderLine td {
+    padding: 24px 12px;
+}
+
+tr.BorderLine:hover {
+    background-color: #F7F5FD;
+}
+
+tr.BorderLine td a{
+    color: #3C06D9;
+}
+
+tr.BorderLine:hover td a{
+    color: #3C06D9;
+	font-weight: 600;
+}
+
+
+  table {
+	width: 100%;
+	max-width: none;
+  }
+
+  .titleBorder div{
+	padding-bottom: 32px;
+  }
+
+  @media(min-width:992px){
+
+	tr.BorderLine td a{
+		color: #331F71;
+	}
+
+	tr.BorderLine:hover td a{
+		color: #3C06D9;
+		font-weight: 600;
+	}
+	.titleBorder div{
+		padding-bottom: 90px;
+	  }
+  }

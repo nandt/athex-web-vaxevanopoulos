@@ -296,6 +296,11 @@ timeline:
     theme:
       css/paragraph/timeline.scss: {}
 
+border_with_names:
+  css:
+    theme:
+      css/paragraph/border_with_names.scss: {}
+
 image_slider:
   css:
     theme:
