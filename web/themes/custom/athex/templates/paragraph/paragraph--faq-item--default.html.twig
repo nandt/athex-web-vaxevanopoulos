@@ -1,26 +1,32 @@
 {# web/modules/contrib/paragraphs/templates/paragraph.html.twig #}
 
 {% block paragraph %}
-	<div{{ attributes.addClass(classes) }}>
-		{% block content %}
-			<div class="faq-container">
-				<div class="faq-item">
-					<h2 class="faq-toggle heading6 weightBoldBook textColorPurple">{{content.field_faqi_title}}</h2>
-					<div class="faq-content textColorPurple body2">
-						<div class="row tabContent">
-							<div class="col-12 col-lg-10">
-								<p>{{content.field_faqi_body}}</p>
-							</div>
-							<div class="col-12 col-lg-2 downloadFile">
-								{% if content.field_download_file_fi['#items'] is not empty %}
-								{% set file = content.field_download_file_fi['#items'].entity %}
-									<a href="{{ file_url(file.uri.value) }}" download="{{ file.filename.value }}" target="_blank"><span class="dowloadLabel">{{ content.field_download_label}}</span></a>
-								{% endif %}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		{% endblock %}
-	</div>
+  {% if content.field_faqi_title|render|striptags|trim is not empty or content.field_faqi_body|render|striptags|trim is not empty %}
+    <div{{ attributes.addClass(classes) }}>
+      {% block content %}
+        <div class="faq-container">
+          <div class="faq-item">
+            {% if content.field_faqi_title|render|striptags|trim is not empty %}
+              <h2 class="faq-toggle heading6 weightBoldBook textColorPurple">{{ content.field_faqi_title }}</h2>
+            {% endif %}
+            {% if content.field_faqi_body|render|striptags|trim is not empty %}
+              <div class="faq-content textColorPurple body2">
+                <div class="row tabContent">
+                  <div class="col-12 col-lg-10">
+                    <p>{{ content.field_faqi_body }}</p>
+                  </div>
+                  <div class="col-12 col-lg-2 downloadFile">
+                    {% if content.field_download_file_fi['#items'] is not empty %}
+                      {% set file = content.field_download_file_fi['#items'].entity %}
+                      <a href="{{ file_url(file.uri.value) }}" download="{{ file.filename.value }}" target="_blank"><span class="dowloadLabel">{{ content.field_download_label }}</span></a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endblock %}
+    </div>
+  {% endif %}
 {% endblock paragraph %}
