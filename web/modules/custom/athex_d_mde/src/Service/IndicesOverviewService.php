@@ -5,10 +5,9 @@ namespace Drupal\athex_d_mde\Service;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
+use Drupal\athex_d_mde\AthexRendering\Helpers;
 use Drupal\athex_d_mde\AthexRendering\IndicesOverviewContainer;
 use Drupal\athex_inbroker\Service\ApiDataService;
-
-use Drupal\athex_d_mde\AthexRendering\Helpers;
 
 class IndicesOverviewService {
 
@@ -19,23 +18,40 @@ class IndicesOverviewService {
 
 	public function __construct(
 		ConfigFactoryInterface $configFactory,
-		ApiDataService $api
+		ApiDataService         $api
 	) {
 		$this->config = $configFactory->get('athex_d_mde.settings');
 		$this->api = $api;
   	}
 
+
 	public function createContainer() {
-		return new IndicesOverviewContainer(
-			['GD', 'FTSE', 'FTSEM', 'FTSED', 'ATHEX ESG', 'FTSEMSFW'],
-			[
-				'symbol' => 'GD',
-				'value' => 1167.93,
-				'since_open_value' => Helpers::renderDelta(17.89),
-				'since_open_percentage' => Helpers::renderDelta(1.46, ' %'),
-				'since_close_value' => Helpers::renderDelta(204.11),
-				'since_close_percentage' => Helpers::renderDelta(6.05, ' %')
-			]
-		);
+		$indices = ['GD.ATH', 'FTSE.ATH', 'ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
+		$indicesString = join(',', $indices);
+
+		// Fetch data from the API
+		$apiResponse = $this->api->callDelayed('Info', ['code' => $indicesString, 'format' => 'json']);
+		//var_dump($apiResponse); // This will print the structure of $items
+		// Initialize an array to store processed data
+		$processedData = [];
+
+		// Iterate through each item in the API response
+		foreach ($apiResponse as $item) {
+			$processedData[$item['instrSysName']] = Helpers::getProductRenderVars($item);
+		}
+		/*
+		* https://fcd-p1.inbroker.com/Info?userName=newAthexSite&IBSessionId=6CFE02B5-43B5-4BEB-A417-3EF0E1371B6F&company=InTarget&lang=GR&code=GD.ATH,FTSE.ATH,ETE.ATH,ALPHA.ATH,TPEIR.ATH,EXAE.ATH&format=json
+		* */
+		// For debugging: print the processed data for each index
+		foreach ($indices as $index) {
+			if (isset($processedData[$index])) {
+				//var_dump($processedData[$index]);
+			} else {
+				echo "Data for index {$index} not found in API response.\n";
+			}
+		}
+
+		// Create and return the container with the processed data
+		return new IndicesOverviewContainer(array_keys($processedData), array_values($processedData));
 	}
 }

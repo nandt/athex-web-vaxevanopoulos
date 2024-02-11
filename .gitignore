@@ -9,3 +9,17 @@
 !/web/themes
 /web/themes/*
 !/web/themes/custom
+
+# Vasilis V ignored files
+#
+/readme.txt
+/docker-compose.yml
+/athexweb_20240119.sql
+/.idea/
+/Dockerfile
+/athex-dev.Dockerfile
+/athex-base.Dockerfile
+/dev-launch.sh
+/web/modules/custom/athex_d_mde/src/Service/TickerTapeService (copy).php
+/web/modules/custom/athex_d_mde/src/AthexRendering/IndicesOverviewContainer (copy).php
+/web/modules/custom/athex_d_mde/src/Service/IndicesOverviewService (copy).php

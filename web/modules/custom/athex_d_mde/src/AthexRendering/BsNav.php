@@ -32,14 +32,21 @@ class BsNav {
 		];
 
 		foreach ($this->tabs as $idx => $label) {
+			// Create a unique href ID for each tab content
+			$hrefId = 'tab-content-' . $idx;
+
 			$aAttributes = [
 				'class' => ['nav-link'],
-				'href' => (@$this->urls[$idx]) ?? '#'
+				'href' => '#' . $hrefId, // Point to the unique content ID
+				'data-bs-toggle' => 'tab',
+				'role' => 'tab',
+				'aria-controls' => $hrefId,
+				'aria-selected' => 'false'
 			];
 
 			if ($label == $this->seldTab) {
 				$aAttributes['class'][] = 'active';
-				$aAttributes['aria-current'] = 'page';
+				$aAttributes['aria-selected'] = 'true';
 			}
 
 			$result[] = [
@@ -59,4 +66,5 @@ class BsNav {
 
 		return $result;
 	}
+
 }
