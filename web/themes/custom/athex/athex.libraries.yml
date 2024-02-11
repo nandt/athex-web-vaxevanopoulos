@@ -320,6 +320,8 @@ ask_a_question:
   css:
     theme:
       css/blocks/ask_a_question.scss: {}
+  js:
+    js/ask_a_question.js: {}
 
 info_card:
   css:
