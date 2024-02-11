@@ -255,7 +255,9 @@ width:100%;
     padding-bottom: 25px;
 }
 
-
+.seminarDetailsMobile{
+	width:100%;
+}
 
 div#seminarDetails {
 	display: none;
@@ -290,7 +292,14 @@ div#seminarDetails {
 	padding-bottom: 24px;
 }
 
+
+
 @media(min-width:992px){
+
+	.SeminarDetailsTable {
+		display: flex;
+		flex-direction: row;
+	}
 
 	.PhotosBundleItem img {
 		width: 100%;

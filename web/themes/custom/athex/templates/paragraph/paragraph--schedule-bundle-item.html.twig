@@ -1,5 +1,12 @@
 <div class="scheduleItem">
-  <div class="schedulItemTitle body2 weightBold textColorBlack"> {{ content.field_sbi_description}}	</div>
-  <div class="schedulItemTime body2 weightDemi textColorPurple d-flex"> {{ content.field_sbi_value}} - {{ content.field_colpi_svalue }}</div>
+  <div class="schedulItemTitle body2 weightBold textColorBlack"> {{ content.field_sbi_description }} </div>
+  <div class="schedulItemTime body2 weightDemi textColorPurple d-flex">
+    {{ content.field_sbi_value }}
+    {% if content.field_colpi_svalue %}
+      - {{ content.field_colpi_svalue }}
+    {% else %}
+      {{ content.field_colpi_svalue }}
+    {% endif %}
+  </div>
 </div>
-<hr class="scheduleItemHr">     
+<hr class="scheduleItemHr">

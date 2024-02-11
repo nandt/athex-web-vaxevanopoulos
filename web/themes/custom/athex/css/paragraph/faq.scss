@@ -1,0 +1,92 @@
+span.dowloadLabel div{
+	padding-top: 25px;
+    background-image: url(assets/Download.svg);
+	background-position: top center;
+	background-repeat: no-repeat;
+	width: max-content;
+    font-size: 18px;
+}
+
+.faq-content {
+    padding-bottom: 24px;
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-width: 1213px;
+}
+
+.container.faq-container {
+	padding: 30px 20px;
+	row-gap: 48px;
+	display: flex;
+	flex-direction: column;
+}
+
+.faq-item{
+	border-bottom: 1px solid #D1CCE1;
+}
+
+.faq-content.active {
+    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faq-toggle {
+	padding-right: 50px;
+	padding-bottom: 24px;
+	padding-top: 24px;
+	cursor: pointer;
+	background-position:  center right;
+	background-repeat: no-repeat;
+	background-image: url(assets/iconChevronDown.svg);
+}
+
+.faq-toggle.active-title {
+	color: #3C06D9;
+	background-image: url(assets/iconChevronUp.svg);
+}
+
+.row.tabContent {
+	width: 100%;
+    row-gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.downloadFile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media(min-width:992px){
+
+	.row.tabContent {
+		row-gap: 20px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+
+	.container.faq-container {
+		row-gap: 56px;
+		padding: 60px 0px;
+	}
+
+	.faq-toggle {
+		padding-right: 0px;
+
+	}
+
+	.faq-content.active {
+		row-gap: 0px;
+		display: flex;
+		flex-direction: row;
+	}
+
+}

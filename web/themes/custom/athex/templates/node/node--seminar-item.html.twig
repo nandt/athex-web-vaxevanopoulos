@@ -7,7 +7,6 @@
  <div class="container">
     <div class="row">
       <div class="SeminarTitle col-12 col-lg-8 d-flex flex-column align-items-start">
-        <p class="body3 textColorBlack weightBoldBook">{{ node.createdtime|date('d F Y') }}</p>
         <h1 class="heading2 weightDemi textColorPurple">{{ node.title.value }}</h1>
         <button class="btnShare">{{content.field_button}}</button>
       </div>
@@ -15,28 +14,36 @@
   </div>
   <div class="container">
     <div class="row SeminarMainContent">
-	<div  class="col-12 col-lg-4 col-offset-2  SeminarDetailsTable">
-        <div id="seminarDetails"> {{content.field_details_card_ref}}</div>
-      </div>
+		<div  class="col-12 col-lg-4 col-offset-0  SeminarDetailsTable">
+			<div id="seminarDetails"> {{content.field_details_card_ref}}</div>
+		</div>
 
-      <div class="col-12 col-lg-8 col-offset-1 SeminarMainContentText">
-        <div class="titleContent heading3 weightBoldBook textColorDarkBlue">{{ content.field_si_body_title }}</div>
-        {{ content.field_semitem_body }}
-      </div>
-	  <div  class="col-12 col-lg-4 col-offset-2  SeminarDetailsTable">
-        <div id="seminarDetailsMobile"> {{content.field_details_card_ref}}</div>
+		<div class="col-12 col-lg-8 SeminarItemElements">
+			<div class="textItem">
+			<div class="titleContent heading3 weightBoldBook textColorDarkBlue">{{ content.field_si_body_title }}</div>
+			{{ content.field_semitem_body }}
+			</div>
+			{{ content.field_semitem_elements}}
       </div>
 
     </div>
+
+
+      <div class="col-12 col-lg-8 col-offset-1 SeminarMainContentText">
+
+	  <div  class="col-12 col-lg-4 col-offset-2  SeminarDetailsTable">
+        <div id="seminarDetailsMobile" class="seminarDetailsMobile"> {{content.field_details_card_ref}}</div>
+      </div>
+	</div>
+
+
   </div>
   <div class="container stopElement">
     <div class="row">
       <div  class="col-0 col-lg-4 LeftSideItemElements ">
       <button  class="btnShare">{{content.field_button}}</button>
       </div>
-      <div class="col-12 col-lg-8 SeminarItemElements">
-        {{ content.field_semitem_elements}}
-      </div>
     </div>
   </div>
+
 

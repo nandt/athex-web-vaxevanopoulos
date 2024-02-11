@@ -25,7 +25,7 @@
 	}
 
 	.tile-link-title {
-		padding: 20px 16px;
+		padding: 4px 16px;
 	}
 
 
@@ -37,6 +37,14 @@
 		display: block;
 		position: absolute;
 		bottom: 20px;
+	}
+
+	.number {
+		padding: 20px 16px 0px;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 24px;
+		letter-spacing: 0.48px;
 	}
 }
 
@@ -85,7 +93,14 @@
 				background: url("assets/icons/white/arrow-right.svg");
 				background-size: contain;
 			}
+		}
 
+		.number {
+			padding: 32px 24px 0px;
+		}
+
+		.tile-link-title {
+			padding: 4px 24px;
 		}
 	}
 
@@ -110,6 +125,8 @@
 			}
 
 			.tile-link-wrapper:hover {
+				background: linear-gradient(121deg, #602BD0 -3.57%, rgba(60, 212, 224, 0.77) 115%);
+
 				.tl-arrow {
 					background: url('assets/icons/white/arrow-right.svg');
 				}

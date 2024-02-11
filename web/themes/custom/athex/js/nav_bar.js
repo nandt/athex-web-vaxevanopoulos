@@ -30,20 +30,6 @@ jQuery(document).ready(function ($) {
 });
 
 
-
-const topLinksWrapper = document.querySelector(".top-links-wrapper");
-
-window.addEventListener("scroll", function() {
-
-  if (window.scrollY > 0) {
-
-    topLinksWrapper.style.display = "none";
-  } else {
-
-    topLinksWrapper.style.display = "block";
-  }
-});
-
 document.addEventListener("DOMContentLoaded", function() {
 	var searchIcon = document.querySelector(".search-icon");
 	var searchWindow = document.querySelector(".search-window");
@@ -57,3 +43,33 @@ document.addEventListener("DOMContentLoaded", function() {
 	  searchWindow.style.display = "none";
 	});
   });
+
+  document.querySelector('.burger-btn').addEventListener('click', function() {
+    document.querySelector('.nav-menu').classList.toggle('active');
+});
+
+document.querySelector('.burger-icon').addEventListener('click', function() {
+    document.querySelector('.col-12.nav-menu').classList.toggle('active');
+});
+
+
+
+const topMenuBar = document.querySelector('.top-menu-bar');
+let lastScrollPosition = window.scrollY;
+
+function handleScroll() {
+  const currentScrollPosition = window.scrollY;
+
+  if (currentScrollPosition > lastScrollPosition) {
+    topMenuBar.style.display = 'none';
+  } else {
+    if (currentScrollPosition <= 0) {
+      topMenuBar.style.display = 'block';
+    }
+  }
+
+  lastScrollPosition = currentScrollPosition;
+}
+
+window.addEventListener('scroll', handleScroll);
+

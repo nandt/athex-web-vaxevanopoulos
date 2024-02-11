@@ -1,54 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var btnsShare = document.querySelectorAll('.btnShare');
-    var modal = document.querySelector('.modal');
-    var overlay = document.querySelector('.modal-overlay');
-    var closeBtn = document.querySelector('.close-btn');
-
-    btnsShare.forEach(function(btn) {
+    document.querySelectorAll('.scrollBtn').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            modal.style.display = 'block';
-            overlay.style.display = 'block';
+            const targetElement = document.querySelector('#block-athex-content');
+            if (targetElement) {
+                const bottomPosition = targetElement.offsetTop + targetElement.offsetHeight;
+                window.scrollTo({
+                    top: bottomPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
-
-    closeBtn.addEventListener('click', function() {
-        modal.style.display = 'none';
-        overlay.style.display = 'none';
-    });
-
-    overlay.addEventListener('click', function(event) {
-        if (event.target == overlay) {
-            modal.style.display = 'none';
-            overlay.style.display = 'none';
-        }
-    });
 });
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    var btnShare = document.querySelector('.btnShare');
-    var bottomCTAs = document.querySelector('.bottomCTAs');
-    bottomCTAs.style.display = 'none';
-
-    window.addEventListener('scroll', function() {
-
-        if (window.innerWidth > 992) {
-            var btnShareTop = btnShare.getBoundingClientRect().top;
-
-            if (btnShareTop <= 0) {
-                bottomCTAs.style.display = 'flex';
-            } else {
-                bottomCTAs.style.display = 'none';
-            }
-        } else {
-
-            bottomCTAs.style.display = 'none';
-        }
-    });
-});
-
-
 
 jQuery(document).ready(function ($) {
     const bullets = $('.bullet');
@@ -96,7 +59,7 @@ jQuery(document).ready(function ($) {
 
     function setVerticalBarHeights() {
         verticalBars.each(function (i) {
-            const sectionHeight = sections.eq(i).outerHeight();
+            const sectionHeight = sections.eq(i+1).outerHeight();
             $(this).css('height', sectionHeight - 38);
         });
     }
@@ -116,7 +79,7 @@ jQuery(document).ready(function ($) {
           getAndDisplayMarginRight();
         });
 
-        // On orientation change
+
         $(window).on('orientationchange', function() {
           getAndDisplayMarginRight();
         });
@@ -126,4 +89,26 @@ jQuery(document).ready(function ($) {
           });
       });
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var btnShare = document.querySelector('.btnShare');
+    var bottomCTAs = document.querySelector('.bottomCTAs');
+
+    var observer = new IntersectionObserver(function(entries) {
+
+        if(entries[0].intersectionRatio === 0) {
+            bottomCTAs.style.display = 'flex';
+        } else {
+            bottomCTAs.style.display = 'none';
+        }
+    }, { threshold: [0] });
+
+    observer.observe(btnShare);
+});
+
+
+
 

@@ -17,11 +17,35 @@
 	background-color: #F8F8FA;
 }
 
-.TextTitle strong{
+.title.fuchsia p{
+	color: #3C06D9;
+}
+
+.title.green p{
+	color: #3C06D9;
+}
+
+.title.dark-blue p{
+	color: #1A0069;
+}
+
+
+.TextTitle .dark-blue strong{
 	background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	font-weight: 500;
+}
+
+.TextTitle .fuchsia strong{
+	color:#B430BD;
+	font-weight: 500;
+}
+
+.TextTitle .green strong{
+	color:#05C405;
+	font-weight: 500;
 }
 
 .container.TextTitleContainer {

@@ -1,0 +1,4 @@
+services:
+  athex_liferay_migrations.api_data:
+    class: Drupal\athex_liferay_migrations\Service\ApiDataService
+    arguments: ['@logger.factory', '@config.factory', '@http_client']
