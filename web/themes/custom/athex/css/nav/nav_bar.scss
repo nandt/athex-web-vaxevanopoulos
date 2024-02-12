@@ -154,19 +154,15 @@ li.liColDepth-1 {
     position: absolute;
 }
 
+.depth-2{
 
-.sub-menu.submenu-2.depth-2 {
-    margin-left: 20px;
+	margin-left: 20px;
     position: absolute;
-    top: 0;
     left: 100%;
+    top: 0;
+
 }
 
-.sub-menu.submenu-3.depth-2 {
-    padding-left: 20px;
-    left: 100%;
-    top: 0;
-}
 
 .submenu-6.depth-5 ul {
     margin-left: 30px;
@@ -385,7 +381,12 @@ a.language-link {
 }
 
 
+
+
  @media(max-width:992px){
+
+
+
 
 	.hidden-menu{
 		display: none;
