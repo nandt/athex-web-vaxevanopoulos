@@ -97,9 +97,9 @@ class TickerTapeService
 		// •	tradeDate (ημ/νια διαπραγμάτευσης)
 		// •	time (ώρα τελευταίας ενημέρωσης)
 		return [
-			'closed' => $info['closed'],
-			'tradeDate' => $info['tradeDate'],
-			'time' => $info['time']
+			'closed' => $info[0]['closed'],
+			'tradeDate' => $info[0]['tradeDate'],
+			'time' => $info[0]['time']
 		];
 	}
 
