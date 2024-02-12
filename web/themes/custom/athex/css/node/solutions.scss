@@ -450,6 +450,17 @@ span.siCta a {
     }
 }
 
+.col-lg-4.padding-none.bottomCTAs.scrollBtn {
+    display: flex;
+    justify-content: center;
+}
+
+span.BTNCtaText {
+    display: flex;
+    color: #1A0069;
+    font-weight: 600;
+}
+
 .modal-overlay {
     display: none;
     position: fixed;
