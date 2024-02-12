@@ -18,49 +18,78 @@ class IndicesOverviewContainer {
 	private function getIndexSummaryRA($data) {
 		return [
 			'#theme' => 'indices_overview_index_summary',
+			'#cache' => [ 'max-age' => 9 ],
 			...Helpers::hashtagKeys($data)
 		];
 	}
 
-	private function renderTabs() {
-		$bsNav = new BsNav(array_column($this->selectedData, 'symbol'));
-		return $bsNav->render();
-	}
-
-	private function renderTabContent() {
-		$content = [];
-		foreach ($this->selectedData as $index => $data) {
-			// Assign a unique ID to each tab content
-			$contentId = 'tab-content-' . $index;
-			$content[] = [
-				'#type' => 'html_tag',
-				'#tag' => 'div',
-				'#attributes' => ['id' => $contentId, 'class' => ['tab-content']],
-				'content' => $this->getIndexSummaryRA($data),
-			];
-		}
-		return $content;
-	}
-
-	public function render() {
-		$tabs = $this->renderTabs();
-		$content = $this->renderTabContent();
-
-		$build = [
-			'#type' => 'container',
-			'tabs' => $tabs,
-			'content' => $content,
-			'#attached' => [
-				'library' => [
-					'athex_d_mde/tab-switching',
-					'core/once',
-				],
+	private function renderTabContent(array $innerRA) {
+		return [
+			'#type' => 'html_tag',
+			'#tag' => 'div',
+			'#attributes' => [
+				'role' => 'tabpanel'
 			],
+			$this->getIndexSummaryRA($this->selectedData),
+			$innerRA
 		];
-
-		return $build;
 	}
 
-
-
+	public function render($innerRA) {
+		return $this->renderTabContent($innerRA);
+	}
 }
+
+
+
+// protected $symbols;
+// public readonly Array $selectedData;
+
+// public function __construct(
+// 	Array $symbols = [],
+// 	Array $selectedData = []
+// ) {
+// 	$this->symbols = $symbols;
+// 	$this->selectedData = $selectedData;
+// }
+
+// private function getIndexSummaryRA() {
+// 	return [
+// 		'#theme' => 'indices_overview_index_summary',
+// 		'#symbol' => $this->selectedData['symbol'],
+// 		'#value' => $this->selectedData['value'],
+// 		'#since_open_value' => $this->selectedData['since_open_value'],
+// 		'#since_open_percentage' => $this->selectedData['since_open_percentage'],
+// 		'#since_close_value' => $this->selectedData['since_close_value'],
+// 		'#since_close_percentage' => $this->selectedData['since_close_percentage']
+// 	];
+// }
+
+// private function getTabContentRA($innerRA) {
+// 	return [
+// 		'#type' => 'html_tag',
+// 		'#tag' => 'div',
+// 		'#attributes' => [
+// 			'role' => 'tabpanel'
+// 		],
+// 		$this->getIndexSummaryRA(),
+// 		$innerRA
+// 	];
+// }
+
+// private function getTabsRA() {
+// 	$bsNav = new BsNav($this->symbols, $this->selectedData['symbol']);
+// 	return $bsNav->render();
+// }
+
+// public function render($innerRA) {
+// 	return [
+// 		'#type' => 'container',
+// 		$this->getTabsRA(),
+// 		$this->getTabContentRA($innerRA)
+// 	];
+// }
+// }
+
+
+

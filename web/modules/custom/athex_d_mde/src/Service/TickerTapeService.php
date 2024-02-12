@@ -34,11 +34,6 @@ class TickerTapeService
 	private function getItemData(array $codes)
 	{
 		$items = $this->api->callDelayed('Info', ['code' => join(',', $codes)]);
-
-		if (count($codes) < 2) {
-			$items = [$items];
-		}
-
 		$result = [];
 		foreach ($items as $item) {
 			$result[] = Helpers::getProductRenderVars($item);

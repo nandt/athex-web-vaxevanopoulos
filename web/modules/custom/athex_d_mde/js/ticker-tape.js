@@ -69,7 +69,7 @@
 	}
 
 	function getData() {
-		fetch("/tickerTapeData")
+		fetch("/fragments/tickerTapeData")
 			.then(function (response) {
 				return response.json();
 			})

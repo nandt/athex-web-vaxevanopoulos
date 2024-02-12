@@ -14,16 +14,30 @@ athex_d_mde.tickertape_form:
   requirements:
     _permission: 'administer site configuration'
 
-# athex_d_mde.fragment_ticker_tape:
-#   path: '/fragments/tickerTape'
-#   defaults:
-#     _controller: '\Drupal\athex_d_mde\Controller\FragmentsController::tickerTape'
-#   requirements:
-#     _permission: 'access content'
-
 athex_d_mde.ticker_tape_data:
-  path: '/tickerTapeData'
+  path: '/fragments/tickerTapeData'
   defaults:
     _controller: '\Drupal\athex_d_mde\Controller\TickerTapeController::getData'
+  requirements:
+    _permission: 'access content'
+
+athex_d_mde.fragment_index_tabs:
+  path: '/fragments/index-tabs'
+  defaults:
+    _controller: '\Drupal\athex_d_mde\Controller\FragmentsController::indexTabs'
+  requirements:
+    _permission: 'access content'
+
+athex_d_mde.fragment_index_summary:
+  path: '/fragments/index-summary'
+  defaults:
+    _controller: '\Drupal\athex_d_mde\Controller\FragmentsController::indexSummary'
+  requirements:
+    _permission: 'access content'
+
+athex_d_mde.fragment_index_table:
+  path: '/fragments/index-table'
+  defaults:
+    _controller: '\Drupal\athex_d_mde\Controller\FragmentsController::indexTable'
   requirements:
     _permission: 'access content'
