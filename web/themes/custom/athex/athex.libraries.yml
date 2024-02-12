@@ -296,6 +296,11 @@ timeline:
     theme:
       css/paragraph/timeline.scss: {}
 
+benefits:
+  css:
+    theme:
+      css/paragraph/benefits.scss: {}
+
 image_slider:
   css:
     theme:
