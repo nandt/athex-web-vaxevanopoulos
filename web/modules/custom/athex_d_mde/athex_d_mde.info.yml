@@ -5,5 +5,4 @@ description: 'Provides blocks for AthexGroup Market Data Pages.'
 package: 'Deloitte Digital'
 core_version_requirement: ^10
 dependencies:
-  - athex_d_mde
   - athex_sis

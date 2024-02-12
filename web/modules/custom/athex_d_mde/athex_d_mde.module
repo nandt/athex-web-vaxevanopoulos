@@ -1,6 +1,6 @@
 <?php
 
-function athex_d_mde_theme($existing, $type, $theme, $path) {
+function athex_d_mde_theme() {
 	return [
 		'ticker_tape' => [ 'variables' => [
 			'info' => null,
@@ -30,6 +30,12 @@ function athex_d_mde_theme($existing, $type, $theme, $path) {
 			'indices_overview' => null,
 			'market_activity' => null
 		] ],
+			// other definitions...
+			'indices_overview_tables_block1' => [
+				'variables' => [
+					'renderArray' => null,
+		] ],
+
 		'market_highlights' => [ 'variables' => [
 			'sections' => null
 		] ]

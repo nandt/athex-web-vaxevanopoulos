@@ -1,18 +1,25 @@
-tab-switching:
-  version: 1.x
-  js:
-    js/tab-switching.js: {}
-  dependencies:
-    - core/jquery
-    - core/drupal
-    - core/drupalSettings
-    - core/once
-
-
 ticker_tape:
   version: 1.x
   js:
     js/ticker-tape.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+
+live-render:
+  version: 1.x
+  js:
+    js/live-render.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+
+live-nav:
+  version: 1.x
+  js:
+    js/live-nav.js: {}
   dependencies:
     - core/drupal
     - core/jquery

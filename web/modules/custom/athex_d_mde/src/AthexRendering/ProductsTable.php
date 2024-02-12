@@ -20,11 +20,14 @@ class ProductsTable
 				return ['data' => $d];
 			}, $row);
 
-			$cols[0]['data'] = [
-				'#type' => 'link',
-				'#title' => $cols[0]['data'],
-				'#url' => \Drupal\Core\Url::fromUri('internal:#')
-			];
+			if (isset($cols[0])) {
+				$cols[0]['data'] = [
+					'#type' => 'link',
+					'#title' => $cols[0]['data'],
+					'#url' => \Drupal\Core\Url::fromUri('internal:#')
+				];
+			}
+
 
 			if (count($cols) === 5)
 				$cols[1]['class'] = ['mobile-hidden'];
