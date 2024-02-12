@@ -7,28 +7,43 @@ use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class TestController extends ControllerBase {
+class TestController extends ControllerBase
+{
 
 	protected $db;
 
-	public function __construct(
-		SisDbDataService $db
-	) {
+	public function __construct(SisDbDataService $db)
+	{
 		$this->db = $db;
 	}
 
-	public static function create(ContainerInterface $container) {
+	public static function create(ContainerInterface $container)
+	{
 		return new static(
 			$container->get('athex_sis.db_data')
 		);
 	}
 
-	public function test() {
-		$rc = -1;
-		$res = $this->db->fetchAll('SELECT * FROM HELEX_BLOCKS', 0, 10, $rc);
-		return new JsonResponse([
-			'rc' => $rc,
-			'res' => $res
-		]);
+	public function test()
+	{
+		$gdValues = ['GD', 'FTSE', 'ETE', 'ALPHA', 'TPEIR', 'EXAE']; // Array of values to query
+		$resultsByIndex = [];  // Array to store results for each index
+
+		foreach ($gdValues as $gdValue) {
+			// SQL query for each value in the array
+			$sql = "SELECT hs.TICKER_EN FROM HELEX_STOCKS hs
+                    JOIN HELEX_INDEXCOMPOSITION hic ON hs.STOCK_ID = hic.STOCK_ID
+                    JOIN HELEX_INDICES hi ON hic.INDEX_ID = hi.INDEX_ID
+                    WHERE hi.TICKER_EN = '$gdValue'";
+
+			// Fetch results for the current value
+			$result = $this->db->fetchAll($sql);
+
+			// Store results in associative array under the index symbol
+			$resultsByIndex[$gdValue] = $result;
+		}
+
+		// Prepare and return response with results organized by index symbol
+		return new JsonResponse(['data' => $resultsByIndex]);
 	}
 }

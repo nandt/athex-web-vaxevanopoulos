@@ -28,14 +28,15 @@
 							}
 						}
 					})
-
-    				const solItems = $(sliderNode).find('.solviewhomeWrapper > .solhome-item');
-					solItems.each(function (index) {
-						const itemNumber = index + 1;
-						$(this).find('a.sol').prepend($('<div class="number">' + '0' + itemNumber + '</div>'));
-					});
 				}
 			)
 		}
 	}
+
+	const solItems = $('.solutions').find('.solviewhomeWrapper > .solhome-item');
+		solItems.each(function (index) {
+			const itemNumber = index + 1;
+			$(this).find('a.sol').prepend($('<div class="number">' + '0' + itemNumber + '</div>'));
+	});
+
 })(jQuery, Drupal, once, tns);
