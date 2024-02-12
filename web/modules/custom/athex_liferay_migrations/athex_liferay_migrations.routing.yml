@@ -1,0 +1,8 @@
+athex_liferay_migrations.settings:
+  path: '/admin/athex_liferay_migrations/settings'
+  defaults:
+    _form: '\Drupal\athex_liferay_migrations\Form\SettingsForm'
+    _title: 'Liferay Migrations - Settings'
+    _title_context: 'athex_integrations'
+  requirements:
+    _permission: 'administer liferay migrations'

@@ -3,38 +3,47 @@
 namespace Drupal\athex_d_mde\Service;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-
-use Drupal\athex_d_mde\AthexRendering\BsNav;
-use Drupal\athex_d_mde\AthexRendering\ProductsTable;
-use Drupal\athex_inbroker\Service\ApiDataService;
-use Drupal\athex_d_mde\AthexRendering\Helpers;
-use Drupal\athex_sis\Service\SisDbDataService;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Logger\LoggerChannelInterface;
+
+use Drupal\athex_d_mde\AthexRendering\BsNav;
+use Drupal\athex_d_mde\AthexRendering\ProductsTable;
+use Drupal\athex_d_mde\AthexRendering\Helpers;
+use Drupal\athex_d_mde\AthexRendering\LiveNavTabs;
+use Drupal\athex_inbroker\Service\ApiDataService;
+use Drupal\athex_sis\Service\SisDbDataService;
+
+
+enum TableType: string {
+	case RISERS = 'Risers';
+	case FALLERS = 'Fallers';
+	case MOST_ACTIVE = 'Most Active';
+
+    public static function fromValue(string $name) {
+        foreach (self::cases() as $type) {
+            if ($name === $type->value) {
+                return $type;
+            }
+        }
+		return null;
+	}
+}
+
 
 class IndicesOverviewTablesService
 {
 
 	use StringTranslationTrait;
 
-	protected $config;
-
-	/**
-	 * The SisDbDataService service.
-	 */
-	protected $sisDbDataService;
-
-
-	protected $api;
-	protected $containers;
-
-	private $pills = [
-		'Risers',
-		'Fallers',
-		'Most Active'
-	];
-	protected $configFactory;
+	protected LoggerChannelInterface $logger;
+	protected SisDbDataService $sisDbDataService;
+	protected IndicesOverviewService $indicesOverviewService;
+	protected ApiDataService $api;
+	protected LanguageManagerInterface $languageManager;
+	// protected ConfigFactoryInterface $configFactory;
+	protected array $gdValues;
 
 	public function __construct(
 		LoggerChannelFactoryInterface $loggerFactory,
@@ -42,136 +51,115 @@ class IndicesOverviewTablesService
 		IndicesOverviewService        $indicesOverviewService,
 		ApiDataService                $apiDataService,
 		LanguageManagerInterface      $languageManager,
-		ConfigFactoryInterface        $configFactory // Ensure this is passed in
+		ConfigFactoryInterface        $configFactory
 	)
 	{
-		if ($configFactory === null) {
-			drupal_set_message('ConfigFactory is null');
-		}
 		$this->logger = $loggerFactory->get('athex_d_mde');
 		$this->sisDbDataService = $sisDbDataService;
 		$this->indicesOverviewService = $indicesOverviewService;
 		$this->api = $apiDataService;
 		$this->languageManager = $languageManager;
-		$this->configFactory = $configFactory; // Assign to class property
-		//$this->gdValues = explode(',', $this->configFactory->get('athex_d_mde.settings')->get('gd_values'));
-		$gdValuesString = $this->configFactory->get('athex_d_mde.settings')->get('gd_values');
+		// $this->configFactory = $configFactory; // Assign to class property
+		$gdValuesString = $configFactory->get('athex_d_mde.indicessettings')->get('indices');
 		$this->gdValues = $gdValuesString ? explode(',', $gdValuesString) : [];
 
 	}
 
-
-	public function getSubProductsTables()
+	public function getSubproductsTable(string $gdValue, TableType $tableType)
 	{
-		$allTables = [];
-
-		foreach ($this->gdValues as $gdValue) {
-			// Fetch data from your database for this GD value
-			$sql = "SELECT hs.TICKER_EN FROM HELEX_STOCKS hs
-            JOIN HELEX_INDEXCOMPOSITION hic ON hs.STOCK_ID = hic.STOCK_ID
-            JOIN HELEX_INDICES hi ON hic.INDEX_ID = hi.INDEX_ID
-            WHERE hi.TICKER_EN = :gdValue";
-			$params = [':gdValue' => $gdValue];
-			$data = $this->sisDbDataService->fetchAllWithParams($sql, $params);
-//var_dump($data);
-			// Prepare tables for "Risers" and "Fallers" categories with common data structure
-			$allTables[$gdValue]['Risers'] = $this->prepareTable($data, 'common');
-			$allTables[$gdValue]['Fallers'] = $this->prepareTable($data, 'common');
-
-			// Prepare table for "Most Active" category with specific data structure
-			$allTables[$gdValue]['Most Active'] = $this->prepareTable($data, 'most_active');
-		}
-
-		// This will return an array of tables for each GD value and category
-		return $allTables;
+		$data = $this->sisDbDataService->fetchAllWithParams(
+			"SELECT hs.TICKER_EN
+				FROM HELEX_STOCKS hs
+				JOIN HELEX_INDEXCOMPOSITION hic
+					ON hs.STOCK_ID = hic.STOCK_ID
+				JOIN HELEX_INDICES hi
+					ON hic.INDEX_ID = hi.INDEX_ID
+				WHERE hi.TICKER_EN = :gdValue
+			",
+			[':gdValue' => $gdValue]
+		);
+		return $this->prepareTable($data, $tableType);
 	}
 
-	/*private function prepareTable($data, $type)
+	private function prepareTable(array $data, TableType $type)
 	{
-		$tableRows = [];
 
-		foreach ($data as $entry) {
-			$tickerEn = $entry['TICKER_EN'] . '.ATH';
-			$apiResponse = $this->api->callDelayed('Info', ['code' => $tickerEn, 'format' => 'json']);
-			if ($apiResponse === null) {
-				$this->logger->error("API response for {$tickerEn} is null");
-				continue;
-			}
-
-			if ($type == 'most_active') {
-				// Specific data structure for "Most Active"
-				$tableRows[] = [
-					'symbol' => $apiResponse['instrSysName'] ?? 'N/A',
-					'value' => $apiResponse['price'] ?? 'N/A',
-					'total_volume' => $apiResponse['totalInstrVolume'] ?? 'N/A',
-				];
-			} else {
-				// Common data structure for "Risers" and "Fallers"
-				$tableRows[] = [
-					'symbol' => $apiResponse['instrSysName'] ?? 'N/A',
-					'name' => $apiResponse['instrName'] ?? 'N/A',
-					'value' => isset($apiResponse['price']) ? $apiResponse['price'] : 'N/A',
-					'change_euro' => isset($apiResponse['pricePrevClosePriceDelta']) ? $apiResponse['pricePrevClosePriceDelta'] : 'N/A',
-					'change_percent' => isset($apiResponse['pricePrevClosePricePDelta']) ? $apiResponse['pricePrevClosePricePDelta'] : 'N/A',
-				];
-			}
+		foreach ($data as $k => $entry) {
+			$data[$k] = $entry['TICKER_EN'] . '.ATH';
 		}
 
-		return (new ProductsTable($tableRows))->render();
-	}*/
-	private function prepareTable($data, $type)
-	{
+		$data = join(',', $data);
+		$data = $this->api->callDelayed('Info', ['code' => $data, 'format' => 'json']);
+
+		$sortVar = 'pricePrevClosePricePDelta';
+
+		if ($type === TableType::MOST_ACTIVE)
+			$sortVar = 'totalInstrVolume';
+
+		if ($type === TableType::FALLERS)
+			usort($data, function ($a, $b) use ($sortVar) {
+				return( $a[$sortVar] * 10000) - ($b[$sortVar] * 10000);
+			});
+		else
+			usort($data, function ($a, $b) use ($sortVar) {
+				return( $b[$sortVar] * 10000) - ($a[$sortVar] * 10000);
+			});
+
 		$tableRows = [];
+		$cols = [
+			'symbol',
+			'value',
+			'change_value',
+			'change'
+		];
 
-		foreach ($data as $entry) {
-			$tickerEn = $entry['TICKER_EN'] . '.ATH';
-			$apiResponse = $this->api->callDelayed('Info', ['code' => $tickerEn, 'format' => 'json']);
-
-			// Check for missing keys in the API response
-			$requiredKeys = ['instrSysName', 'price']; // Add more keys as needed
-			foreach ($requiredKeys as $key) {
-				if (!array_key_exists($key, $apiResponse)) {
-					$this->logger->error("Missing {$key} in API response for {$tickerEn}");
-					// Set a default value or take other actions as needed
-					$apiResponse[$key] = 'N/A'; // Setting a default value for missing key
-				}
-			}
-
-			if ($type == 'most_active') {
-				// Specific data structure for "Most Active"
-				$tableRows[] = [
-					'symbol' => $apiResponse['instrSysName'],
-					'value' => $apiResponse['price'],
-					'total_volume' => $apiResponse['totalInstrVolume'] ?? 'N/A',
-				];
-			} else {
-				// Common data structure for "Risers" and "Fallers"
-				$tableRows[] = [
-					'symbol' => $apiResponse['instrSysName'],
-					'name' => $apiResponse['instrName'] ?? 'N/A',
-					'value' => $apiResponse['price'],
-					'change_euro' => $apiResponse['pricePrevClosePriceDelta'] ?? 'N/A',
-					'change_percent' => $apiResponse['pricePrevClosePricePDelta'] ?? 'N/A',
-				];
-			}
+		for ($i = 0; @$data[$i] && $i < 8; $i++) {
+			$rowData = Helpers::getProductRenderVars($data[$i]);
+			$row = [];
+			foreach ($cols as $key)
+				$row[] = $rowData[$key];
+			$tableRows[] = $row;
 		}
 
-		return (new ProductsTable($tableRows))->render();
+		$ra = (new ProductsTable($tableRows))->render();
+		$ra['#cache'] = [ 'max-age' => 9 ];
+		return $ra;
 	}
 
+	public function renderTable(string $seldSymbol, string $seldTable) {
+		return $this->getSubproductsTable(
+			$seldSymbol,
+			TableType::fromValue($seldTable)
+		);
+	}
 
-	public function getBlockRA($seldTable = null)
-	{
-		$blockContent = $this->getSubProductsTables(null, $seldTable); // Passing null for the symbol argument.
-		$container = $this->indicesOverviewService->createContainer();
-		$renderedBlock = $container->render($blockContent);
+	public function renderIndex($seldSymbol) {
+		$container = $this->indicesOverviewService->createContainer($seldSymbol);
+		$renderedBlock = $container->render(
+			(new LiveNavTabs(
+				'athex_d_mde.fragment_index_table',
+				'table',
+				[
+					TableType::RISERS->value,
+					TableType::FALLERS->value,
+					TableType::MOST_ACTIVE->value
+				],
+				[
+					'symbol' => $seldSymbol,
+				],
+				'pills'
+			))->render()
+		);
 
 		return [$renderedBlock];
 	}
 
-	private function getSubProductsPillsRA($seldTable)
-	{
-		return (new BsNav($this->pills, $seldTable, 'pills'))->render();
+	public function getBlockRA() {
+		$renderedBlock = (new LiveNavTabs(
+			'athex_d_mde.fragment_index_tabs',
+			'symbol',
+			$this->gdValues
+		))->render();
+		return [$renderedBlock];
 	}
-
 }

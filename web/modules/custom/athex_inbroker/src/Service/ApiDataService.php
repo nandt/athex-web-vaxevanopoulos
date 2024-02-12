@@ -82,6 +82,8 @@ class ApiDataService {
 	// }
 
 	public function callDelayed($transaction, $args = []) {
-		return $this->call('delayed', $transaction, $args);
+		$result = $this->call('delayed', $transaction, $args);
+		if (!array_is_list($result)) $result = [$result];
+		return $result;
 	}
 }

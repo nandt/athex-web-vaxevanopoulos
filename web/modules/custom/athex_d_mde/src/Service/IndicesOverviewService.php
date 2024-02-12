@@ -2,6 +2,7 @@
 
 namespace Drupal\athex_d_mde\Service;
 
+use Drupal\athex_d_mde\AthexRendering\Helpers;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
@@ -26,48 +27,25 @@ class IndicesOverviewService
 	}
 
 
-	public function createContainer() {
-    $indicesString = $this->config->get('indices') ?: 'GD.ATH,FTSE.ATH,ETE.ATH,ALPHA.ATH,TPEIR.ATH,EXAE.ATH';
-    $indices = explode(',', $indicesString);
+	public function createContainer(string $seldSymbol) {
+		$indicesString = $this->config->get('indices');
+		$indices = explode(',', $indicesString);
 
-    $apiResponse = $this->api->callDelayed('Info', ['code' => $indicesString, 'format' => 'json']);
-    if (!is_array($apiResponse)) {
-        // If response is not an array, something went wrong. Handle the error appropriately.
-         \Drupal::messenger()->addError(t('Error fetching API response.'));
-        return [];
-    }
+		foreach ($indices as $idx => $index) {
+			$indices[$idx] = $index . '.ATH';
+		}
 
-    $processedData = [];
+		$apiResponse = $this->api->callDelayed('Info', ['code' => "{$seldSymbol}.ATH" ]);
 
-    foreach ($apiResponse as $item) {
-        if (is_array($item) && in_array($item['instrSysName'], $indices)) {
-            $processedData[$item['instrSysName']] = [
-                'symbol' => $item['instrSysName'],
-                'value' => $item['price'],
-                'since_open_value' => $item['pricePrevPriceDelta'],
-                'since_open_percentage' => $item['pricePrevPricePDelta'],
-                'since_close_value' => $item['pricePrevClosePriceDelta'],
-                'since_close_percentage' => $item['pricePrevClosePricePDelta']
-            ];
-        }
-    }
+		$processedData = [];
 
-    foreach ($indices as $index) {
-        if (!isset($processedData[$index])) {
-            // Handle the case where the index is not found in the API response
-            \Drupal::messenger()->addWarning(t('Data for index %index not found in API response.', ['%index' => $index]));
+		foreach ($apiResponse as $item) {
+			if (is_array($item) && in_array($item['instrSysName'], $indices)) {
+				$processedData[$item['instrSysName']] = Helpers::getProductRenderVars($item);
+			}
+		}
 
-        }
-    }
-
-    return new IndicesOverviewContainer(array_keys($processedData), array_values($processedData));
-}
-
-
-
-
-
-
-
+		return new IndicesOverviewContainer($indices, array_values($processedData)[0]);
+	}
 
 }

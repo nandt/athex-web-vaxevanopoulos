@@ -59,12 +59,17 @@ select {
     }
 }
 
+input.webform-counter-warning, input.form-text.webform-counter-warning,
+textarea.webform-counter-warning, textarea.form-textarea.webform-counter-warning{
+	background:white !important;
+}
+
 //Jquery select2 overrides for custom dropdown styles
 
 .select2-container {
 
     .select2-search {
-        display: none;
+        display: block;
     }
 
     .select2-results ul {
@@ -91,6 +96,23 @@ select {
                 color: #3c06d9;
             }
         }
+
+		li[aria-selected="true"]{
+			display:flex;
+			justify-content: space-between;
+			color: #3c06d9 !important;
+		}
+
+		li[aria-selected="true"]::after {
+			content: '';
+			display: block;
+			background-image: url('assets/icons/tickBlue.svg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 16px;
+			width:16px;
+			height:16px;
+		}
     }
 
     .select2-dropdown {
@@ -99,6 +121,10 @@ select {
         border: none !important;
         box-shadow: 0px 2px 24px 0px rgba(3, 3, 20, 0.12);
     }
+}
+
+.select2-container .select2-selection--multiple .select2-selection__rendered{
+	white-space:unset !important;
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
@@ -114,6 +140,7 @@ select {
     pointer-events: none !important;
 }
 
+
 .select2-selection__rendered {
     padding-left: 0 !important;
 }
@@ -122,7 +149,13 @@ select {
     padding-bottom: 12px;
 }
 
-.select2-container--default .select2-selection--single {
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+	background-color:inherit !important;
+	padding:10px;
+}
+
+.select2-container--default .select2-selection--single,
+.select2-selection--multiple {
     border: none !important;
 
     .select2-selection__arrow {

@@ -13,7 +13,7 @@ class BsNav {
 		array $tabs,
 		string $seldTab = null,
 		string $class = 'tabs',
-		array|null $urls = null
+		?array $urls = null
 	) {
 		$this->tabs = $tabs;
 		$this->seldTab = $seldTab;
@@ -32,15 +32,10 @@ class BsNav {
 		];
 
 		foreach ($this->tabs as $idx => $label) {
-			// Create a unique href ID for each tab content
-			$hrefId = 'tab-content-' . $idx;
-
 			$aAttributes = [
 				'class' => ['nav-link'],
-				'href' => '#' . $hrefId, // Point to the unique content ID
-				'data-bs-toggle' => 'tab',
+				'href' => (@$this->urls[$idx]) ?: '#',
 				'role' => 'tab',
-				'aria-controls' => $hrefId,
 				'aria-selected' => 'false'
 			];
 

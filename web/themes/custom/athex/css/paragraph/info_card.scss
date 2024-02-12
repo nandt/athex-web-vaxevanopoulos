@@ -90,6 +90,20 @@
     padding-top: 50px;
 }
 
+.col-12.d-flex.contact-card {
+    padding: 40px;
+}
+
+.info-col>div {
+	column-gap: 0px;
+}
+
+.col-12.d-flex.contact-card {
+    max-width: fit-content;
+    margin: 20px;
+    padding: 40px;
+}
+
 @media(min-width:992px) {
 
     .twlText {
@@ -106,11 +120,12 @@
     }
 
     .info-col>div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
+		column-gap: 130px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+	}
 
     .contact-card {
         padding: 32px 40px 40px 40px;
@@ -121,4 +136,8 @@
         width: 232px;
         margin-top: 48px;
     }
+
+	.col-12.d-flex.contact-card {
+		max-width: 100%;
+	}
 }

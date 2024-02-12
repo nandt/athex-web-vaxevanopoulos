@@ -1,5 +1,5 @@
 .msContainer {
-    padding: 80px 12px;
+    padding: 0px 12px 80px;
 
     .ms-subheading {
         text-transform: uppercase;
@@ -53,8 +53,12 @@
 
 @media (min-width: 992px) {
     .msContainer {
-        padding: 120px 0px;
-        border-top: 1px solid #D1CCE1;
+		padding: 0px 0px 120px;
+
+		.msTitle {
+			padding-top: 120px;
+			border-top: 1px solid #D1CCE1;
+		}
 
         .ms-subheading {
             padding-bottom: 44px;
@@ -121,7 +125,9 @@
 //temporary
 
 .mdContainer {
-	display: none;
+	.products-table {
+		display: none;
+	}
 }
 
 

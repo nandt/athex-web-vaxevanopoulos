@@ -1,0 +1,27 @@
+
+# https://www.drupal.org/docs/drupal-apis/migrate-api/migrate-destination-plugins-examples/migrating-files-and-images
+
+id: athex_liferay_articles
+label: ATHEX Liferay Articles Migration
+source:
+  plugin: athex_liferay_articles_default_lang
+process:
+  type:
+    plugin: default_value
+    default_value: news_item
+  title: title
+  # status: status
+  langcode: langcode
+  created: createDate
+  changed: modifiedDate
+  # promote: promote
+  # sticky: sticky
+  # revision_log: log
+  # field_one_liner: field_one_liner
+  field_ni_body/value: content
+  field_ni_body/format:
+    plugin: default_value
+    default_value: full_html
+destination:
+  plugin: entity:node
+  default_bundle: news_item

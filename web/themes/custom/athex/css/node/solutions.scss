@@ -1,9 +1,70 @@
 .btnShare {
+	padding: 35px;
     bottom: 0;
 	right: 0;
     width: inherit;
     position: fixed;
     z-index: 1000;
+
+}
+
+.bottomCTAs {
+    display: none;
+}
+
+
+.downloadBtn {
+    height: 232px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    padding-top: 16px;
+    flex-direction: column;
+    padding-bottom: 16px;
+
+}
+
+.downloadBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border: 1px solid #3C06D9;
+    border-image: linear-gradient(to right, #3C06D9, #51C8D2);
+    border-radius: 8px;
+    border-image-slice: 1;
+}
+
+.downloadBtn::after {
+    content: '';
+    background-image: url('assets/icons/brochureDownload.svg');
+    display: block;
+    background-size: cover;
+    width: 81px;
+    height: 81px;
+    flex-shrink: 0;
+    margin-top: 24px;
+}
+
+.downloadBtn a {
+    color: #3C06D9;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 0.56px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
 }
 
 .sectionWrapper {
@@ -16,21 +77,21 @@
     border-bottom: 1px solid #D1CCE1;
 }
 
+.section.timelineeffectitems {
+    padding-top: 0px;
+}
+
 .padding-none.bottomCTAs {
     padding: 8px 8px 8px 32px;
     width: 450px;
     bottom: 20px;
     transform: translateX(-50%);
-    position: fixed;
-    z-index: 1000;
+    position: sticky;
+    z-index: 100;
     left: 50%;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-}
-
-.padding-none.bottomCTAs {
-	display: none;
 }
 
 .bottomCTAs {
@@ -93,6 +154,7 @@
 	cursor: pointer;
 }
 
+
 .container.solutions {
     padding-top: 48px;
     overflow: hidden;
@@ -103,12 +165,17 @@
 
     .solviewhomeWrapper {
         display: flex;
+		gap: 8px;
     }
 
     article:hover {
         .textColorWhite {
             color: #fff;
         }
+
+		.number {
+			color: #fff;
+		}
     }
 
     .sol {
@@ -139,6 +206,14 @@
 
     @media (min-width: 992px) {
 
+		.solviewhomeWrapper {
+			margin-top: 72px;
+			gap: 0px;
+		}
+		.section.timelineeffectitems {
+			padding-top: 64px;
+		}
+
         .sol-teaser-arrow {
             background-image: url('assets/icons/purple/arrow-right.svg');
         }
@@ -155,25 +230,18 @@
             }
         }
 
-        .textColorWhite {
+        .textColorWhite, .number {
             color: #1A0069;
         }
     }
 }
 
 .solhome-item article {
-    width: 152px;
-    height: 152px;
 
     .sol {
         height: 100%;
         display: block;
         width: 100%;
-    }
-
-    @media (min-width: 992px) {
-        width: 206px;
-        height: 198px;
     }
 }
 
@@ -290,7 +358,6 @@ span.siCta a {
     display: flex;
     align-items: center;
     justify-content: center;
-	padding: 35px 48px;
 
     a {
         display: inline-block;
@@ -343,6 +410,7 @@ span.siCta a {
 }
 
 .sliding-text span {
+	height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -362,6 +430,7 @@ span.siCta a {
 }
 
 .benefitItems div {
+    column-gap: 40px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -439,8 +508,11 @@ span.siCta a {
 		border-bottom: none;
 	}
 
-	.btnShare {
+	.benefit-body {
+		max-width: 400px;
+	}
 
+	.btnShare {
 		bottom: 0;
 		width: inherit;
 		position: relative;
@@ -542,13 +614,15 @@ span.siCta a {
     }
 
     .btnShare {
+		padding: 35px 40px;
+		cursor: pointer;
         width: 50%;
         margin-left: 32px;
+	}
 
-        a {
-            padding: 35px 40px;
-        }
-    }
+	a.btnShare{
+		padding: 35px 40px;
+	}
 
     .benefit-item {
         padding-bottom: unset;
@@ -625,6 +699,23 @@ span.siCta a {
     .logo-item {
         margin-right: 40px;
     }
+
+	.downloadBtn {
+        width: 232px;
+        margin-top: 48px;
+    }
+
+	.downloadBtn {
+		top: 0;
+		right: 0;
+		position: absolute;
+		width: 232px;
+		margin-top: 48px;
+	}
+
+	span.heading3.textColorDarkBlue.weightBoldBook.lwTitle div {
+		padding-bottom: 48px;
+	}
 }
 
 //we need this here

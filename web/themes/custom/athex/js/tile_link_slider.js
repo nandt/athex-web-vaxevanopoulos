@@ -28,6 +28,12 @@
 							}
 						}
 					})
+
+    				const linkItems = $(sliderNode).find('.tileLinksWrapper > .tile-link');
+					linkItems.each(function (index) {
+						const itemNumber = index + 1;
+						$(this).find('.tile-link-wrapper a').prepend($('<div class="number">' + '0' + itemNumber + '</div>'));
+					});
 				}
 			)
 		}
