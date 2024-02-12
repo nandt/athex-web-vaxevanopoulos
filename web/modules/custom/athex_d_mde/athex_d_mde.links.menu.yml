@@ -10,9 +10,9 @@ athex_d_mde.tickertape_form:
   route_name: athex_d_mde.tickertape_form
   description: 'Configure tickertape for ATHEx module.'
 
-athex_d_mde.settings:
-  title: 'Todays market Settings'
-  parent: system.admin_config_system
-  route_name: athex_d_mde.settings
-  description: 'Configure Todays market Values for ATHEx module.'
+# athex_d_mde.settings:
+#   title: 'Todays market Settings'
+#   parent: system.admin_config_system
+#   route_name: athex_d_mde.settings
+#   description: 'Configure Todays market Values for ATHEx module.'
 
