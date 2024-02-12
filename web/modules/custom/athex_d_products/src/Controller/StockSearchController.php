@@ -47,13 +47,15 @@ class StockSearchController extends ControllerBase
 		$minPrice = $request->query->get('minPrice', null);
 		$maxPrice = $request->query->get('maxPrice', null);
 		$market = $request->query->get('market', '');
+		$letterFilter = $request->query->get('letter', ''); // Retrieve the selected letter
 
-		// Prepare filters array including the 'market' array
+		// Prepare filters array including the 'market' array + letters
 		$filters = [
-			'searchValue' => $request->query->get('search_value', ''),
-			'market' => $request->query->get('market', null),
-			'minPrice' => $request->query->get('minPrice', null),
-			'maxPrice' => $request->query->get('maxPrice', null),
+			'searchValue' => $searchValue,
+			'market' => $market,
+			'minPrice' => $minPrice,
+			'maxPrice' => $maxPrice,
+			'letterFilter' => $letterFilter != 'All' ? $letterFilter : null, // Add the letter filter, exclude 'All'
 		];
 		// Fetch data based on filters
 		$data = $this->dataService->search($filters, 0, 10);

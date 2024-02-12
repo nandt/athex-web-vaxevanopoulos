@@ -106,12 +106,34 @@ class ProductSearch
 		];
 	}
 
-	private function getTabsRA()
+	/*private function getTabsRA()
 	{
 		$seldLetter = $this->seldLetter;
 		if (!$seldLetter) $seldLetter = 'All';
 		$options = ['All', ...range('A', 'Z')];
 		$bsNav = new BsNav($options, $seldLetter, 'pills');
+		return $bsNav->render();
+
+		$seldLetter = $this->seldLetter;
+		if (!$seldLetter) $seldLetter = 'All';
+		$options = ['All', ...range('A', 'Z')];
+		$bsNav = new BsNav($options, $seldLetter, 'pills', '/market-data/instruments/stocks'); // Adjust the path as needed
+		return $bsNav->render();
+	}
+*/
+
+	private function getTabsRA() {
+		$seldLetter = $this->seldLetter;
+		if (!$seldLetter) $seldLetter = 'All';
+		$options = ['All', ...range('A', 'Z')];
+
+		// Define the base URL for the tabs. This should be the route name for the page where the tabs are displayed.
+		// For example, if you have a route named 'athex_d_products.stock_search', use that.
+		$baseUrl = 'athex_d_products.stock_search';
+
+		// Create an instance of BsNav, passing the base URL as the last argument.
+		$bsNav = new BsNav($options, $seldLetter, 'pills', null, $baseUrl);
+
 		return $bsNav->render();
 	}
 
@@ -139,7 +161,7 @@ class ProductSearch
 			'#type' => 'details',
 			'#method' => 'GET',
 			'#title' => $this->t('Filters'),
-			'#open' => true,
+			'#open' => false,
 			'#attributes' => ['class' => ['bef--secondary']],
 			'market' => $this->getMarketField(), // Incorporates the checkboxes for market
 			'price' => $this->getPriceField(), // Adds a fieldset for price range
