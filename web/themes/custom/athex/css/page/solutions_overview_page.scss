@@ -1,5 +1,28 @@
 .solutions-overview-page {
 
+	.sol {
+		background: #F7F5FD;
+	}
+
+	.number, .sol-teaser-title {
+		color:#1A0069;
+	}
+
+	.sol:hover {
+		.number, .sol-teaser-title {
+			color: #fff;
+		}
+	}
+
+
+	.sol-teaser-arrow {
+		background-image: url('assets/icons/purple/arrow-right.svg');
+	}
+
+	.solutions {
+		padding: 0px 12px;
+	}
+
 	.controls.solutions-slider {
 		display: none;
 	}
@@ -31,6 +54,8 @@
                     bottom: 32px;
                     left: unset;
                     top: unset;
+					width: 30px;
+					height: 30px;
                 }
             }
 
@@ -63,6 +88,10 @@
 
     @media(min-width:992px) {
 
+		.solutions {
+			padding: 0px
+		}
+
 		.container.view-header {
 			display: flex;
 			flex-direction: row;
@@ -82,6 +111,10 @@
 
         .solviewhomeWrapper {
             gap: 40px;
+
+			.solhome-item .sol-teaser-title>span {
+				padding: 0 24px;
+			}
 
             .solhome-item {
                 width: 100%;
@@ -109,11 +142,15 @@
     }
 
     #views-exposed-form-solutions-solutions-overview {
-		padding-top: 60px;
+		padding: 60px 12px 0px;
         overflow-x: scroll;
         overflow-y: hidden;
         scrollbar-width: thin;
         scrollbar-color: transparent transparent;
+
+		@media (min-width: 992px) {
+			padding: 60px 0px 0px;
+		}
     }
 
     #views-exposed-form-solutions-solutions-overview .fieldset-wrapper>div {

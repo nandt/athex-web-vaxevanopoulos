@@ -3,13 +3,15 @@
 {{ attach_library('athex/solutions_slider') }}
 
 <div class="col-12">
-	<div class="container solutions">
-		<div class="solviewhomeWrapper">
-			{% for row in rows %}
-				<div class="solhome-item">
-					{{- row.content -}}
-				</div>
-			{% endfor %}
+	<div class="container">
+		<div class="solutions">
+			<div class="solviewhomeWrapper">
+				{% for row in rows %}
+					<div class="solhome-item">
+						{{- row.content -}}
+					</div>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
 </div>
