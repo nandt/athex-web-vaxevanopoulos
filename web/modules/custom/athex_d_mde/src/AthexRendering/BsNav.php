@@ -1,8 +1,11 @@
 <?php
+
 namespace Drupal\athex_d_mde\AthexRendering;
+
 use Drupal\Core\Url;
 
-class BsNav {
+class BsNav
+{
 
 	public array $tabs;
 	public ?string $seldTab;
@@ -11,12 +14,13 @@ class BsNav {
 	public ?string $baseUrl; // Add a property for base URL
 
 	public function __construct(
-		array $tabs,
-		string $seldTab = null,
-		string $class = 'tabs',
-		?array $urls = null,
+		array   $tabs,
+		string  $seldTab = null,
+		string  $class = 'tabs',
+		?array  $urls = null,
 		?string $baseUrl = null // Add an optional parameter for base URL
-	) {
+	)
+	{
 		$this->tabs = $tabs;
 		$this->seldTab = $seldTab;
 		$this->class = $class;
@@ -24,7 +28,8 @@ class BsNav {
 		$this->baseUrl = $baseUrl; // Initialize the base URL
 	}
 
-	public function render() {
+	public function render()
+	{
 		$result = [
 			'#type' => 'html_tag',
 			'#tag' => 'ul',

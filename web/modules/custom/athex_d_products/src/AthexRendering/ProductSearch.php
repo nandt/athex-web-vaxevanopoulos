@@ -107,8 +107,8 @@ class ProductSearch
 	}
 
 
-
-	private function getTabsRA() {
+	private function getTabsRA()
+	{
 		$seldLetter = $this->seldLetter;
 		if (!$seldLetter) $seldLetter = 'All';
 		$options = ['All', ...range('A', 'Z')];
