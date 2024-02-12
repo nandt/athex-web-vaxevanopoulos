@@ -1,16 +1,135 @@
-.esgBannerTitle {
-	height: 600px;
-	background: url(/assets/iconESGBanner.png),linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
-	background-repeat: no-repeat;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-  }
+.container.fuchsia-gradient{
+
+	.logoGroup {
+		display: none;
+	}
+
+	.esgBannerFontColor {
+		display: none;
+	}
+
+	.logoClear{
+		display: block;
+	}
+
+	.logoEsg{
+
+		display: none;
+	}
+
+	.esgBannerTitle {
+		background-position: top right!important;
+		height: 400px;
+		background: url(/assets/clearBgFuchsiaMob.png), linear-gradient(105deg, #3C06D9 0.32%, #B430BD 106.51%);
+		background-repeat: no-repeat;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	  }
+
+
+}
+
+.container.light-green-gradient{
+
+	.logoGroup {
+		display: none;
+	}
+
+	.esgBannerFontColor {
+		display: none;
+	}
+
+	.logoClear{
+		display: none;
+	}
+
+	.logoEsg{
+		display: block;
+	}
+
+	.esgBannerTitle {
+		background-position: top right!important;
+		height: 400px;
+		background: url(/assets/ClearBgGreenMob.png), linear-gradient(102deg, #4711E2 -5.15%, #00A486 65.82%, #26DF26 107.51%);
+		background-repeat: no-repeat;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	  }
+
+
+}
+
+.container.dark-green-gradient{
+
+	.logoGroup {
+		display: none;
+	}
+
+	.logoClear {
+		display: none;
+	}
+
+	.esgBannerFontColor {
+		display: block;
+	}
+
+	.logoEsg{
+		display: none;
+	}
+
+	.esgBannerTitle {
+		background-position: top right!important;
+		height: 400px;
+		background: url(/assets/iconESGBanner.png),linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+		background-repeat: no-repeat;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	  }
+
+
+}
+
+
+.container.blue-gradient{
+
+
+
+	.esgBannerFontColor {
+		display: none;
+	}
+
+	.logoClear{
+		display: none;
+	}
+
+	.logoEsg{
+		display:none;
+	}
+
+	.logoGroup{
+		display: block;
+	}
+
+	.esgBannerTitle {
+		background-position: top right!important;
+		height: 400px;
+		background: url(/assets/bgEsgGroupMob.png),linear-gradient(102deg, #4711E2 -5.15%, #21C0F2 107.51%);
+		background-repeat: no-repeat;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	  }
+
+}
 
 
 .col-12.esgBannerTitle.heading1 {
-	padding: 46px;
+    padding: 24px;
 }
+
 
 
 .esgBannerFontColor {
@@ -26,16 +145,158 @@
     padding: 20px;
 }
 
+.exploreMore a{
+	margin-top: 30px;
+	background-image: url('assets/icons/black/arrow-right-black.svg');
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 25px;
+	color:black;
+
+}
+
+.exploreMore div {
+    margin-top: 20px;
+}
+
+
 @media(min-width:992px){
-	.esgBannerTitle {
-		height: 600px;
-		background: url(/assets/iconESGBanner.png),linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
-		background-repeat: no-repeat;
-		background-position: top right;
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-end;
-	  }
+
+	.col-12.esgBannerTitle.heading1 {
+		padding: 46px;
+	}
+
+	.container.fuchsia-gradient{
+
+		.logoGroup {
+			display: none;
+		}
+
+		.esgBannerFontColor {
+			display: none;
+		}
+
+		.logoClear{
+			display: block;
+		}
+
+		.logoEsg{
+
+			display: none;
+		}
+		.esgBannerTitle {
+			background-position: top right!important;
+			height: 600px;
+			background: url(/assets/clearBgFuchsia.png),linear-gradient(105deg, #3C06D9 0.32%, #B430BD 106.51%);
+			background-repeat: no-repeat;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+		  }
+
+
+	}
+
+	.container.light-green-gradient{
+
+		.esgBannerFontColor {
+			display: none;
+		}
+
+		.logoClear{
+			display: none;
+		}
+
+		.logoEsg{
+			display: block;
+		}
+		.logoGroup {
+			display:none;
+		}
+
+		.esgBannerTitle {
+			background-position: top right!important;
+			height: 600px;
+			background: url(/assets/ClearBgGreen.png), linear-gradient(102deg, #4711E2 -5.15%, #00A486 65.82%, #26DF26 107.51%);
+			background-repeat: no-repeat;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+		  }
+
+
+	}
+
+	.container.dark-green-gradient{
+
+		.logoClear {
+			display: none;
+		}
+
+		.esgBannerFontColor {
+			display: block;
+		}
+
+		.logoEsg{
+			display: none;
+		}
+
+		.logoGroup {
+			display: none;
+		}
+
+		.esgBannerTitle {
+			height: 600px;
+			background: url(/assets/iconESGBanner.png),linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+			background-repeat: no-repeat;
+			background-position: top right;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+		  }
+
+
+	}
+
+	.container.bluegradient{
+
+		.logoClear {
+			display: none;
+		}
+
+		.logoGroup {
+			display: block;
+		}
+
+		.esgBannerFontColor {
+			display: none;
+		}
+
+		.logoEsg{
+			display: none;
+		}
+
+
+		}
+
+		.container.blue-gradient .esgBannerTitle{
+
+			background-position: top right!important;
+			height: 600px;
+			background: url(/assets/bgEsgGroup.svg),linear-gradient(102deg, #4711E2 -5.15%, #21C0F2 107.51%);
+			background-repeat: no-repeat;
+			background-position: top right;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+
+
+
+		}
+
+
+
+
 
 
 	.col-12.esgBannerTitle.heading1 {

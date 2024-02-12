@@ -1,0 +1,14 @@
+<div class="section timelineeffectitems">
+    <div class="anchor-items">
+        <div class="bullet" data-index="1"></div>
+        <div class="vertical-bar"></div>
+	</div>
+    {% block paragraph %}
+        <div class="TitleContent"{{ attributes.addClass(classes) }}>
+            {% block content %}
+                <span class="heading3 textColorDarkBlue weightBoldBook lwTitle"> {{content.field_tei_title}}</span>
+                <div class="content">{{content.field_timeline_effect_item_conte}}</div>
+            {% endblock %}
+        </div>
+    {% endblock paragraph %}
+</div>

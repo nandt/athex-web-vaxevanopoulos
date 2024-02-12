@@ -18,18 +18,11 @@ class IndicesOverviewTablesBlock extends BlockBase implements BlockPluginInterfa
 
 
 	public function build() {
-		$loggerFactory = \Drupal::service('logger.factory');
-		$logger = $loggerFactory->get('athex_d_mde');
-		$logger->info('Building the Indices Overview Tables block.');
-
+		/**
+		 * @var \Drupal\athex_d_mde\Service\IndicesOverviewTablesService $service
+		 */
 		$service = \Drupal::service('athex_d_mde.indices_overview_tables');
 		$block_content = $service->getBlockRA();
-
-		if (!empty($block_content)) {
-			$logger->info('Block content was built successfully.');
-		} else {
-			$logger->warning('Block content was not built. Check the athex_d_mde.indices_overview_tables service.');
-		}
 
 		return $block_content;
 	}

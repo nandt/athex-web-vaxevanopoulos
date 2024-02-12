@@ -1,0 +1,7 @@
+name: 'AthexGroup HERMES Integration'
+version: '1.0.0'
+type: module
+description: 'Provides API for integration with HERMES.'
+package: 'Deloitte Digital'
+core_version_requirement: ^10
+# configure: athex_hermes.settings

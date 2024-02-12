@@ -1,0 +1,11 @@
+name: 'AthexGroup Liferay Migrations'
+type: module
+core_version_requirement: ^10
+package: Deloitte Digital
+description: ''
+version: '1.0.0'
+dependencies:
+  - drupal:migrate
+  - migrate_tools
+  - migrate_plus
+  - athex_hermes
