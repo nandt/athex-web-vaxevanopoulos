@@ -151,7 +151,7 @@ class ProductSearch
 	public function render(DataTable $table)
 	{
 		return [
-			'#cache' => ['max-age' => 0],
+			'#cache' => ['max-age' => 6],
 			'#theme' => 'product_search',
 			'#page_title' => [
 				'#type' => 'html_tag',
