@@ -73,7 +73,7 @@ class IndicesOverviewTablesService
             WHERE hi.TICKER_EN = :gdValue";
 			$params = [':gdValue' => $gdValue];
 			$data = $this->sisDbDataService->fetchAllWithParams($sql, $params);
-
+//var_dump($data);
 			// Prepare tables for "Risers" and "Fallers" categories with common data structure
 			$allTables[$gdValue]['Risers'] = $this->prepareTable($data, 'common');
 			$allTables[$gdValue]['Fallers'] = $this->prepareTable($data, 'common');
@@ -86,14 +86,13 @@ class IndicesOverviewTablesService
 		return $allTables;
 	}
 
-	private function prepareTable($data, $type)
+	/*private function prepareTable($data, $type)
 	{
 		$tableRows = [];
 
 		foreach ($data as $entry) {
 			$tickerEn = $entry['TICKER_EN'] . '.ATH';
 			$apiResponse = $this->api->callDelayed('Info', ['code' => $tickerEn, 'format' => 'json']);
-
 			if ($apiResponse === null) {
 				$this->logger->error("API response for {$tickerEn} is null");
 				continue;
@@ -114,6 +113,45 @@ class IndicesOverviewTablesService
 					'value' => isset($apiResponse['price']) ? $apiResponse['price'] : 'N/A',
 					'change_euro' => isset($apiResponse['pricePrevClosePriceDelta']) ? $apiResponse['pricePrevClosePriceDelta'] : 'N/A',
 					'change_percent' => isset($apiResponse['pricePrevClosePricePDelta']) ? $apiResponse['pricePrevClosePricePDelta'] : 'N/A',
+				];
+			}
+		}
+
+		return (new ProductsTable($tableRows))->render();
+	}*/
+	private function prepareTable($data, $type)
+	{
+		$tableRows = [];
+
+		foreach ($data as $entry) {
+			$tickerEn = $entry['TICKER_EN'] . '.ATH';
+			$apiResponse = $this->api->callDelayed('Info', ['code' => $tickerEn, 'format' => 'json']);
+
+			// Check for missing keys in the API response
+			$requiredKeys = ['instrSysName', 'price']; // Add more keys as needed
+			foreach ($requiredKeys as $key) {
+				if (!array_key_exists($key, $apiResponse)) {
+					$this->logger->error("Missing {$key} in API response for {$tickerEn}");
+					// Set a default value or take other actions as needed
+					$apiResponse[$key] = 'N/A'; // Setting a default value for missing key
+				}
+			}
+
+			if ($type == 'most_active') {
+				// Specific data structure for "Most Active"
+				$tableRows[] = [
+					'symbol' => $apiResponse['instrSysName'],
+					'value' => $apiResponse['price'],
+					'total_volume' => $apiResponse['totalInstrVolume'] ?? 'N/A',
+				];
+			} else {
+				// Common data structure for "Risers" and "Fallers"
+				$tableRows[] = [
+					'symbol' => $apiResponse['instrSysName'],
+					'name' => $apiResponse['instrName'] ?? 'N/A',
+					'value' => $apiResponse['price'],
+					'change_euro' => $apiResponse['pricePrevClosePriceDelta'] ?? 'N/A',
+					'change_percent' => $apiResponse['pricePrevClosePricePDelta'] ?? 'N/A',
 				];
 			}
 		}
