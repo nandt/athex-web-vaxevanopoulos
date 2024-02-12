@@ -106,21 +106,7 @@ class ProductSearch
 		];
 	}
 
-	/*private function getTabsRA()
-	{
-		$seldLetter = $this->seldLetter;
-		if (!$seldLetter) $seldLetter = 'All';
-		$options = ['All', ...range('A', 'Z')];
-		$bsNav = new BsNav($options, $seldLetter, 'pills');
-		return $bsNav->render();
 
-		$seldLetter = $this->seldLetter;
-		if (!$seldLetter) $seldLetter = 'All';
-		$options = ['All', ...range('A', 'Z')];
-		$bsNav = new BsNav($options, $seldLetter, 'pills', '/market-data/instruments/stocks'); // Adjust the path as needed
-		return $bsNav->render();
-	}
-*/
 
 	private function getTabsRA() {
 		$seldLetter = $this->seldLetter;
