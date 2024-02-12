@@ -72,9 +72,7 @@ class SisDbDataService
 				$data[] = $row;
 			}
 		}
-		while ($row = oci_fetch_array($stmt, OCI_ASSOC)) {
-			$data[] = $row;
-		}
+
 		catch (\Exception|\Error $e) {
 			$this->logger->warning("Simulating empty response due to error:\n" . $e->getMessage());
 		}
