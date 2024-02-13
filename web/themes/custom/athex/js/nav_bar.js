@@ -22,6 +22,7 @@ jQuery(document).ready(function ($) {
 		$(this).toggleClass('expanded');
 		$(this).parents('.nav-menu').toggleClass('expanded');
 		$(this).siblings().toggleClass('hidden');
+		$(this).siblings().removeClass('expanded');
 		$(this).parent().parent().parent('li').toggleClass('expanded');
 		$(this).parent().parent().parent('li').siblings().toggleClass('hidden');
 		$(this).parent().parent().parent().parent().siblings().toggleClass('hidden');
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.querySelector('.burger-icon').addEventListener('click', function() {
-    document.querySelector('.col-9.nav-menu').classList.toggle('active');
+    document.querySelector('.col-12.nav-menu').classList.toggle('active');
 });
 
 
@@ -72,4 +73,5 @@ function handleScroll() {
 }
 
 window.addEventListener('scroll', handleScroll);
+
 

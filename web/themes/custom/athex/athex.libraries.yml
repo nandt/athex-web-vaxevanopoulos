@@ -296,6 +296,16 @@ timeline:
     theme:
       css/paragraph/timeline.scss: {}
 
+contact_information_card:
+  css:
+    theme:
+      css/paragraph/contact_information_card.scss: {}
+
+border_with_names:
+  css:
+    theme:
+      css/paragraph/border_with_names.scss: {}
+
 image_slider:
   css:
     theme:
@@ -320,6 +330,8 @@ ask_a_question:
   css:
     theme:
       css/blocks/ask_a_question.scss: {}
+  js:
+    js/ask_a_question.js: {}
 
 info_card:
   css:
@@ -422,6 +434,13 @@ product-hero:
       css/views/views.scss: {}
   js:
     js/table_expand.js: {}
+
+prefooter_block:
+  css:
+    theme:
+      css/paragraph/prefooter_block.scss: {}
+  js:
+    js/prefooter_block.js: {}
 
 ir_donut_chart:
   css:

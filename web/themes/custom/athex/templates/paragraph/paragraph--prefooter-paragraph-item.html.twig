@@ -1,0 +1,12 @@
+{# modules/contrib/paragraphs/templates/paragraph.html.twig' #}
+
+{{ attach_library('athex/ask_a_question') }}
+
+<div class="prefooter-p_item">
+    <div class="prefooter-p_item label">{{content.field_label}}</div>
+    <div class="prefooter-p_item body">{{content.field_text}}</div>
+</div>
+<div class="prefooter-p_item webform" style="display:none;">
+    {{content.field_webform}}
+    <div class="close-btn">&times;</div>
+</div>

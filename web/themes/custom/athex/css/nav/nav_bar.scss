@@ -47,7 +47,7 @@ li.expaned ~ li:not(.expanded) {
 
 			.back {
 				order: 1;
-				padding-bottom: 50px;
+				padding-bottom: 0px;
 			}
 
 			ul {
@@ -138,48 +138,50 @@ li.expaned ~ li:not(.expanded) {
 li.liColDepth-1 {
     padding: 10px;
 }
+
+.sub-menu.submenu-1.depth-1 {
+    margin-left: -10px;
+	padding-left: 20px;
+}
+
+
 .depth-1 {
     max-width: 290px;
-    top: 50px;
+    top:80px;
+	left:0;
     height: 100vh;
     background-color: white;
     position: absolute;
-    left: 0;
-    transform: translateX(-50%);
-    margin-left: -100px;
-    padding-left: 20px;
 }
-.depth-2 {
-	min-width: 340px;
+
+.depth-2{
+
+	margin-left: 20px;
     position: absolute;
-    top: 0;
     left: 100%;
-    margin-left: 20px;
+    top: 0;
+
 }
+
 
 .submenu-6.depth-5 ul {
     margin-left: 30px;
 }
 
 .depth-3 {
-
-	min-width: 340px;
     left: 100%;
     margin-left: 20px;
     top: 0;
 }
 
 .depth-4 {
-	min-width: 340px;
     position: absolute;
     top: 0;
     left: 100%;
     margin-left: 20px;
 }
 
-.sub-menu.submenu-4.depth-3 {
-    min-width: 340px;
-}
+
 .sub-menu a {
 	font-family: Manrope;
 	font-size: 14px;
@@ -290,7 +292,7 @@ span.menu-title.menu-title-depth-4{
   li.liColDepth-5 {
 	padding-bottom: 0px;
     padding-top: 0px;
-    padding-left: 8px !important;
+    padding-left: 15px !important;
     background-image: url(/assets/iconBullet.svg);
     background-repeat: no-repeat;
     background-position: left center;
@@ -379,7 +381,12 @@ a.language-link {
 }
 
 
+
+
  @media(max-width:992px){
+
+
+
 
 	.hidden-menu{
 		display: none;
@@ -450,10 +457,9 @@ a.language-link {
 	.sub-menu.submenu-1.depth-1 {
 		z-index: 3;
 		height: 100vh;
-		position: fixed;
 		width: 100vw;
-		top: 100px;
-		left: 75%;
+		top: 0px;
+		left: 0px;
 		padding: 0px;
 		padding: 20px;
 	}
