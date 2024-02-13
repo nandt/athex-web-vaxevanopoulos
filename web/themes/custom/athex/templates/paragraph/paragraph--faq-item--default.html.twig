@@ -1,7 +1,7 @@
 {# web/modules/contrib/paragraphs/templates/paragraph.html.twig #}
 
 {% block paragraph %}
-  {% if content.field_faqi_title|render|striptags|trim is not empty or content.field_faqi_body|render|striptags|trim is not empty %}
+  {% if (content.field_faqi_body|render|striptags|trim is not empty) or (content.field_download_file_fi['#items'] is not empty) %}
     <div{{ attributes.addClass(classes) }}>
       {% block content %}
         <div class="faq-container">
@@ -23,6 +23,17 @@
                   </div>
                 </div>
               </div>
+            {% else %}
+              {% if content.field_download_file_fi['#items'] is not empty %}
+                <div class="faq-content textColorPurple body2">
+                  <div class="row tabContent">
+                    <div class="col-12 col-lg-2 downloadFile">
+                      {% set file = content.field_download_file_fi['#items'].entity %}
+                      <a href="{{ file_url(file.uri.value) }}" download="{{ file.filename.value }}" target="_blank"><span class="dowloadLabel">{{ content.field_download_label }}</span></a>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
             {% endif %}
           </div>
         </div>
@@ -30,3 +41,4 @@
     </div>
   {% endif %}
 {% endblock paragraph %}
+
