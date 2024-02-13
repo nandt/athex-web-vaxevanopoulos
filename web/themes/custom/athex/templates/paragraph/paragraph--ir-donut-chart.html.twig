@@ -1,0 +1,25 @@
+{# modules/contrib/paragraphs/templates/paragraph.html.twig' #}
+
+{{ attach_library('athex/ir_donut_chart') }}
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-5 col-12 donut_text">
+			<div class="irdc_title weightBoldBook heading2 textColorDarkBlue">
+				{{content.field_irdc_title}}
+			</div>
+			<div class="irdc_body weightLight textColorBlackDark body2">
+				{{content.field_irdc_title_body}}
+			</div>
+			<div class="irdc_link weightBoldBook textColorBlackDark cta1">
+				{{content.field_irdc_link}}
+			</div>
+		</div>
+		<div class="col-lg-6 offset-lg-1 col-12 donut_col">
+			<div class="ir_donut_container">
+				{{content.field_donut_data_reference}}
+				<div id="donutchart" style="width: 100%; height: 500px;"></div>
+			</div>
+		</div>
+	</div>
+</div>

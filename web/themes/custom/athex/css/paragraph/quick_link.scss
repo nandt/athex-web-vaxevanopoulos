@@ -25,7 +25,7 @@
 }
 
 .link_item {
-    padding: 12px 16px;
+    padding: 26px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -80,6 +80,11 @@
     display: flex;
     margin-bottom: 80px;
 }
+
+.container.ql_group{
+	padding-top:48px;
+}
+
 
 @media(min-width:992px) {
 

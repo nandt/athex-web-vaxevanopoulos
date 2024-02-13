@@ -354,6 +354,11 @@ link_cards_bundle:
   js:
     js/link_cards_bundle.js: {}
 
+multicolor_text:
+  css:
+    theme:
+      css/paragraph/multicolor_text.scss: {}
+
 market_summary:
   css:
     theme:
@@ -384,4 +389,13 @@ tile_link:
     - athex/tiny-slider
     - core/drupal
     - core/once
+
+ir_donut_chart:
+  css:
+    theme:
+      css/paragraph/ir_donut_chart.scss: {}
+
+donut_chart:
+  js:
+    js/donut_chart.js: {}
 
