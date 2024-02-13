@@ -1,0 +1,10 @@
+id: athex_liferay_categories
+label: 'Athex Liferay Categories Migration'
+source:
+  plugin: athex_liferay_categories
+process:
+  tid: vocabularyId
+  name: titleCurrentValue
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: tags
