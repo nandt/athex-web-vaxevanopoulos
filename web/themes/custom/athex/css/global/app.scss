@@ -20,3 +20,51 @@ body{
 .layout-bg-lightGrey{
     background:#F8F8FA;
 }
+
+
+table {
+    width: 100%;
+}
+
+tr:first-child {
+	height: 40px;
+	border-bottom: none;
+	padding: 12px 0px 12px 32px;
+    background-color: #F6F5F8;
+	color:#4C37B0;
+	font-size: 12px;
+	font-weight: 800;
+
+}
+
+tr {
+	height: 74px;
+	border-bottom: 1.5px solid #E5E5EA!important;
+    background-color: none;
+}
+
+tr:hover {
+	background-color: #F7F5FD;
+}
+
+td:first-child {
+
+    padding: 12px 24px;
+}
+
+td {
+
+	font-size: 14px;
+	padding: 14px 24px;
+	color:#331F71;
+}
+
+tr a {
+	font-size: 14px;
+	color:#331F71;
+}
+
+tr:hover a {
+	font-weight: 600;
+    color:#3C06D9;
+}
