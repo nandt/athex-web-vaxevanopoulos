@@ -8,12 +8,19 @@ services:
   athex_d_products.stock_profile_rendering:
     class: Drupal\athex_d_products\Service\StockProfileRenderingService
     arguments: ['@athex_d_products.stock_data']
+
   athex_d_products.stock_search_controller:
     class: Drupal\athex_d_products\Controller\StockSearchController
-    arguments: ['@athex_d_products.stock_data', '@athex_d_products.product_search', '@messenger']
+    arguments: [ '@athex_d_products.stock_data', '@messenger', '@plugin.manager.product_search' ]
 
-  athex_d_products.product_search:
-    class: Drupal\athex_d_products\AthexRendering\ProductSearch
-    arguments:
-      - 'Search Stocks' # You can change 'Default Title' to whatever default title you want to use
-      - [ ] # This is an empty array for secondary filters. Adjust as needed if you have default filters to apply
+  plugin.manager.product_search:
+    class: Drupal\athex_d_products\Plugin\ProductSearchManager
+    parent: default_plugin_manager
+    arguments: [ '@container.namespaces', '@cache.discovery', '@module_handler' ]
+
+
+  athex_d_products.route_subscriber:
+    class: Drupal\athex_d_products\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+

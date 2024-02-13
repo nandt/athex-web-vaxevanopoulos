@@ -1,5 +1,6 @@
 athex_d_products.stock_search:
-  path: '/market-data/instruments/stocks'
+  #path: '/market-data/instruments/stocks'
+  path: '/market-data/instruments/{productType}'
   defaults:
     _controller: 'athex_d_products.stock_search_controller:render'
   requirements:
