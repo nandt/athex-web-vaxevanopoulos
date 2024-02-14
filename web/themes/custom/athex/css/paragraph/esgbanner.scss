@@ -9,6 +9,9 @@
 	}
 
 	.logoClear{
+		position: absolute;
+			bottom: 32px;
+			left: 24px;
 		display: block;
 	}
 
@@ -18,9 +21,9 @@
 	}
 
 	.esgBannerTitle {
-		background-position: top right!important;
+		position:relative;
 		height: 400px;
-		background: url(/assets/clearBgFuchsiaMob.png), linear-gradient(105deg, #3C06D9 0.32%, #B430BD 106.51%);
+		background: linear-gradient(105deg, #3C06D9 0.32%, #B430BD 106.51%);
 		background-repeat: no-repeat;
 		display: flex;
 		flex-direction: column;
@@ -45,13 +48,16 @@
 	}
 
 	.logoEsg{
+		position: absolute;
+			bottom: 32px;
+			left: 24px;
 		display: block;
 	}
 
 	.esgBannerTitle {
-		background-position: top right!important;
+		position: relative;
 		height: 400px;
-		background: url(/assets/ClearBgGreenMob.png), linear-gradient(102deg, #4711E2 -5.15%, #00A486 65.82%, #26DF26 107.51%);
+		background: linear-gradient(102deg, #4711E2 -5.15%, #00A486 65.82%, #26DF26 107.51%);
 		background-repeat: no-repeat;
 		display: flex;
 		flex-direction: column;
@@ -72,6 +78,9 @@
 	}
 
 	.esgBannerFontColor {
+		position: absolute;
+			bottom: 32px;
+			left: 24px;
 		display: block;
 	}
 
@@ -80,9 +89,9 @@
 	}
 
 	.esgBannerTitle {
-		background-position: top right!important;
+		position: relative;
 		height: 400px;
-		background: url(/assets/iconESGBanner.png),linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+		background: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
 		background-repeat: no-repeat;
 		display: flex;
 		flex-direction: column;
@@ -99,6 +108,7 @@
 
 	.esgBannerFontColor {
 		display: none;
+
 	}
 
 	.logoClear{
@@ -110,13 +120,16 @@
 	}
 
 	.logoGroup{
+		position: absolute;
+			bottom: 32px;
+			left: 24px;
 		display: block;
 	}
 
 	.esgBannerTitle {
-		background-position: top right!important;
+		position:relative;
 		height: 400px;
-		background: url(/assets/bgEsgGroupMob.png),linear-gradient(102deg, #4711E2 -5.15%, #21C0F2 107.51%);
+		background: linear-gradient(102deg, #4711E2 -5.15%, #21C0F2 107.51%);
 		background-repeat: no-repeat;
 		display: flex;
 		flex-direction: column;
@@ -160,6 +173,14 @@
 }
 
 
+.esgBannerImage{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+
 @media(min-width:992px){
 
 	.col-12.esgBannerTitle.heading1 {
@@ -177,6 +198,9 @@
 		}
 
 		.logoClear{
+			position: absolute;
+			bottom: 32px;
+			left: 40px;
 			display: block;
 		}
 
@@ -185,9 +209,9 @@
 			display: none;
 		}
 		.esgBannerTitle {
-			background-position: top right!important;
+			position:relative;
 			height: 600px;
-			background: url(/assets/clearBgFuchsia.png),linear-gradient(105deg, #3C06D9 0.32%, #B430BD 106.51%);
+			background: linear-gradient(105deg, #3C06D9 0.32%, #B430BD 106.51%);
 			background-repeat: no-repeat;
 			display: flex;
 			flex-direction: column;
@@ -208,6 +232,9 @@
 		}
 
 		.logoEsg{
+			position: absolute;
+			bottom: 32px;
+			left: 40px;
 			display: block;
 		}
 		.logoGroup {
@@ -215,9 +242,9 @@
 		}
 
 		.esgBannerTitle {
-			background-position: top right!important;
+			position:relative;
 			height: 600px;
-			background: url(/assets/ClearBgGreen.png), linear-gradient(102deg, #4711E2 -5.15%, #00A486 65.82%, #26DF26 107.51%);
+			background: linear-gradient(102deg, #4711E2 -5.15%, #00A486 65.82%, #26DF26 107.51%);
 			background-repeat: no-repeat;
 			display: flex;
 			flex-direction: column;
@@ -234,6 +261,9 @@
 		}
 
 		.esgBannerFontColor {
+			position: absolute;
+			bottom: 32px;
+			left: 40px;
 			display: block;
 		}
 
@@ -246,8 +276,9 @@
 		}
 
 		.esgBannerTitle {
+			position:relative;
 			height: 600px;
-			background: url(/assets/iconESGBanner.png),linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+			background:linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
 			background-repeat: no-repeat;
 			background-position: top right;
 			display: flex;
@@ -266,6 +297,9 @@
 
 		.logoGroup {
 			display: block;
+			position: absolute;
+			bottom: 32px;
+			left: 40px;
 		}
 
 		.esgBannerFontColor {
@@ -281,9 +315,9 @@
 
 		.container.blue-gradient .esgBannerTitle{
 
-			background-position: top right!important;
+			position: relative;
 			height: 600px;
-			background: url(/assets/bgEsgGroup.svg),linear-gradient(102deg, #4711E2 -5.15%, #21C0F2 107.51%);
+			background: linear-gradient(102deg, #4711E2 -5.15%, #21C0F2 107.51%);
 			background-repeat: no-repeat;
 			background-position: top right;
 			display: flex;
@@ -305,6 +339,7 @@
 
 
 	.esgBannerFontColor {
+		position: relative;
 		max-width: 550px;
 		background: linear-gradient(93deg, #B6F691 1.6%, #51C8D2 68.54%);
 		background-clip: text;
@@ -316,6 +351,8 @@
 	.col-12.esgBannerBody {
 		padding: 110px;
 	}
+
+
 
 
 }
