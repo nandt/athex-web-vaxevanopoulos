@@ -41,7 +41,7 @@
 	border: 1px solid #3C06D9;
 }
 
-#donutchart>div>div:nth-child(1)>div>svg>g:nth-child(3) {
+#donutchart svg g:first-of-type {
 	display: none;
 }
 
@@ -77,7 +77,7 @@
 		margin-bottom: 32px;
 	}
 
-	#donutchart>div>div:nth-child(1)>div>svg>g:nth-child(3) {
+	#donutchart svg g:first-of-type {
 		display: block;
 	}
 }
