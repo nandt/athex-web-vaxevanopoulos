@@ -179,6 +179,15 @@
 	right: 0;
 }
 
+.esgBannerImage img{
+
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 900px;
+
+}
+
 
 
 @media(min-width:992px){
