@@ -43,8 +43,13 @@ tr {
     background-color: none;
 }
 
+
 tr:hover {
 	background-color: #F7F5FD;
+}
+
+table.products-table tr {
+    background-color: white;
 }
 
 td:first-child {
