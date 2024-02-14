@@ -1,14 +1,13 @@
 athex_d_products.stock_search:
-  #path: '/market-data/instruments/stocks'
   path: '/market-data/instruments/{productType}'
   defaults:
-    _controller: 'athex_d_products.stock_search_controller:render'
+    _controller: '\Drupal\athex_d_products\Controller\StockSearchController::render'
   requirements:
     _permission: 'access content'
 
 
 athex_d_products.product_profile:
-  path: '/market-data/instruments/{product_type}/{product_id}'
+  path: '/market-data/instruments2/{product_type}/{product_id}'
   defaults:
     _controller: '\Drupal\athex_d_products\Controller\ProductProfileController::render'
   requirements:
@@ -27,13 +26,3 @@ athex_d_products.product_publications:
     _controller: '\Drupal\athex_d_products\Controller\IssuerPublicationsPageController::render'
   requirements:
     _permission: 'access content'
-
-#athex_d_products.stock_profile:
-#  path: '/market-data/instruments/stock/{product_id}'
-#  defaults:
-#    _controller: '\Drupal\athex_d_products\Controller\ProductProfileController::render'
-#    product_type: 'stock'  # Assuming this parameter is passed to match your controller logic
-#  requirements:
-#    _permission: 'access content'
-
-

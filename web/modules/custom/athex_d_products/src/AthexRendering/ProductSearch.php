@@ -6,9 +6,11 @@ use Drupal\Core\Pager\Pager;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\athex_d_mde\AthexRendering\BsNav;
 use Drupal\athex_d_mde\AthexRendering\DataTable;
+use Drupal\Core\Url;
+use Drupal\Core\Language\LanguageInterface;
 
-class ProductSearch
-{
+
+class ProductSearch {
 
 	use StringTranslationTrait;
 
@@ -17,8 +19,7 @@ class ProductSearch
 	private Pager $pager;
 	private string|null $seldLetter;
 
-	public function __construct(string $enTitle, array $secondaryFiltersRA)
-	{
+	public function __construct(string $enTitle, array $secondaryFiltersRA) {
 		$this->title = $this->t($enTitle);
 		$this->secondaryFiltersRA = $secondaryFiltersRA;
 		$this->pager = \Drupal::service('pager.manager')->createPager(30, 10);
@@ -27,13 +28,19 @@ class ProductSearch
 			$this->seldLetter = null;
 	}
 
-	public function getResultsOffset()
-	{
+	public function getCurrentProductType() {
+		$route_match = \Drupal::service('current_route_match');
+		$productType = $route_match->getParameter('productType');
+		return $productType;
+	}
+
+
+
+	public function getResultsOffset() {
 		return ($this->pager->getCurrentPage() - 1) * $this->pager->getLimit();
 	}
 
-	public function getResultsLimit()
-	{
+	public function getResultsLimit() {
 		return $this->pager->getLimit();
 	}
 
@@ -107,7 +114,7 @@ class ProductSearch
 	}
 
 
-	private function getTabsRA()
+	/*private function getTabsRA()
 	{
 		$seldLetter = $this->seldLetter;
 		if (!$seldLetter) $seldLetter = 'All';
@@ -121,9 +128,31 @@ class ProductSearch
 		$bsNav = new BsNav($options, $seldLetter, 'pills', null, $baseUrl);
 
 		return $bsNav->render();
+	}*/
+	private function getTabsRA() {
+		$seldLetter = $this->seldLetter;
+		if (!$seldLetter) $seldLetter = 'All';
+		$options = ['All', ...range('A', 'Z')];
+
+		// Retrieve the current product type
+		$productType = $this->getCurrentProductType();
+//var_dump($productType);
+		// Ensure the base URL includes the productType parameter
+		// Adjust this part to ensure the productType is correctly passed to each tab link
+		//$baseUrl = Url::fromRoute('athex_d_products.stock_search', ['productType' => $productType])->toString();
+		$formAction = Url::fromRoute('athex_d_products.stock_search', ['productType' => $productType])
+			->setOption('language', \Drupal::languageManager()->getLanguage(LanguageInterface::LANGCODE_NOT_SPECIFIED))
+			->toString();
+
+		$bsNav = new BsNav($options, $seldLetter, 'pills', null, $formAction);
+
+		return $bsNav->render();
 	}
 
-	private function getSearchFormRA()
+
+	/*private function getSearchFormRA()
+		 $productType = $this->getCurrentProductType(); // Get the current product type
+          $formAction = Url::fromRoute('athex_d_products.stock_search', ['productType' => $productType])->toString();
 	{
 		$formAction = \Drupal\Core\Url::fromRoute('athex_d_products.stock_search')->toString();
 
@@ -139,7 +168,29 @@ class ProductSearch
 				//$this->getSubmitButton()
 			]
 		];
+	}*/
+	public function getSearchFormRA() {
+		$productType = $this->getCurrentProductType(); // Get the current product type
+		//$formAction = Url::fromRoute('athex_d_products.stock_search', ['productType' => $productType])->toString();
+		$formAction = Url::fromRoute('athex_d_products.stock_search', ['productType' => $productType])
+			->setOption('language', \Drupal::languageManager()->getLanguage(LanguageInterface::LANGCODE_NOT_SPECIFIED))
+			->toString();
+		\Drupal::logger('Prduct Search debuging url')->notice($formAction);
+
+		return [
+			'#type' => 'form',
+			'#method' => 'GET',
+			'#action' => $formAction,
+			'#attributes' => ['class' => ['bef-exposed-form']],
+			'#children' => [
+				$this->getSearchbarRA(),
+				$this->getTabsRA(),
+				$this->getSecondaryFiltersRA(),
+				// $this->getSubmitButton() // Uncomment if needed
+			]
+		];
 	}
+
 
 	private function getSecondaryFiltersRA()
 	{
@@ -170,5 +221,9 @@ class ProductSearch
 			'#table' => $table->render(),
 			'#pager' => ['#type' => 'pager'],
 		];
+	}
+
+	public function getSearchForm() {
+		return $this->getSearchFormRA();
 	}
 }
