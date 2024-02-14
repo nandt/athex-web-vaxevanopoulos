@@ -1,106 +1,122 @@
 <?php
+
 namespace Drupal\athex_d_products\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Drupal\athex_d_products\Service\StockDataService;
-use Drupal\athex_d_products\AthexRendering\ProductSearch;
-use Drupal\athex_d_mde\AthexRendering\DataTable;
 use Drupal\Core\Messenger\MessengerInterface;
-use Symfony\Component\HttpFoundation\Response;
+use Drupal\athex_d_products\AthexRendering\ProductSearch; // Add this line
+use Drupal\athex_d_products\AthexRendering\DataTable;
+
 
 class StockSearchController extends ControllerBase {
-	protected $dataService;
 	protected $pluginManager;
-	protected $filters; // Define the filters property
+	protected $messenger;
 
-	public function __construct(StockDataService $dataService, MessengerInterface $messenger, $pluginManager) {
-		$this->dataService = $dataService;
-		$this->messenger = $messenger;
+	public function __construct($pluginManager, MessengerInterface $messenger) {
 		$this->pluginManager = $pluginManager;
+		$this->messenger = $messenger;
 	}
 
 	public static function create(ContainerInterface $container) {
 		return new static(
-			$container->get('athex_d_products.stock_data'),
-			$container->get('messenger'),
-			$container->get('plugin.manager.product_search') // Get the plugin manager
+			$container->get('plugin.manager.product_search'),
+			$container->get('messenger')
 		);
 	}
 
 	/*public function render(Request $request, $productType) {
-		$this->initializeFiltersFromRequest($request); // Initialize filters from request
+		$plugin = $this->pluginManager->createInstance($productType);
 
-		$pluginInstance = $this->getPluginInstance($productType);
-
-		if (!$pluginInstance) {
-			return new Response('The requested search plugin does not exist.', 404);
+		if (!$plugin) {
+			throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException(
+				$this->t('The product type @productType does not exist.', ['@productType' => $productType])
+			);
 		}
 
-		$data = $this->getPluginData($pluginInstance);
+		$filterValues = $this->extractFiltersFromRequest($request, $productType);
+		$data = $plugin->getQuery($filterValues, 0, 10);
+		$headers = $plugin->getHeaders();
 
-		if (empty($data)) {
-			$this->messenger->addMessage($this->t('No data found.'), 'warning');
-			return [];
-		} else {
-			return $this->buildResponse($data);
-		}
-	}*/
-	public function render(Request $request, $productType) {
-		// Get the plugin manager and check if the plugin exists
-		$pluginManager = \Drupal::service('plugin.manager.product_search');
-		$definitions = $pluginManager->getDefinitions();
+		//$productSearch = new ProductSearch($plugin->getLabel(), $filters);
+		$productSearch = new ProductSearch('Stock Search', $filters);  // just for debugging
 
-		// Check if the productType exists as a plugin ID
-		if (isset($definitions[$productType])) {
-			// Plugin exists, proceed with rendering or fetching data
-			return [
-				'#markup' => $this->t('Hello, this is a test page for the product type: @productType', ['@productType' => $productType]),
-			];
-		} else {
-			// Plugin does not exist, return a 404 response
-			throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException($this->t('The product type @productType does not exist.', ['@productType' => $productType]));
-		}
-	}
-
-	private function initializeFiltersFromRequest(Request $request) {
-		$this->filters = [
-			'searchValue' => $request->query->get('search_value', ''),
-			'letterFilter' => $request->query->get('letterFilter', null), // Initialize letterFilter
-			// Add more filters as needed
-		];
-	}
-
-	private function getPluginInstance($productType) {
-		$definitions = $this->pluginManager->getDefinitions();
-
-		if (isset($definitions[$productType])) {
-			return $this->pluginManager->createInstance($productType, []);
-		}
-
-		return null;
-	}
-
-	private function getPluginData($pluginInstance) {
-		return $pluginInstance->getQuery($this->filters, 0, 10);
-	}
-
-	private function buildResponse($data) {
-		$headers = ['Symbol', 'ISIN', 'Issuer', 'Market', 'Last Price', 'Last Trading Date', 'Percentage']; // Define your headers here
 		$dataTable = new DataTable($headers, $data);
 
+		return $productSearch->render($dataTable, $filterValues);
+	}*/
+	public function render(Request $request, $productType) {
+		$plugin = $this->pluginManager->createInstance($productType);
+
+		if (!$plugin) {
+			throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException(
+				$this->t('The product type @productType does not exist.', ['@productType' => $productType])
+			);
+		}
+
+		$filterValues = $this->extractFiltersFromRequest($request, $productType);
+		$data = $plugin->getQuery($filterValues, 0, 10);
+		$headers = $plugin->getHeaders();
+
+		// Assuming $plugin->getFilters() returns an array of filters, which will be used as secondary filters.
+		// If getFilters() might return null, ensure to provide an empty array as a fallback.
+		$filters = $plugin->getFilters() ?? [];
+
+		// Pass $filters as the second argument for ProductSearch constructor.
+		//$productSearch = new ProductSearch($plugin->getLabel(), $filters);
+		$productSearch = new ProductSearch('Stock Search', $filters);  // just for debugging
+		$dataTable = new DataTable($headers, $data);
+
+		// Pass $filterValues as the second argument to the render method if needed.
+		return $productSearch->render($dataTable, $filterValues, $headers);
+	}
+
+
+
+	private function extractFiltersFromRequest(Request $request, $productType) {
+		$plugin = $this->pluginManager->createInstance($productType);
+
+		if (!$plugin) {
+			throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException(
+				$this->t('The product type @productType does not exist.', ['@productType' => $productType])
+			);
+		}
+
+		$filters = $plugin->getFilters();
+		$filterValues = [];
+
+		foreach (array_keys($filters) as $filterKey) {
+			$filterValues[$filterKey] = $request->query->get($filterKey);
+		}
+
+		return $filterValues;
+	}
+
+
+
+
+	/*private function extractFilterValuesFromRequest(Request $request, array $filterKeys) {
+		$values = [];
+		foreach ($filterKeys as $key) {
+			$values[$key] = $request->query->get($key);
+		}
+		return $values;
+	}*/
+}
+
+
+/*
+	private function extractFiltersFromRequest(Request $request) {
 		return [
-			'#theme' => 'product_search',
-			'#page_title' => $this->t('Your Page Title'),
-			'#search_form' => $this->buildSearchForm(),
-			'#data' => $dataTable->render(),
-			'#pager' => ['#type' => 'pager'],
+			'searchValue' => $request->query->get('search_value', ''),
+			'market' => $request->query->get('market', null),
+			'minPrice' => $request->query->get('minPrice', null),
+			'maxPrice' => $request->query->get('maxPrice', null),
+			'letterFilter' => $request->query->get('letter', null),
 		];
 	}
 
-	private function buildSearchForm() {
-		$productSearch = new ProductSearch('Your Title', []);
-		return $productSearch->getSearchFormRA(); // Assuming getSearchFormRA returns a render array for the search form
-	}
 }
+*/
+

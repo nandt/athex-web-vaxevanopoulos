@@ -169,7 +169,8 @@ class ProductSearch {
 			]
 		];
 	}*/
-	public function getSearchFormRA() {
+	/* that one was working before
+	 * public function getSearchFormRA() {
 		$productType = $this->getCurrentProductType(); // Get the current product type
 		//$formAction = Url::fromRoute('athex_d_products.stock_search', ['productType' => $productType])->toString();
 		$formAction = Url::fromRoute('athex_d_products.stock_search', ['productType' => $productType])
@@ -190,6 +191,33 @@ class ProductSearch {
 			]
 		];
 	}
+	*/
+	public function getSearchFormRA(array $filters, array $filterValues) {
+		$form = [
+			'#type' => 'form',
+			'#method' => 'GET',
+			'#action' => $this->getFormAction(),
+			'#attributes' => ['class' => ['bef-exposed-form']],
+			'#children' => [],
+		];
+
+		foreach ($filters as $filterKey => $filterDef) {
+			$form[$filterKey] = [
+				'#type' => $filterDef['type'],
+				'#title' => $filterDef['title'],
+				'#default_value' => $filterValues[$filterKey] ?? '',
+				'#options' => $filterDef['options'] ?? null, // For select elements
+				'#attributes' => ['placeholder' => $filterDef['placeholder'] ?? ''],
+			];
+		}
+
+		$form['submit'] = [
+			'#type' => 'submit',
+			'#value' => $this->t('Apply Filters'),
+		];
+
+		return $form;
+	}
 
 
 	private function getSecondaryFiltersRA()
@@ -207,7 +235,8 @@ class ProductSearch {
 	}
 
 
-	public function render(DataTable $table)
+	//public function render(DataTable $table)
+	/*public function render(DataTable $table, array $filterValues) {
 	{
 		return [
 			'#cache' => ['max-age' => 6],
@@ -219,6 +248,18 @@ class ProductSearch {
 			],
 			'#search_form' => $this->getSearchFormRA(),
 			'#table' => $table->render(),
+			'#pager' => ['#type' => 'pager'],
+		];
+	}
+*/
+	public function render(DataTable $table, array $filterValues, array $headers) {
+		$form = $this->getSearchFormRA($this->filters, $filterValues);
+
+		return [
+			'#theme' => 'product_search',
+			'#page_title' => $this->title,
+			'#search_form' => $form,
+			'#data' => $table->render($headers), // Ensure DataTable::render() method can accept headers
 			'#pager' => ['#type' => 'pager'],
 		];
 	}
