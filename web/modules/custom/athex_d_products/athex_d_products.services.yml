@@ -18,7 +18,7 @@ services:
     class: Drupal\athex_d_products\Plugin\ProductSearchManager
     parent: default_plugin_manager
     arguments: [ '@container.namespaces', '@cache.discovery', '@module_handler' ]
-  
+
 
   athex_d_products.product_search_manager:
     class: Drupal\athex_d_products\Plugin\ProductSearchManager

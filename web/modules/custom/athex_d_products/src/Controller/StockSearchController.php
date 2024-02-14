@@ -1,10 +1,5 @@
 <?php
-
-
 namespace Drupal\athex_d_products\Controller;
-
-
-
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -18,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 class StockSearchController extends ControllerBase {
 	protected $dataService;
 	protected $pluginManager;
+	protected $filters; // Define the filters property
 
 	public function __construct(StockDataService $dataService, MessengerInterface $messenger, $pluginManager) {
 		$this->dataService = $dataService;
@@ -33,80 +29,78 @@ class StockSearchController extends ControllerBase {
 		);
 	}
 
-	public function render(Request $request, $productType) {
+	/*public function render(Request $request, $productType) {
+		$this->initializeFiltersFromRequest($request); // Initialize filters from request
 
-		$pluginManager = $this->pluginManager;
-		$definitions = $pluginManager->getDefinitions();
-		\Drupal::logger('stockserach controller definitions')->debug('Available plugin definitions: ' . print_r(array_keys($definitions), TRUE));
-		// Initialize filters from request parameters
-		$filters = $this->initializeFiltersFromRequest($request);
+		$pluginInstance = $this->getPluginInstance($productType);
 
-		if (isset($definitions[$productType])) {
-			$searchPlugin = $pluginManager->createInstance($productType, []);
-
-			// Use the plugin to get query, filters, headers, etc.
-			$data = $searchPlugin->getQuery($filters, 0, 10);
-			$headers = $searchPlugin->getHeaders();
-
-			// Instantiate ProductSearch and build form array
-			//$productSearch = new \Drupal\athex_d_products\AthexRendering\ProductSearch('Your Title', []);
-			//$searchForm = $productSearch->getSearchFormRA(); // This assumes getSearchFormRA() returns a form array as the method is private i need to allow access from external functions
-
-			$productSearch = new \Drupal\athex_d_products\AthexRendering\ProductSearch('Your Title', []);
-			$searchForm = $productSearch->getSearchFormRA(); // Use the new public method intead the getSearchFormRA
-
-			//var_dump(array_keys(\Drupal::service('plugin.manager.product_search')->getDefinitions()));
-
-
-			// Ensure data is not empty before proceeding
-			if (!empty($data)) {
-				$dataTable = new DataTable($headers, $data);
-
-				return [
-					'#theme' => 'product_search',
-					'#page_title' => $this->t('Your Page Title'),
-					'#search_form' => $searchForm,
-					'#data' => $dataTable->render(),
-					'#pager' => ['#type' => 'pager'],
-				];
-			} else {
-				$this->messenger->addMessage($this->t('No data found.'), 'warning');
-				return [];
-			}
-		} else {
+		if (!$pluginInstance) {
 			return new Response('The requested search plugin does not exist.', 404);
+		}
+
+		$data = $this->getPluginData($pluginInstance);
+
+		if (empty($data)) {
+			$this->messenger->addMessage($this->t('No data found.'), 'warning');
+			return [];
+		} else {
+			return $this->buildResponse($data);
+		}
+	}*/
+	public function render(Request $request, $productType) {
+		// Get the plugin manager and check if the plugin exists
+		$pluginManager = \Drupal::service('plugin.manager.product_search');
+		$definitions = $pluginManager->getDefinitions();
+
+		// Check if the productType exists as a plugin ID
+		if (isset($definitions[$productType])) {
+			// Plugin exists, proceed with rendering or fetching data
+			return [
+				'#markup' => $this->t('Hello, this is a test page for the product type: @productType', ['@productType' => $productType]),
+			];
+		} else {
+			// Plugin does not exist, return a 404 response
+			throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException($this->t('The product type @productType does not exist.', ['@productType' => $productType]));
 		}
 	}
 
-
-
-	private function initializeFiltersFromRequest(Request $request)
-	{
-		// Extract and return filters from the request object
-		// Implement the logic to extract filters based on your application's requirements
-		// For example:
-		$filters = [
+	private function initializeFiltersFromRequest(Request $request) {
+		$this->filters = [
 			'searchValue' => $request->query->get('search_value', ''),
+			'letterFilter' => $request->query->get('letterFilter', null), // Initialize letterFilter
 			// Add more filters as needed
 		];
-
-		return $filters;
 	}
 
+	private function getPluginInstance($productType) {
+		$definitions = $this->pluginManager->getDefinitions();
 
-	/*new method */
-	/*private function getTableHeaders()
-	{
+		if (isset($definitions[$productType])) {
+			return $this->pluginManager->createInstance($productType, []);
+		}
+
+		return null;
+	}
+
+	private function getPluginData($pluginInstance) {
+		return $pluginInstance->getQuery($this->filters, 0, 10);
+	}
+
+	private function buildResponse($data) {
+		$headers = ['Symbol', 'ISIN', 'Issuer', 'Market', 'Last Price', 'Last Trading Date', 'Percentage']; // Define your headers here
+		$dataTable = new DataTable($headers, $data);
+
 		return [
-			['data' => $this->t('Symbol'), 'field' => 'Symbol'],
-			['data' => $this->t('ISIN'), 'field' => 'ISIN'],
-			['data' => $this->t('Issuer'), 'field' => 'Issuer'],
-			['data' => $this->t('Market'), 'field' => 'Market'],
-			['data' => $this->t('Last Price'), 'field' => 'Last Price'],
-			['data' => $this->t('Last Trading Date'), 'field' => 'Last Trading Date'],
-			['data' => $this->t('Percentage'), 'field' => 'Percentage'],
+			'#theme' => 'product_search',
+			'#page_title' => $this->t('Your Page Title'),
+			'#search_form' => $this->buildSearchForm(),
+			'#data' => $dataTable->render(),
+			'#pager' => ['#type' => 'pager'],
 		];
-	}*/
+	}
 
+	private function buildSearchForm() {
+		$productSearch = new ProductSearch('Your Title', []);
+		return $productSearch->getSearchFormRA(); // Assuming getSearchFormRA returns a render array for the search form
+	}
 }
-
