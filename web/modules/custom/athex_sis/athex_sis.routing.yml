@@ -7,9 +7,9 @@ athex_sis.settings:
   requirements:
     _permission: 'administer sis integration'
 
-athex_sis.test:
-  path: '/sis-test'
-  defaults:
-    _controller: '\Drupal\athex_sis\Controller\TestController::test'
-  requirements:
-    _permission: 'access content'
+#athex_sis.test:
+#  path: '/sis-test'
+#  defaults:
+#    _controller: '\Drupal\athex_sis\Controller\TestController::test'
+#  requirements:
+#    _permission: 'access content'

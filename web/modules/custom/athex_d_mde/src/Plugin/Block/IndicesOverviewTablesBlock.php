@@ -16,8 +16,16 @@ use Drupal\Core\Block\BlockPluginInterface;
  */
 class IndicesOverviewTablesBlock extends BlockBase implements BlockPluginInterface {
 
+
 	public function build() {
+		/**
+		 * @var \Drupal\athex_d_mde\Service\IndicesOverviewTablesService $service
+		 */
 		$service = \Drupal::service('athex_d_mde.indices_overview_tables');
-		return $service->getBlockRA();
+		$block_content = $service->getBlockRA();
+
+		return $block_content;
 	}
+
+
 }

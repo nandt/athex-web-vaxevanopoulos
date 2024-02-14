@@ -1,0 +1,17 @@
+{% if content.field_db_rows %}
+  <table>
+    {% for row in content.field_db_rows %}
+      <tr>
+        {% if row.entity %}
+          {% for cell in row.entity.field_dbi_cells %}
+            <td>{{ content.field_dbi_cells }}</td>
+          {% endfor %}
+        {% endif %}
+      </tr>
+    {% endfor %}
+  </table>
+{% endif %}
+
+
+
+

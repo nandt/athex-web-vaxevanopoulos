@@ -5,6 +5,7 @@ namespace Drupal\athex_d_mde\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\BlockPluginInterface;
 
+
 /**
  * Provides a "Ticker Tape" block.
  *
@@ -16,16 +17,18 @@ use Drupal\Core\Block\BlockPluginInterface;
  */
 class TickerTapeBlock extends BlockBase implements BlockPluginInterface
 {
+	public function build() {
+		// $fragment = (new LiveFragment('athex_d_mde.fragment_ticker_tape'))->render();
+		// $fragment[0]['#attributes']['class'][] = 'row';
+		// return $fragment;
 
-	public function build()
-	{
 		$service = \Drupal::service('athex_d_mde.ticker_tape');
 
 		$result = [
 			'#theme' => 'ticker_tape',
-			// '#attached' => [
-			// 	'library' => ['athex_d_mde/ticker_tape']
-			// ],
+			'#attached' => [
+				'library' => ['athex_d_mde/ticker_tape']
+			],
 			'#info' => [
 				'#type' => 'container',
 				'#attributes' => [
@@ -38,23 +41,23 @@ class TickerTapeBlock extends BlockBase implements BlockPluginInterface
 				'#attributes' => [
 					'class' => ['tickertapeWrapper']
 				],
-				// '#attributes' => [
-				// 	'class' => ['ticker-item-template'],
-				// 	'style' => 'display: none;'
-				// ],
-				...$service->getTapeItemRenderArray()
-				// 'template' => [
-				// 	'#theme' => 'ticker_tape_item'
-				// ]
+				'#attributes' => [
+					'class' => ['ticker-item-template'],
+					'style' => 'display: none;'
+				],
+				// ...$service->getTapeItemRenderArray()
+				'template' => [
+					'#theme' => 'ticker_tape_item'
+				]
 			],
 		];
 
-		// $item_vars = athex_d_mde_integration_theme()['ticker_tape_item']['variables'];
+		$item_vars = athex_d_mde_theme()['ticker_tape_item']['variables'];
 
-		// foreach ($item_vars as $var => $default)
-		// 	$result['#items']['template']['#' . $var] = [
-		// 		'#markup' => "<span data-placeholder=\"$var\"></span>"
-		// 	];
+		foreach ($item_vars as $var => $default)
+			$result['#items']['template']['#' . $var] = [
+				'#markup' => "<span data-placeholder=\"$var\"></span>"
+			];
 
 		return $result;
 	}

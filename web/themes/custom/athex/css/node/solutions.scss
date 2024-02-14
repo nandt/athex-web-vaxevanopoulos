@@ -155,8 +155,7 @@
 }
 
 
-.container.solutions {
-    padding-top: 48px;
+.solutions {
     overflow: hidden;
 
 	.tns-outer {
@@ -164,6 +163,7 @@
 	}
 
     .solviewhomeWrapper {
+		margin-top: 80px;
         display: flex;
 		gap: 8px;
     }
