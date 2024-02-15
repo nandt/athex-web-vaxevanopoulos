@@ -31,7 +31,7 @@ class ApiDataService {
 		return $baseUrl;
 	}
 
-	public function call(ApiEndpoints $endpoint, array $args) {
+	public function call(ApiEndpoints $endpoint, array $args = []) {
 		$args += [
 			'companyId' => $this->config->get('companyId')
 		];

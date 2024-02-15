@@ -1,8 +1,10 @@
+{# web/modules/contrib/paragraphs/templates/paragraph.html.twig #}
+
 {{ attach_library('athex/logo_wrapper') }}
 
 
     {% block paragraph %}
-        <div class="parContent"{{ attributes.addClass(classes) }}>
+        <div class="container parContent"{{ attributes.addClass(classes) }}>
             {% block content %}
                 <span class="heading3 textColorDarkBlue weightBoldBook lwTitle"> {{content.field_lw_title}}</span>
                 <div class="logos">{{content.field_lw_logos}}</div>
