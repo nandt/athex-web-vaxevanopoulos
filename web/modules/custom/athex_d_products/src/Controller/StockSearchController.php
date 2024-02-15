@@ -7,8 +7,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\athex_d_products\AthexRendering\ProductSearch; // Add this line
-use Drupal\athex_d_products\AthexRendering\DataTable;
-
+//use Drupal\athex_d_products\AthexRendering\DataTable;
+use Drupal\athex_d_mde\AthexRendering\DataTable;
 
 class StockSearchController extends ControllerBase {
 	protected $pluginManager;
@@ -46,7 +46,7 @@ class StockSearchController extends ControllerBase {
 
 		return $productSearch->render($dataTable, $filterValues);
 	}*/
-	public function render(Request $request, $productType) {
+	/*public function render(Request $request, $productType) {
 		$plugin = $this->pluginManager->createInstance($productType);
 
 		if (!$plugin) {
@@ -55,43 +55,77 @@ class StockSearchController extends ControllerBase {
 			);
 		}
 
-		$filterValues = $this->extractFiltersFromRequest($request, $productType);
+		// Ensure $filters is initialized from the plugin and is an array
+		$filters = $plugin->getFilters();
+		if (!is_array($filters)) {
+			$filters = []; // Initialize as an empty array if not an array
+		}
+
+		$filterValues = $this->extractFiltersFromRequest($request, $plugin); // Pass the plugin instance to extract filters
 		$data = $plugin->getQuery($filterValues, 0, 10);
 		$headers = $plugin->getHeaders();
 
-		// Assuming $plugin->getFilters() returns an array of filters, which will be used as secondary filters.
-		// If getFilters() might return null, ensure to provide an empty array as a fallback.
-		$filters = $plugin->getFilters() ?? [];
-
-		// Pass $filters as the second argument for ProductSearch constructor.
+		// Initialize ProductSearch with the label and filters
 		//$productSearch = new ProductSearch($plugin->getLabel(), $filters);
 		$productSearch = new ProductSearch('Stock Search', $filters);  // just for debugging
 		$dataTable = new DataTable($headers, $data);
 
-		// Pass $filterValues as the second argument to the render method if needed.
+		// Pass $filterValues and $headers to the render method
 		return $productSearch->render($dataTable, $filterValues, $headers);
+	}
+*/
+	/*public function render(Request $request, $productType) {
+	$plugin = $this->pluginManager->createInstance($productType);
+
+	// Fetch filters from the plugin
+	$filterValues = $plugin->getFilters();
+
+	// Fetch filter values from the request
+	$filterValues = $this->extractFiltersFromRequest($request,$plugin);
+
+	// Fetch query data and headers
+	$data = $plugin->getQuery($filterValues, 0, 10);
+	$headers = $plugin->getHeaders();
+
+	// Initialize ProductSearch with the title and filters
+	//$productSearch = new ProductSearch($plugin->getLabel(), $filters);
+	$productSearch = new ProductSearch('Stock Search', $filterValues);  // just for debugging
+
+	// Pass filterValues and headers to the render method
+	return $productSearch->render(new DataTable($headers, $data), $filterValues, $headers);
+}*/
+	public function render(Request $request, $productType) {
+		$plugin = $this->pluginManager->createInstance($productType);
+		$filters = $plugin->getFilters(); // Fetch the filters from the plugin
+
+		$filterValues = $this->extractFiltersFromRequest($request, $plugin);
+
+		$data = $plugin->getQuery($filterValues, 0, 10);
+		$headers = $plugin->getHeaders();
+
+		$productSearch = new ProductSearch('Stock Search', $filters); // Pass the filters here
+		$dataTable = new DataTable($headers, $data);
+
+		return $productSearch->render($dataTable, $filterValues, $headers, $filters);
+
 	}
 
 
 
-	private function extractFiltersFromRequest(Request $request, $productType) {
-		$plugin = $this->pluginManager->createInstance($productType);
 
-		if (!$plugin) {
-			throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException(
-				$this->t('The product type @productType does not exist.', ['@productType' => $productType])
-			);
-		}
 
+
+	private function extractFiltersFromRequest(Request $request, $plugin) {
 		$filters = $plugin->getFilters();
 		$filterValues = [];
 
 		foreach (array_keys($filters) as $filterKey) {
-			$filterValues[$filterKey] = $request->query->get($filterKey);
+			$filterValues[$filterKey] = $request->query->get($filterKey, null);
 		}
 
 		return $filterValues;
 	}
+
 
 
 

@@ -193,10 +193,11 @@ class ProductSearch {
 	}
 	*/
 	public function getSearchFormRA(array $filters, array $filterValues) {
+
 		$form = [
 			'#type' => 'form',
 			'#method' => 'GET',
-			'#action' => $this->getFormAction(),
+			//'#action' => $this->getFormAction(),
 			'#attributes' => ['class' => ['bef-exposed-form']],
 			'#children' => [],
 		];
@@ -252,7 +253,29 @@ class ProductSearch {
 		];
 	}
 */
-	public function render(DataTable $table, array $filterValues, array $headers) {
+
+	/**/
+
+	public function render(DataTable $table, array $filterValues, array $headers, array $filters) {
+		$form = $this->getSearchFormRA($filters, $filterValues); // Use the passed $filters here
+
+		return [
+			'#theme' => 'product_search',
+			'#page_title' => $this->title,
+			'#search_form' => $form,
+			'#data' => $table->render($headers),
+			'#pager' => ['#type' => 'pager'],
+		];
+	}
+
+
+	/**/
+	/*public function render(DataTable $table, array $filterValues, array $headers) {
+		// Debugging
+		\Drupal::logger('filterValues?')->notice('<pre>' . print_r($filterValues, TRUE) . '</pre>');
+		\Drupal::logger('$headers?')->notice('<pre>' . print_r($headers, TRUE) . '</pre>');
+		\Drupal::logger('filters?')->notice('<pre>' . print_r($filters, TRUE) . '</pre>');
+
 		$form = $this->getSearchFormRA($this->filters, $filterValues);
 
 		return [
@@ -262,7 +285,8 @@ class ProductSearch {
 			'#data' => $table->render($headers), // Ensure DataTable::render() method can accept headers
 			'#pager' => ['#type' => 'pager'],
 		];
-	}
+	}*/
+
 
 	public function getSearchForm() {
 		return $this->getSearchFormRA();
