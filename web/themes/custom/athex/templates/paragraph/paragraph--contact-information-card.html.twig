@@ -1,0 +1,27 @@
+{# modules/contrib/paragraphs/templates/paragraph.html.twig' #}
+
+{{ attach_library('athex/contact_information_card') }}
+
+<div class="container contactInfoCard">
+	<div class="row">
+		<div class="col-12 col-lg-6 firstColInfoContact">
+
+			<div class="heading8 weightDemi textColorIndigo ">{{content.field_cic_title}}</div>
+			<div class="addressLabel">
+				<div class="body3 weightBook textColorPurpleLight">{{content.field_cic_first_label}}</div>
+				<div class="">{{content.field_cic_first_content}}</div>
+				<div class="ctaDirection">{{content.field_cic_cta}}</div>
+			</div>
+			<div class="emailLabel">
+				<div class="body3 weightBook textColorPurpleLight">{{content.field_cic_second_label}}</div>
+				<div class="textColorIndigo heading6  weightDemi">{{content.field_e_mail}}</div>
+
+				<div class="body3 weightBook textColorPurpleLight thirdLabel">{{content.field_cic_third_label}}</div>
+				<div class="heading6 textColorBlackDark weightDemi">{{content.field_cic_telephone}}</div>
+			</div>
+		</div>
+		<div class="col-12 col-lg-6">
+			<div class="map">{{content.field_cic_map}}</div>
+		</div>
+	</div>
+</div>

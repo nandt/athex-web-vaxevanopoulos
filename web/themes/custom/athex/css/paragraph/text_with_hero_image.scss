@@ -40,9 +40,26 @@ content: '';
 
 .media{
     position: absolute;
-    top: 0;
+    height: 100%;
     opacity: 0;
-    z-index: 999;
+    width: 100%;
+
+	.contextual-region{
+		height:100%;
+		width:100%;
+
+		.medis_dnld_btn{
+			width:100%;
+			height:100%;
+
+			.file,
+			.file a{
+				display:block;
+				height:100%;
+				width:100%;
+			}
+		}
+	}
 }
 
 @media(min-width:992px) {

@@ -1,0 +1,7 @@
+athex_d_mde.tickertape:
+  type: config_object
+  label: 'Ticker Tape Configuration'
+  mapping:
+    codes:
+      type: string
+      label: 'Ticker Tape Codes'

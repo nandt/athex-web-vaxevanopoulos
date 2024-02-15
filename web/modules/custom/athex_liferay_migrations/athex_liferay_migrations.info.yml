@@ -8,3 +8,4 @@ dependencies:
   - drupal:migrate
   - migrate_tools
   - migrate_plus
+  - athex_hermes

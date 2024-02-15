@@ -13,7 +13,7 @@ class BsNav {
 		array $tabs,
 		string $seldTab = null,
 		string $class = 'tabs',
-		array|null $urls = null
+		?array $urls = null
 	) {
 		$this->tabs = $tabs;
 		$this->seldTab = $seldTab;
@@ -34,12 +34,14 @@ class BsNav {
 		foreach ($this->tabs as $idx => $label) {
 			$aAttributes = [
 				'class' => ['nav-link'],
-				'href' => (@$this->urls[$idx]) ?? '#'
+				'href' => (@$this->urls[$idx]) ?: '#',
+				'role' => 'tab',
+				'aria-selected' => 'false'
 			];
 
 			if ($label == $this->seldTab) {
 				$aAttributes['class'][] = 'active';
-				$aAttributes['aria-current'] = 'page';
+				$aAttributes['aria-selected'] = 'true';
 			}
 
 			$result[] = [
@@ -59,4 +61,5 @@ class BsNav {
 
 		return $result;
 	}
+
 }

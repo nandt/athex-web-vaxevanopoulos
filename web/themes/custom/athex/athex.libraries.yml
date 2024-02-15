@@ -296,6 +296,16 @@ timeline:
     theme:
       css/paragraph/timeline.scss: {}
 
+contact_information_card:
+  css:
+    theme:
+      css/paragraph/contact_information_card.scss: {}
+
+border_with_names:
+  css:
+    theme:
+      css/paragraph/border_with_names.scss: {}
+
 image_slider:
   css:
     theme:
@@ -381,6 +391,11 @@ link_cards_bundle:
   js:
     js/link_cards_bundle.js: {}
 
+multicolor_text:
+  css:
+    theme:
+      css/paragraph/multicolor_text.scss: {}
+
 market_summary:
   css:
     theme:
@@ -426,3 +441,12 @@ prefooter_block:
       css/paragraph/prefooter_block.scss: {}
   js:
     js/prefooter_block.js: {}
+
+ir_donut_chart:
+  css:
+    theme:
+      css/paragraph/ir_donut_chart.scss: {}
+
+donut_chart:
+  js:
+    js/donut_chart.js: {}

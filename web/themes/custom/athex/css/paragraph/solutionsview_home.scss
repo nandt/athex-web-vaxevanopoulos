@@ -130,9 +130,17 @@
 .controls.solutions-slider {
 	margin-top: 28px;
 	justify-content: end;
-	padding: 0;
+	//padding: 0;
 
 	@media (min-width: 992px) {
 		margin-top: 56px;
 	}
 }
+
+.container-fluid {
+
+	.container.solutions {
+		padding: 0;
+	}
+}
+

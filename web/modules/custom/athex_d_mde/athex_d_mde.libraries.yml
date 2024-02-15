@@ -6,3 +6,21 @@ ticker_tape:
     - core/drupal
     - core/jquery
     - core/once
+
+live-render:
+  version: 1.x
+  js:
+    js/live-render.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+
+live-nav:
+  version: 1.x
+  js:
+    js/live-nav.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once

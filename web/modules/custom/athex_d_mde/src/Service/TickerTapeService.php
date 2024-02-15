@@ -5,89 +5,52 @@ namespace Drupal\athex_d_mde\Service;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Render\RendererInterface;
-use GuzzleHttp\ClientInterface;
 use Drupal\athex_d_mde\AthexRendering\Helpers;
 
 use Drupal\athex_inbroker\Service\ApiDataService;
 
 
-class TickerTapeService {
+class TickerTapeService
+{
 
 	protected $logger;
-	protected $config;
+	protected $configFactory;
 	protected $api;
 	protected $renderer;
 
 	public function __construct(
 		LoggerChannelFactoryInterface $loggerFactory,
-		ConfigFactoryInterface $configFactory,
-		ApiDataService $api,
-		RendererInterface $renderer
-	) {
+		ConfigFactoryInterface        $configFactory,
+		ApiDataService                $api,
+		RendererInterface             $renderer
+	)
+	{
 		$this->logger = $loggerFactory->get('athex_d_mde');
-		$this->config = $configFactory->get('athex_d_mde.settings');
+		$this->configFactory = $configFactory; // Store the config factory itself
 		$this->api = $api;
 		$this->renderer = $renderer;
-  	}
-
-	public function getItemData($codes) {
-		//TODO: remove to get actual data
-		return array_slice([
-			[
-				'symbol' => 'ETE.ATH',
-				'value' => 5.1 + (rand(-5, 5) * 0.1),
-				'change' => Helpers::renderDelta(1, ' %')
-			], [
-				'symbol' => 'ALPHA.ATH',
-				'value' => 1.2 + (rand(-5, 5) * 0.1),
-				'change' => Helpers::renderDelta(0.5, ' %')
-			], [
-				'symbol' => 'TPEIR.ATH',
-				'value' => 2.3 + (rand(-5, 5) * 0.1),
-				'change' => Helpers::renderDelta(-1.5, ' %')
-			], [
-				'symbol' => 'EXAE.ATH',
-				'value' => 3.4 + (rand(-5, 5) * 0.1),
-				'change' => Helpers::renderDelta(0, ' %')
-			]
-		], 0, count($codes));
-
-		$codes = join(',', $codes);
-		$items = $this->api->callDelayed('Info', ['code' => $codes]);
-
-		// Τα πεδία που σας ενδιαφέρουν είναι:
-		// •	pricePrevClosePriceDelta (μεταβολή σε ευρώ, της τιμής, price, σε σχέση με την τιμή του προηγούμενου κλεισίματος, prevClosePrice)
-		// •	pricePrevClosePricePDelta (ποσοστιαία μεταβολή της τιμής, price, σε σχέση με την τιμή του προηγούμενου κλεισίματος, prevClosePrice)
-		// •	price (τιμή)
-		// •	totalVolume (συνολικός όγκος)
-		// •	totalTurnover (συνολική αξία)
-		// •	instrCode (ο κωδικός του συμβόλου στην επιλεγμένη γλώσσα)
-		// •	instrSysName (το συστεμικό όνομα του συμβόλου στο InBroker)
-		return array_map(function($item) {
-			return [
-				'symbol' => $item['instrSysName'], // 'ETE.ATH',
-				'value' => $item['price'],
-				'change' => $item['pricePrevClosePricePDelta']
-			];
-		}, $items);
 	}
 
-	public function getTapeItemData() {
-		//TODO: get codes based on config
-		$codes = ['ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
-
-		return $this->getItemData($codes);
+	private function getItemData(array $codes)
+	{
+		$items = $this->api->callDelayed('Info', ['code' => join(',', $codes)]);
+		$result = [];
+		foreach ($items as $item) {
+			$result[] = Helpers::getProductRenderVars($item);
+		}
+		return $result;
 	}
 
-	public function getItemsRenderArray($codes) {
+	public function getItemsRenderArray(array $itemData) {
 		$result = [];
 
-		foreach ($this->getItemData($codes) as $product) {
+		foreach ($itemData as $product) {
 			$item = [
 				'#theme' => 'ticker_tape_item'
 			];
-			foreach ($product as $key => $value)
+			foreach ($product as $key => $value) {
 				$item['#' . $key] = $value;
+			}
 
 			$result[] = $item;
 		}
@@ -95,41 +58,60 @@ class TickerTapeService {
 		return $result;
 	}
 
-	public function getTapeItemRenderArray() {
-		//TODO: get codes based on config
-		$codes = ['ETE.ATH', 'ALPHA.ATH', 'TPEIR.ATH', 'EXAE.ATH'];
+	public function getAllInstrCodes($instrCode)
+	{
+		$instrCode = join(',', $instrCode);
+		$allItems = $this->api->callDelayed('Info', ['instrCode' => $instrCode]);
+		$allCodes = [];
 
-		return $this->getItemsRenderArray($codes);
+		foreach ($allItems as $item) {
+			if (isset($item['instrCode'])) {
+				$allCodes[] = $item['instrCode'];
+			}
+		}
+
+		return $allCodes;
 	}
 
-	public function getMarketStatusData() {
-		//TODO: remove to get actual data
-		return [
-			'closed' => 1,
-			'tradeDate' => '2023-12-14',
-			'time' => '12:34'
-		];
+	public function getTapeItemData()
+	{
+		$config = $this->configFactory->get('athex_d_mde.tickertape'); // Use the factory to get the 'athex_d_mde.tickertape' config
+		$codesString = $config->get('codes') ?: 'GD.ATH,TPEIR.ATH,EXAE.ATH'; // Use a default value if 'codes' is not set
+		$codes = explode(',', $codesString);
+		return $this->getItemData($codes);
+	}
+
+	// public function getTapeItemRenderArray() {
+	// 	return $this->getItemsRenderArray(
+	// 		$this->getTapeItemData()
+	// 	);
+	// }
+
+	public function getMarketStatusData()
+	{
 
 		$info = $this->api->callDelayed('MarketInfo', ['market' => 'ATH', 'instrument' => 'EQ']);
-
+		//var_dump($info); // This will print the structure of $items
 		// Τα πεδία που σας ενδιαφέρουν είναι
 		// •	closed (0/1 => Ανοικτή/Κλειστή)
 		// •	tradeDate (ημ/νια διαπραγμάτευσης)
 		// •	time (ώρα τελευταίας ενημέρωσης)
 		return [
-			'closed' => $info['closed'],
-			'tradeDate' => $info['tradeDate'],
-			'time' => $info['time']
+			'closed' => $info[0]['closed'],
+			'tradeDate' => $info[0]['tradeDate'],
+			'time' => $info[0]['time']
 		];
 	}
 
-	public function getPrimaryInfoRenderArray() {
-		//TODO: get codes based on config
-		$codes = ['ETE.ATH'];
+	public function getPrimaryInfoRenderArray()
+	{
+		$codes = ['GD.ATH'];
 
 		$result = [
 			'#theme' => 'ticker_tape_info',
-			'#pinned_items' => $this->getItemsRenderArray($codes)
+			'#pinned_items' => $this->getItemsRenderArray(
+				$this->getItemData($codes)
+			)
 		];
 
 		foreach ($this->getMarketStatusData() as $key => $value)
@@ -138,7 +120,8 @@ class TickerTapeService {
 		return $result;
 	}
 
-	public function getPrimaryInfoHtml() {
+	public function getPrimaryInfoHtml()
+	{
 		return $this->renderer->renderPlain(
 			$this->getPrimaryInfoRenderArray()
 		);
