@@ -226,6 +226,8 @@ seminars:
       css/node/seminars.scss: {}
   js:
     js/node/seminars.js: {}
+  dependencies:
+    - athex/tiny-slider
 
 solutions:
   css:
