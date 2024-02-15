@@ -1,0 +1,49 @@
+.mtSection.purple {
+	margin-bottom: 80px;
+
+	.subheading,
+	.cta1 a {
+		color: #3C06D9;
+	}
+
+	.mtText {
+		color:#1A0069;
+	}
+
+	.mtText strong {
+		background: linear-gradient(270.33deg, #041AE1 13.51%, #19C2D0 61.62%, #98F7FF 108.52%);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-weight: 500;
+	}
+
+	.mtText {
+		margin-bottom: 24px;
+	}
+
+	.cta1 {
+		display: flex;
+		align-items: center;
+	}
+
+	.cta1::after {
+		content: ' ';
+		background-image: url('assets/icons/deepPurple/iconArrow.svg');
+		width: 14px;
+		height: 14px;
+		display: block;
+		margin-left: 14px;
+		background-size: cover;
+	}
+}
+
+@media(min-width:992px) {
+	.mtSection.purple {
+		margin-bottom: 120px;
+
+		.mtText {
+			margin-bottom: 56px;
+		}
+	}
+}
