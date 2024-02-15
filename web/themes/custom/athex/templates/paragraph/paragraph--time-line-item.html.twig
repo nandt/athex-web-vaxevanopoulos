@@ -1,14 +1,63 @@
-{%  set report = content.field_report.0['#markup']|clean_class %}
-<div class="row timelineItem {{report}}">
-	<span class="heading3 textColorDarkBlue weightBoldBook tlidate">{{content.field_tli_date}}</span>
-	<div class="col-12 col-lg-6 timeLineItemText">
-		<div class="subheading textColorDarkGrey weightLight tliUpperTitle">{{content.field_tli_uppertitle}}</div>
-		<div class="textColorDarkBlue heading8 weightBoldBook tliTitle">{{content.field_tli_title}}</div>
-		<div class="textColorBlackDark body2 weightBook tlibody">{{content.field_tli_body}}</div>
-		<div class="timelineItemCta">{{content.field_tli_cta}}</div>
-	</div>
-	<div class="col-12 col-lg-4 timeLineItemMedia">
-		{{content.field_time_line_item_media_ref}}
-	</div>
+{% set report = content.field_report.0['#markup']|clean_class %}
 
+<div class="row timelineItem {{ report }}">
+
+    <div class="anchor-items">
+        <div class="bullet" data-index="0"></div>
+        <div class="vertical-bar"></div>
+    </div>
+   {% if content.field_tli_date %}
+    <span class="heading3 textColorDarkBlue weightBoldBook tlidate">{{ content.field_tli_date }}</span>
+{% endif %}
+    <div class="col-12 col-lg-6 timeLineItemText">
+        {% if content.field_tli_uppertitle %}
+            <div class="subheading textColorDarkGrey weightLight tliUpperTitle">{{ content.field_tli_uppertitle }}</div>
+        {% endif %}
+        <div class="textColorDarkBlue heading8 weightBoldBook tliTitle">{{ content.field_tli_title }}</div>
+        <div class="textColorBlackDark body2 weightBook tlibody">{{ content.field_tli_body }}</div>
+        <div class="timelineItemCta">{{ content.field_tli_cta }}</div>
+    </div>
+    <div class="col-12 col-lg-4 timeLineItemMedia">
+        {{ content.field_time_line_item_media_ref }}
+    </div>
 </div>
+
+
+
+<script>
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', function() {
+    let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const verticalBars = document.querySelectorAll('.vertical-bar');
+    const bullets = document.querySelectorAll('.bullet'); // Επιλέγουμε όλα τα .bullet ανεξάρτητα
+
+    // Ορίζουμε το σημείο ενεργοποίησης πιο χαμηλά στην οθόνη
+    const triggerPoint = window.innerHeight * 0.8; // Σημείο ενεργοποίησης στο 80% της οθόνης
+
+    // Διαχείριση .vertical-bar
+    verticalBars.forEach((bar) => {
+        const barPosition = bar.getBoundingClientRect().top + bar.offsetHeight / 2;
+        if (barPosition < triggerPoint) {
+            bar.classList.add('scrolled');
+        } else if (currentScrollTop < lastScrollTop && barPosition >= triggerPoint) {
+            bar.classList.remove('scrolled');
+        }
+    });
+
+    // Διαχείριση .bullet ανεξάρτητα
+    bullets.forEach((bullet) => {
+        const bulletPosition = bullet.getBoundingClientRect().top + bullet.offsetHeight / 2;
+        if (bulletPosition < triggerPoint) {
+            bullet.classList.add('bullet-active');
+        } else if (currentScrollTop < lastScrollTop && bulletPosition >= triggerPoint) {
+            bullet.classList.remove('bullet-active');
+        }
+    });
+
+    lastScrollTop = currentScrollTop; // Ενημέρωση της τελευταίας θέσης κύλισης
+});
+</script>
+
+
+

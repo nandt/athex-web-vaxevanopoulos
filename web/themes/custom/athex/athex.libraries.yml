@@ -295,6 +295,8 @@ timeline:
   css:
     theme:
       css/paragraph/timeline.scss: {}
+  js:
+  js/timeline.js: {}
 
 contact_information_card:
   css:
