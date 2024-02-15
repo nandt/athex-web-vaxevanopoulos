@@ -6,8 +6,8 @@
         <div class="bullet" data-index="0"></div>
         <div class="vertical-bar"></div>
     </div>
-   {% if content.field_tli_date %}
-    <span class="heading3 textColorDarkBlue weightBoldBook tlidate">{{ content.field_tli_date }}</span>
+ {% if content.field_tli_date is not empty %}
+    <div class="heading3 textColorDarkBlue weightBoldBook tlidate">{{ content.field_tli_date }}</div>
 {% endif %}
     <div class="col-12 col-lg-6 timeLineItemText">
         {% if content.field_tli_uppertitle %}
