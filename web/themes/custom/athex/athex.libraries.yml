@@ -297,6 +297,8 @@ timeline:
   css:
     theme:
       css/paragraph/timeline.scss: {}
+  js:
+    js/timeline.js: {}
 
 contact_information_card:
   css:
@@ -307,6 +309,11 @@ border_with_names:
   css:
     theme:
       css/paragraph/border_with_names.scss: {}
+
+benefits:
+  css:
+    theme:
+      css/paragraph/benefits.scss: {}
 
 image_slider:
   css:

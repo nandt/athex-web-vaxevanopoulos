@@ -34,7 +34,7 @@
     right: 0;
     bottom: 0;
     z-index: -1;
-    border: 1px solid #3C06D9;
+    border: 2px solid #3C06D9;
     border-image: linear-gradient(to right, #3C06D9, #51C8D2);
     border-radius: 8px;
     border-image-slice: 1;
@@ -110,7 +110,6 @@
 
 .bottomCTAs .greenBtn {
 	color: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
-	background: white;
 	border: 1px solid linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
 }
 
@@ -432,13 +431,6 @@ span.siCta a {
 	padding-bottom:20px;
 }
 
-.benefitItems div {
-    column-gap: 40px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 .benefit-item {
 	width:390px;
     display: flex;
@@ -458,6 +450,17 @@ span.siCta a {
     to {
         transform: translateX(-100%);
     }
+}
+
+.col-lg-4.padding-none.bottomCTAs.scrollBtn {
+    display: flex;
+    justify-content: center;
+}
+
+span.BTNCtaText {
+    display: flex;
+    color: #1A0069;
+    font-weight: 600;
 }
 
 .modal-overlay {
