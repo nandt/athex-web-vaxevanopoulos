@@ -65,6 +65,11 @@ cta_image_banner:
     theme:
       css/paragraph/cta_image_banner.scss: {}
 
+text_item:
+  css:
+    theme:
+      css/paragraph/text_item.scss: {}
+
 cta_text_banner:
   css:
     theme:
