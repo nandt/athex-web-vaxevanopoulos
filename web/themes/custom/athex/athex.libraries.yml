@@ -296,6 +296,16 @@ timeline:
     theme:
       css/paragraph/timeline.scss: {}
 
+contact_information_card:
+  css:
+    theme:
+      css/paragraph/contact_information_card.scss: {}
+
+border_with_names:
+  css:
+    theme:
+      css/paragraph/border_with_names.scss: {}
+
 benefits:
   css:
     theme:
