@@ -192,6 +192,15 @@ span.tlidate div {
 		justify-content: flex-start;
 	}
 
+	.container.horizontal .row.anchor-items {
+		display: none;
+	}
+
+	.container.horizontal .row.timelineItem {
+		display: flex;
+		flex-direction: column;
+	}
+
 
 	.container.horizontal {
 		padding: 120px 0px 120px 80px;
