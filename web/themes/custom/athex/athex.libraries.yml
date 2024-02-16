@@ -114,6 +114,13 @@ collapsible_items:
   js:
     js/collapsible_items.js: {}
 
+timeline_effect:
+  css:
+    theme:
+      css/paragraph/timeline_effect.scss: {}
+  js:
+    js/timeline_effect.js: {}
+
 text_cta_image:
   css:
     theme:
