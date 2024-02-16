@@ -7,11 +7,13 @@
         <div class="faq-container">
           <div class="faq-item">
             {% if content.field_faqi_title|render|striptags|trim is not empty %}
-              <h2 class="faq-toggle heading6 weightBoldBook textColorPurple">{{ content.field_faqi_title }}</h2>
+
+              <h2 class="faq-toggle heading6 weightBoldBook textColorPurple">{{ content.field_faqi_title }}<span class="toggle-icon"></span></h2>
+
             {% endif %}
             {% if content.field_faqi_body|render|striptags|trim is not empty %}
               <div class="faq-content textColorPurple body2">
-                <div class="row tabContent">
+                <div class="tabContent">
                   <div class="col-12 col-lg-10">
                     <p>{{ content.field_faqi_body }}</p>
                   </div>
