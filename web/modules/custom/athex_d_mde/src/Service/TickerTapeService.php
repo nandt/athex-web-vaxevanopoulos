@@ -123,8 +123,9 @@ class TickerTapeService
 
 	public function getPrimaryInfoHtml()
 	{
+		$pira = $this->getPrimaryInfoRenderArray();
 		return $this->renderer->renderPlain(
-			$this->getPrimaryInfoRenderArray()
+			$pira
 		);
 	}
 }
