@@ -1,2 +1,2 @@
-base_url: 'https://npws-1.inet.helex.gr:8543/api/secure/jsonws'
+base_url: 'https://npws-1.inet.helex.gr:8543/el/api/secure/jsonws'
 companyId: '10154'

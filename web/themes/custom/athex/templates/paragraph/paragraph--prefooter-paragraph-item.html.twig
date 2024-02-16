@@ -2,11 +2,12 @@
 
 {{ attach_library('athex/ask_a_question') }}
 
-<div class="prefooter-p_item">
+<div class="prefooter-p_item numberOfItems">
     <div class="prefooter-p_item label">{{content.field_label}}</div>
     <div class="prefooter-p_item body">{{content.field_text}}</div>
 </div>
 <div class="prefooter-p_item webform" style="display:none;">
+<div class="overlaycontent weightDemi heading6 textColorDarkBlue">{{content.field_text}}<div class="close-btn"></div></div>
     {{content.field_webform}}
-    <div class="close-btn">&times;</div>
+
 </div>

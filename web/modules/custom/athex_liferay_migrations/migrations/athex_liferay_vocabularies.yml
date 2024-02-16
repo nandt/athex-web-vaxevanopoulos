@@ -1,0 +1,14 @@
+id: athex_liferay_vocabularies
+label: 'Athex Liferay Vocabularies Migration'
+source:
+  plugin: athex_liferay_vocabularies
+process:
+  tid: vocabularyId
+  name: titleCurrentValue
+  description: descriptionCurrentValue
+  langcode:
+    plugin: default_value
+    default_value: el
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: article_categories

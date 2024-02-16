@@ -2,19 +2,20 @@
 
 {% set esgb_background_color = content.field_esgb_background_color.0['#markup']|clean_class %}
 
-<div class="container {{esgb_background_color}}">
+<div class="container {{ esgb_background_color }}">
 	<div class="row">
 		<div class="col-12 esgBannerTitle heading1 weightDemi">
-			<span class="esgBannerFontColor">{{content.field_esg_banner_title}}</span>
+			<span class="esgBannerImage">{{ content.field_esg_banner_image }}</span>
+			<span class="esgBannerFontColor">{{ content.field_esg_banner_title }}</span>
 			<span class="logoEsg"><img src="/themes/custom/athex/assets/AthexCsdLogo.svg"></span>
 			<span class="logoClear"><img src="/themes/custom/athex/assets/AthexClearLogo.svg"></span>
 			<span class="logoGroup"><img src="/themes/custom/athex/assets/AthexGroupLogo.svg"></span>
 		</div>
-		<div class="col-12 esgBannerBody">
-			{{content.field_esg_banner_body}}
-			<span class="exploreMore">{{content.field_esgb_cta}}</span>
-		</div>
+		{% if content.field_esg_banner_body|render|trim is not empty %}
+		    <div class="col-12 esgBannerBody">
+			    {{ content.field_esg_banner_body }}
+			    <span class="exploreMore">{{ content.field_esgb_cta }}</span>
+		    </div>
+		{% endif %}
 	</div>
 </div>
-
-
