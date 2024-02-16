@@ -3,9 +3,10 @@
 namespace Drupal\athex_liferay_migrations\AthexData;
 
 use Drupal\athex_hermes\AthexData\LiferayEntity;
+use Drupal\athex_hermes\AthexData\SubmissionNodeData;
 
 
-class LiferayArticle extends LiferayEntity {
+class LiferayArticle extends LiferayEntity implements SubmissionNodeData {
 
 	public function __construct(array $rspData) {
 		parent::__construct($rspData);
@@ -33,6 +34,24 @@ class LiferayArticle extends LiferayEntity {
 		$article['statusDate'] = $article['statusDate'] / 1000;
 
 		return $article;
+	}
+
+	/**
+	 *
+	 * @return array
+	 */
+	public function getNodeData(): array {
+		$nodeData = [];
+		foreach ($this->langs as $langIdx) {
+			$node = $this->getData($langIdx);
+			$node['content'] = [
+				'value' => $node['content'],
+				'format' => 'full_html'
+			];
+
+			$nodeData[] = $node;
+		}
+		return $nodeData;
 	}
 }
 

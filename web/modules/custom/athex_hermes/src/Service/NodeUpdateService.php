@@ -57,12 +57,14 @@ class NodeUpdateService {
 	}
 
 	/**
-	 * Add/Update node based on the given object.
+	 * Add/Update nodes based on the Alfresco UUIDs of the given object.
 	 */
-	public function update(SubmissionNodeData $nodeData) {
+	public function alfrescoUpdate(SubmissionNodeData $nodeData) {
 		$type = end(explode('\\', get_class($nodeData)));
 		$nodeData = $nodeData->getFinalNodeData();
 		if (empty($nodeData)) return;
+
+		//TODO: skip if node(s) with the alfrescoUUID already exist
 
 		$this->deleteAlfrescoOld($nodeData[0]['oldAlfrescoUUID']);
 		$nodeData = $this->prepNodeData($nodeData, $type);
@@ -74,8 +76,36 @@ class NodeUpdateService {
 		}
 
 		$masterNode->save();
-
 		return $masterNode;
 	}
 
+	private function setPropsFromArray(&$obj, array $props) {
+		foreach ($props as $field => $value)
+			$obj->set($field, $value);
+	}
+
+	/**
+	 * Update the given node based on the given object.
+	 */
+	public function nodeUpdate(
+		Node &$node, SubmissionNodeData $nodeData
+	) {
+		$type = end(explode('\\', get_class($nodeData)));
+		$nodeData = $nodeData->getFinalNodeData();
+		if (empty($nodeData)) return;
+
+		$nodeData = $this->prepNodeData($nodeData, $type);
+		$this->setPropsFromArray($node, $nodeData[0]);
+
+		for ($i = 1; $i < count($nodeData); $i++) {
+			$data = $nodeData[$i];
+			$translation = $node->getTranslation($data['langcode']);
+			if ($translation)
+				$this->setPropsFromArray($translation, $data);
+			else
+				$node->addTranslation($data['langcode'], $data);
+		}
+
+		$node->save();
+	}
 }

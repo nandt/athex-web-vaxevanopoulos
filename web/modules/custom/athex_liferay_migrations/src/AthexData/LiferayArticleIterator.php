@@ -21,15 +21,6 @@ class LiferayArticleIterator implements \Iterator {
 		$this->pages = new AssetEntryInterator();
 	}
 
-	private function fetchArticle($resourcePrimKey) {
-		return $this->api->call(
-			ApiEndpoints::JOURNALARTICLE__GET_LATEST,
-			[
-				'resourcePrimKey' => $resourcePrimKey
-			]
-		);
-	}
-
 	private function getArticle(): LiferayArticle {
 		if ($this->article !== null)
 			return $this->article;
@@ -53,9 +44,9 @@ class LiferayArticleIterator implements \Iterator {
 			return $this->getArticle();
 		}
 
-		$result = $this->fetchArticle($result['classPK']);
+		$this->article = $this->api->getLiferayArticle($result['classPK']);
 
-		return $this->article = new LiferayArticle($result);
+		return $this->article;
 	}
 
 	#[\ReturnTypeWillChange]

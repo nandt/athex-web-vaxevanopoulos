@@ -7,7 +7,7 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use GuzzleHttp\ClientInterface;
 
 use Drupal\athex_liferay_migrations\ApiEndpoints;
-
+use Drupal\athex_liferay_migrations\AthexData\LiferayArticle;
 
 class ApiDataService {
 
@@ -82,5 +82,15 @@ class ApiDataService {
 			throw new \Error("Liferay API Exception: \"{$rs['exception']}\"");
 
 		return $rs;
+	}
+
+	public function getLiferayArticle($resourcePrimKey) {
+		$data = $this->call(
+			ApiEndpoints::JOURNALARTICLE__GET_LATEST,
+			[
+				'resourcePrimKey' => $resourcePrimKey
+			]
+		);
+		return new LiferayArticle($data);
 	}
 }

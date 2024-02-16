@@ -1,0 +1,48 @@
+<?php
+
+
+/**
+ * Implements hook_entity_prepare_view().
+ */
+function athex_liferay_migrations_entity_prepare_view(
+	string $entity_type_id, array $entities, array $displays, $view_mode
+) {
+	if (!($entity_type_id === 'node' && $view_mode === 'full')) return;
+
+	foreach ($entities as $entity) {
+		/** @var Drupal\node\Entity\Node */
+		$node = $entity;
+		$deferred = @$node?->field_liferay_deferred?->value;
+		if (empty($deferred)) continue;
+
+		/** @var Drupal\athex_liferay_migrations\Service\ApiDataService */
+		$api = \Drupal::service('athex_liferay_migrations.api_data');
+		/** @var Drupal\athex_liferay_migrations\Service\NodeUpdateService */
+		$nup = \Drupal::service('athex_liferay_migrations.node_update_service');
+
+		$node->set('field_liferay_deferred', null);
+		$node = $nup->nidUpdate(
+			$api->getLiferayArticle($deferred)
+		);
+	}
+}
+
+// function athex_liferay_migrations_node_view(
+// 	array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode
+// ) {
+// 	/** @var Drupal\node\Entity\Node */
+// 	$node = $build['#node'];
+// 	$deferred = @$node?->field_liferay_deferred?->value;
+// 	if (empty($deferred)) return;
+
+// 	/** @var Drupal\athex_liferay_migrations\Service\ApiDataService */
+// 	$api = \Drupal::service('athex_liferay_migrations.api_data');
+// 	/** @var Drupal\athex_hermes\Service\NodeUpdateService */
+// 	$nup = \Drupal::service('athex_hermes.node_update_service');
+
+// 	$node = $nup->update(
+// 		$api->getLiferayArticle($deferred)
+// 	);
+
+// 	$build['#node'] = $node;
+// }

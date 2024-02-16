@@ -79,7 +79,7 @@ class ALArticlesDefaultLang extends SourcePluginBase {
 	 */
 	public function getIds() {
 		return [
-			'id' => [
+			'resourcePrimKey' => [
 				'type' => 'integer'
 			]
 		];

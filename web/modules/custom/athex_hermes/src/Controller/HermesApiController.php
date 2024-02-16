@@ -31,12 +31,16 @@ class HermesApiController extends ControllerBase {
 	}
 
 	public function addSubmission(Request $request) {
-		$node = $this->nodes->update(new Submission($request));
+		// /** @var Drupal\node\Entity\Node */
+		// $node =
+		$this->nodes->alfrescoUpdate(new Submission($request));
 		return new Response('', Response::HTTP_NO_CONTENT);
 	}
 
 	public function addSubmissionFile(Request $request) {
-		$node = $this->nodes->update(new SubmissionFile($request));
+		// /** @var Drupal\node\Entity\Node */
+		// $node =
+		$this->nodes->alfrescoUpdate(new SubmissionFile($request));
 		return new Response('', Response::HTTP_NO_CONTENT);
 	}
 

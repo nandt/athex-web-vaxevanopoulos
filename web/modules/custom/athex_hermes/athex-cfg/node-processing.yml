@@ -13,3 +13,17 @@ SubmissionFile:
   fields:
     title: title
     field_files: files
+
+LiferayArticle:
+  bunlde: news_item
+  fields:
+    title: title
+    # status: status
+    langcode: langcode
+    created: createDate
+    changed: modifiedDate
+    # promote: promote
+    # sticky: sticky
+    # revision_log: log
+    # field_one_liner: field_one_liner
+    field_ni_body: content
