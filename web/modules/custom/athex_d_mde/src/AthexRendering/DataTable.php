@@ -102,22 +102,16 @@ class DataTable {
 	}
 
 	/*private function renderRowGeneric($data = null) {
-		if (!is_array($data)) {
-			\Drupal::logger('DataTable')->error('Data item is not an array: ' . print_r($data, TRUE));
-			return []; // Return an empty array or some default structure
-		}
 		$cells = [];
-		foreach ($this->data as $item) {
-			if (is_array($item)) {
-				\Drupal::logger('DataTable not array')->error('Data item is not an array: ' . print_r($item, TRUE));
-			}
-		}
 
 		foreach ($this->struct as $col) {
-			// Inside renderRowGeneric, before the problematic line
-			\Drupal::logger('DataTable Debug')->notice('<pre>' . var_export($data, TRUE) . '</pre>');
+			// Debug logging
+			// Assuming $col is an array and you want to log only the first 5 elements
+
 
 			if ($data) {
+			//\Drupal::logger('DataTable Debug data')->notice('<pre>' . print_r($data, TRUE) . '</pre>');
+
 				// Render row cells using field data
 				$cellValue = $data[$col['field']] ?? 'N/A'; // Default to 'N/A' if data for this field is missing
 			} else {
@@ -139,24 +133,83 @@ class DataTable {
 		}
 
 		return $cells;
-	}
-*/
+	}*/
+
+	/*private function renderRowGeneric($data = null) {
+		$cells = [];
+		foreach ($this->struct as $col) {
+			// Debug logging
+			// Assuming $col is an array and you want to log only the first 5 elements
+			if ($data) {
+				// Render row cells using field data
+				// Apply stringifyValue() to the data cell value
+				$cellValue = $this->stringifyValue($data[$col['field']] ?? 'N/A');
+			} else {
+				// Render header cells using 'data' as label
+				$cellValue = $col['data'];
+			}
+			$cell = [
+				'data' => $cellValue,
+				'class' => ['field--' . strtolower($col['field'])]
+			];
+			// Add 'mobile-hidden' class if not pinned
+			if (empty($col['pinned'])) {
+				$cell['class'][] = 'mobile-hidden';
+			}
+			$cells[] = $cell;
+		}
+		return $cells;
+	}*/
+	/*private function renderRowGeneric($data = null) {
+		$cells = [];
+
+		foreach ($this->struct as $col) {
+			if ($data) {
+				// Check if $data[$col['field']] is an array and handle it accordingly
+				if (is_array($data[$col['field']])) {
+					// Handle array case
+					$cellValue = implode(', ', $data[$col['field']]); // Example way to handle array
+				} else {
+					// If it's not an array, use it as is
+					$cellValue = $data[$col['field']] ?? 'N/A'; // Default to 'N/A' if data for this field is missing
+				}
+			} else {
+				// Render header cells using 'data' as label
+				$cellValue = $col['data'];
+			}
+
+			$cell = [
+				'data' => $cellValue,
+				'class' => ['field--' . strtolower($col['field'])]
+			];
+
+			// Add 'mobile-hidden' class if not pinned
+			if (empty($col['pinned'])) {
+				$cell['class'][] = 'mobile-hidden';
+			}
+
+			$cells[] = $cell;
+		}
+
+		return $cells;
+	}*/
 	private function renderRowGeneric($data = null) {
 		$cells = [];
-		\Drupal::logger('data results from dt table')->notice('<pre>' . print_r($data, TRUE) . '</pre>');
-		foreach ($this->struct as $col) {
-			// Ensure $col is an array and has 'field' and 'data' keys
-			if (!is_array($col) || !isset($col['field']) || !isset($col['data'])) {
-				\Drupal::logger('DataTable')->error('Invalid column structure: @col', ['@col' => print_r($col, TRUE)]);
-				continue; // Skip this column
-			}
 
+		foreach ($this->struct as $col) {
 			if ($data) {
-				// Render row cells using field data
-				$cellValue = $data[$col['field']] ?? 'N/A'; // Default to 'N/A' if data for this field is missing
+				\Drupal::logger('DataTable Debug DATA')->notice('Data type: ' . gettype($data) . ', Value: ' . print_r($data, TRUE));
+				\Drupal::logger('DataTable Debug FIELD')->notice('Field: ' . $col['field']);
+
+				if (isset($data[$col['field']])) {
+					$cellValue = $data[$col['field']];
+				} else {
+					// Log missing key
+					\Drupal::logger('DataTable')->warning('Missing key: ' . $col['field']);
+					$cellValue = 'N/A'; // Fallback value
+				}
 			} else {
-				// Render header cells using 'data' as label
-				$cellValue = $col['data'];
+				$cellValue = $col['data']; // Use column data as header label
 			}
 
 			$cell = [
@@ -164,7 +217,6 @@ class DataTable {
 				'class' => ['field--' . strtolower($col['field'])]
 			];
 
-			// Add 'mobile-hidden' class if not pinned
 			if (empty($col['pinned'])) {
 				$cell['class'][] = 'mobile-hidden';
 			}
@@ -175,12 +227,22 @@ class DataTable {
 		return $cells;
 	}
 
+
+
+	private function stringifyValue($value) {
+		if (is_array($value)) {
+			return implode(', ', $value);
+		}
+		return $value;
+	}
+
+
 	public function render() {
-		// Debugging: Check the type of each data item before passing to renderRowGeneric
-		foreach ($this->data as $dataItem) {
-			if (is_array($dataItem)) {
-				// Log the issue or handle it as needed
-				\Drupal::logger('DataTable file ')->error('Data item is not an array: ' . print_r($dataItem, TRUE));
+		// Validate data structure before rendering
+		foreach ($this->data as $item) {
+			if (!is_array($item) || array_diff_key(array_flip(array_column($this->struct, 'field')), $item)) {
+				\Drupal::logger('DataTable Render')->warning('Invalid data structure for DataTable rendering: ' . print_r($item, TRUE));
+				continue; // Skip invalid data items
 			}
 		}
 
@@ -190,5 +252,4 @@ class DataTable {
 			'#rows' => array_map([$this, 'renderRowGeneric'], $this->data)
 		];
 	}
-
 }

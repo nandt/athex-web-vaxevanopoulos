@@ -257,13 +257,42 @@ class ProductSearch {
 	/**/
 
 	public function render(DataTable $table, array $filterValues, array $headers, array $filters) {
-		$form = $this->getSearchFormRA($filters, $filterValues); // Use the passed $filters here
+		\Drupal::logger('product_search')->debug('Rendering started...');
+
+		\Drupal::logger('product_search')->debug('Calling getSearchFormRA...');
+		try {
+			$form = $this->getSearchFormRA($filters, $filterValues);
+			\Drupal::logger('product_search form')->debug('<pre>' . print_r(gettype($form), TRUE) . '</pre>');
+		} catch (\Exception $e) {
+			\Drupal::logger('product_search')->error('Error during getSearchFormRA: ' . $e->getMessage());
+			return;
+		}
+
+		\Drupal::logger('product_search')->debug('Calling DataTable::render...');
+		try {
+			if($table === null) {
+				\Drupal::logger('product_search')->error('DataTable is null.');
+				return;
+			}
+
+			$tableRender = $table->render();
+
+			if($tableRender === null) {
+				\Drupal::logger('product_search')->error('DataTable::render() returned null.');
+				return;
+			}
+
+			\Drupal::logger('product_search table')->debug('<pre>' . print_r(gettype($tableRender), TRUE) . '</pre>');
+		} catch (\Exception $e) {
+			\Drupal::logger('product_search')->error('Error during DataTable::render: ' . $e->getMessage());
+			return;
+		}
 
 		return [
 			'#theme' => 'product_search',
 			'#page_title' => $this->title,
 			'#search_form' => $form,
-			'#data' => $table->render($headers),
+			'#data' => $tableRender,
 			'#pager' => ['#type' => 'pager'],
 		];
 	}

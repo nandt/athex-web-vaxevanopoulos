@@ -17,6 +17,7 @@ class StockSearchController extends ControllerBase {
 	public function __construct($pluginManager, MessengerInterface $messenger) {
 		$this->pluginManager = $pluginManager;
 		$this->messenger = $messenger;
+		$this->logger = \Drupal::logger('product_search_controller');
 	}
 
 	public static function create(ContainerInterface $container) {
@@ -98,13 +99,40 @@ class StockSearchController extends ControllerBase {
 		$plugin = $this->pluginManager->createInstance($productType);
 		$filters = $plugin->getFilters(); // Fetch the filters from the plugin
 
+
+
+		$plugin_debug_info = 'class: ' . get_class($plugin);
+		\Drupal::logger('controller plugin info')->notice($plugin_debug_info);
+
+
 		$filterValues = $this->extractFiltersFromRequest($request, $plugin);
+		\Drupal::logger('$filterValues from controller is ')->notice('<pre>' . print_r($filterValues, TRUE) . '</pre>');
 
 		$data = $plugin->getQuery($filterValues, 0, 10);
+		\Drupal::logger('$data from controller is ')->notice('<pre>' . print_r($data, TRUE) . '</pre>');
+
+
 		$headers = $plugin->getHeaders();
+
+		// Instead of logging the entire $headers, we will only log its count
+		$headersCount = count($headers);
+		\Drupal::logger('$headersCount')->notice("Headers count: $headersCount");
+/*there are 7 so its should be ok*/
 
 		$productSearch = new ProductSearch('Stock Search', $filters); // Pass the filters here
 		$dataTable = new DataTable($headers, $data);
+		//\Drupal::logger('product_search controller')->debug('DataTable struct count: ' . count($dataTable->struct));
+		//$this->logger->debug('DataTable struct count: ' . count($dataTable->struct));
+		//
+
+		//\Drupal::logger('product_search DataTable struct')->debug('DataTable struct: <pre>' . var_export($dataTable->struct, TRUE) . '</pre>');
+		//\Drupal::logger('product_search DataTable data:')->debug('DataTable data: <pre>' . var_export($dataTable->data, TRUE) . '</pre>');
+
+		$structCount = count($dataTable->struct);
+		$dataCount = count($dataTable->data);
+
+		\Drupal::logger('controller')->notice("DataTable struct count: $structCount, DataTable data count: $dataCount");
+
 
 		return $productSearch->render($dataTable, $filterValues, $headers, $filters);
 

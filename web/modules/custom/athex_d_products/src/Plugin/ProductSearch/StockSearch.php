@@ -146,22 +146,18 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 	}
 
 
-	public function getHeaders()
-	{
-		// Implement your headers logic here
-		{
-			return [
-				'Symbol' => 'Symbol',
-				'ISIN' => 'ISIN',
-				'Issuer' => 'Issuer',
-				'Market'=> 'Market',
-				'Last Price' => 'Last Price',
-				'Last Trading Date' => 'Last Trading Date',
-				'Percentage' => 'Percentage'
-			];
-		}
-
+	public function getHeaders() {
+		return [
+			['data' => $this->t('Symbol'), 'field' => 'Symbol'],
+			['data' => $this->t('ISIN'), 'field' => 'ISIN'],
+			['data' => $this->t('Issuer'), 'field' => 'Issuer'],
+			['data' => $this->t('Market'), 'field' => 'Market'],
+			['data' => $this->t('Last Price'), 'field' => 'Last Price'],
+			['data' => $this->t('Last Trading Date'), 'field' => 'Last Trading Date'],
+			['data' => $this->t('Percentage'), 'field' => 'Percentage'],
+		];
 	}
+
 
 	public function getTableColumns()
 	{
