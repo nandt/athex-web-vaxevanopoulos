@@ -16,3 +16,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  var downloadLinks = document.querySelectorAll('.downloadFile a');
+
+
+  downloadLinks.forEach(function(link) {
+    link.setAttribute('target', '_blank');
+  });
+});
+
+
