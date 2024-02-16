@@ -7,8 +7,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\athex_d_products\AthexRendering\ProductSearch; // Add this line
-//use Drupal\athex_d_products\AthexRendering\DataTable;
+
 use Drupal\athex_d_mde\AthexRendering\DataTable;
+
 
 class StockSearchController extends ControllerBase {
 	protected $pluginManager;
@@ -95,7 +96,7 @@ class StockSearchController extends ControllerBase {
 	// Pass filterValues and headers to the render method
 	return $productSearch->render(new DataTable($headers, $data), $filterValues, $headers);
 }*/
-	public function render(Request $request, $productType) {
+	/*public function render(Request $request, $productType) {
 		$plugin = $this->pluginManager->createInstance($productType);
 		$filters = $plugin->getFilters(); // Fetch the filters from the plugin
 
@@ -117,7 +118,7 @@ class StockSearchController extends ControllerBase {
 		// Instead of logging the entire $headers, we will only log its count
 		$headersCount = count($headers);
 		\Drupal::logger('$headersCount')->notice("Headers count: $headersCount");
-/*there are 7 so its should be ok*/
+
 
 		$productSearch = new ProductSearch('Stock Search', $filters); // Pass the filters here
 		$dataTable = new DataTable($headers, $data);
@@ -136,7 +137,27 @@ class StockSearchController extends ControllerBase {
 
 		return $productSearch->render($dataTable, $filterValues, $headers, $filters);
 
+	}*/
+
+
+	public function render(Request $request, $productType) {
+		$plugin = $this->pluginManager->createInstance($productType);
+		$filters = $plugin->getFilters();
+		$filterValues = $this->extractFiltersFromRequest($request, $plugin);
+
+		$defaultOffset = 0; // Start from the beginning
+		$defaultLimit = 10; // Adjust the limit as needed
+
+		// Use the hardcoded $defaultOffset and $defaultLimit instead of the non-existent methods
+		$data = $plugin->getQuery($filterValues, $defaultOffset, $defaultLimit);
+
+		$headers = $plugin->getHeaders();
+
+		$productSearch = new ProductSearch('Stock Search');
+		return $productSearch->render($data, $headers, $filters);
 	}
+
+
 
 
 
