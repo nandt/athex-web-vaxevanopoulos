@@ -1,0 +1,25 @@
+.exploreMore  a{
+	background-image: none;
+	margin-top: 30px;
+	padding-right: 25px;
+	color:black;
+
+}
+
+.exploreMore  {
+	margin-top: 30px;
+	padding-right: 25px;
+	color:black;
+
+}
+
+
+.exploreMore:hover a{
+	margin-top: 30px;
+	background-image: url('assets/icons/black/arrow-right-black.svg');
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 25px;
+	color:black;
+
+}
