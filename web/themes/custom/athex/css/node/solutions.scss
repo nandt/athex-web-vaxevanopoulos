@@ -153,6 +153,9 @@
 	cursor: pointer;
 }
 
+.container.solContainer {
+	padding: 0;
+}
 
 .solutions {
     overflow: hidden;
@@ -695,6 +698,8 @@ span.BTNCtaText {
             img {
                 height: 480px;
                 width: 884px;
+				object-fit: cover;
+				object-position: top;
             }
         }
     }
