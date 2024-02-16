@@ -2,20 +2,28 @@
 
 {% set tt_background_color = content.field_tt_backgorund_color.0['#markup']|clean_class %}
 {% set tt_title_color = content.field_tt_title_color.0['#markup']|clean_class %}
+{% set has_text = content.field_sn_text|render|trim is not empty %}
 
+<div class="TextTitle {{ tt_background_color }}">
+    <div class="container TextTitleContainer">
+        <div class="row">
+            {% if has_text %}
+                <div class="col-12 col-lg-5 title {{ tt_title_color }}">
+                    <span class="subheading weightLight textColorDarkGrey">{{ content.field_sn_uppertitle }}</span>
+                    <span class="heading1 textColorDarkBlue weightBoldBook">{{ content.field_sn_title }}</span>
+                </div>
+                <div class="col-12 col-lg-6 offset-lg-1 text">
+                    <span class="body2 weightBook textColorBlack">{{ content.field_sn_text }}</span>
+                    <span class="exploreMore">{{ content.field_tt_cta }}</span>
+                </div>
+            {% else %}
+                <div class="col-12 col-lg-8 title {{ tt_title_color }}">
+                    <span class="subheading weightLight textColorDarkGrey">{{ content.field_sn_uppertitle }}</span>
+                    <span class="heading1 textColorDarkBlue weightBoldBook">{{ content.field_sn_title }}</span>
 
-<div class="TextTitle {{tt_background_color}}">
-	<div class="container TextTitleContainer">
-		<div class="row">
-			<div class="col-12 col-lg-5 title {{tt_title_color}}">
-				<span class="subheading weightLight textColorDarkGrey ">{{content.field_sn_uppertitle}}</span>
-				<span class="heading1 textColorDarkBlue weightBoldBook">{{content.field_sn_title}}</span>
+                </div>
 
-			</div>
-			<div class="col-12 col-lg-6 offset-lg-1 text">
-				<span class="body2 weightBook textColorBlack ">{{content.field_sn_text}}
-				<span class="exploreMore">{{content.field_tt_cta}}</span>
-			</div>
-		</div>
-	</div>
+            {% endif %}
+        </div>
+    </div>
 </div>
