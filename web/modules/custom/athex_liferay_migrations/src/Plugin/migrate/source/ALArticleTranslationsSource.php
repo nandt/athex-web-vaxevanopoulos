@@ -2,7 +2,7 @@
 
 namespace Drupal\athex_liferay_migrations\Plugin\migrate\source;
 
-use Drupal\athex_liferay_migrations\AthexData\ArticleDataIterator;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles\ArticleDataIterator;
 
 
 /**

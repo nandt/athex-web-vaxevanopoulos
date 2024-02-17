@@ -1,13 +1,13 @@
 <?php
 
-namespace Drupal\athex_liferay_migrations\AthexData;
+namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Vocabularies;
 
 use ArrayIterator;
 use Drupal\athex_liferay_migrations\ApiEndpoints;
 use Drupal\athex_liferay_migrations\Service\ApiDataService;
 
 
-class LiferayVocabulariesIterator extends ArrayIterator {
+class VocabulariesIterator extends ArrayIterator {
 
 	protected ApiDataService $api;
 

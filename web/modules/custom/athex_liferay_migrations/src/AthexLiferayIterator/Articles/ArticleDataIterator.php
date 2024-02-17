@@ -1,7 +1,8 @@
 <?php
 
-namespace Drupal\athex_liferay_migrations\AthexData;
+namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
 
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles\ArticlesIterator;
 
 class ArticleDataIterator implements \Iterator {
 
@@ -14,7 +15,7 @@ class ArticleDataIterator implements \Iterator {
 
 	public function __construct(bool $translationsMode) {
 		$this->defaultLang = !$translationsMode;
-		$this->articles = new LiferayArticleIterator();
+		$this->articles = new ArticlesIterator();
 	}
 
 	private function getArticleData() {

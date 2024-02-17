@@ -1,12 +1,13 @@
 <?php
 
-namespace Drupal\athex_liferay_migrations\AthexData;
+namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
 
-use Drupal\athex_liferay_migrations\ApiEndpoints;
+use Drupal\athex_liferay_migrations\AthexData\LiferayArticle;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryPagesInterator;
 use Drupal\athex_liferay_migrations\Service\ApiDataService;
 
 
-class LiferayArticleIterator implements \Iterator {
+class ArticlesIterator implements \Iterator {
 
 	protected ApiDataService $api;
 
@@ -18,7 +19,7 @@ class LiferayArticleIterator implements \Iterator {
 
 	public function __construct() {
 		$this->api = \Drupal::service('athex_liferay_migrations.api_data');
-		$this->pages = new AssetEntryInterator();
+		$this->pages = new AssetEntryPagesInterator();
 	}
 
 	private function getArticle(): LiferayArticle {
