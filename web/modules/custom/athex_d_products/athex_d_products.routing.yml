@@ -4,6 +4,7 @@ athex_d_products.stock_search:
     _controller: '\Drupal\athex_d_products\Controller\StockSearchController::render'
   requirements:
     _permission: 'access content'
+    productType: '[^/]+'
 
 
 athex_d_products.product_profile:

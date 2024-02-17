@@ -12,6 +12,7 @@ class BsNav
 	public string $class;
 	public ?array $urls;
 	public ?string $baseUrl; // Add a property for base URL
+	protected $productType;
 
 	public function __construct(
 		array   $tabs,
@@ -28,6 +29,11 @@ class BsNav
 		$this->baseUrl = $baseUrl; // Initialize the base URL
 	}
 
+	public function setProductType($productType) {
+	$this->productType = $productType;
+}
+
+
 	public function render()
 	{
 		$result = [
@@ -41,7 +47,9 @@ class BsNav
 
 		foreach ($this->tabs as $idx => $label) {
 			// Check if base URL is provided, construct URL with the letter as a query parameter
-			$href = $this->baseUrl ? Url::fromRoute($this->baseUrl, [], ['query' => ['letter' => $label]])->toString() : '#';
+			//$href = $this->baseUrl ? Url::fromRoute($this->baseUrl, [], ['query' => ['letter' => $label]])->toString() : '#';
+			\Drupal::logger('BSNAV DEBUG PRODUCT TYPE')->notice('Product Type: ' . $this->productType);
+			$href = $this->baseUrl ? Url::fromRoute($this->baseUrl, ['productType' => $this->productType, 'letter' => $label])->toString() : '#';
 
 			$aAttributes = [
 				'class' => ['nav-link'],

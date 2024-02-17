@@ -153,7 +153,7 @@ class StockSearchController extends ControllerBase {
 
 		$headers = $plugin->getHeaders();
 
-		$productSearch = new ProductSearch('Stock Search');
+		$productSearch = new ProductSearch('Stock Search', $productType);
 		return $productSearch->render($data, $headers, $filters);
 	}
 
