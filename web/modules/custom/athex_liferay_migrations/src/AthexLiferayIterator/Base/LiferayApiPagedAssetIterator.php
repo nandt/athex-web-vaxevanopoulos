@@ -17,9 +17,10 @@ abstract class LiferayApiPagedAssetIterator implements \Iterator {
 		if ($this->asset !== null)
 			return $this->asset;
 
-		$page = $this->iterator->current();
-		if (empty($page))
+		if (!$this->iterator->valid())
 			return $this->asset = false;
+
+		$page = $this->iterator->current();
 
 		$asset = @$page[++$this->pageIdx];
 
@@ -48,7 +49,7 @@ abstract class LiferayApiPagedAssetIterator implements \Iterator {
 		++$this->count;
 	}
 
-	public function key(): int {
+	public function key() {
 		return $this->count;
 	}
 

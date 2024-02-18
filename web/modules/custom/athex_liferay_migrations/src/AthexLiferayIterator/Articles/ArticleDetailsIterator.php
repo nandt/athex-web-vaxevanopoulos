@@ -3,6 +3,7 @@
 namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
 
 use Drupal\athex_liferay_migrations\AthexData\LiferayArticle;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryPagesInterator;
 use Drupal\athex_liferay_migrations\Service\ApiDataService;
 
 
@@ -13,7 +14,7 @@ class ArticleDetailsIterator extends ArticleEntryArraysIterator {
 
 
 	public function __construct() {
-		parent::__construct();
+		parent::__construct(new AssetEntryPagesInterator());
 		$this->api = \Drupal::service('athex_liferay_migrations.api_data');
 	}
 

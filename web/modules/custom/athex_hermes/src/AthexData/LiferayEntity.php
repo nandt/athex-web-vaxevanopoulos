@@ -107,4 +107,8 @@ abstract class LiferayEntity extends SubmissionNodeData {
 
 		return $entity;
 	}
+
+	public function set($key, $value) {
+		$this->data[$key] = $value;
+	}
 }

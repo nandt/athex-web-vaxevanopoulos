@@ -31,7 +31,7 @@ class VocabCategoryPagesIterator extends LiferayApiPagesIterator {
 			return $results;
 
 		$this->vocabs->next();
-		$this->pageIdx = -1;
+		$this->pageIdx = 0;
 		return $this->pageFetcher();
 	}
 }

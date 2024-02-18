@@ -3,12 +3,16 @@
 namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
 
 use Drupal\athex_liferay_migrations\AthexData\LiferayAssetEntry;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryPagesInterator;
 
 
 class ArticleEntriesIterator extends ArticleEntryArraysIterator {
 
 	private ?LiferayAssetEntry $article = null;
 
+	public function __construct(\Iterator $iterator = null) {
+		parent::__construct($iterator ?: new AssetEntryPagesInterator());
+	}
 
 	#[\ReturnTypeWillChange]
 	public function current() {

@@ -2,29 +2,28 @@
 
 namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
 
-use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryPagesInterator;
 
+abstract class ArticleEntryArraysIterator implements \Iterator {
 
-class ArticleEntryArraysIterator implements \Iterator {
-
-	private $pages;
+	protected readonly \Iterator $pages;
 
     private $pagePosition = -1;
 	private ?array $article = null;
 	private int $count = 0;
 
 
-	public function __construct() {
-		$this->pages = new AssetEntryPagesInterator();
+	public function __construct(\Iterator $iterator) {
+		$this->pages = $iterator;
 	}
 
 	protected function getArticle(): array {
 		if ($this->article !== null)
 			return $this->article;
 
-		$page = $this->pages->current();
-		if (empty($page))
+		if (!$this->pages->valid())
 			return $this->article = false;
+
+		$page = $this->pages->current();
 
 		$result = null;
 		do {
