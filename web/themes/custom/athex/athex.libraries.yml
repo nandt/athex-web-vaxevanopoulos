@@ -288,6 +288,11 @@ image_slider_item:
     - core/drupal
     - core/once
 
+text_b_text:
+  css:
+    theme:
+      css/field/text_b_text.scss: {}
+
 testimonial:
   css:
     theme:
