@@ -180,6 +180,38 @@
 }
 
 
+.faq-content h1 {
+	font-size: 48px;
+	font-weight: 500;
+}
+
+.faq-content h2 {
+	font-size: 40px;
+	font-weight: 500;
+}
+
+.faq-content h3{
+	font-size: 36px;
+	font-weight: 500;
+}
+
+.faq-content h4 {
+	font-size: 24px;
+	font-weight: 500;
+}
+
+.faq-content h5 {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.faq-content h6 {
+	font-weight: 700;
+	font-size: 18px;
+	font-weight: 500;
+}
+
+
 @media(min-width:992px){
 
 	.row.tabContent.withOutText {
@@ -248,6 +280,7 @@
 	}
 
 	.faq-content h6 {
+		font-weight: 700;
 		font-size: 20px;
 		font-weight: 500;
 	}
