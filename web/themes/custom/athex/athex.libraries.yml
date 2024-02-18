@@ -131,6 +131,11 @@ text_cta_image:
     theme:
       css/paragraph/text_cta_image.scss: {}
 
+image_item:
+  css:
+    theme:
+      css/paragraph/image_item.scss: {}
+
 explore_banner:
   css:
     theme:

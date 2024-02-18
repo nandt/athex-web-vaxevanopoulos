@@ -1,0 +1,37 @@
+
+
+.container.image-item {
+	max-width: max-content;
+	margin-top: 60px;
+	margin-bottom: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.container.image-item img{
+	max-width:300px;
+	object-fit:cover;
+}
+
+@media(min-width:992px){
+
+	.container.image-item {
+		max-width: max-content;
+		margin-top: 60px;
+		margin-bottom: 60px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.container.image-item img{
+		max-width:100%;
+		object-fit:cover;
+	}
+
+
+
+}
