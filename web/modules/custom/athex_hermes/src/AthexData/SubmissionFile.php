@@ -2,12 +2,13 @@
 
 namespace Drupal\athex_hermes\AthexData;
 
+use Drupal\Core\File\FileSystemInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 use Drupal\athex_hermes\AthexModel\AddSubmissionFileRq;
-use Drupal\Core\File\FileSystemInterface;
 
-class SubmissionFile implements SubmissionNodeData {
+
+class SubmissionFile extends SubmissionNodeData {
 
 	protected array $data;
 

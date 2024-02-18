@@ -1,0 +1,20 @@
+
+id: athex_liferay_article_meta
+label: ATHEX Liferay Article Metadata Migration
+
+source:
+  plugin: athex_liferay_article_metadata_default_lang
+
+process:
+  type:
+    plugin: default_value
+    default_value: news_item
+  title: title
+  langcode: langcode
+  created: createDate
+  changed: modifiedDate
+  field_liferay_deferred: classPK
+
+destination:
+  plugin: entity:node
+  default_bundle: news_item

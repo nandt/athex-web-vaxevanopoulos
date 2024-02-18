@@ -81,7 +81,7 @@ class NodeUpdateService {
 
 	private function setPropsFromArray(&$obj, array $props) {
 		foreach ($props as $field => $value)
-			$obj->set($field, $value);
+			$obj->$field = $value;
 	}
 
 	/**
@@ -90,7 +90,8 @@ class NodeUpdateService {
 	public function nodeUpdate(
 		Node &$node, SubmissionNodeData $nodeData
 	) {
-		$type = end(explode('\\', get_class($nodeData)));
+		$type = explode('\\', get_class($nodeData));
+		$type = end($type);
 		$nodeData = $nodeData->getFinalNodeData();
 		if (empty($nodeData)) return;
 
@@ -99,9 +100,11 @@ class NodeUpdateService {
 
 		for ($i = 1; $i < count($nodeData); $i++) {
 			$data = $nodeData[$i];
-			$translation = $node->getTranslation($data['langcode']);
-			if ($translation)
+			$translation = $node->getTranslationLanguages();
+			if (array_key_exists($data['langcode'], $translation)) {
+				$translation = $node->getTranslation($data['langcode']);
 				$this->setPropsFromArray($translation, $data);
+			}
 			else
 				$node->addTranslation($data['langcode'], $data);
 		}

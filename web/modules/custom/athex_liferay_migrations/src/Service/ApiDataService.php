@@ -8,6 +8,7 @@ use GuzzleHttp\ClientInterface;
 
 use Drupal\athex_liferay_migrations\ApiEndpoints;
 use Drupal\athex_liferay_migrations\AthexData\LiferayArticle;
+use Drush\Drush;
 
 class ApiDataService {
 
@@ -43,6 +44,14 @@ class ApiDataService {
 				'contents' => $v
 			];
 		}
+
+		try {
+			Drush::output()->writeln(
+				"\n{$this->getBaseUrl()}/{$endpoint->value} "
+				. json_encode($args)
+			);
+		}
+		catch (\Error | \Exception $e) {}
 
 		$rq = null;
 		// try {

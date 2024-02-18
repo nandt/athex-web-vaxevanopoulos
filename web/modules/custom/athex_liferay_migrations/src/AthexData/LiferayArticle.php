@@ -3,10 +3,9 @@
 namespace Drupal\athex_liferay_migrations\AthexData;
 
 use Drupal\athex_hermes\AthexData\LiferayEntity;
-use Drupal\athex_hermes\AthexData\SubmissionNodeData;
 
 
-class LiferayArticle extends LiferayEntity implements SubmissionNodeData {
+class LiferayArticle extends LiferayEntity {
 
 	public function __construct(array $rspData) {
 		parent::__construct($rspData);
@@ -28,10 +27,10 @@ class LiferayArticle extends LiferayEntity implements SubmissionNodeData {
 		$article['content'] = $this->getI18nField('content', $langIdx);
 		$article['title'] = $this->getI18nField('title', $langIdx);
 
-		$article['createDate'] = $article['createDate'] / 1000;
-		$article['displayDate'] = $article['displayDate'] / 1000;
-		$article['modifiedDate'] = $article['modifiedDate'] / 1000;
-		$article['statusDate'] = $article['statusDate'] / 1000;
+		$article['createDate'] = round($article['createDate'] / 1000);
+		$article['displayDate'] = round($article['displayDate'] / 1000);
+		$article['modifiedDate'] = round($article['modifiedDate'] / 1000);
+		$article['statusDate'] = round($article['statusDate'] / 1000);
 
 		return $article;
 	}
@@ -42,8 +41,8 @@ class LiferayArticle extends LiferayEntity implements SubmissionNodeData {
 	 */
 	public function getNodeData(): array {
 		$nodeData = [];
-		foreach ($this->langs as $langIdx) {
-			$node = $this->getData($langIdx);
+		foreach ($this->langs as $idx => $lang) {
+			$node = $this->getData($idx);
 			$node['content'] = [
 				'value' => $node['content'],
 				'format' => 'full_html'

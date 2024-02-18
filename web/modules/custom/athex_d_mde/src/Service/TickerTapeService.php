@@ -89,7 +89,6 @@ class TickerTapeService
 
 	public function getMarketStatusData()
 	{
-
 		$info = $this->api->callDelayed('MarketInfo', ['market' => 'ATH', 'instrument' => 'EQ']);
 		$info = $info[0];
 		//var_dump($info); // This will print the structure of $items

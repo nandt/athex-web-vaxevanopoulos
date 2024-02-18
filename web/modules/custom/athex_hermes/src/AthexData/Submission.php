@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Drupal\athex_hermes\AthexModel\AddSubmissionRq;
 
 
-class Submission extends LiferayEntity implements SubmissionNodeData {
+class Submission extends LiferayEntity {
 
 	public function __construct(Request $request) {
 		$rqobj = new AddSubmissionRq($request);
@@ -30,7 +30,7 @@ class Submission extends LiferayEntity implements SubmissionNodeData {
 		$submission['titleMapValues'] = $this->getI18nField('titleMapValues', $langIdx);
 		$submission['content'] = $this->getI18nField('content', $langIdx);
 
-		$submission['displayDateTimestamp'] = $submission['displayDateTimestamp'] / 1000;
+		$submission['displayDateTimestamp'] = round($submission['displayDateTimestamp'] / 1000);
 
 		return $submission;
 	}

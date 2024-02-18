@@ -2,27 +2,23 @@
 
 namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
 
-use Drupal\athex_liferay_migrations\AthexData\LiferayArticle;
 use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryPagesInterator;
-use Drupal\athex_liferay_migrations\Service\ApiDataService;
 
 
-class ArticlesIterator implements \Iterator {
+class ArticleEntryArraysIterator implements \Iterator {
 
-	protected ApiDataService $api;
+	private $pages;
 
     private $pagePosition = -1;
-	private ?LiferayArticle $article = null;
+	private ?array $article = null;
 	private int $count = 0;
-	private $pages;
 
 
 	public function __construct() {
-		$this->api = \Drupal::service('athex_liferay_migrations.api_data');
 		$this->pages = new AssetEntryPagesInterator();
 	}
 
-	private function getArticle(): LiferayArticle {
+	protected function getArticle(): array {
 		if ($this->article !== null)
 			return $this->article;
 
@@ -45,7 +41,7 @@ class ArticlesIterator implements \Iterator {
 			return $this->getArticle();
 		}
 
-		$this->article = $this->api->getLiferayArticle($result['classPK']);
+		$this->article = $result;
 
 		return $this->article;
 	}

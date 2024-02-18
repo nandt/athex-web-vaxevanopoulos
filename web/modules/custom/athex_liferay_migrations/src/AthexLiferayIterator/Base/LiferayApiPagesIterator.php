@@ -5,7 +5,7 @@ namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Base;
 use Drupal\athex_liferay_migrations\ApiEndpoints;
 use Drupal\athex_liferay_migrations\Service\ApiDataService;
 
-define('ALMAI_PAGESIZE', 1000);
+define('ALMAI_PAGESIZE', 10000);
 
 
 abstract class LiferayApiPagesIterator implements \Iterator {
