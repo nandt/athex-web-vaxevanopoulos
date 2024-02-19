@@ -11,17 +11,18 @@ span.tlidate div {
 }
 
 .timelineItemCta {
-	margin-top: 20px;
+    margin-top: 20px;
     display: flex;
-	font-weight: 500;
-	margin-bottom: 32px;
+    font-weight: 500;
+    margin-bottom: 32px;
     padding-right: 30px;
     width: max-content;
     background-repeat: no-repeat;
     background-position: right center;
-    background-image: url(assets/icons/black/arrow-right-black.svg);
+    background-image: url(/themes/custom/athex/assets/icons/black/arrow-right-black.svg);
     flex-direction: row;
     justify-content: flex-start;
+	z-index: 2;
 }
 
 
@@ -174,6 +175,10 @@ span.tlidate div {
 
 @media(min-width:992px){
 
+	.container.veritical {
+		padding-bottom: 60px;
+	}
+
 	span.tlidate div {
 		padding-left: 0px;
 		font-size: 34px;
@@ -249,7 +254,7 @@ span.tlidate div {
     .anchor-items {
         display: block;
         position: absolute;
-        left: -77px;
+        left: 0px;
         top: 10px;
         display: flex;
         flex-direction: column;
@@ -311,8 +316,9 @@ span.tlidate div {
 
 	.row.timelineItem {
 		position: relative;
-		padding: 80px;
+		padding: 80px 80px 20px 80px;
 	}
+
 	.vertical-bar.scrolled {
 		background-color: #7B50F9;
 	}
@@ -337,7 +343,7 @@ span.tlidate div {
 	.anchor-items {
 		height: 100%;
 		z-index: 1;
-		left: 15px;
+		left: 0px;
 		position: absolute;
 		top: 90px;
 	}
@@ -397,7 +403,7 @@ span.tlidate div {
 .anchor-items {
 	height: 100%;
 	z-index: 1;
-	left: 15px;
+	left: 0px;
 	position: absolute;
 	top: 90px;
 }
