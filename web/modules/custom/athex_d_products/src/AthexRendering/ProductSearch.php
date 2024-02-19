@@ -15,6 +15,7 @@ class ProductSearch {
 	public function __construct(string $title, string $productType) { // Modify this line
 		$this->title = $title;
 		$this->productType = $productType; // Set the product type
+		$this->seldLetter = \Drupal::request()->query->get('letter', 'A'); // Default to 'A' if not set
 	}
 
 	/*public function render(array $data, array $headers, array $filters) {
@@ -126,8 +127,8 @@ class ProductSearch {
 	}
 
 
-
-	private function getTabsRA($selectedLetter) {
+/* new version of getTabsRA*/
+/*	private function getTabsRA($selectedLetter) {
 		$letters = ['All', ...range('A', 'Z')];
 		$tabs = [];
 
@@ -141,7 +142,7 @@ class ProductSearch {
 
 		return $tabs; // Adjust to match your theme's structure
 	}
-
+*/
 	/*private function getAzNavigation($selectedLetter) {
 		$letters = range('A', 'Z');
 		$links = [];
@@ -168,6 +169,8 @@ class ProductSearch {
 			'#attributes' => ['class' => ['az-navigation']],
 		];
 	}*/
+
+
 
 	private function getAzNavigation() {
 		// Define the letters for the tabs
@@ -212,8 +215,8 @@ class ProductSearch {
 		];
 	}
 */
-
-	public function render(array $data, array $headers, array $filters) {
+/* tha one works on filtes only not old template */
+/*	public function render(array $data, array $headers, array $filters) {
 		$dataTable = new DataTable($data, $headers);
 		$searchForm = $this->getSearchFormRA($filters);
 		$azNavigation = $this->getAzNavigation(); // Generate A to Z navigation
@@ -227,5 +230,59 @@ class ProductSearch {
 			'#pager' => ['#type' => 'pager'],
 		];
 	}
+*/
+
+	private function getSearchbarRA()
+	{
+		return [
+			'#type' => 'container',
+			'#attributes' => ['class' => ['js-form-type-textfield']],
+			[
+				'#type' => 'textfield',
+				'#name' => 'search_value',
+				'#attributes' => ['placeholder' => $this->t("Type here to search")]
+			]
+		];
+	}
+	private function getTabsRA() {
+		$seldLetter = $this->seldLetter ?? 'All';
+		//$seldLetter = $this->seldLetter;
+		if (!$seldLetter) $seldLetter = 'All';
+		$options = ['All', ...range('A', 'Z')];
+
+		// Define the base URL for the tabs. This should be the route name for the page where the tabs are displayed.
+		// For example, if you have a route named 'athex_d_products.stock_search', use that.
+		$baseUrl = 'athex_d_products.stock_search';
+
+		// Create an instance of BsNav, passing the base URL as the last argument.
+		$bsNav = new BsNav($options, $seldLetter, 'pills', null, $baseUrl);
+
+		// Now that $bsNav is instantiated, you can set the product type.
+		$bsNav->setProductType($this->productType);
+
+		return $bsNav->render();
+	}
+
+	public function render(array $data, array $headers, array $filters) {
+		$dataTable = new DataTable($data, $headers);
+		$searchForm = $this->getSearchFormRA($filters);
+		$searchBar = $this->getSearchbarRA(); // Make sure this method exists and is implemented correctly
+		$azNavigation = $this->getAzNavigation(); // This should already be implemented
+		$tabs = $this->getTabsRA(); // Ensure this method is reintegrated and implemented
+
+		return [
+			'#theme' => 'product_search',
+			'#title' => $this->t($this->title),
+			'#search_bar' => $searchBar, // Include the search bar
+			'#az_navigation' => $azNavigation, // Include A to Z navigation
+			//'#tabs' => $tabs, // Include the tabs
+			'#tabs' => $this->getTabsRA(),
+			'#search_form' => $searchForm,
+			'#table' => $dataTable->render(),
+			'#pager' => ['#type' => 'pager'],
+		];
+	}
+
+
 
 }

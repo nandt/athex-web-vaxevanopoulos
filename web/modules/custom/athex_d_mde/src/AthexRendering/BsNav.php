@@ -28,10 +28,15 @@ class BsNav
 		$this->urls = $urls;
 		$this->baseUrl = $baseUrl; // Initialize the base URL
 	}
-
+/*
 	public function setProductType($productType) {
 	$this->productType = $productType;
 }
+*/
+	public function setProductType($productType) {
+		$this->productType = !empty($productType) ? $productType : 'stocksearch22'; // Replace 'defaultType' with a valid default value
+	}
+
 
 
 	public function render()
