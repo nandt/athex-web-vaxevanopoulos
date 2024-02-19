@@ -57,8 +57,11 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 
 
 
-	public function getQuery(array $filters, int $offset, int $limit)
-	{
+	public function getQuery(array $filters, int $offset, int $limit) {
+		$currentRequest = \Drupal::request();
+		// Retrieve the 'letter' query parameter
+		$letterFilter = $currentRequest->query->get('letter', '');
+
 		// Implement your query logic here
 		$sql = <<<SQL
     SELECT
@@ -102,7 +105,8 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 			':marketFilter' => isset($filters['market']) ? $filters['market'] : null,
 			':minPrice' => isset($filters['minPrice']) ? $filters['minPrice'] : null,
 			':maxPrice' => isset($filters['maxPrice']) ? $filters['maxPrice'] : null,
-			':letterFilter' => isset($filters['letterFilter']) && $filters['letterFilter'] != 'All' ? $filters['letterFilter'] . '%' : null,
+			//':letterFilter' => isset($filters['letterFilter']) && $filters['letterFilter'] != 'All' ? $filters['letterFilter'] . '%' : null,
+			':letterFilter' => $letterFilter !== 'All' ? $letterFilter . '%' : null,
 		];
 
 		$result = $this->sisdb->fetchAllWithParams($sql, $params);
@@ -118,8 +122,11 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 			'searchValue' => [
 				'title' => $this->t('Search'),
 				'type' => 'textfield',
-				'placeholder' => $this->t('Type here to search'),
+				'placeholder' => $this->t("Type here to search"),
+				//'#attributes' => ['placeholder' => $this->t("Type here to search")],
 			],
+
+
 			'market' => [
 				'title' => $this->t('Market'),
 				'type' => 'select',
@@ -137,11 +144,11 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 				'title' => $this->t('Max Price'),
 				'type' => 'textfield',
 			],
-			'letterFilter' => [
-				'title' => $this->t('Letter Filter'),
-				'type' => 'textfield',
-				'placeholder' => $this->t('Enter a letter'),
-			],
+			#'letterFilter' => [
+			#	'title' => $this->t('Letter Filter'),
+			#	'type' => 'textfield',
+			#	'placeholder' => $this->t('Enter a letter'),
+		#	],
 		];
 	}
 
