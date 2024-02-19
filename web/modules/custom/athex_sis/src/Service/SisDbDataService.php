@@ -55,7 +55,7 @@ class SisDbDataService {
 		$data = [];
 
 		try {
-			$connection = $this->getConnection();
+			@$connection = $this->getConnection();
 			$stmt = oci_parse($connection, $sql);
 
 			foreach ($params as $param => $value) {

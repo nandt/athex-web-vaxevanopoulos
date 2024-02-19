@@ -27,12 +27,30 @@ class LiferayArticle extends LiferayEntity {
 		$article['content'] = $this->getI18nField('content', $langIdx);
 		$article['title'] = $this->getI18nField('title', $langIdx);
 
-		$article['createDate'] = $article['createDate'] / 1000;
-		$article['displayDate'] = $article['displayDate'] / 1000;
-		$article['modifiedDate'] = $article['modifiedDate'] / 1000;
-		$article['statusDate'] = $article['statusDate'] / 1000;
+		$article['createDate'] = round($article['createDate'] / 1000);
+		$article['displayDate'] = round($article['displayDate'] / 1000);
+		$article['modifiedDate'] = round($article['modifiedDate'] / 1000);
+		$article['statusDate'] = round($article['statusDate'] / 1000);
 
 		return $article;
+	}
+
+	/**
+	 *
+	 * @return array
+	 */
+	public function getNodeData(): array {
+		$nodeData = [];
+		foreach ($this->langs as $idx => $lang) {
+			$node = $this->getData($idx);
+			$node['content'] = [
+				'value' => $node['content'],
+				'format' => 'full_html'
+			];
+
+			$nodeData[] = $node;
+		}
+		return $nodeData;
 	}
 }
 

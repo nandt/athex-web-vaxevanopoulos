@@ -18,7 +18,7 @@ class IndicesOverviewContainer {
 	private function getIndexSummaryRA($data) {
 		return [
 			'#theme' => 'indices_overview_index_summary',
-			'#cache' => [ 'max-age' => 9 ],
+			'#cache' => [ 'max-age' => 15 ],
 			...Helpers::hashtagKeys($data)
 		];
 	}

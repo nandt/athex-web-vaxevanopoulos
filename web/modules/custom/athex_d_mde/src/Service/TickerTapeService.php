@@ -89,8 +89,8 @@ class TickerTapeService
 
 	public function getMarketStatusData()
 	{
-
 		$info = $this->api->callDelayed('MarketInfo', ['market' => 'ATH', 'instrument' => 'EQ']);
+		$info = $info[0];
 		//var_dump($info); // This will print the structure of $items
 		// Τα πεδία που σας ενδιαφέρουν είναι
 		// •	closed (0/1 => Ανοικτή/Κλειστή)
@@ -122,8 +122,9 @@ class TickerTapeService
 
 	public function getPrimaryInfoHtml()
 	{
+		$pira = $this->getPrimaryInfoRenderArray();
 		return $this->renderer->renderPlain(
-			$this->getPrimaryInfoRenderArray()
+			$pira
 		);
 	}
 }
