@@ -18,8 +18,7 @@ class LiveFragment {
 	public function render() {
 		$url = Url::fromRoute(
 			$this->routeId,
-			$this->routeParams,
-			['absolute' => TRUE]
+			$this->routeParams
 		);
 		return [[
 			'#type' => 'container',
