@@ -1,42 +1,29 @@
 <?php
 
-namespace Drupal\athex_liferay_migrations\AthexData;
-
-use Drupal\athex_liferay_migrations\ApiEndpoints;
-use Drupal\athex_liferay_migrations\Service\ApiDataService;
+namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
 
 
-class LiferayArticleIterator implements \Iterator {
+abstract class ArticleEntryArraysIterator implements \Iterator {
 
-	protected ApiDataService $api;
+	protected readonly \Iterator $pages;
 
     private $pagePosition = -1;
-	private ?LiferayArticle $article = null;
+	private $article = null;
 	private int $count = 0;
-	private $pages;
 
 
-	public function __construct() {
-		$this->api = \Drupal::service('athex_liferay_migrations.api_data');
-		$this->pages = new AssetEntryInterator();
+	public function __construct(\Iterator $iterator) {
+		$this->pages = $iterator;
 	}
 
-	private function fetchArticle($resourcePrimKey) {
-		return $this->api->call(
-			ApiEndpoints::JOURNALARTICLE__GET_LATEST,
-			[
-				'resourcePrimKey' => $resourcePrimKey
-			]
-		);
-	}
-
-	private function getArticle(): LiferayArticle {
+	protected function getArticle() {
 		if ($this->article !== null)
 			return $this->article;
 
-		$page = $this->pages->current();
-		if (empty($page))
+		if (!$this->pages->valid())
 			return $this->article = false;
+
+		$page = $this->pages->current();
 
 		$result = null;
 		do {
@@ -53,9 +40,9 @@ class LiferayArticleIterator implements \Iterator {
 			return $this->getArticle();
 		}
 
-		$result = $this->fetchArticle($result['classPK']);
+		$this->article = $result;
 
-		return $this->article = new LiferayArticle($result);
+		return $this->article;
 	}
 
 	#[\ReturnTypeWillChange]

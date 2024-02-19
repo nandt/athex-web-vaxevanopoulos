@@ -1,15 +1,7 @@
 athex_hermes.add_submission:
   methods: [ POST ]
-  path: '/hermes-api/add-submission'
+  path: '/hermes-api'
   defaults:
-    _controller: '\Drupal\athex_hermes\Controller\HermesApiController::addSubmission'
-  requirements:
-    _access: 'TRUE'
-
-athex_hermes.add_submission_file:
-  methods: [ POST ]
-  path: '/hermes-api/add-submission-file'
-  defaults:
-    _controller: '\Drupal\athex_hermes\Controller\HermesApiController::addSubmissionFile'
+    _controller: '\Drupal\athex_hermes\Controller\HermesApiController::processPost'
   requirements:
     _access: 'TRUE'

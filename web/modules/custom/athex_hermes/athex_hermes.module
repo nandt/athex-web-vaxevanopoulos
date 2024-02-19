@@ -1,0 +1,6 @@
+<?php
+
+function athex_hermes_form_alter(&$form, $form_state, $form_id) {
+	if (array_key_exists('field_alfrescouuid', $form))
+		$form['field_alfrescouuid']['#disabled'] = 'disabled';
+}

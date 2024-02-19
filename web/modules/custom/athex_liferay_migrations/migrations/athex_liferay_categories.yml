@@ -1,0 +1,45 @@
+
+id: athex_liferay_categories
+label: 'Athex Liferay Categories Migration'
+
+source:
+  plugin: athex_liferay_categories
+  constants:
+    T_NEWLINE: "\n<br/><b>Liferay Migration Info</b>"
+    T_categoryId: categoryId
+    T_parentCategoryId: parentCategoryId
+    T_vocabularyId: vocabularyId
+
+process:
+  name: titleCurrentValue
+  description:
+    plugin: concat
+    delimiter: "\n<br/>"
+    source:
+      - descriptionCurrentValue
+      - constants/T_NEWLINE
+      - constants/T_categoryId
+      - categoryId
+      - constants/T_parentCategoryId
+      - parentCategoryId
+      - constants/T_vocabularyId
+      - vocabularyId
+  langcode:
+    plugin: default_value
+    default_value: el
+  parent:
+    -
+      plugin: migration_lookup
+      migration: athex_liferay_categories
+      source: parentCategoryId
+    -
+      plugin: migration_lookup
+      migration: athex_liferay_vocabularies
+      source: vocabularyId
+    -
+      plugin: default_value
+      default_value: 0
+
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: article_categories

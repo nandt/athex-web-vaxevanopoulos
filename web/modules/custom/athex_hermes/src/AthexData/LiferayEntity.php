@@ -6,7 +6,7 @@ use DOMDocument;
 use DOMElement;
 
 
-class LiferayEntity {
+abstract class LiferayEntity extends SubmissionNodeData {
 
 	protected array $langs = [];
 	protected array $data;
@@ -33,8 +33,9 @@ class LiferayEntity {
 	protected function rectifyXmlAndLangsFromField($key) {
 		$xml = $this->data[$key];
 		$dom = new DOMDocument();
-		$dom->loadXML($xml);
+		@$dom->loadXML($xml);
 		$root = $dom->documentElement;
+		if (!$root) return;
 		$this->data[$key] = $this->getLangMap($root);
 		$contentLangs = array_keys($this->data[$key]);
 
@@ -67,8 +68,12 @@ class LiferayEntity {
 	}
 
 	protected function getI18nField(string $field, int $langIdx) {
-		$lang = $this->langs[$langIdx];
 		$trans = $this->data[$field];
+
+		if (is_string($trans))
+			return $trans;
+
+		$lang = $this->langs[$langIdx];
 		$trans = @$trans[$lang];
 		if (!$trans)
 			throw new \Exception(
@@ -83,7 +88,7 @@ class LiferayEntity {
 	 * @return array
 	 */
 	public function getLangs() {
-		return $this->langs;
+		return empty($this->langs) ? [null] : $this->langs;
 	}
 
 	/**
@@ -93,12 +98,17 @@ class LiferayEntity {
 	 * @return array
 	 */
 	public function getData(int $langIdx) {
-		if ($langIdx >= count($this->langs)) return null;
+		if ($langIdx >= max(1, count($this->langs)))
+			return null;
 
 		$entity = $this->data;
 		$entity['langcode'] = $this->langs[$langIdx];
 		$entity['default_langcode'] = $this->langs[0];
 
 		return $entity;
+	}
+
+	public function set($key, $value) {
+		$this->data[$key] = $value;
 	}
 }

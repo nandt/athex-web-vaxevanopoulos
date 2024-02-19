@@ -2,6 +2,7 @@
 
 namespace Drupal\athex_hermes\AthexData;
 
+
 abstract class SubmissionNodeData {
 	public abstract function getNodeData(): array;
 

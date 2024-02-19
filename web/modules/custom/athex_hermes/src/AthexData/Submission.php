@@ -2,17 +2,15 @@
 
 namespace Drupal\athex_hermes\AthexData;
 
-use Symfony\Component\HttpFoundation\Request;
-
 use Drupal\athex_hermes\AthexModel\AddSubmissionRq;
 
 
-class Submission extends LiferayEntity implements SubmissionNodeData {
+class Submission extends LiferayEntity {
 
-	public function __construct(Request $request) {
-		$rqobj = new AddSubmissionRq($request);
+	public function __construct(\DOMElement $node, \DOMXPath $xpath) {
+		$rqobj = new AddSubmissionRq($node, $xpath);
 		parent::__construct(get_object_vars($rqobj));
-		$this->rectifyXmlAndLangsFromField('titleMapValues');
+		// $this->rectifyXmlAndLangsFromField('titleMapValues');
 		$this->rectifyXmlAndLangsFromField('content');
 	}
 
@@ -27,10 +25,10 @@ class Submission extends LiferayEntity implements SubmissionNodeData {
 
 		if (!$submission) return null;
 
-		$submission['titleMapValues'] = $this->getI18nField('titleMapValues', $langIdx);
+		// $submission['titleMapValues'] = $this->getI18nField('titleMapValues', $langIdx);
 		$submission['content'] = $this->getI18nField('content', $langIdx);
 
-		$submission['displayDateTimestamp'] = $submission['displayDateTimestamp'] / 1000;
+		$submission['displayDateTimestamp'] = round($submission['displayDateTimestamp'] / 1000);
 
 		return $submission;
 	}
@@ -41,7 +39,7 @@ class Submission extends LiferayEntity implements SubmissionNodeData {
 	 */
 	public function getNodeData(): array {
 		$nodeData = [];
-		foreach ($this->langs as $langIdx) {
+		foreach ($this->langs as $langIdx => $lang) {
 			$node = $this->getData($langIdx);
 			$node['content'] = [
 				'value' => $node['content'],
