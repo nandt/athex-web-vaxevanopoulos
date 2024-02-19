@@ -1,27 +1,29 @@
 <?php
 
-namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
+namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries;
 
 
-abstract class ArticleEntryArraysIterator implements \Iterator {
+abstract class AssetEntryArraysIterator implements \Iterator {
 
 	protected readonly \Iterator $pages;
+	protected readonly int $classNameId;
 
     private $pagePosition = -1;
-	private $article = null;
+	private $asset = null;
 	private int $count = 0;
 
 
-	public function __construct(\Iterator $iterator) {
+	public function __construct(\Iterator $iterator, int $classNameId) {
 		$this->pages = $iterator;
+		$this->classNameId = $classNameId;
 	}
 
-	protected function getArticle() {
-		if ($this->article !== null)
-			return $this->article;
+	protected function getAsset() {
+		if ($this->asset !== null)
+			return $this->asset;
 
 		if (!$this->pages->valid())
-			return $this->article = false;
+			return $this->asset = false;
 
 		$page = $this->pages->current();
 
@@ -31,23 +33,23 @@ abstract class ArticleEntryArraysIterator implements \Iterator {
 			$result = @$page[$idx];
 		}
 		while (
-			$result && $result['classNameId'] !== 10108
+			$result && $result['classNameId'] !== $this->classNameId
 		);
 
 		if (!$result) {
 			$this->pagePosition = -1;
 			$this->pages->next();
-			return $this->getArticle();
+			return $this->getAsset();
 		}
 
-		$this->article = $result;
+		$this->asset = $result;
 
-		return $this->article;
+		return $this->asset;
 	}
 
 	#[\ReturnTypeWillChange]
 	public function current() {
-		$data = $this->getArticle();
+		$data = $this->getAsset();
 		return $data ?: null;
 	}
 
@@ -57,7 +59,7 @@ abstract class ArticleEntryArraysIterator implements \Iterator {
 
 	public function next(): void {
 		if (!$this->valid()) return;
-		$this->article = null;
+		$this->asset = null;
 		++$this->count;
 	}
 
@@ -67,7 +69,7 @@ abstract class ArticleEntryArraysIterator implements \Iterator {
 
 	public function rewind(): void {
 		$this->pagePosition = -1;
-		$this->article = null;
+		$this->asset = null;
 		$this->count = 0;
 		$this->pages->rewind();
 	}

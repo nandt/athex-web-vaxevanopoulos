@@ -3,18 +3,19 @@
 namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
 
 use Drupal\athex_liferay_migrations\AthexData\LiferayArticle;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryArraysIterator;
 use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryPagesInterator;
 use Drupal\athex_liferay_migrations\Service\ApiDataService;
 
 
-class ArticleDetailsIterator extends ArticleEntryArraysIterator {
+class ArticleDetailsIterator extends AssetEntryArraysIterator {
 
 	private ApiDataService $api;
 	private ?LiferayArticle $article = null;
 
 
 	public function __construct() {
-		parent::__construct(new AssetEntryPagesInterator());
+		parent::__construct(new AssetEntryPagesInterator(), 10108);
 		$this->api = \Drupal::service('athex_liferay_migrations.api_data');
 	}
 
