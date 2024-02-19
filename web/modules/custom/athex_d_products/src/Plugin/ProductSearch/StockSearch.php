@@ -43,17 +43,18 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 		$this->stringTranslation = $string_translation;
 		$this->logger->debug('StockSearch plugin instantiated');
 	}
-	public function debugPluginDefinition() {
-		\Drupal::logger('pluginDefinition')->notice('<pre>' . print_r($this->pluginDefinition, TRUE) . '</pre>');
-		// Or, if you have the Devel module installed:
-		//ksm($this->pluginDefinition);
-	}
+
 	public function getLabel() {
-		// Access the label from the stored plugin definition
-		return $this->pluginDefinition['label'];
+		// Check if the 'label' key exists and is an instance of TranslatableMarkup.
+		if (isset($this->pluginDefinition['label']) && $this->pluginDefinition['label'] instanceof \Drupal\Core\StringTranslation\TranslatableMarkup) {
+			// Render the TranslatableMarkup object to get the translated string.
+			return $this->pluginDefinition['label']->render();
+		}
+		// Provide a default label as a fallback.
+		return t('Stock search22');
 	}
 
-	// Rest of your methods...
+
 
 
 
@@ -114,7 +115,7 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 		return $result ?: [];
 
 
-//var_dump($result);
+
 	}
 
 	public function getFilters() {
@@ -123,7 +124,7 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 				'title' => $this->t('Search'),
 				'type' => 'textfield',
 				'placeholder' => $this->t("Type here to search"),
-				//'#attributes' => ['placeholder' => $this->t("Type here to search")],
+
 			],
 
 
@@ -144,11 +145,6 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 				'title' => $this->t('Max Price'),
 				'type' => 'textfield',
 			],
-			#'letterFilter' => [
-			#	'title' => $this->t('Letter Filter'),
-			#	'type' => 'textfield',
-			#	'placeholder' => $this->t('Enter a letter'),
-		#	],
 		];
 	}
 
