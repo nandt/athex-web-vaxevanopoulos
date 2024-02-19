@@ -1,4 +1,5 @@
 <?php
+
 namespace Drupal\athex_d_products\Plugin\ProductSearch;
 
 use Drupal\athex_d_products\Annotation\ProductSearch;
@@ -9,6 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\athex_sis\Service\SisDbDataService;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\StringTranslation\TranslationInterface;
+
 /**
  * Provides a Stock Search plugin.
  *
@@ -18,13 +20,16 @@ use Drupal\Core\StringTranslation\TranslationInterface;
  *   description = @Translation("Provides a search for stocks.")
  * )
  */
-class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInterface {
+class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInterface
+{
 	use StringTranslationTrait;
 
 
 	protected $logger;
 	protected $pluginDefinition;
-	public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+
+	public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
+	{
 		return new static(
 			$configuration,
 			$plugin_id,
@@ -36,7 +41,8 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 	}
 
 
-	public function __construct(array $configuration, $plugin_id, $plugin_definition, SisDbDataService $sisdb, LoggerInterface $logger, TranslationInterface $string_translation) {
+	public function __construct(array $configuration, $plugin_id, $plugin_definition, SisDbDataService $sisdb, LoggerInterface $logger, TranslationInterface $string_translation)
+	{
 		//parent::__construct($configuration, $plugin_id, $plugin_definition);
 		$this->sisdb = $sisdb;
 		$this->logger = $logger;
@@ -44,7 +50,8 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 		$this->logger->debug('StockSearch plugin instantiated');
 	}
 
-	public function getLabel() {
+	public function getLabel()
+	{
 		// Check if the 'label' key exists and is an instance of TranslatableMarkup.
 		if (isset($this->pluginDefinition['label']) && $this->pluginDefinition['label'] instanceof \Drupal\Core\StringTranslation\TranslatableMarkup) {
 			// Render the TranslatableMarkup object to get the translated string.
@@ -55,10 +62,8 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 	}
 
 
-
-
-
-	public function getQuery(array $filters, int $offset, int $limit) {
+	public function getQuery(array $filters, int $offset, int $limit)
+	{
 		$currentRequest = \Drupal::request();
 		// Retrieve the 'letter' query parameter
 		$letterFilter = $currentRequest->query->get('letter', '');
@@ -115,10 +120,10 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 		return $result ?: [];
 
 
-
 	}
 
-	public function getFilters() {
+	public function getFilters()
+	{
 		return [
 			'searchValue' => [
 				'title' => $this->t('Search'),
@@ -149,7 +154,8 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 	}
 
 
-	public function getHeaders() {
+	public function getHeaders()
+	{
 		return [
 			['data' => $this->t('Symbol'), 'field' => 'Symbol'],
 			['data' => $this->t('ISIN'), 'field' => 'ISIN'],

@@ -20,6 +20,7 @@ class ProductSearch
 		$this->productType = $productType; // Set the product type
 		$this->seldLetter = \Drupal::request()->query->get('letter', 'A'); // Default to 'A' if not set
 	}
+
 	private function getSearchFormRA($filters)
 	{
 		$form = [
