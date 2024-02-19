@@ -16,7 +16,7 @@ abstract class ArticleEntryArraysIterator implements \Iterator {
 		$this->pages = $iterator;
 	}
 
-	protected function getArticle(): array {
+	protected function getArticle() {
 		if ($this->article !== null)
 			return $this->article;
 

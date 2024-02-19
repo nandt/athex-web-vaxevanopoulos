@@ -10,21 +10,30 @@ process:
     plugin: migration_lookup
     migration: athex_liferay_article_meta
     source: classPK
+  _current_categories:
+    plugin: entity_value
+    entity_type: node
+    source:
+      plugin: migration_lookup
+      migration: athex_liferay_article_meta
+      source: classPK
+    field_name: field_ni_category
+  _new_category:
+    plugin: migration_lookup
+    migration: athex_liferay_categories
+    source: categoryId
+  _new_categories:
+    plugin: get
+    source:
+      - '@_new_category'
   field_ni_category:
-    -
-      plugin: get
-      source:
-        -
-          plugin: migration_lookup
-          migration: athex_liferay_article_meta
-          source: classPK
-        -
-          plugin: migration_lookup
-          migration: athex_liferay_categories
-          source: categoryId
-    -
-      plugin: flatten
+    plugin: merge
+    source:
+      - '@_current_categories'
+      - '@_new_categories'
 
 destination:
   plugin: entity:node
   default_bundle: news_item
+  overwrite_properties:
+    - field_ni_category

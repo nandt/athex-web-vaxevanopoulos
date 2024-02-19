@@ -9,7 +9,7 @@ class ArticleDataIterator implements \Iterator {
 	private bool $defaultLang;
 
     private int $langPosition = -1;
-	private ?array $articleData = null;
+	private $articleData = null;
 	private int $count = 0;
 
 	public function __construct(
