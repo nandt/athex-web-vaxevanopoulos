@@ -244,7 +244,7 @@ class ProductSearch {
 			]
 		];
 	}
-	private function getTabsRA() {
+	/*private function getTabsRA() {
 		$seldLetter = $this->seldLetter ?? 'All';
 		//$seldLetter = $this->seldLetter;
 		if (!$seldLetter) $seldLetter = 'All';
@@ -262,6 +262,18 @@ class ProductSearch {
 
 		return $bsNav->render();
 	}
+*/
+	private function getTabsRA() {
+		$seldLetter = $this->getSelectedLetter();
+		$options = ['All', ...range('A', 'Z')];
+		$baseUrl = 'athex_d_products.stock_search';
+
+		$bsNav = new BsNav($options, $seldLetter, 'pills', null, $baseUrl);
+		$bsNav->setProductType($this->productType);  // Set the product type
+
+		return $bsNav->render();
+	}
+
 
 	public function render(array $data, array $headers, array $filters) {
 		$dataTable = new DataTable($data, $headers);
