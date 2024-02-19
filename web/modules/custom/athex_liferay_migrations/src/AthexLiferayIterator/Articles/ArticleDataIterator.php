@@ -1,20 +1,23 @@
 <?php
 
-namespace Drupal\athex_liferay_migrations\AthexData;
+namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
 
 
 class ArticleDataIterator implements \Iterator {
 
-	protected bool $defaultLang;
+	private \Iterator $articles;
+	private bool $defaultLang;
 
-    private $langPosition = -1;
-	private ?array $articleData = null;
+    private int $langPosition = -1;
+	private $articleData = null;
 	private int $count = 0;
-	private $articles;
 
-	public function __construct(bool $translationsMode) {
+	public function __construct(
+		\Iterator $iterator,
+		bool $translationsMode
+	) {
+		$this->articles = $iterator;
 		$this->defaultLang = !$translationsMode;
-		$this->articles = new LiferayArticleIterator();
 	}
 
 	private function getArticleData() {

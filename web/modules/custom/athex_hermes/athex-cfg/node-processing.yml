@@ -1,0 +1,24 @@
+
+Submission:
+  bundle: hermes_submission
+  fields:
+    title: titleMapValues
+    langcode: langcode
+    body: content
+    # created: displayDateTimestamp
+    # changed: displayDateTimestamp
+
+SubmissionFile:
+  bundle: hermes_submission_file
+  fields:
+    title: title
+    field_files: files
+
+LiferayArticle:
+  bundle: news_item
+  fields:
+    title: title
+    langcode: langcode
+    created: createDate
+    changed: modifiedDate
+    field_ni_body: content

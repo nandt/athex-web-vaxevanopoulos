@@ -33,6 +33,7 @@ class AddSubmissionRq extends HermesRequest {
 
 	/**
 	 * οι τίτλοι του άρθρου σε ελληνικά, αγγλικά
+	 * έρχεται με την σειρά που δείχνει το mapLanguageIds
 	 */
 	public array $titleMapValues;
 
@@ -59,40 +60,41 @@ class AddSubmissionRq extends HermesRequest {
 	/**
 	 * για ορθή επανάληψη, στέλνεται το AlfrescoUUID της προς αντικατάστασης υποβολής, ώστε να ξέρει το liferay τι να πανογραψει.
 	 */
-	public string $oldAlfrescoUUID;
+	public ?string $oldAlfrescoUUID;
 
 	/**
 	 * τα ονόματα των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
 	 */
-	public array $fileNames;
+	public ?array $fileNames;
 
 	/**
 	 * τα mimeTypes των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
 	 */
-	public array $mimeTypes;
+	public ?array $mimeTypes;
 
 	/**
-	 *η γλώσσα που είναι γραμμένη το περιεχόμενο των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
+	 * @deprecated
+	 * η γλώσσα που είναι γραμμένη το περιεχόμενο των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
 	 */
-	public array $attachmentsLangs;
+	public ?array $attachmentsLangs;
 
 	/**
-	 *η περιγραφή των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
+	 * η περιγραφή των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
 	 */
-	public array $attachmentDescriptions;
+	public ?array $attachmentDescriptions;
 
 	/**
 	 * τα urls στο alfresco των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση, ώστε το liferay να  μπορεί να τα ανακτήσει όταν κληθεί η addHermesSubmission
 	 */
-	public array $fileURLs;
+	public ?array $fileURLs;
 
 	/**
-	 *τα liferay vocabularies της υποβολής (πχ Company, FiscalYear …)
+	 * τα liferay vocabularies της υποβολής (πχ Company, FiscalYear …)
 	 */
 	public array $vocabularies;
 
 	/**
-	 *η liferay κατηγοριοποίηση με βάση τα παραπάνω vocabularies πχ η εταιρεία που έκανε την υποβολή ή πχ το οικ. Ετος για την οποία έγινε
+	 * η liferay κατηγοριοποίηση με βάση τα παραπάνω vocabularies πχ η εταιρεία που έκανε την υποβολή ή πχ το οικ. Ετος για την οποία έγινε
 	 */
 	public array $categories;
 
@@ -102,7 +104,7 @@ class AddSubmissionRq extends HermesRequest {
 	public array $properties;
 
 	/**
-	 *Liferay tags
+	 * Liferay tags
 	 */
 	public array $tagNames;
 

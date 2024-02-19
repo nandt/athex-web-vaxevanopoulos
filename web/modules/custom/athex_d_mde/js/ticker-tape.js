@@ -9,7 +9,7 @@
 		item.textNodes = {};
 
 		$("[data-placeholder]", item).replaceWith(function() {
-			var node = document.createTextNode("");
+			var node = document.createElement('span');
 			item.textNodes[this.dataset.placeholder] = node;
 			return node;
 		});
@@ -17,7 +17,7 @@
 		item.updateData = function (data) {
 			Object.keys(item.textNodes).forEach(function (key) {
 				var val = data[key] === undefined ? "-" : data[key];
-				item.textNodes[key].textContent = val;
+				item.textNodes[key].innerHTML = val;
 			});
 		};
 
@@ -68,27 +68,31 @@
 		});
 	}
 
-	function initUpdater() {
-		if (updater) return;
-		function getData() {
-			fetch("/tickerTapeData")
+	function getData() {
+		fetch("/fragments/tickerTapeData")
 			.then(function (response) {
 				return response.json();
 			})
 			.then(function (data) {
 				handleData(data);
-				updater = setTimeout(getData, 3000);
 			})
 			.catch(function (err) {
 				console.error(err);
+			})
+			.finally(function () {
+				updater = setTimeout(getData, 3000);
 			});
-		}
+	}
+
+	function initUpdater() {
+		if (updater) return;
 		updater = setTimeout(getData(), 0);
 	}
 
 	function initTickerTape(element) {
 		var container = document.createElement('div');
 		element.replaceWith(container);
+		Drupal.attachBehaviors(container);
 		var tapeIdx = tickerTapes.push([element, container]) - 1;
 
 		if (currentData)

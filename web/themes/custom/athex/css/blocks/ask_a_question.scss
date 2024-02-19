@@ -18,9 +18,87 @@
     margin-bottom: 24px;
 }
 
+.close-btn {
+	height: 22px;
+	width:22px;
+	background-position: center center;
+	background-size: cover;
+	cursor: pointer;
+	background-image: url(/assets/icons/Gradient/iconClose.svg);
+}
+
+.prefooter-p_item.webform.numberOfItems1,
+.prefooter-p_item.webform.numberOfItems2,
+.prefooter-p_item.webform.numberOfItems3 {
+    padding: 40px;
+ }
+
+
+ .prefooter-p_item.webform {
+    overflow-y: auto;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+    background-color: white;
+    z-index: 1001;
+    transition: right 0.5s;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+}
+
+.prefooter-p_item.webform.hidden {
+	right: -100%;
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(16, 20, 44, 0.40);
+	backdrop-filter: blur(2px);
+	z-index: 1000;
+	display: none;
+}
+
+.weightDemi.heading6.textColorDarkBlue {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
 @media(min-width:992px) {
+
     .webformWrapper_aaq {
         padding: 48px;
         background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
     }
+
+	.prefooter-p_item.webform {
+		padding-top: 40px;
+		overflow-y: auto;
+		position: fixed;
+		right: 0;
+		top: 0;
+		width: 33%;
+		height: 100%;
+		background-color: white;
+		z-index: 1001;
+		transition: right 0.5s;
+	}
+
 }
+

@@ -97,7 +97,7 @@
 	letter-spacing: 0.6px;
 }
 
-.indices_overview_container .col-12>div>div>div:nth-child(2) {
+.indices_overview_container .col-12>div>div>div>div:nth-child(2) {
 	overflow-x: scroll;
 	width: 100%;
 
@@ -203,12 +203,12 @@
 		flex-wrap: wrap;
 	}
 
-	.indices_overview_container .col-12>div>div {
+	.indices_overview_container .col-12>div>div>div {
 		display: flex;
 		justify-content: space-between;
 	}
 
-	.indices_overview_container .col-12>div>div>div:nth-child(2) {
+	.indices_overview_container .col-12>div>div>div>div:nth-child(2) {
 		width: 71%;
 		overflow-x: hidden;
 

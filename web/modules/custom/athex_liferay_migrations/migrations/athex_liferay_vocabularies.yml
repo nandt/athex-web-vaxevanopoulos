@@ -1,0 +1,27 @@
+
+id: athex_liferay_vocabularies
+label: 'Athex Liferay Vocabularies Migration'
+
+source:
+  plugin: athex_liferay_vocabularies
+  constants:
+    T_NEWLINE: "\n<br/><b>Liferay Migration Info</b>"
+    T_vocabularyId: vocabularyId
+
+process:
+  name: titleCurrentValue
+  description:
+    plugin: concat
+    delimiter: "\n<br/>"
+    source:
+      - descriptionCurrentValue
+      - constants/T_NEWLINE
+      - constants/T_vocabularyId
+      - vocabularyId
+  langcode:
+    plugin: default_value
+    default_value: el
+
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: article_categories

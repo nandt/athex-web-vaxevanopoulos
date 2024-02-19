@@ -34,7 +34,7 @@
     right: 0;
     bottom: 0;
     z-index: -1;
-    border: 1px solid #3C06D9;
+    border: 2px solid #3C06D9;
     border-image: linear-gradient(to right, #3C06D9, #51C8D2);
     border-radius: 8px;
     border-image-slice: 1;
@@ -110,7 +110,6 @@
 
 .bottomCTAs .greenBtn {
 	color: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
-	background: white;
 	border: 1px solid linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
 }
 
@@ -154,6 +153,9 @@
 	cursor: pointer;
 }
 
+.container.solContainer {
+	padding: 0;
+}
 
 .solutions {
     overflow: hidden;
@@ -397,13 +399,14 @@ span.siCta a {
     animation: marquee 10s linear infinite;
     font-size: 32px;
     font-weight: 400;
-    line-height: 72px;
+    line-height: 100px;
     letter-spacing: 2.24px;
     background: linear-gradient(90deg, #3C06D9 0%, #51C8D2 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 
 .sliding-text p {
     display: flex;
@@ -429,13 +432,6 @@ span.siCta a {
 	padding-bottom:20px;
 }
 
-.benefitItems div {
-    column-gap: 40px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 .benefit-item {
 	width:390px;
     display: flex;
@@ -457,6 +453,17 @@ span.siCta a {
     }
 }
 
+.col-lg-4.padding-none.bottomCTAs.scrollBtn {
+    display: flex;
+    justify-content: center;
+}
+
+span.BTNCtaText {
+    display: flex;
+    color: #1A0069;
+    font-weight: 600;
+}
+
 .modal-overlay {
     display: none;
     position: fixed;
@@ -469,6 +476,10 @@ span.siCta a {
 }
 
 @media(min-width:992px) {
+
+	.sliding-text {
+		display: block;
+	}
 
 	.modal {
 		display: none;
@@ -692,6 +703,8 @@ span.siCta a {
             img {
                 height: 480px;
                 width: 884px;
+				object-fit: cover;
+				object-position: top;
             }
         }
     }

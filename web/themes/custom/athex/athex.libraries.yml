@@ -65,6 +65,11 @@ cta_image_banner:
     theme:
       css/paragraph/cta_image_banner.scss: {}
 
+text_item:
+  css:
+    theme:
+      css/paragraph/text_item.scss: {}
+
 cta_text_banner:
   css:
     theme:
@@ -114,10 +119,22 @@ collapsible_items:
   js:
     js/collapsible_items.js: {}
 
+timeline_effect:
+  css:
+    theme:
+      css/paragraph/timeline_effect.scss: {}
+  js:
+    js/timeline_effect.js: {}
+
 text_cta_image:
   css:
     theme:
       css/paragraph/text_cta_image.scss: {}
+
+image_item:
+  css:
+    theme:
+      css/paragraph/image_item.scss: {}
 
 explore_banner:
   css:
@@ -226,6 +243,8 @@ seminars:
       css/node/seminars.scss: {}
   js:
     js/node/seminars.js: {}
+  dependencies:
+    - athex/tiny-slider
 
 solutions:
   css:
@@ -269,6 +288,11 @@ image_slider_item:
     - core/drupal
     - core/once
 
+text_b_text:
+  css:
+    theme:
+      css/field/text_b_text.scss: {}
+
 testimonial:
   css:
     theme:
@@ -295,6 +319,23 @@ timeline:
   css:
     theme:
       css/paragraph/timeline.scss: {}
+  js:
+    js/timeline.js: {}
+
+contact_information_card:
+  css:
+    theme:
+      css/paragraph/contact_information_card.scss: {}
+
+border_with_names:
+  css:
+    theme:
+      css/paragraph/border_with_names.scss: {}
+
+benefits:
+  css:
+    theme:
+      css/paragraph/benefits.scss: {}
 
 image_slider:
   css:
@@ -320,6 +361,8 @@ ask_a_question:
   css:
     theme:
       css/blocks/ask_a_question.scss: {}
+  js:
+    js/ask_a_question.js: {}
 
 info_card:
   css:
@@ -379,6 +422,11 @@ link_cards_bundle:
   js:
     js/link_cards_bundle.js: {}
 
+multicolor_text:
+  css:
+    theme:
+      css/paragraph/multicolor_text.scss: {}
+
 market_summary:
   css:
     theme:
@@ -424,3 +472,12 @@ prefooter_block:
       css/paragraph/prefooter_block.scss: {}
   js:
     js/prefooter_block.js: {}
+
+ir_donut_chart:
+  css:
+    theme:
+      css/paragraph/ir_donut_chart.scss: {}
+
+donut_chart:
+  js:
+    js/donut_chart.js: {}

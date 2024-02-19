@@ -37,7 +37,7 @@ class IndicesSettingsForm extends ConfigFormBase
             '#type' => 'textarea',
             '#title' => $this->t('Indices'),
             '#default_value' => $config->get('indices'),
-            '#description' => $this->t('Enter the indices separated by a comma. e.g. GD.ATH,FTSE.ATH'),
+            '#description' => $this->t('Enter the indices separated by a comma. e.g. GD,FTSE'),
         ];
 
         return parent::buildForm($form, $form_state);
