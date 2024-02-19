@@ -1,10 +1,12 @@
 {# web/core/themes/stable9/templates/field/field.html.twig #}
 
+{{ attach_library('athex/text_b_text') }}
+
 <div class="container">
 	<div class="row">
 		<div class="col-12">
 			{% for item in items %}
-	<div class="body2 textColorBlack weightBook text-item-body">{{ item.content }}</div>
+	<div class="body2  textColorBlack weightBook text-item-body">{{ item.content }}</div>
 {% endfor %}
 		</div>
 	</div>

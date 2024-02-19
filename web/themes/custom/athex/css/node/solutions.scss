@@ -399,13 +399,14 @@ span.siCta a {
     animation: marquee 10s linear infinite;
     font-size: 32px;
     font-weight: 400;
-    line-height: 72px;
+    line-height: 100px;
     letter-spacing: 2.24px;
     background: linear-gradient(90deg, #3C06D9 0%, #51C8D2 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 
 .sliding-text p {
     display: flex;
@@ -475,6 +476,10 @@ span.BTNCtaText {
 }
 
 @media(min-width:992px) {
+
+	.sliding-text {
+		display: block;
+	}
 
 	.modal {
 		display: none;

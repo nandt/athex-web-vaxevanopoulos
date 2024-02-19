@@ -29,3 +29,25 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+        var faqiBody = item.querySelector('.faq-content .col-12.col-lg-10 p');
+        var tabContent = item.querySelector('.tabContent');
+        if (!faqiBody || faqiBody.innerHTML.trim() === '') {
+            tabContent.style.justifyContent = 'flex-end';
+        }
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+            this.classList.toggle('active-toggle');
+        });
+    });
+});
+
+
+
+
