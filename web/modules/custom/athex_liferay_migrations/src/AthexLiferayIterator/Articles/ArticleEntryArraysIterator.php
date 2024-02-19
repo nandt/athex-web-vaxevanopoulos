@@ -8,7 +8,7 @@ abstract class ArticleEntryArraysIterator implements \Iterator {
 	protected readonly \Iterator $pages;
 
     private $pagePosition = -1;
-	private ?array $article = null;
+	private $article = null;
 	private int $count = 0;
 
 
