@@ -4,9 +4,9 @@ Submission:
   fields:
     title: titleMapValues
     langcode: langcode
-    created: displayDateTimestamp
-    changed: displayDateTimestamp
     body: content
+    # created: displayDateTimestamp
+    # changed: displayDateTimestamp
 
 SubmissionFile:
   bundle: hermes_submission_file

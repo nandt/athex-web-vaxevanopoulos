@@ -2,36 +2,49 @@
 
 namespace Drupal\athex_hermes\AthexModel;
 
-use Symfony\Component\HttpFoundation\Request;
+use DOMElement;
 
 
 abstract class HermesRequest {
 
-	// private function fromXml(string $xml) {
-	// 	$doc = new \DOMDocument();
-	// 	$doc->loadXML($xml);
-	// 	$xpath = new \DOMXPath($doc);
-	// 	$properties = get_object_vars($this);
+	private \DOMXPath $xpath;
 
-	// 	foreach ($properties as $property => $value) {
-	// 		$nodes = $xpath->query("//$property");
-	// 		if ($nodes->length > 0) {
-	// 			$this->{$property} = $nodes->item(0)->nodeValue;
-	// 		}
-	// 	}
-	// }
-
-	private function fromJson(string $json) {
-		$data = json_decode($json, true);
-		$properties = get_class_vars(get_class($this));
-		foreach ($properties as $property => $value) {
-			if (!isset($this->{$property})) {
-				$this->{$property} = @$data[$property];
-			}
-		}
+	private function getRefVal(DOMElement $element) {
+		$attr = $element->getAttribute('href');
+		if ($attr[0] !== '#') return null;
+		$attr = substr($attr, 1);
+		$ref = @$this->xpath->query("//multiRef[@id='$attr']")[0];
+		return $this->getVal($ref);
 	}
 
-	public function __construct(Request $request) {
-		$this->fromJson($request->getContent());
+	private function getVal(DOMElement $element) {
+		if (@$element->hasAttribute('href'))
+			return $this->getRefVal($element);
+
+		$val = null;
+		foreach ($element->childNodes as $k => $v) {
+			if (!@$v->tagName) {
+				if (!$k)
+					$val = trim($v->textContent);
+				continue;
+			}
+
+			if (!is_array($val))
+				$val = [];
+
+			if ($v->tagName === $element->tagName)
+				$val[] = $this->getVal($v);
+			else
+				$val[$v->tagName] = $this->getVal($v);
+		}
+		return $val;
+	}
+
+	public function __construct(DOMElement $node, \DOMXPath $xpath) {
+		$this->xpath = $xpath;
+		foreach ($node->childNodes as $prop) {
+			if (!@$prop->tagName) continue;
+			$this->{$prop->tagName} = $this->getVal($prop);
+		}
 	}
 }

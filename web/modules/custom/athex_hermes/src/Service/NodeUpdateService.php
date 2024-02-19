@@ -21,11 +21,11 @@ class NodeUpdateService {
 	/**
 	 * Deletes nodes with old Alfresco UUIDs.
 	 */
-	private function deleteAlfrescoOld(string $oldAlfrescoUUID) {
+	private function deleteAlfrescoOld(?string $oldAlfrescoUUID) {
 		if (!isset($oldAlfrescoUUID)) return;
 
 		$uids = \Drupal::entityQuery('node')
-			->condition('field_alfrescoUUID', $oldAlfrescoUUID, '=')
+			->condition('field_alfrescouuid', $oldAlfrescoUUID, '=')
 			->execute();
 
 		$itemsToDelete = \Drupal::entityTypeManager()->getStorage('node')
@@ -40,6 +40,9 @@ class NodeUpdateService {
 	 */
 	private function prepNodeData(array $nodeData, string $type) {
 		$config = $this->getConfig($type);
+
+		if (array_key_exists('alfrescoUUID', $nodeData[0]))
+			$config['fields']['field_alfrescouuid'] = 'alfrescoUUID';
 
 		foreach ($nodeData as $idx => $obj) {
 			$nodeConfig = [
