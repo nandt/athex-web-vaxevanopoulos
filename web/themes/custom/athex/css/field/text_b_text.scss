@@ -86,6 +86,10 @@ tr:hover a {
 
 @media(min-width:992px) {
 
+	.col-12 {
+		padding: 0!important;
+	}
+
 	.body2.textColorBlack.weightBook.text-item-body h1 {
 		font-size: 48px;
 		font-weight: 500;
