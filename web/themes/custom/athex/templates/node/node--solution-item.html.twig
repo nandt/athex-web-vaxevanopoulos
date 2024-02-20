@@ -58,6 +58,15 @@
 <div class="container pageElements">
 	{{content.field_si_page_elements}}
 </div>
+<div class="col-lg-4 padding-none bottomCTAs scrollBtn">
+    <span class="BTNCtaText {{selectedColor}} ">{{node.label}} </span>
+    {% if selectedColor == 'Blue' %}
+        <div class="btnShare cta3 textColorWhite weightBold blueBtn ">{{content.field_si_demo_button}}</div>
+    {% elseif selectedColor == 'Green' %}
+        <div class="btnShare  cta3  weightBold greenBtn">{{content.field_si_demo_button}}</div>
+    {% endif %}
+</div>
+
 <div class="sliding-text-container">
     <div class="sliding-text">{{ content.field_si_sliding_text }}</div>
 </div>
@@ -78,11 +87,3 @@
     <div class="sectionLabel contact">{{content.field_explore_more_solutions}}</div>
 </div>
 
-<div class="col-lg-4 padding-none bottomCTAs scrollBtn">
-    <span class="BTNCtaText {{selectedColor}} ">{{node.label}} </span>
-    {% if selectedColor == 'Blue' %}
-        <div class="btnShare cta3 textColorWhite weightBold blueBtn ">{{content.field_si_demo_button}}</div>
-    {% elseif selectedColor == 'Green' %}
-        <div class="btnShare  cta3  weightBold greenBtn">{{content.field_si_demo_button}}</div>
-    {% endif %}
-</div>
