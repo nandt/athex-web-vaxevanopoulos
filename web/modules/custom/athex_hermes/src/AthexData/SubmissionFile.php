@@ -2,39 +2,36 @@
 
 namespace Drupal\athex_hermes\AthexData;
 
-use Drupal\Core\File\FileSystemInterface;
-
 use Drupal\athex_hermes\AthexModel\AddSubmissionFileRq;
+use Drupal\athex_hermes\Service\HermesFileService;
 
 
 class SubmissionFile extends SubmissionNodeData {
 
+	private HermesFileService $fileSvc;
+
 	protected array $data;
 
-	private function base64ToFile(string $key) {
+
+	private function base64ToFile(string $key, string $fileName) {
 		if (empty(@$this->data[$key])) return;
 
-		$path = join('/', [
-			'public://hermes',
+		$file = $this->fileSvc->store(
 			$this->data['alfrescoUUID'],
-			$this->data['title']
-		]);
-		$contents = base64_decode($this->data[$key]);
-		/** @var \Drupal\file\FileRepositoryInterface $fileRepository */
-		$fileRepository = \Drupal::service('file.repository');
-		$file = $fileRepository->writeData(
-			$contents, $path,
-			FileSystemInterface::EXISTS_ERROR
+			$fileName,
+			base64_decode($this->data[$key])
 		);
 
 		$this->data['files'][] = $file;
 	}
 
 	public function __construct(\DOMElement $node, \DOMXPath $xpath) {
+		$this->fileSvc = \Drupal::service('athex_hermes.hermes_files');
 		$obj = new AddSubmissionFileRq($node, $xpath);
-		$this->data = get_object_vars($obj);
-		$this->base64ToFile('contents');
-		// $this->base64ToFile('attachmentsAsZip');
+		$d = $this->data = get_object_vars($obj);
+		$d = $d['title'];
+		$this->base64ToFile('contents', $d);
+		$this->base64ToFile('attachmentsAsZip', "$d.zip");
 	}
 
 	public function getNodeData(): array {

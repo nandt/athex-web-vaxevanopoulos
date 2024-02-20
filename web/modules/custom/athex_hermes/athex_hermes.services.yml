@@ -1,3 +1,6 @@
 services:
   athex_hermes.node_update_service:
     class: Drupal\athex_hermes\Service\NodeUpdateService
+  athex_hermes.hermes_files:
+    class: Drupal\athex_hermes\Service\HermesFileService
+    arguments: ['@file_system', '@file.repository']
