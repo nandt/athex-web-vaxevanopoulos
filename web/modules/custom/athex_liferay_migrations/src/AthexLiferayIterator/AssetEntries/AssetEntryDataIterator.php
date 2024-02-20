@@ -1,55 +1,55 @@
 <?php
 
-namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles;
+namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries;
 
 
-class ArticleDataIterator implements \Iterator {
+class AssetEntryDataIterator implements \Iterator {
 
-	private \Iterator $articles;
+	private \Iterator $assets;
 	private bool $defaultLang;
 
     private int $langPosition = -1;
-	private $articleData = null;
+	private $assetData = null;
 	private int $count = 0;
 
 	public function __construct(
 		\Iterator $iterator,
 		bool $translationsMode
 	) {
-		$this->articles = $iterator;
+		$this->assets = $iterator;
 		$this->defaultLang = !$translationsMode;
 	}
 
-	private function getArticleData() {
-		if ($this->articleData !== null)
-			return $this->articleData;
+	private function getAssetData() {
+		if ($this->assetData !== null)
+			return $this->assetData;
 
-		$article = $this->articles->current();
-		if (!$article)
-			return $this->articleData = false;
+		$asset = $this->assets->current();
+		if (!$asset)
+			return $this->assetData = false;
 
 		$idx = ++$this->langPosition;
 
 		if (!$this->defaultLang && $idx === 0)
 			$idx = ++$this->langPosition;
 
-		$result = $article->getData($idx);
+		$result = $asset->getData($idx);
 
 		if ($result && $this->defaultLang && $idx > 0)
 			$result = null;
 
 		if ($result === null) {
 			$this->langPosition = -1;
-			$this->articles->next();
-			return $this->getArticleData();
+			$this->assets->next();
+			return $this->getAssetData();
 		}
 
-		return $this->articleData = $result;
+		return $this->assetData = $result;
 	}
 
     #[\ReturnTypeWillChange]
     public function current() {
-		$data = $this->getArticleData();
+		$data = $this->getAssetData();
         return $data ?: null;
     }
 
@@ -59,7 +59,7 @@ class ArticleDataIterator implements \Iterator {
 
     public function next(): void {
 		if (!$this->valid()) return;
-		$this->articleData = null;
+		$this->assetData = null;
 		++$this->count;
     }
 
@@ -69,8 +69,8 @@ class ArticleDataIterator implements \Iterator {
 
 	public function rewind(): void {
 		$this->langPosition = -1;
-		$this->articleData = null;
+		$this->assetData = null;
 		$this->count = 0;
-		$this->articles->rewind();
+		$this->assets->rewind();
 	}
 }

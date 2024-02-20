@@ -5,7 +5,7 @@ namespace Drupal\athex_liferay_migrations\Plugin\migrate\source;
 use Drupal\migrate\Plugin\migrate\source\SourcePluginBase;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 
-use Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles\ArticleDataIterator;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryDataIterator;
 use Drupal\athex_liferay_migrations\AthexLiferayIterator\CategoryArticles\CategoryArticlesIterator;
 
 
@@ -62,7 +62,7 @@ class ALArticleCategories extends SourcePluginBase {
 	 * {@inheritdoc}
 	 */
 	public function initializeIterator() {
-		return new ArticleDataIterator(new CategoryArticlesIterator(), false);
+		return new AssetEntryDataIterator(new CategoryArticlesIterator(), false);
 	}
 
 	/**

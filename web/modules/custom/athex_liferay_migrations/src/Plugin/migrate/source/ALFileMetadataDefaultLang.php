@@ -6,17 +6,17 @@ use Drupal\migrate\Plugin\migrate\source\SourcePluginBase;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 
 use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryDataIterator;
-use Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles\ArticleDetailsIterator;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryIterator;
 
 
 /**
  *
  * @MigrateSource(
- *   id = "athex_liferay_articles_default_lang",
+ *   id = "athex_liferay_file_metadata_default_lang",
  *   source_module = "migrate"
  * )
  */
-class ALArticlesDefaultLang extends SourcePluginBase {
+class ALFileMetadataDefaultLang extends SourcePluginBase {
 
 	/**
 	 * {@inheritdoc}
@@ -24,41 +24,35 @@ class ALArticlesDefaultLang extends SourcePluginBase {
 	public function fields() {
 		return [
 			'langcode' => 'langcode',
-
-			'articleId' => 'articleId',
 			'classNameId' => 'classNameId',
 			'classPK' => 'classPK',
+			'classTypeId' => 'classTypeId',
+			'classUuid' => 'classUuid',
 			'companyId' => 'companyId',
-			'content' => 'content',
 			'createDate' => 'createDate',
 			'description' => 'description',
 			'descriptionCurrentValue' => 'descriptionCurrentValue',
-			'displayDate' => 'displayDate',
+			'endDate' => 'endDate',
+			'entryId' => 'entryId',
 			'expirationDate' => 'expirationDate',
 			'groupId' => 'groupId',
-			'id' => 'id',
-			'indexable' => 'indexable',
+			'height' => 'height',
 			'layoutUuid' => 'layoutUuid',
+			'mimeType' => 'mimeType',
 			'modifiedDate' => 'modifiedDate',
-			'resourcePrimKey' => 'resourcePrimKey',
-			'reviewDate' => 'reviewDate',
-			'smallImage' => 'smallImage',
-			'smallImageId' => 'smallImageId',
-			'smallImageURL' => 'smallImageURL',
-			'status' => 'status',
-			'statusByUserId' => 'statusByUserId',
-			'statusByUserName' => 'statusByUserName',
-			'statusDate' => 'statusDate',
-			'structureId' => 'structureId',
-			'templateId' => 'templateId',
+			'priority' => 'priority',
+			'publishDate' => 'publishDate',
+			'startDate' => 'startDate',
+			'summary' => 'summary',
+			'summaryCurrentValue' => 'summaryCurrentValue',
 			'title' => 'title',
 			'titleCurrentValue' => 'titleCurrentValue',
-			'type' => 'type',
-			'urlTitle' => 'urlTitle',
+			'url' => 'url',
 			'userId' => 'userId',
 			'userName' => 'userName',
-			'uuid' => 'uuid',
-			'version' => 'version'
+			'viewCount' => 'viewCount',
+			'visible' => 'visible',
+			'width' => 'width',
 		];
 	}
 
@@ -66,14 +60,14 @@ class ALArticlesDefaultLang extends SourcePluginBase {
 	 * {@inheritdoc}
 	 */
 	public function initializeIterator() {
-		return new AssetEntryDataIterator(new ArticleDetailsIterator(), false);
+		return new AssetEntryDataIterator(new AssetEntryIterator(10010), false);
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
 	public function __toString() {
-		return 'Athex Liferay Articles (Default Language)';
+		return 'Athex Liferay File Metadata (Default Language)';
 	}
 
 	/**
@@ -81,7 +75,7 @@ class ALArticlesDefaultLang extends SourcePluginBase {
 	 */
 	public function getIds() {
 		return [
-			'resourcePrimKey' => [
+			'classPK' => [
 				'type' => 'integer'
 			]
 		];

@@ -2,11 +2,11 @@
 
 namespace Drupal\athex_liferay_migrations\Plugin\migrate\source;
 
-use Drupal\athex_liferay_migrations\AthexLiferayIterator\Categories\CategoriesIterator;
 use Drupal\migrate\Plugin\migrate\source\SourcePluginBase;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
 
-use Drupal\athex_liferay_migrations\AthexLiferayIterator\Vocabularies\VocabulariesIterator;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\Categories\CategoriesIterator;
+
 
 /**
  *

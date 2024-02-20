@@ -2,11 +2,12 @@
 
 namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\CategoryArticles;
 
-use Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles\ArticleEntriesIterator;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryIterator;
 
-class CategoryArticlesIterator extends ArticleEntriesIterator {
+
+class CategoryArticlesIterator extends AssetEntryIterator {
 	public function __construct() {
-		parent::__construct(new CategoryArticleArraysIterator());
+		parent::__construct(10108, new CategoryArticleArraysIterator());
 	}
 
 	public function current() {
