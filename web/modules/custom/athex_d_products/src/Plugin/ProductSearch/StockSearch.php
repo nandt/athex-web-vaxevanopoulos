@@ -15,7 +15,7 @@ use Drupal\Core\StringTranslation\TranslationInterface;
  * Provides a Stock Search plugin.
  *
  * @ProductSearch(
- *   id = "stocksearch22",
+ *   id = "stocksearch",
  *   label = @Translation("Stock Search"),
  *   description = @Translation("Provides a search for stocks.")
  * )
