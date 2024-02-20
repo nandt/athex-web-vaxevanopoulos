@@ -715,41 +715,6 @@ span.BTNCtaText {
         padding-top: 24px;
     }
 
-    // .bullet {
-    //     cursor: pointer;
-    //     width: 24px;
-    //     height: 24px;
-    //     padding: 8px;
-    //     background-color: white;
-    //     border-radius: 27.429px;
-    //     border: 1.5px solid #D1CCE1;
-    //     transition: background-color 0.3s;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    // }
-
-    // .vertical-bar {
-    //     width: 2px;
-    //     background-color: #ccc;
-    //     margin: 0px auto;
-    //     transition: background-color 0.3s;
-    //     margin-bottom: 20px;
-    //     margin-top: 20px;
-    // }
-
-    // .vertical-bar.last {
-    //     opacity: 0;
-    // }
-
-    // .vertical-bar.active {
-    //     background-color: #7B50F9;
-    // }
-
-    // .bullet-active {
-    //     border: 1.5px solid #3300C6;
-    // }
-
     .bullet.active::before {
         content: '';
         width: 8px;
