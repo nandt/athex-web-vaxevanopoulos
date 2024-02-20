@@ -41,35 +41,6 @@ jQuery(document).ready(function ($) {
         sections.eq(index).get(0).scrollIntoView({ behavior: 'smooth' });
     }
 
-    bullets.on('click', function () {
-        const index = $(this).data('index');
-        scrollToSection(index);
-    });
-
-    function setActive(index) {
-        bullets.each(function (i) {
-            $(this).toggleClass('active', i === index);
-        });
-
-        verticalBars.each(function (i) {
-            $(this).toggleClass('active', i === index);
-        });
-        lastVerticalBar.css('opacity', index === sections.length - 1 ? 0 : 1);
-    }
-
-    function setVerticalBarHeights() {
-        verticalBars.each(function (i) {
-            const sectionHeight = sections.eq(i+1).outerHeight();
-            $(this).css('height', sectionHeight - 38);
-        });
-    }
-
-    function getAndDisplayMarginRight() {
-        var marginRight = $('.container').css('margin-right');
-        var negativeMarginRight = '-' + marginRight;
-        $('.logo-wrapper').css('margin-right', negativeMarginRight);
-      }
-
       // On document ready
       $(document).ready(function() {
         getAndDisplayMarginRight(); // Initial call on page load

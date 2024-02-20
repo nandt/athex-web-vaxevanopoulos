@@ -8,6 +8,8 @@
 
 }
 
+
+
 .bottomCTAs {
     display: none;
 }
@@ -77,10 +79,6 @@
     border-bottom: 1px solid #D1CCE1;
 }
 
-.section.timelineeffectitems {
-    padding-top: 0px;
-}
-
 .padding-none.bottomCTAs {
     padding: 8px 8px 8px 32px;
     width: 450px;
@@ -103,9 +101,13 @@
 }
 
 .bottomCTAs .btnShare.blueBtn {
-	background: white;
-	border: 1px solid #3C06D9;
-	color: #3C06D9;
+	padding: inherit;
+    height: 70px;
+    width: 164px;
+    line-height: 19px;
+    background: white;
+    border: 1px solid #3C06D9;
+    color: #3C06D9;
 }
 
 .bottomCTAs .greenBtn {
@@ -373,9 +375,7 @@ span.siCta a {
     overflow-Y: hidden;
 }
 
-.anchor-items {
-    display: none;
-}
+
 
 .benefit-label {
     color: #1A0069;
@@ -453,12 +453,16 @@ span.siCta a {
     }
 }
 
+
 .col-lg-4.padding-none.bottomCTAs.scrollBtn {
-    display: flex;
-    justify-content: center;
+	padding: 16px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
 span.BTNCtaText {
+    max-width: 150px;
     display: flex;
     color: #1A0069;
     font-weight: 600;
@@ -475,7 +479,138 @@ span.BTNCtaText {
     z-index: 1000;
 }
 
+
+
 @media(min-width:992px) {
+
+
+	.bottomCTAs .blueBtn:hover::before {
+		width: 100%;
+	}
+
+	.bottomCTAs .blueBtn:hover div {
+		color: white !important;
+	}
+
+	.bottomCTAs .blueBtn {
+		position: relative;
+		overflow: hidden;
+		background-color: #FFFFFF;
+		transition: color 0.5s ease;
+	  }
+
+	  .bottomCTAs .blueBtn div{
+		z-index:1;
+		color:#3C06D9!important;
+
+	  }
+
+	  .bottomCTAs .blueBtn::before div{
+		z-index:1;
+		color:white!important;
+
+	  }
+
+	  .bottomCTAs .blueBtn::before {
+		padding: 0px;
+		content: "";
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		width: 0%;
+		height: 89%;
+		background-color: #3C06D9;
+		transition: width 0.5s ease;
+		z-index: 0;
+	}
+
+	  .bottomCTAs .blueBtn:hover::before {
+		width: 95%;
+	  }
+
+	// green btn
+
+	span.BTNCtaText.Green {
+		color: #19A37A;
+	}
+
+	.bottomCTAs .greenBtn {
+		border: 1px solid #19A37A;
+		background: none;
+		position: relative;
+		overflow: hidden;
+		background-color: #FFFFFF;
+		transition: color 0.5s ease;
+	}
+
+	.bottomCTAs .greenBtn div {
+		z-index: 1;
+		color: #19A37A;
+	}
+
+	.bottomCTAs .greenBtn:hover div {
+		color: #19A37A !important;
+	}
+
+	.bottomCTAs .greenBtn::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0%;
+		height: 100%;
+		background-color: #19A37A;
+		transition: width 0.5s ease;
+		z-index: 0;
+	}
+
+	.bottomCTAs .greenBtn:hover::before {
+		width: 95%;
+	}
+
+	.bottomCTAs .btnShare.greenBtn a {
+		display: inline-block;
+		color: #19A37A;
+	}
+
+	.bottomCTAs .btnShare.greenBtn:hover a {
+		color: white !important;
+	}
+
+	.bottomCTAs .greenBtn::before {
+	padding: 0px;
+	content: "";
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 0%;
+	height: 89%;
+	background: linear-gradient(108deg, #00845D -7.7%, rgba(0, 181, 127, 0.76) 145.57%);
+	backdrop-filter: blur(0px);
+	transition: width 0.5s ease;
+	z-index: 0;
+}
+
+	  .bottomCTAs .blueBtn:hover::before {
+		width: 95%;
+	  }
+
+
+
+
+	.col-lg-4.scrollBtn {
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	.col-lg-4.padding-none.bottomCTAs {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
 
 	.sliding-text {
 		display: block;
@@ -567,52 +702,17 @@ span.BTNCtaText {
         margin-bottom: 24px;
     }
 
-    .anchor-items {
-        display: block;
-        position: absolute;
-        left: -77px;
-        top: 10px;
-        display: flex;
-        flex-direction: column;
-    }
+    // .anchor-items {
+    //     display: block;
+    //     position: absolute;
+    //     left: -77px;
+    //     top: 10px;
+    //     display: flex;
+    //     flex-direction: column;
+    // }
 
     .contacts-wrapper {
         padding-top: 24px;
-    }
-
-    .bullet {
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-        padding: 8px;
-        background-color: white;
-        border-radius: 27.429px;
-        border: 1.5px solid #D1CCE1;
-        transition: background-color 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .vertical-bar {
-        width: 2px;
-        background-color: #ccc;
-        margin: 0px auto;
-        transition: background-color 0.3s;
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
-
-    .vertical-bar.last {
-        opacity: 0;
-    }
-
-    .vertical-bar.active {
-        background-color: #7B50F9;
-    }
-
-    .bullet-active {
-        border: 1.5px solid #3300C6;
     }
 
     .bullet.active::before {

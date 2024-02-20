@@ -44,9 +44,6 @@
     flex-direction: column;
 }
 
-.section.timelineeffectitems {
-    padding-top: 30px;
-}
 
 @media(min-width:992px) {
 
@@ -58,6 +55,7 @@
 	.row.benefitsgrouprow div {
 		display: flex;
 		flex-direction: row;
+		justify-content: space-between;
 	}
 
 	.col-12.col-lg-12.benefit-item {

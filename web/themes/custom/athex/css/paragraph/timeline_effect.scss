@@ -2,59 +2,191 @@
     display: none;
 }
 
+.section.timelineeffectitems.container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
 
 @media(min-width:992px) {
+
+	.section.timelineeffectitems.container {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+
+
+	.section.timelineeffectitems.container {
+		margin-left: 70px;
+	}
+
+	.anchor-items {
+		display: block;
+		position: absolute;
+		left: -77px;
+		top: 10px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.bullet {
+		cursor: pointer;
+		width: 24px;
+		height: 24px;
+		padding: 8px;
+		background-color: white;
+		border-radius: 27.429px;
+		border: 1.5px solid #D1CCE1;
+		transition: background-color 0.3s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.vertical-bar {
+		width: 2px;
+		background-color: #ccc;
+		margin: 0px auto;
+		transition: background-color 0.3s;
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+
+	.vertical-bar.last {
+		opacity: 0;
+	}
+
+	.vertical-bar.active {
+		background-color: #7B50F9;
+	}
+
+	.bullet-active {
+		border: 1.5px solid #3300C6;
+	}
+
+	.bullet.active::before {
+		content: '';
+		width: 8px;
+		height: 8px;
+		background: #3300C6;
+		display: block;
+		border-radius: 50%;
+}
+
+}
+
+
+// -------------------------timeline-----------------------------
+
+
+
 .anchor-items {
-	display: block;
-	position: absolute;
-	left: -77px;
-	top: 10px;
-	display: flex;
-	flex-direction: column;
+    display: none;
 }
 
-.bullet {
-	cursor: pointer;
-	width: 24px;
-	height: 24px;
-	padding: 8px;
-	background-color: white;
-	border-radius: 27.429px;
-	border: 1.5px solid #D1CCE1;
-	transition: background-color 0.3s;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.benefit-label {
+    color: #1A0069;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
 }
 
-.vertical-bar {
-	width: 2px;
-	background-color: #ccc;
-	margin: 0px auto;
-	transition: background-color 0.3s;
-	margin-bottom: 20px;
-	margin-top: 20px;
+
+@media(min-width:992px) {
+
+    .anchor-items {
+        display: block;
+        position: absolute;
+        left: -77px;
+        top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .bullet {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        padding: 8px;
+        background-color: white;
+        border-radius: 27.429px;
+        border: 1.5px solid #D1CCE1;
+        transition: background-color 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+	.vertical-bar {
+		left: 21px;
+		width: 2px;
+		background-color: #ccc;
+		margin: 0px auto;
+		transition: background-color 0.3s;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		height: 90%;
+		top: 20px;
+	}
+
+    .vertical-bar.last {
+        opacity: 0;
+    }
+
+    .vertical-bar.active {
+        background-color: #7B50F9;
+    }
+
+    .bullet-active {
+        border: 1.5px solid #3300C6;
+    }
+
+    .bullet.active::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: #3300C6;
+        display: block;
+        border-radius: 50%;
+    }
+
+
+	span.heading3.textColorDarkBlue.weightBoldBook.lwTitle div {
+		padding-bottom: 48px;
+	}
+
+	.row.timelineItem {
+		position: relative;
+		padding: 80px;
+	}
+	.vertical-bar.scrolled {
+		background-color: #7B50F9;
+	}
+
+	.vertical-bar {
+		transition: background-color 0.5s ease-in-out;
+		background-color: initial;
+		background-color: #ccc;
+	}
+
+	.vertical-bar.scrolled {
+		background-color: #7B50F9;
+	}
+
+
+	.bullet-active{
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-image:url(/assets/icons/Gradient/timeLineBullet.svg) ;
+	}
+
+	.anchor-items {
+		height: 100%;
+		z-index: 1;
+	}
+
 }
 
-.vertical-bar.last {
-	opacity: 0;
-}
 
-.vertical-bar.active {
-	background-color: #7B50F9;
-}
-
-.bullet-active {
-	border: 1.5px solid #3300C6;
-}
-
-.bullet.active::before {
-	content: '';
-	width: 8px;
-	height: 8px;
-	background: #3300C6;
-	display: block;
-	border-radius: 50%;
-}
-
-}
