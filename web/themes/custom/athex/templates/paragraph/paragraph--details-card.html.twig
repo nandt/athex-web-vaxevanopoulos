@@ -1,13 +1,33 @@
 {#web/modules/contrib/paragraphs/templates/paragraph.html.twig#}
-<div class="SeminarDetails">
-    <h6 class="headlineBlack weightDemi heading6">{{content.field_dc_title}}</h6>
-    <hr class="SeminarDetailsHr">
-        {{content.field_details_item}}
-    <button class="register">{{content.field_dc_cta}}</button>
- </div>
 
- <div class="container-main">
-    <div class="sticky-button">
-      <button>{{content.field_dc_cta}}</button>
-    </div>
-  </div>
+{% set currentDate = "now"|date("Y-m-d") %}
+{% set fieldDate = content.field_seminar_sd['#items'].value|date("Y-m-d") %}
+
+<div class="SeminarDetails">
+	<h6 class="headlineBlack weightDemi heading6">{{content.field_dc_title}}</h6>
+	<hr class="SeminarDetailsHr">
+	{{ content.field_details_item }}
+
+	<div class="DetailsCardItems">
+		<div class="body3 weightDemi textColorPurple7">
+			{{ content.field_seminar_sd_label }}
+		</div>
+
+		<div class="body3 weightBook textColorBlackDark">
+			{{ content.field_seminar_sd['#items'].value|date('d / m / Y') }}
+		</div>
+	</div>
+
+	{% if currentDate < fieldDate %}
+		<button id="scrollToForm" class="register">{{content.field_dc_cta}}</button>
+	{% endif %}
+</div>
+
+{# {% if currentDate > fieldDate %} #}
+	<div class="container-main">
+		<div class="sticky-button">
+			<button>{{content.field_dc_cta}}</button>
+		</div>
+	</div>
+{# {% endif %} #}
+

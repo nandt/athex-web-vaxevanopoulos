@@ -7,29 +7,38 @@
         <div class="faq-container">
           <div class="faq-item">
             {% if content.field_faqi_title|render|striptags|trim is not empty %}
-              <h2 class="faq-toggle heading6 weightBoldBook textColorPurple">{{ content.field_faqi_title }}</h2>
+
+              <h2 class="faq-toggle heading6 weightBoldBook textColorPurple">{{ content.field_faqi_title }}<span class="toggle-icon"></span></h2>
+
             {% endif %}
             {% if content.field_faqi_body|render|striptags|trim is not empty %}
               <div class="faq-content textColorPurple body2">
-                <div class="row tabContent">
+                <div class="tabContent">
                   <div class="col-12 col-lg-10">
-                    <p>{{ content.field_faqi_body }}</p>
+                    <span>{{ content.field_faqi_body }}</span>
                   </div>
                   <div class="col-12 col-lg-2 downloadFile">
                     {% if content.field_download_file_fi['#items'] is not empty %}
                       {% set file = content.field_download_file_fi['#items'].entity %}
                       <a href="{{ file_url(file.uri.value) }}" download="{{ file.filename.value }}" target="_blank"><span class="dowloadLabel">{{ content.field_download_label }}</span></a>
                     {% endif %}
+                    {{ content.field_faqi_link }}
                   </div>
                 </div>
               </div>
             {% else %}
               {% if content.field_download_file_fi['#items'] is not empty %}
                 <div class="faq-content textColorPurple body2">
-                  <div class="row tabContent">
-                    <div class="col-12 col-lg-2 downloadFile">
+                  <div class="row tabContent withOutText">
+                    <div class="col-12 col-lg-2 downloadFile external-link">
                       {% set file = content.field_download_file_fi['#items'].entity %}
                       <a href="{{ file_url(file.uri.value) }}" download="{{ file.filename.value }}" target="_blank"><span class="dowloadLabel">{{ content.field_download_label }}</span></a>
+						{% if content.field_faqi_link %}
+						{% set link = content.field_faqi_link %}
+						{% set link_url = link['#url'] %}
+						{% set link_title = link['#title'] %}
+						<a href="{{ link_url }}" target="_blank">{{ link_title }}</a>
+						{% endif %}
                     </div>
                   </div>
                 </div>
@@ -41,4 +50,3 @@
     </div>
   {% endif %}
 {% endblock paragraph %}
-

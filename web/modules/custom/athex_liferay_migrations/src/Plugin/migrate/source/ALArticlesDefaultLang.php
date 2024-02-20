@@ -2,9 +2,11 @@
 
 namespace Drupal\athex_liferay_migrations\Plugin\migrate\source;
 
-use Drupal\athex_liferay_migrations\AthexData\ArticleDataIterator;
 use Drupal\migrate\Plugin\migrate\source\SourcePluginBase;
 use Drupal\migrate\Plugin\MigrateSourceInterface;
+
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles\ArticleDataIterator;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles\ArticleDetailsIterator;
 
 
 /**
@@ -64,7 +66,7 @@ class ALArticlesDefaultLang extends SourcePluginBase {
 	 * {@inheritdoc}
 	 */
 	public function initializeIterator() {
-		return new ArticleDataIterator(false);
+		return new ArticleDataIterator(new ArticleDetailsIterator(), false);
 	}
 
 	/**
@@ -79,7 +81,7 @@ class ALArticlesDefaultLang extends SourcePluginBase {
 	 */
 	public function getIds() {
 		return [
-			'id' => [
+			'resourcePrimKey' => [
 				'type' => 'integer'
 			]
 		];

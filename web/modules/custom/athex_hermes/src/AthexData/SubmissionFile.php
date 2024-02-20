@@ -2,12 +2,12 @@
 
 namespace Drupal\athex_hermes\AthexData;
 
-use Symfony\Component\HttpFoundation\Request;
-
-use Drupal\athex_hermes\AthexModel\AddSubmissionFileRq;
 use Drupal\Core\File\FileSystemInterface;
 
-class SubmissionFile implements SubmissionNodeData {
+use Drupal\athex_hermes\AthexModel\AddSubmissionFileRq;
+
+
+class SubmissionFile extends SubmissionNodeData {
 
 	protected array $data;
 
@@ -30,8 +30,8 @@ class SubmissionFile implements SubmissionNodeData {
 		$this->data['files'][] = $file;
 	}
 
-	public function __construct(Request $request) {
-		$obj = new AddSubmissionFileRq($request);
+	public function __construct(\DOMElement $node, \DOMXPath $xpath) {
+		$obj = new AddSubmissionFileRq($node, $xpath);
 		$this->data = get_object_vars($obj);
 		$this->base64ToFile('contents');
 		// $this->base64ToFile('attachmentsAsZip');

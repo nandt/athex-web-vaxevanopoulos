@@ -1,32 +1,35 @@
 <?php
 
-namespace Drupal\athex_liferay_migrations\AthexData;
+namespace Drupal\athex_liferay_migrations\AthexLiferayIterator\Base;
 
 use Drupal\athex_liferay_migrations\ApiEndpoints;
 use Drupal\athex_liferay_migrations\Service\ApiDataService;
 
+define('ALMAI_PAGESIZE', 1000);
 
-define('ALMAI_PAGESIZE', 10);
 
-class AssetEntryInterator implements \Iterator {
+abstract class LiferayApiPagesIterator implements \Iterator {
 
-	protected ApiDataService $api;
+	private ApiDataService $api;
 
-    private $pageIdx = -1;
+    protected $pageIdx = -1;
 	private int $count = 0;
-	private ?array $page = null;
+	private $page = null;
 
 
 	public function __construct() {
 		$this->api = \Drupal::service('athex_liferay_migrations.api_data');
 	}
 
-	private function fetchCurrentPage() {
+	protected abstract function pageFetcher();
+
+	protected function fetchCurrentPage(ApiEndpoints $endpoint, array $params = []) {
 		return $this->api->call(
-			ApiEndpoints::ASSETENTRY__GET_ENTRIES,
+			$endpoint,
 			[
 				'start' => ($this->pageIdx * ALMAI_PAGESIZE) + 1,
-				'end' => (($this->pageIdx + 1) * ALMAI_PAGESIZE) + 1
+				'end' => (($this->pageIdx + 1) * ALMAI_PAGESIZE) + 1,
+				...$params
 			]
 		);
 	}
@@ -37,7 +40,7 @@ class AssetEntryInterator implements \Iterator {
 
 		++$this->pageIdx;
 
-		$page = $this->fetchCurrentPage();
+		$page = $this->pageFetcher();
 
 		if (empty($page))
 			return $this->page = false;

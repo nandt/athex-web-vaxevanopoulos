@@ -122,7 +122,7 @@ class IndicesOverviewTablesService
 		}
 
 		$ra = (new ProductsTable($tableRows))->render();
-		$ra['#cache'] = [ 'max-age' => 9 ];
+		$ra['#cache'] = [ 'max-age' => 15 ];
 		return $ra;
 	}
 

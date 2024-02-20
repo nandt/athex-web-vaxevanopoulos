@@ -39,8 +39,7 @@ class LiveNavTabs {
 				[
 					...$this->routeParams,
 					$this->key => $tab
-				],
-				['absolute' => TRUE]
+				]
 			);
 			$nav[$idx][0]['#attributes']['data-live-nav'] = $url->toString();
 		}

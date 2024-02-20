@@ -1,15 +1,29 @@
- var slider = tns({
-    container: '.my-slider',
-    items: 1.25,
-    mode: 'carousel',
-    slideBy: 1,
-    autoplay: false,
-    mouseDrag: true,
-    autoplayButtonOutput: false,
-    controls: true,
-    nav: false,
+var slider = tns({
+	container: '.my-slider',
+	items: 1.25,
+	mode: 'carousel',
+	slideBy: 1,
+	autoplay: false,
+	mouseDrag: true,
+	autoplayButtonOutput: false,
+	controls: true,
+	nav: false,
 	gutter: 15
-  });
+});
+
+jQuery(document).ready(function ($) {
+	registerBtn = $(document).find('#scrollToForm');
+	form = $(document).find('.webformWrapper_aaq').parent();
+
+	registerBtn.on("click", function() {
+		$("html, body").animate(
+		{
+			scrollTop: form.offset().top
+		},
+		100
+		);
+	});
+});
 
   var controls = document.querySelectorAll('.tns-outer [aria-controls]');
 
