@@ -1,52 +1,32 @@
-jQuery(document).ready(function ($) {
-    const bullets = $('.bullet');
-    const verticalBars = $('.vertical-bar');
-    const sections = $('.section');
-    let lastScrollTop = 0;
-    let activeIndices = new Set();
+let lastScrollTop = 0;
 
-    setVerticalBarHeights();
-
-    $(window).on('resize', setVerticalBarHeights);
-
-    $(document).on('scroll', function () {
-        let currentSectionIndex = -1;
-        const st = $(this).scrollTop();
+window.addEventListener('scroll', function() {
+    let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const verticalBars = document.querySelectorAll('.vertical-bar');
+    const bullets = document.querySelectorAll('.bullet');
 
 
-        sections.each(function (index) {
-            const rect = $(this).get(0).getBoundingClientRect();
-            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                currentSectionIndex = index;
-            }
-        });
+    const triggerPoint = window.innerHeight * 0.8;
 
-        if (st > lastScrollTop) {
 
-            if (currentSectionIndex !== -1) activeIndices.add(currentSectionIndex);
-        } else {
-
-            if (currentSectionIndex !== -1 && activeIndices.has(currentSectionIndex)) activeIndices.delete(currentSectionIndex);
+    verticalBars.forEach((bar) => {
+        const barPosition = bar.getBoundingClientRect().top + bar.offsetHeight / 2;
+        if (barPosition < triggerPoint) {
+            bar.classList.add('scrolled');
+        } else if (currentScrollTop < lastScrollTop && barPosition >= triggerPoint) {
+            bar.classList.remove('scrolled');
         }
-        lastScrollTop = st <= 0 ? 0 : st;
-
-        updateActiveElements();
     });
 
-    function updateActiveElements() {
-        bullets.each(function (index) {
-            $(this).toggleClass('active', activeIndices.has(index));
-        });
 
-        verticalBars.each(function (index) {
-            $(this).toggleClass('active', activeIndices.has(index));
-        });
-    }
+    bullets.forEach((bullet) => {
+        const bulletPosition = bullet.getBoundingClientRect().top + bullet.offsetHeight / 2;
+        if (bulletPosition < triggerPoint) {
+            bullet.classList.add('bullet-active');
+        } else if (currentScrollTop < lastScrollTop && bulletPosition >= triggerPoint) {
+            bullet.classList.remove('bullet-active');
+        }
+    });
 
-    function setVerticalBarHeights() {
-        verticalBars.each(function (i) {
-            const sectionHeight = sections.eq(i).outerHeight(true);
-            $(this).css('height', sectionHeight + 'px');
-        });
-    }
+    lastScrollTop = currentScrollTop;
 });
