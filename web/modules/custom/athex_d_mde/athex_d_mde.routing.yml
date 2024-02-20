@@ -20,7 +20,15 @@ athex_d_mde.settings:
     _form: '\Drupal\athex_d_mde\Form\AthexConfigForm'
     _title: 'Market Configuration'
   requirements:
+    _permission: 'administer site configuration'
+
+athex_d_mde.ticker_tape_data:
+  path: '/fragments/tickerTapeData'
+  defaults:
+    _controller: '\Drupal\athex_d_mde\Controller\TickerTapeController::getData'
+  requirements:
     _permission: 'access content'
+
 
 athex_d_mde.fragment_index_tabs:
   path: '/fragments/index-tabs'
