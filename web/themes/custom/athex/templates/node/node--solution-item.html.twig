@@ -79,10 +79,10 @@
 </div>
 
 <div class="col-lg-4 padding-none bottomCTAs scrollBtn">
-    <span class="BTNCtaText">{{node.label}} </span>
+    <span class="BTNCtaText {{selectedColor}} ">{{node.label}} </span>
     {% if selectedColor == 'Blue' %}
         <div class="btnShare cta3 textColorWhite weightBold blueBtn ">{{content.field_si_demo_button}}</div>
     {% elseif selectedColor == 'Green' %}
-        <div class="btnShare  cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
+        <div class="btnShare  cta3  weightBold greenBtn">{{content.field_si_demo_button}}</div>
     {% endif %}
 </div>
