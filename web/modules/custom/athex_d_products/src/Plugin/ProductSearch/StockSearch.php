@@ -58,7 +58,7 @@ class StockSearch implements ProductSearchInterface, ContainerFactoryPluginInter
 			return $this->pluginDefinition['label']->render();
 		}
 		// Provide a default label as a fallback.
-		return t('Stock search22');
+		return t('Stocksearch');
 	}
 
 
