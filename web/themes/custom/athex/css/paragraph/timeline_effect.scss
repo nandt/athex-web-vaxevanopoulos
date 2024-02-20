@@ -9,62 +9,67 @@
 
 @media(min-width:992px) {
 
+	.section.timelineeffectitems.container {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
 
-.section.timelineeffectitems.container {
-	margin-left: 70px;
-}
 
-.anchor-items {
-	display: block;
-	position: absolute;
-	left: -77px;
-	top: 10px;
-	display: flex;
-	flex-direction: column;
-}
+	.section.timelineeffectitems.container {
+		margin-left: 70px;
+	}
 
-.bullet {
-	cursor: pointer;
-	width: 24px;
-	height: 24px;
-	padding: 8px;
-	background-color: white;
-	border-radius: 27.429px;
-	border: 1.5px solid #D1CCE1;
-	transition: background-color 0.3s;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+	.anchor-items {
+		display: block;
+		position: absolute;
+		left: -77px;
+		top: 10px;
+		display: flex;
+		flex-direction: column;
+	}
 
-.vertical-bar {
-	width: 2px;
-	background-color: #ccc;
-	margin: 0px auto;
-	transition: background-color 0.3s;
-	margin-bottom: 20px;
-	margin-top: 20px;
-}
+	.bullet {
+		cursor: pointer;
+		width: 24px;
+		height: 24px;
+		padding: 8px;
+		background-color: white;
+		border-radius: 27.429px;
+		border: 1.5px solid #D1CCE1;
+		transition: background-color 0.3s;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-.vertical-bar.last {
-	opacity: 0;
-}
+	.vertical-bar {
+		width: 2px;
+		background-color: #ccc;
+		margin: 0px auto;
+		transition: background-color 0.3s;
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
 
-.vertical-bar.active {
-	background-color: #7B50F9;
-}
+	.vertical-bar.last {
+		opacity: 0;
+	}
 
-.bullet-active {
-	border: 1.5px solid #3300C6;
-}
+	.vertical-bar.active {
+		background-color: #7B50F9;
+	}
 
-.bullet.active::before {
-	content: '';
-	width: 8px;
-	height: 8px;
-	background: #3300C6;
-	display: block;
-	border-radius: 50%;
+	.bullet-active {
+		border: 1.5px solid #3300C6;
+	}
+
+	.bullet.active::before {
+		content: '';
+		width: 8px;
+		height: 8px;
+		background: #3300C6;
+		display: block;
+		border-radius: 50%;
 }
 
 }
@@ -176,8 +181,6 @@
 		background-repeat: no-repeat;
 		background-image:url(/assets/icons/Gradient/timeLineBullet.svg) ;
 	}
-
-
 
 	.anchor-items {
 		height: 100%;
