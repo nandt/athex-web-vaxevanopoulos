@@ -25,11 +25,14 @@
                 <div class="btnShare  cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
             {% endif %}
         </div>
-        <div class="col-12 ">
-            <div class="solCategories">
-                <span>{{content.field_category_referes}}</span>
-            </div>
-        </div>
+		<div class="col-12 ">
+			<div class="solCategories">
+				<div class="categoryReferencePar">
+					<span class="body3 weightDemi textColorBlackDark">{{ 'Refers to'|t }}</span>
+					<div class="solTags nav-pills">{{content.field_si_category}}</div>
+				</div>
+			</div>
+		</div>
         <div class="col-lg-12 padding-none">
             {% if selectedColor == 'Blue' %}
                 <div class="image_container scrollBtn bgBlueGradient">
