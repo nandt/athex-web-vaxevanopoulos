@@ -4,7 +4,7 @@ namespace Drupal\athex_sis\Service;
 
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
-use GuzzleHttp\ClientInterface;
+
 
 class SisDbDataService
 {
