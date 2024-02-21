@@ -18,6 +18,10 @@ RUN apt-get clean
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
+# Patch to disable PHP exposure
+RUN sed -ri 's/^expose_php\s+\=\w+\s*$/expose_php = off/g' /usr/local/etc/php/php.ini
+
+
 WORKDIR /var/www/html
 COPY --from=composer-deps /app .
 COPY web web
