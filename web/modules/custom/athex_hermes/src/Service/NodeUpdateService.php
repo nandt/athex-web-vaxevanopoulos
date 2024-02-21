@@ -21,11 +21,11 @@ class NodeUpdateService {
 	/**
 	 * Deletes nodes with old Alfresco UUIDs.
 	 */
-	private function deleteAlfrescoOld(string $oldAlfrescoUUID) {
+	private function deleteAlfrescoOld(?string $oldAlfrescoUUID) {
 		if (!isset($oldAlfrescoUUID)) return;
 
 		$uids = \Drupal::entityQuery('node')
-			->condition('field_alfrescoUUID', $oldAlfrescoUUID, '=')
+			->condition('field_alfrescouuid', $oldAlfrescoUUID, '=')
 			->execute();
 
 		$itemsToDelete = \Drupal::entityTypeManager()->getStorage('node')
@@ -40,6 +40,9 @@ class NodeUpdateService {
 	 */
 	private function prepNodeData(array $nodeData, string $type) {
 		$config = $this->getConfig($type);
+
+		if (array_key_exists('alfrescoUUID', $nodeData[0]))
+			$config['fields']['field_alfrescouuid'] = 'alfrescoUUID';
 
 		foreach ($nodeData as $idx => $obj) {
 			$nodeConfig = [
@@ -57,12 +60,14 @@ class NodeUpdateService {
 	}
 
 	/**
-	 * Add/Update node based on the given object.
+	 * Add/Update nodes based on the Alfresco UUIDs of the given object.
 	 */
-	public function update(SubmissionNodeData $nodeData) {
+	public function alfrescoUpdate(SubmissionNodeData $nodeData) {
 		$type = end(explode('\\', get_class($nodeData)));
 		$nodeData = $nodeData->getFinalNodeData();
 		if (empty($nodeData)) return;
+
+		//TODO: skip if node(s) with the alfrescoUUID already exist
 
 		$this->deleteAlfrescoOld($nodeData[0]['oldAlfrescoUUID']);
 		$nodeData = $this->prepNodeData($nodeData, $type);
@@ -74,8 +79,39 @@ class NodeUpdateService {
 		}
 
 		$masterNode->save();
-
 		return $masterNode;
 	}
 
+	private function setPropsFromArray(&$obj, array $props) {
+		foreach ($props as $field => $value)
+			$obj->$field = $value;
+	}
+
+	/**
+	 * Update the given node based on the given object.
+	 */
+	public function nodeUpdate(
+		Node &$node, SubmissionNodeData $nodeData
+	) {
+		$type = explode('\\', get_class($nodeData));
+		$type = end($type);
+		$nodeData = $nodeData->getFinalNodeData();
+		if (empty($nodeData)) return;
+
+		$nodeData = $this->prepNodeData($nodeData, $type);
+		$this->setPropsFromArray($node, $nodeData[0]);
+
+		for ($i = 1; $i < count($nodeData); $i++) {
+			$data = $nodeData[$i];
+			$translation = $node->getTranslationLanguages();
+			if (array_key_exists($data['langcode'], $translation)) {
+				$translation = $node->getTranslation($data['langcode']);
+				$this->setPropsFromArray($translation, $data);
+			}
+			else
+				$node->addTranslation($data['langcode'], $data);
+		}
+
+		$node->save();
+	}
 }

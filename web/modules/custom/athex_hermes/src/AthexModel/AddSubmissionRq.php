@@ -27,13 +27,13 @@ namespace Drupal\athex_hermes\AthexModel;
 class AddSubmissionRq extends HermesRequest {
 
 	/**
-	 * @deprecated
 	 * πχ "en_US","el_GR"
 	 */
 	public array $mapLanguageIds;
 
 	/**
 	 * οι τίτλοι του άρθρου σε ελληνικά, αγγλικά
+	 * έρχεται με την σειρά που δείχνει το mapLanguageIds
 	 */
 	public array $titleMapValues;
 
@@ -65,28 +65,28 @@ class AddSubmissionRq extends HermesRequest {
 	/**
 	 * τα ονόματα των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
 	 */
-	public array $fileNames;
+	public ?array $fileNames;
 
 	/**
 	 * τα mimeTypes των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
 	 */
-	public array $mimeTypes;
+	public ?array $mimeTypes;
 
 	/**
 	 * @deprecated
 	 * η γλώσσα που είναι γραμμένη το περιεχόμενο των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
 	 */
-	public array $attachmentsLangs;
+	public ?array $attachmentsLangs;
 
 	/**
 	 * η περιγραφή των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση
 	 */
-	public array $attachmentDescriptions;
+	public ?array $attachmentDescriptions;
 
 	/**
 	 * τα urls στο alfresco των πιθανών attachments που μπορεί να έχει κάποια ανακοινωση, ώστε το liferay να  μπορεί να τα ανακτήσει όταν κληθεί η addHermesSubmission
 	 */
-	public array $fileURLs;
+	public ?array $fileURLs;
 
 	/**
 	 * τα liferay vocabularies της υποβολής (πχ Company, FiscalYear …)

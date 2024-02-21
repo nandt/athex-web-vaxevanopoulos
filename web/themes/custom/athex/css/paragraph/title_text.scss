@@ -29,6 +29,9 @@
 	color: #1A0069;
 }
 
+.title.purple p{
+	color: #575756;
+}
 
 .TextTitle .dark-blue strong{
 	background: linear-gradient(89deg, #3300C6 -14.47%, #8466DB 126.05%);
@@ -45,6 +48,11 @@
 
 .TextTitle .green strong{
 	color:#05C405;
+	font-weight: 500;
+}
+
+.TextTitle .purple strong{
+	color:#3C06D9;
 	font-weight: 500;
 }
 
@@ -83,11 +91,13 @@
 }
 
 
-
 @media(min-width:992px){
 	.container.TextTitleContainer {
 		padding: 48px 24px 48px 24px;
-		margin-top:100px;
+	}
+
+	.TextTitle{
+		margin-bottom:0px;
 	}
 
 }

@@ -1,0 +1,43 @@
+.container.contactInfoCard {
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+
+.contactInfoCard .row {
+    padding: 10px;
+    border: 1px solid  #D8CDF7;
+}
+.ctaDirection a {
+    padding: 20px;
+    border: 1px solid #3300C6;
+}
+
+.col-12.col-lg-6.firstColInfoContact {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.ctaDirection {
+    margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+.thirdLabel{
+	padding-top:15px;
+}
+
+@media(min-width:992px){
+	.contactInfoCard .row {
+		padding: 20px;
+		border: 1px solid  #D8CDF7;
+	}
+
+	.ctaDirection {
+		margin-top: 60px;
+		margin-bottom: 60px;
+	}
+
+}

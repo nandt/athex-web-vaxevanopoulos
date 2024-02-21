@@ -4,12 +4,21 @@ Submission:
   fields:
     title: titleMapValues
     langcode: langcode
-    created: displayDateTimestamp
-    changed: displayDateTimestamp
     body: content
+    field_files: files
 
 SubmissionFile:
-  bundle: hermes_submission_file
+  bundle: hermes_submission
   fields:
     title: title
+    langcode: langcode
     field_files: files
+
+LiferayArticle:
+  bundle: news_item
+  fields:
+    title: title
+    langcode: langcode
+    created: createDate
+    changed: modifiedDate
+    field_ni_body: content

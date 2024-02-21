@@ -2,7 +2,8 @@
 
 namespace Drupal\athex_liferay_migrations\Plugin\migrate\source;
 
-use Drupal\athex_liferay_migrations\AthexData\ArticleDataIterator;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\AssetEntries\AssetEntryDataIterator;
+use Drupal\athex_liferay_migrations\AthexLiferayIterator\Articles\ArticleDetailsIterator;
 
 
 /**
@@ -18,7 +19,7 @@ class ALArticleTranslationsSource extends ALArticlesDefaultLang {
 	 * {@inheritdoc}
 	 */
 	public function initializeIterator() {
-		return new ArticleDataIterator(true);
+		return new AssetEntryDataIterator(new ArticleDetailsIterator(), true);
 	}
 
 	/**

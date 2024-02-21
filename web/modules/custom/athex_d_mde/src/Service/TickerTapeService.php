@@ -89,17 +89,17 @@ class TickerTapeService
 
 	public function getMarketStatusData()
 	{
-
 		$info = $this->api->callDelayed('MarketInfo', ['market' => 'ATH', 'instrument' => 'EQ']);
+		$info = $info[0];
 		//var_dump($info); // This will print the structure of $items
 		// Τα πεδία που σας ενδιαφέρουν είναι
 		// •	closed (0/1 => Ανοικτή/Κλειστή)
 		// •	tradeDate (ημ/νια διαπραγμάτευσης)
 		// •	time (ώρα τελευταίας ενημέρωσης)
 		return [
-			'closed' => $info[0]['closed'],
-			'tradeDate' => $info[0]['tradeDate'],
-			'time' => $info[0]['time']
+			'closed' => $info['closed'],
+			'tradeDate' => $info['tradeDate'],
+			'time' => $info['time']
 		];
 	}
 
@@ -122,8 +122,9 @@ class TickerTapeService
 
 	public function getPrimaryInfoHtml()
 	{
+		$pira = $this->getPrimaryInfoRenderArray();
 		return $this->renderer->renderPlain(
-			$this->getPrimaryInfoRenderArray()
+			$pira
 		);
 	}
 }

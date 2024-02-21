@@ -1,0 +1,17 @@
+
+id: athex_liferay_file_meta
+label: ATHEX Liferay File Metadata Migration
+
+source:
+  plugin: athex_liferay_file_metadata_default_lang
+
+process:
+
+destination:
+
+
+# "folderid" & "version" missing!
+# πχ το αρχείο με fullpath /opt/liferay/liferay-portal-6.1.30-ee-ga3/data/document_library/10154/4265116/138503/1.37
+# αντιστοιχεί σε εγγραφή στην βάση, στον πίνακα dlfileentry με companyId=10154, folderid=4265116, titleCurrentValue=138503, version=1.37
+# οπότε το path είναι της μορφής
+# <liferay-data-dir>/document_library/<companyid>/<folderid>/<name>/<version>

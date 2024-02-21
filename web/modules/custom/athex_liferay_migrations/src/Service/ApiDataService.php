@@ -7,7 +7,8 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use GuzzleHttp\ClientInterface;
 
 use Drupal\athex_liferay_migrations\ApiEndpoints;
-
+use Drupal\athex_liferay_migrations\AthexData\LiferayArticle;
+use Drush\Drush;
 
 class ApiDataService {
 
@@ -31,7 +32,7 @@ class ApiDataService {
 		return $baseUrl;
 	}
 
-	public function call(ApiEndpoints $endpoint, array $args) {
+	public function call(ApiEndpoints $endpoint, array $args = []) {
 		$args += [
 			'companyId' => $this->config->get('companyId')
 		];
@@ -43,6 +44,14 @@ class ApiDataService {
 				'contents' => $v
 			];
 		}
+
+		try {
+			Drush::output()->writeln(
+				"\n{$this->getBaseUrl()}/{$endpoint->value} "
+				. json_encode($args)
+			);
+		}
+		catch (\Error | \Exception $e) {}
 
 		$rq = null;
 		// try {
@@ -82,5 +91,15 @@ class ApiDataService {
 			throw new \Error("Liferay API Exception: \"{$rs['exception']}\"");
 
 		return $rs;
+	}
+
+	public function getLiferayArticle($resourcePrimKey) {
+		$data = $this->call(
+			ApiEndpoints::JOURNALARTICLE__GET_LATEST,
+			[
+				'resourcePrimKey' => $resourcePrimKey
+			]
+		);
+		return new LiferayArticle($data);
 	}
 }

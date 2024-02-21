@@ -3,6 +3,10 @@
 	border-radius: var(--colors-pixels-spacing-null, 0px);
 	background: linear-gradient(99deg, #20009E -10.18%, rgba(3, 0, 133, 0.23) 328.92%);
 
+	.container.solContainer {
+		padding: 0;
+	}
+
 	.solviewhomeWrapper {
 		display: flex;
 		gap: 8px;
@@ -130,9 +134,20 @@
 .controls.solutions-slider {
 	margin-top: 28px;
 	justify-content: end;
-	padding: 0;
+	//padding: 0;
 
 	@media (min-width: 992px) {
 		margin-top: 56px;
 	}
 }
+
+.container-fluid.solviewhomeContainer {
+
+	.views-element-container {
+
+		.solutions {
+			margin: 0 -12px;
+		}
+	}
+}
+
