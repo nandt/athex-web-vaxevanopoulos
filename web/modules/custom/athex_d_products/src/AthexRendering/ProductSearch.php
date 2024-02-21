@@ -5,7 +5,7 @@ namespace Drupal\athex_d_products\AthexRendering;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\athex_d_mde\AthexRendering\VxDataTable;
 use Drupal\Core\Url;
-use Drupal\athex_d_mde\AthexRendering\BsNav;
+use Drupal\athex_d_mde\AthexRendering\VxBsNav;
 
 class ProductSearch
 {
@@ -61,7 +61,7 @@ class ProductSearch
 		$selectedLetter = $this->getSelectedLetter();
 		$baseUrl = 'athex_d_products.stock_search'; // Adjust this to your actual route
 
-		$bsNav = new BsNav($letters, $selectedLetter, 'tabs', null, $baseUrl);
+		$bsNav = new VxBsNav($letters, $selectedLetter, 'tabs', null, $baseUrl);
 		$bsNav->setProductType($this->productType); // Ensure this is set before rendering
 		\Drupal::logger('PRODUCT SEARCH FOR LETTERS')->notice('getAzNavigation called');
 		return $bsNav->render();
@@ -101,7 +101,7 @@ class ProductSearch
 		$options = ['All', ...range('A', 'Z')];
 		$baseUrl = 'athex_d_products.stock_search';
 		$tabs = [];
-		$bsNav = new BsNav($options, $selectedLetter, 'pills', null, $baseUrl);
+		$bsNav = new VxBsNav($options, $selectedLetter, 'pills', null, $baseUrl);
 		$bsNav->setProductType($this->productType); // Make sure this property is defined and set in your class
 		foreach ($options as $option) {
 			// Create the URL for each tab, including the letter as a query parameter
