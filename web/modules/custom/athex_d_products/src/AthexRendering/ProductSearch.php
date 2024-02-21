@@ -3,7 +3,7 @@
 namespace Drupal\athex_d_products\AthexRendering;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\athex_d_mde\AthexRendering\DataTable;
+use Drupal\athex_d_mde\AthexRendering\VxDataTable;
 use Drupal\Core\Url;
 use Drupal\athex_d_mde\AthexRendering\BsNav;
 
@@ -13,6 +13,7 @@ class ProductSearch
 
 	protected $title;
 	protected $productType;
+	protected $seldLetter;
 
 	public function __construct(string $title, string $productType)
 	{ // Modify this line
@@ -122,7 +123,7 @@ class ProductSearch
 
 	public function render(array $data, array $headers, array $filters)
 	{
-		$dataTable = new DataTable($data, $headers);
+		$dataTable = new VxDataTable($data, $headers);
 		$searchForm = $this->getSearchFormRA($filters);
 
 		return [

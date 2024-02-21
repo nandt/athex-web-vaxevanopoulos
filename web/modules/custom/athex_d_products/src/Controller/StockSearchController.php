@@ -9,13 +9,11 @@ use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\athex_d_products\AthexRendering\ProductSearch;
 
 
-use Drupal\athex_d_mde\AthexRendering\DataTable;
-
-
 class StockSearchController extends ControllerBase
 {
 	protected $pluginManager;
 	protected $messenger;
+	protected $logger;
 
 	public function __construct($pluginManager, MessengerInterface $messenger)
 	{
