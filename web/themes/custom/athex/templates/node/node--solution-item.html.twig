@@ -25,11 +25,14 @@
                 <div class="btnShare  cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
             {% endif %}
         </div>
-        <div class="col-12 ">
-            <div class="solCategories">
-                <span>{{content.field_category_referes}}</span>
-            </div>
-        </div>
+		<div class="col-12 ">
+			<div class="solCategories">
+				<div class="categoryReferencePar">
+					<span class="body3 weightDemi textColorBlackDark">{{ 'Refers to'|t }}</span>
+					<div class="solTags nav-pills">{{content.field_si_category}}</div>
+				</div>
+			</div>
+		</div>
         <div class="col-lg-12 padding-none">
             {% if selectedColor == 'Blue' %}
                 <div class="image_container scrollBtn bgBlueGradient">
@@ -58,23 +61,32 @@
 <div class="container pageElements">
 	{{content.field_si_page_elements}}
 </div>
+<div class="col-lg-4 padding-none bottomCTAs scrollBtn">
+    <span class="BTNCtaText {{selectedColor}} ">{{node.label}} </span>
+    {% if selectedColor == 'Blue' %}
+        <div class="btnShare cta3 textColorWhite weightBold blueBtn ">{{content.field_si_demo_button}}</div>
+    {% elseif selectedColor == 'Green' %}
+        <div class="btnShare  cta3  weightBold greenBtn">{{content.field_si_demo_button}}</div>
+    {% endif %}
+</div>
+
 <div class="sliding-text-container">
     <div class="sliding-text">{{ content.field_si_sliding_text }}</div>
 </div>
 
 <div class="col-12">
-    <div class="container solutions solWrapper">{{content.field_solutions_reference}}</div>
+	<div class="container">
+		<div class="heading1 textColorDarkBlue weightBook">
+			{{ content.field_explore_solutions_title }}
+		</div>
+	</div>
+</div>
+
+<div class="col-12">
+    <div class="solutions solWrapper">{{content.field_solutions_reference}}</div>
 </div>
 
 <div class="section container">
     <div class="sectionLabel contact">{{content.field_explore_more_solutions}}</div>
 </div>
 
-<div class="col-lg-4 padding-none bottomCTAs scrollBtn">
-    <span class="BTNCtaText">{{node.label}} </span>
-    {% if selectedColor == 'Blue' %}
-        <div class="btnShare cta3 textColorWhite weightBold blueBtn ">{{content.field_si_demo_button}}</div>
-    {% elseif selectedColor == 'Green' %}
-        <div class="btnShare  cta3 textColorWhite weightBold greenBtn">{{content.field_si_demo_button}}</div>
-    {% endif %}
-</div>
