@@ -40,17 +40,11 @@ class SisDbDataService
 
 	public function fetchAllWithParams($sql, array $params = [])
 	{
-		// Debugging lines:
-		//$this->logger->debug('SQL: ' . $sql);
-		//$this->logger->debug('Params: ' . print_r($params, true));
-		// end debugging
 		$connection = $this->getConnection();
 		$stmt = oci_parse($connection, $sql);
 
-
 		foreach ($params as $param => $value) {
-
-			oci_bind_by_name($stmt, $param, $params[$param]); // Ensure parameter names match
+			oci_bind_by_name($stmt, $param, $value);
 		}
 
 		oci_execute($stmt);
@@ -61,10 +55,7 @@ class SisDbDataService
 			$stmt = oci_parse($connection, $sql);
 
 			foreach ($params as $param => $value) {
-				//echo "\nParam: $param";  //debug
-				//echo "\nValue: $value";  //debug
-
-				oci_bind_by_name($stmt, ltrim($param, ':'), $params[$param]); // Remove leading colon in parameter placeholder
+				oci_bind_by_name($stmt, ltrim($param, ':'), $params[$param]);
 			}
 			oci_execute($stmt);
 

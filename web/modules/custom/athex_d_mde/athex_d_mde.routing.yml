@@ -29,13 +29,12 @@ athex_d_mde.ticker_tape_data:
   requirements:
     _permission: 'access content'
 
-
 athex_d_mde.fragment_index_tabs:
   path: '/fragments/index-tabs'
   defaults:
     _controller: '\Drupal\athex_d_mde\Controller\FragmentsController::indexTabs'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'access content'
 
 athex_d_mde.fragment_index_summary:
   path: '/fragments/index-summary'

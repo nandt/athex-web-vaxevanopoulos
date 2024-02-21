@@ -24,26 +24,21 @@ class StockSearch2 implements ProductSearchInterface, ContainerFactoryPluginInte
 {
 	use StringTranslationTrait;
 
-
+	private SisDbDataService $sisdb;
 	protected $logger;
 	protected $pluginDefinition;
 
 	public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition)
 	{
 		return new static(
-			$configuration,
-			$plugin_id,
-			$plugin_definition,
 			$container->get('athex_sis.db_data'),
 			$container->get('logger.factory')->get('athex_d_products'),
 			$container->get('string_translation')
 		);
 	}
 
-
-	public function __construct(array $configuration, $plugin_id, $plugin_definition, SisDbDataService $sisdb, LoggerInterface $logger, TranslationInterface $string_translation)
+	public function __construct(SisDbDataService $sisdb, LoggerInterface $logger, TranslationInterface $string_translation)
 	{
-		//parent::__construct($configuration, $plugin_id, $plugin_definition);
 		$this->sisdb = $sisdb;
 		$this->logger = $logger;
 		$this->stringTranslation = $string_translation;
@@ -166,19 +161,4 @@ class StockSearch2 implements ProductSearchInterface, ContainerFactoryPluginInte
 		];
 	}
 
-
-	public function getTableColumns()
-	{
-		// Implement your table columns logic here
-		return [];
-	}
-
-	public function getRowTemplate()
-	{
-		\Drupal::logger('pluginDefinition')->notice('<pre>' . print_r($this->pluginDefinition, TRUE) . '</pre>');
-
-		// Implement your row template logic here
-		return null;
-	}
-	// Implement other necessary methods.
 }

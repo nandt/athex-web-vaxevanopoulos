@@ -1,28 +1,4 @@
 <?php
-use Symfony\Component\Routing\Route;
-use Drupal\Core\Routing\RouteProviderInterface;
-
-/*
-$route_provider = \Drupal::service('router.route_provider');
-$all_routes = $route_provider->getAllRoutes();
-
-foreach ($all_routes as $route_name => $route) {
-	if (strpos($route_name, 'athex_d_products') !== FALSE) {
-		// This is one of your custom routes.
-		print_r($route_name . "\n");
-		// You can also inspect the $route object for more details.
-	}
-}
-
-
-*/
-
-
-
-
-
-
-
 
 function athex_d_products_theme($existing, $type, $theme, $path) {
 	return [

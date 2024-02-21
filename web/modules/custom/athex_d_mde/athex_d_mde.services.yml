@@ -23,9 +23,9 @@ services:
   athex_d_mde.indices_overview_tables:
     class: Drupal\athex_d_mde\Service\IndicesOverviewTablesService
     arguments:
-      - '@logger.factory' # Corrected to match LoggerChannelFactoryInterface expected in the constructor
-      - '@athex_sis.db_data' # Placeholder for SisDbDataService, adjust as necessary
-      - '@athex_d_mde.indices_overview' # Matches IndicesOverviewService
-      - '@athex_inbroker.api_data' # Matches ApiDataService
-      - '@language_manager' # Drupal core service for LanguageManagerInterface
-      - '@config.factory' # Drupal core service for ConfigFactoryInterface
+      - '@logger.factory'
+      - '@athex_sis.db_data'
+      - '@athex_d_mde.indices_overview'
+      - '@athex_inbroker.api_data'
+      - '@language_manager'
+      - '@config.factory'
