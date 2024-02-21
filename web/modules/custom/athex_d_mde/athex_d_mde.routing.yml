@@ -14,14 +14,6 @@ athex_d_mde.tickertape_form:
   requirements:
     _permission: 'administer site configuration'
 
-athex_d_mde.settings:
-  path: '/admin/config/athex/settings'
-  defaults:
-    _form: '\Drupal\athex_d_mde\Form\AthexConfigForm'
-    _title: 'Market Configuration'
-  requirements:
-    _permission: 'administer site configuration'
-
 athex_d_mde.ticker_tape_data:
   path: '/fragments/tickerTapeData'
   defaults:
