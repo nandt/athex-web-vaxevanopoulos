@@ -20,7 +20,6 @@
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-project-message": "^10.1",
         "drupal/core-recommended": "^10.1",
-        "drupal/devel": "^5.1",
         "drupal/metatag": "^2.0",
         "drupal/migrate_plus": "^6.0",
         "drupal/migrate_tools": "^6.0",
@@ -119,5 +118,8 @@
                 "web/modules/contrib/webform/composer.libraries.json"
             ]
         }
+    },
+    "require-dev": {
+        "drupal/devel": "^5.1"
     }
 }
