@@ -34,6 +34,9 @@ RUN set -eux; \
 	if command -v a2enmod && command -v a2enconf ; then \
 		a2enmod headers && a2enconf conceal-server-info; \
 	fi;
+# Patch Apache security config to remove tokens and signature
+RUN sed -ri 's/^ServerTokens\s+\w+\s*$/ServerTokens Prod/g' /etc/apache2/conf-available/security.conf
+RUN sed -ri 's/^ServerSignature\s+\w+\s*$/ServerSignature Off/g' /etc/apache2/conf-available/security.conf
 
 WORKDIR /var/www/html
 COPY --from=composer-deps /app .
