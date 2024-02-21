@@ -53,7 +53,7 @@ class StockSearch2 implements ProductSearchInterface, ContainerFactoryPluginInte
 			return $this->pluginDefinition['label']->render();
 		}
 		// Provide a default label as a fallback.
-		return t('Stock search23');
+		return $this->t('Stock search23');
 	}
 
 
