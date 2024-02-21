@@ -2,105 +2,137 @@
 
 namespace Drupal\athex_d_products\AthexRendering;
 
-use Drupal\Core\Pager\Pager;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\athex_d_mde\AthexRendering\VxDataTable;
+use Drupal\Core\Url;
+use Drupal\athex_d_mde\AthexRendering\VxBsNav;
 
-use Drupal\athex_d_mde\AthexRendering\BsNav;
-use Drupal\athex_d_mde\AthexRendering\DataTable;
-
-
-class ProductSearch {
-
+class ProductSearch
+{
 	use StringTranslationTrait;
 
-	public readonly string $title;
-	public array $secondaryFiltersRA;
-	private Pager $pager;
-	private string|null $seldLetter;
+	protected $title;
+	protected $productType;
+	protected $seldLetter;
 
-	public function __construct(
-		string $enTitle,
-		array $secondaryFiltersRA
-	) {
-		$this->title = $this->t($enTitle);
-		$this->secondaryFiltersRA = $secondaryFiltersRA;
-		$this->pager = \Drupal::service('pager.manager')->createPager(30, 10);
-		$this->seldLetter = strtoupper(\Drupal::request()->get('letter'));
-		if (!in_array($this->seldLetter, range('A', 'Z')))
-			$this->seldLetter = null;
+	public function __construct(string $title, string $productType)
+	{ // Modify this line
+		$this->title = $title;
+		$this->productType = $productType; // Set the product type
+		$this->seldLetter = \Drupal::request()->query->get('letter', 'A'); // Default to 'A' if not set
 	}
 
-	public function getResultsOffset() {
-		return ($this->pager->getCurrentPage() - 1) * $this->pager->getLimit();
-	}
-
-	public function getResultsLimit() {
-		return $this->pager->getLimit();
-	}
-
-	private function getSearchbarRA() {
-		return [
-			'#type' => 'container',
-			'#attributes' => [
-				'class' => ['js-form-type-textfield']
-			],
-			[
-				'#type' => 'textfield',
-				'#attributes' => [
-					'placeholder' => $this->t("Type here to search")
-				]
-			]
+	private function getSearchFormRA($filters)
+	{
+		$form = [
+			'#type' => 'form',
+			'#method' => 'get',
+			'#action' => Url::fromRoute('athex_d_products.stock_search', ['productType' => $this->productType])->toString(),
+			'#attributes' => ['class' => ['bef-exposed-form']],
 		];
+
+		\Drupal::logger('PRODUCT SEARCH DEBUG PRODUCT TYPE')->notice('Product Type: ' . $this->productType);
+
+
+		foreach ($filters as $filterKey => $filterOptions) {
+			$title = (string)$filterOptions['title'];
+
+			$form[$filterKey] = [
+				'#type' => $filterOptions['type'],
+				'#title' => $this->t($title),
+				'#default_value' => $filterOptions['default_value'] ?? '',
+				'#options' => $filterOptions['options'] ?? null,
+				'#attributes' => $filterOptions['attributes'] ?? [],
+				'#name' => $filterKey, // This should be part of this array
+			];
+		}
+
+		$form['submit'] = [
+			'#type' => 'submit',
+			'#value' => $this->t('Apply Filters'),
+		];
+		$form['tabs'] = $this->getTabsRA();
+		return $form;
 	}
 
-	private function getSecondaryFiltersRA() {
-		return array_merge([
-			'#type' => 'details',
-			'#title' => $this->t('Filters'),
-			'#attributes' => [
-				'class' => ['bef--secondary']
-			]
-		], $this->secondaryFiltersRA);
-	}
+	private function getAzNavigation()
+	{
+		$letters = ['All', ...range('A', 'Z')];
+		$selectedLetter = $this->getSelectedLetter();
+		$baseUrl = 'athex_d_products.stock_search'; // Adjust this to your actual route
 
-	private function getTabsRA() {
-		$seldLetter = $this->seldLetter;
-		if (!$seldLetter) $seldLetter = 'All';
-		$options = ['All', ...range('A', 'Z') ];
-		$bsNav = new BsNav($options, $seldLetter, 'pills');
+		$bsNav = new VxBsNav($letters, $selectedLetter, 'tabs', null, $baseUrl);
+		$bsNav->setProductType($this->productType); // Ensure this is set before rendering
+		\Drupal::logger('PRODUCT SEARCH FOR LETTERS')->notice('getAzNavigation called');
 		return $bsNav->render();
 	}
 
-	private function getSearchFormRA() {
+
+	protected function getSelectedLetter()
+	{
+		// Access the current request
+		$current_request = \Drupal::request();
+
+		// Get the 'letter' parameter from the URL
+		$selectedLetter = $current_request->query->get('letter');
+
+		// Ensure the selected letter is a single uppercase character if it's set, or default to 'All'
+		return $selectedLetter && preg_match('/^[A-Z]$/', $selectedLetter) ? $selectedLetter : 'All';
+	}
+
+
+	private function getSearchbarRA()
+	{
 		return [
-			'#type' => 'form',
-			'#attributes' => [
-				'class' => ['bef-exposed-form']
-			],
-			'#children' => [
-				$this->getSearchbarRA(),
-				$this->getTabsRA(),
-				$this->getSecondaryFiltersRA()
+			'#type' => 'container',
+			'#attributes' => ['class' => ['js-form-type-textfield']],
+			[
+				'#type' => 'textfield',
+				'#name' => 'search_value',
+				'#attributes' => ['placeholder' => $this->t("Type here to search")]
 			]
 		];
 	}
 
-	public function render(
-		DataTable $table
-	) {
+
+	private function getTabsRA()
+	{
+		$selectedLetter = $this->getSelectedLetter();
+		$options = ['All', ...range('A', 'Z')];
+		$baseUrl = 'athex_d_products.stock_search';
+		$tabs = [];
+		$bsNav = new VxBsNav($options, $selectedLetter, 'pills', null, $baseUrl);
+		$bsNav->setProductType($this->productType); // Make sure this property is defined and set in your class
+		foreach ($options as $option) {
+			// Create the URL for each tab, including the letter as a query parameter
+			$url = Url::fromRoute($baseUrl, ['productType' => $this->productType], ['query' => ['letter' => $option]]);
+
+			// Check if the current option is the selected letter
+			$isActive = ($selectedLetter === $option);
+
+			$tabs[] = [
+				'title' => $option,
+				'url' => $url->toString(),
+				'active' => $isActive,
+			];
+		}
+
+		return $bsNav->render();
+	}
+
+
+	public function render(array $data, array $headers, array $filters)
+	{
+		$dataTable = new VxDataTable($data, $headers);
+		$searchForm = $this->getSearchFormRA($filters);
+
 		return [
-			//TODO: refine
-			'#cache' => [ 'max-age' => 0 ],
-			//
 			'#theme' => 'product_search',
-			'#page_title' => [
-				'#type' => 'html_tag',
-				'#tag' => 'h1',
-				'#value' => $this->title
-			],
-			'#search_form' => $this->getSearchFormRA(),
-			'#table' => $table->render(),
-			'#pager' => [ '#type' => 'pager' ],
+			'#title' => $this->t($this->title),
+			'#search_form' => $searchForm,
+			'#table' => $dataTable->render(),
+			'#pager' => ['#type' => 'pager'],
 		];
 	}
+
 }

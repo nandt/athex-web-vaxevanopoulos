@@ -9,3 +9,23 @@ services:
     class: Drupal\athex_d_products\Service\StockProfileRenderingService
     arguments: ['@athex_d_products.stock_data']
 
+  athex_d_products.stock_search_controller:
+    class: Drupal\athex_d_products\Controller\StockSearchController
+    arguments: [ '@athex_d_products.stock_data', '@messenger', '@plugin.manager.product_search' ]
+
+
+  plugin.manager.product_search:
+    class: Drupal\athex_d_products\Plugin\ProductSearchManager
+    parent: default_plugin_manager
+    arguments: [ '@container.namespaces', '@cache.discovery', '@module_handler' ]
+
+
+  athex_d_products.product_search_manager:
+    class: Drupal\athex_d_products\Plugin\ProductSearchManager
+    arguments: [ '@container.namespaces', '@cache.discovery', '@module_handler' ]
+
+  athex_d_products.route_subscriber:
+    class: Drupal\athex_d_products\Routing\RouteSubscriber
+    arguments: [ '@plugin.manager.product_search', '@logger.channel.default' ]
+    tags:
+      - { name: event_subscriber }

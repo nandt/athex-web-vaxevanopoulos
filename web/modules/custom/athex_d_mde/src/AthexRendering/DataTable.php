@@ -4,32 +4,31 @@ namespace Drupal\athex_d_mde\AthexRendering;
 
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 
+
 /**
- * USAGE:
+ * Creates a render array for a table based on config
  *
- * 	$struct = [
- * 		[
- * 			'label' => 'EN Label',
- * 			'field' => 'datakey',
- * 			'pinned' => true
- * 		],
- * 		// ...
- * 	];
- *
- * 	$data = [
- * 		[
- * 			'datakey' => 'value',
- * 			// ...
- * 		],
- * 		// ...
- * 	];
- *
- * $dt = new DataTable($struct, $data);
- * return $dt->render();
- *
+ * Example:
+ * ```php
+ *     	$struct = [
+ *     		[
+ *     			'label' => 'EN Label',
+ *     			'field' => 'datakey',
+ *     			'pinned' => true
+ *     		],
+ *     		// ...
+ *     	];
+ *     	$data = [
+ *     		[
+ *     			'datakey' => 'value',
+ *     			// ...
+ *     		],
+ *     		// ...
+ *     	];
+ *     	$dt = new DataTable($struct, $data);
+ *     	return $dt->render();
+ * ```
  */
-
-
 class DataTable {
 
 	use StringTranslationTrait;

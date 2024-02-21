@@ -4,78 +4,65 @@ namespace Drupal\athex_d_products\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-
-use Drupal\athex_d_mde\AthexRendering\DataTable;
+use Symfony\Component\HttpFoundation\Request;
+use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\athex_d_products\AthexRendering\ProductSearch;
-use Drupal\athex_d_products\Service\StockDataService;
 
 
-class StockSearchController extends ControllerBase {
+class StockSearchController extends ControllerBase
+{
+	protected $pluginManager;
+	protected $messenger;
+	protected $logger;
 
-	protected ProductSearch $search;
-	protected StockDataService $data;
-
-	private function getFilterRA($name) {
-		return [
-			'#type' => 'details',
-			'#title' => $this->t($name)
-		];
+	public function __construct($pluginManager, MessengerInterface $messenger)
+	{
+		$this->pluginManager = $pluginManager;
+		$this->messenger = $messenger;
+		$this->logger = \Drupal::logger('product_search_controller');
 	}
 
-	public function __construct(
-		StockDataService $data
-	) {
-		$this->data = $data;
-		$this->search = new ProductSearch(
-			'Stock Search', [
-				$this->getFilterRA('Market'),
-				$this->getFilterRA('Industry'),
-				$this->getFilterRA('Closing Price'),
-				$this->getFilterRA('Date Range')
-			]
-		);
-	}
-
-	public static function create(ContainerInterface $container) {
+	public static function create(ContainerInterface $container)
+	{
 		return new static(
-			$container->get('athex_d_products.stock_data')
+			$container->get('plugin.manager.product_search'),
+			$container->get('messenger')
 		);
 	}
 
-	public function render() {
-		$data = $this->data->search(
-			[],
-			$this->search->getResultsOffset(),
-			$this->search->getResultsLimit()
-		);
 
-		foreach ($data as &$row) {
-			$row['symbol'] = [
-				'#type' => 'link',
-				'#title' => $row['symbol'],
-				'#url' => \Drupal\Core\Url::fromRoute(
-					'athex_d_products.stock_profile',
-					[
-						'product_type' => 'stocks',
-						'product_id' => $row['symbol']
-					]
-				)
-			];
+	public function render(Request $request, $productType)
+	{
+		$plugin = $this->pluginManager->createInstance($productType);
+		$filters = $plugin->getFilters();
+		$filterValues = $this->extractFiltersFromRequest($request, $plugin);
+
+		$defaultOffset = 0; // Start from the beginning
+		$defaultLimit = 10; // Adjust the limit as needed
+
+		// Use the hardcoded $defaultOffset and $defaultLimit instead of the non-existent methods
+		$data = $plugin->getQuery($filterValues, $defaultOffset, $defaultLimit);
+
+		$headers = $plugin->getHeaders();
+
+		$productSearch = new ProductSearch('Stock Search', $productType);
+		return $productSearch->render($data, $headers, $filters);
+	}
+
+
+	private function extractFiltersFromRequest(Request $request, $plugin)
+	{
+		$filters = $plugin->getFilters();
+		$filterValues = [];
+
+		foreach (array_keys($filters) as $filterKey) {
+			$filterValues[$filterKey] = $request->query->get($filterKey, null);
 		}
 
-		return $this->search->render(
-			new DataTable(
-				[
-					[ 'field' => 'symbol',		'label' => 'Symbol',		'pinned' => true ],
-					[ 'field' => 'company',		'label' => 'Company Name'	 ], // WARN: has css styles on .field--company
-					[ 'field' => 'isin',		'label' => 'ISIN'			 ],
-					[ 'field' => 'market',		'label' => 'Market'			 ],
-					[ 'field' => 'last',		'label' => 'Last'			 ],
-					[ 'field' => 'percent',		'label' => '%',				'pinned' => true ],
-					[ 'field' => 'date_time',	'label' => 'Date / Time'	 ]
-				],
-				$data
-			)
-		);
+		return $filterValues;
 	}
+
 }
+
+
+

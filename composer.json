@@ -118,5 +118,8 @@
                 "web/modules/contrib/webform/composer.libraries.json"
             ]
         }
+    },
+    "require-dev": {
+        "drupal/devel": "^5.1"
     }
 }

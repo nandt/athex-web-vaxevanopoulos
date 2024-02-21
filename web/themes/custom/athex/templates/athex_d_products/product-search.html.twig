@@ -1,16 +1,19 @@
 
 {{ attach_library('athex/views') }}
-
 <div class="views-element-container">
+
 	<div>
 		<header>
 			<div class="container">
 				{{page_title}}
 			</div>
 		</header>
+		<div class="table-container">
 
+
+		</div>
 		<div class="container stocks">
-
+			{{ az_navigation }}
 			{{search_form}}
 
 			<div class="mini-pager"></div>
@@ -18,6 +21,7 @@
 			{{table}}
 
 			{{pager}}
+
 
 		</div>
 	</div>
