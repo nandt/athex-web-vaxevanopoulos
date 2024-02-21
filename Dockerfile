@@ -21,6 +21,19 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 # Patch to disable PHP exposure
 RUN sed -ri 's/^expose_php\s+\=\w+\s*$/expose_php = off/g' /usr/local/etc/php/php.ini
 
+# Add and apply concealment config to Apache
+RUN echo $' \n\
+<IfModule mod_headers.c> \n\
+    Header unset Server \n\
+    Header always unset X-Powered-By \n\
+    Header unset X-Powered-By \n\
+</IfModule> ' >> /etc/apache2/conf-available/conceal-server-info.conf
+
+RUN set -eux; \
+	\
+	if command -v a2enmod && command -v a2enconf ; then \
+		a2enmod headers && a2enconf conceal-server-info; \
+	fi;
 
 WORKDIR /var/www/html
 COPY --from=composer-deps /app .
