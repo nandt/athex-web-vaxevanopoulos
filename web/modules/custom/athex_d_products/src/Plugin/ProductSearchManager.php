@@ -13,5 +13,5 @@ class ProductSearchManager extends DefaultPluginManager {
 		$this->alterInfo('product_search_info');
 		$this->setCacheBackend($cache_backend, 'product_search_plugins');
 
-	}}
-
+	}
+}

@@ -1,8 +1,0 @@
-athex_d_search.form:
-  path: '/athex-d-search'
-  defaults:
-    _form: '\Drupal\athex_d_search\Form\StockSearchForm'
-    _title: 'Athex Stock Search'
-  requirements:
-    _permission: 'access content'
-

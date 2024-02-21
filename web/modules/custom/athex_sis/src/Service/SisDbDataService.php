@@ -40,22 +40,14 @@ class SisDbDataService
 
 	public function fetchAllWithParams($sql, array $params = [])
 	{
-		$connection = $this->getConnection();
-		$stmt = oci_parse($connection, $sql);
-
-		foreach ($params as $param => $value) {
-			oci_bind_by_name($stmt, $param, $value);
-		}
-
-		oci_execute($stmt);
-
 		$data = [];
+
 		try {
 			$connection = $this->getConnection();
 			$stmt = oci_parse($connection, $sql);
 
 			foreach ($params as $param => $value) {
-				oci_bind_by_name($stmt, ltrim($param, ':'), $params[$param]);
+				oci_bind_by_name($stmt, ltrim($param, ':'), $value);
 			}
 			oci_execute($stmt);
 
@@ -63,7 +55,6 @@ class SisDbDataService
 				$data[] = $row;
 			}
 		}
-
 		catch (\Exception|\Error $e) {
 			$this->logger->warning("Simulating empty response due to error:\n" . $e->getMessage());
 		}
