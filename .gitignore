@@ -23,3 +23,4 @@
 /web/modules/custom/athex_d_mde/src/Service/TickerTapeService (copy).php
 /web/modules/custom/athex_d_mde/src/AthexRendering/IndicesOverviewContainer (copy).php
 /web/modules/custom/athex_d_mde/src/Service/IndicesOverviewService (copy).php
+/web/modules/custom/athex_d_mde/src/Controller/ConfigController.php
