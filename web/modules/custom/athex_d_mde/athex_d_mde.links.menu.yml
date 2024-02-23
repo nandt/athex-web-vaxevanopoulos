@@ -2,19 +2,41 @@ athex_d_mde.admin_config:
   title: 'ATHEX Config'
   parent: system.admin_config
   route_name: athex_d_mde.admin_config
-  weight: 100
+  weight: -100
 
 athex_d_mde.indices_settings_form:
   title: 'Indices Settings'
   parent: athex_d_mde.admin_config
   route_name: athex_d_mde.indices_settings_form
   description: 'Configure indices for ATHEx module.'
+  weight: 1
 
 athex_d_mde.tickertape_form:
   title: 'TickerTape Settings'
   parent: athex_d_mde.admin_config
   route_name: athex_d_mde.tickertape_form
   description: 'Configure tickertape for ATHEx module.'
+  weight: 2
 
 
+athex_d_mde.settings:
+  title: 'Oracle Settings'
+  parent: athex_d_mde.admin_config
+  route_name: athex_sis.settings
+  description: 'Configure Oracle credentials for ATHEx module.'
+  weight: 3
+
+athex_inbroker.settings:
+  title: 'In Broker Settings'
+  parent: athex_d_mde.admin_config
+  route_name: athex_inbroker.settings
+  description: 'Configure In Broker credentials for ATHEx module.'
+  weight: 4
+
+athex_liferay_migrations.settings:
+  title: 'Liferay Settings'
+  parent: athex_d_mde.admin_config
+  route_name: athex_liferay_migrations.settings
+  description: 'Configure Liferay migrations for ATHEx module.'
+  weight: 5
 
