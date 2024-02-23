@@ -41,3 +41,14 @@ athex_d_mde.fragment_index_table:
     _controller: '\Drupal\athex_d_mde\Controller\FragmentsController::indexTable'
   requirements:
     _permission: 'access content'
+
+athex_d_mde.admin_config:
+  path: '/admin/config/athex'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'ATHEX Config'
+  requirements:
+    _permission: 'administer site configuration'
+
+
+
